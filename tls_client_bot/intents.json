@@ -1,0 +1,1019 @@
+{
+  "intents": [
+    {
+      "tag": "KH đồng ý",
+      "patterns": [
+        "KH đồng ý"
+      ],
+      "responses": [
+        "ừ",
+        "ok",
+        "được",
+        "nói đi",
+        "phải rồi",
+        "nói nghe xem nào",
+        "ừ ừ rồi",
+        "rồi nói nghe coi",
+        "ok em nói đi",
+        "được rồi đang nghe đây"
+      ]
+    },
+    {
+      "tag": "KH đi vắng/ Người thân nghe hộ",
+      "patterns": [
+        "KH đi vắng/ Người thân nghe hộ"
+      ],
+      "responses": [
+        "nó đi ra ngoài rồi không có nhà đâu",
+        "tôi là anh nó",
+        "đang nghe hộ không biết đâu",
+        "nó đi vắng rồi chưa về",
+        "tí nữa rồi gọi lại",
+        "tí tao nhắn lại cho nó",
+        "nó ra ngoài rồi",
+        "đi chơi rồi",
+        "anh nghe hộ thôi"
+      ]
+    },
+    {
+      "tag": "Không đúng KH",
+      "patterns": [
+        "Không đúng KH"
+      ],
+      "responses": [
+        "nhầm số rồi",
+        "nó không còn dùng số này đâu",
+        "mình là đồng nghiệp của nó",
+        "không phải số này",
+        "nhầm rồi em ơi",
+        "anh không liên quan",
+        "gọi sai người rồi",
+        "có phải anh đâu",
+        "kiểm tra lại đi",
+        "không phải rồi"
+      ]
+    },
+    {
+      "tag": "KH bận",
+      "patterns": [
+        "KH bận",
+        "BT3 bận"
+      ],
+      "responses": [
+        "đang đi làm",
+        "đi học rồi",
+        "anh đang đi trên đường",
+        "chưa tiện để nói chuyện",
+        "lát rồi gọi lại",
+        "anh đang bận",
+        "không nói chuyện được",
+        "đang có việc",
+        "bận rồi",
+        "lúc khác rồi nói"
+      ]
+    },
+    {
+      "tag": "KH chửi thô tục",
+      "patterns": [
+        "KH chửi thô tục"
+      ],
+      "responses": [
+        "cút mẹ mày đi",
+        "mày có cút không",
+        "biến bà mày đi",
+        "đồ ngu",
+        "óc lợn à",
+        "sao mày ngu thế",
+        "mày điếc à",
+        "mày bị ngu à",
+        "con điên kia",
+        "con thần kinh"
+      ]
+    },
+    {
+      "tag": "KH phản ứng tiêu cực mạnh",
+      "patterns": [
+        "KH phản ứng tiêu cực mạnh"
+      ],
+      "responses": [
+        "đã bảo không cần rồi mà mày cứ gọi",
+        "tao không cần",
+        "mày đang làm phiền tao đấy",
+        "mày làm tao khó anhu",
+        "tao không quam tâm",
+        "mày gọi thêm lần nữa tin tao đấm mày không",
+        "mày có im đi không",
+        "tao đã bảo tao không quan tâm",
+        "mày làm ăn kiểu gì đấy",
+        "tao nhắc mày lần cuối nhá"
+      ]
+    },
+    {
+      "tag": "KH yêu cầu không gọi nữa",
+      "patterns": [
+        "KH yêu cầu không gọi nữa"
+      ],
+      "responses": [
+        "đừng có gọi cho tao nữa tao báo công an đó",
+        "đừng gọi vào số này nữa",
+        "không cần liên lạc lại cho anh đâu",
+        "xóa số anh khỏi danh sách đi",
+        "anh không có nhu cầu nên đừng làm phiền anh",
+        "đừng liên lạc lại nữa",
+        "anh không cần tư vấn",
+        "đừng gọi lại cho anh",
+        "anh không muốn nhận cuộc gọi này nữa",
+        "không cần gọi cho anh"
+      ]
+    },
+    {
+      "tag": "Không nghe rõ",
+      "patterns": [
+        "Không nghe rõ"
+      ],
+      "responses": [
+        "nói lại anh nghe",
+        "nhắc lại đi",
+        "chả nghe thấy gì cả",
+        "nhắc lại lần nữa đi",
+        "ồn lắm em ơi",
+        "em nói gì cơ",
+        "em vừa nói gì cơ",
+        "anh nghe không rõ",
+        "ồn quá em ạ",
+        "em nói lại đi"
+      ]
+    },
+    {
+      "tag": "KH im lặng",
+      "patterns": [
+        "KH im lặng",
+        "KH im lặng lần 1",
+        "KH im lặng lần 2",
+        "KH im lặng lần 3"
+      ],
+      "responses": [
+        "_SILENCE_"
+      ]
+    },
+    {
+      "tag": "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ",
+      "patterns": [
+        "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
+      ],
+      "responses": [
+        "anh muốn vay hai trăm triệu",
+        "cho mình vay chín trăm chín mươi chín triệu",
+        "vay năm trăm triệu có được không",
+        "anh cần vay ba trăm năm mươi triệu để kinh doanh",
+        "tôi muốn vay tám trăm triệu trong năm nay",
+        "cho anh hỏi vay một trăm năm mươi triệu được không"
+      ]
+    },
+    {
+      "tag": "KH cung cấp số tiền 100 triệu trở xuống",
+      "patterns": [
+        "KH cung cấp số tiền 100 triệu trở xuống"
+      ],
+      "responses": [
+        "tôi muốn vay năm mươi triệu để mua xe",
+        "cho mình vay ba mươi triệu được không",
+        "anh cần vay một trăm triệu gấp",
+        "em muốn vay hai mươi lăm triệu để đóng học phí",
+        "tôi cần vay bảy mươi triệu",
+        "ít thôi em tầm hai mươi ba mươi gì đấy",
+        "mười triệu"
+      ]
+    },
+    {
+      "tag": "KH cung cấp số tiền từ 1 tỷ trở lên",
+      "patterns": [
+        "KH cung cấp số tiền từ 1 tỷ trở lên"
+      ],
+      "responses": [
+        "cho anh vay một tỷ rưỡi để xoay vòng vốn được không em",
+        "anh muốn vay hai tỷ để đầu tư",
+        "tôi cần vay một tỷ hai trăm triệu",
+        "cho mình vay ba tỷ được không",
+        "anh cần vay một tỷ tám trăm triệu để mở rộng kinh doanh"
+      ]
+    },
+    {
+      "tag": "KH không nói rõ số tiền /KH báo bao nhiêu cũng được/KH báo vay tối đa",
+      "patterns": [
+        "KH không nói rõ số tiền /\nKH báo bao nhiêu cũng được/\nKH báo vay tối đa lần"
+      ],
+      "responses": [
+        "ừ ừ anh vay",
+        "rồi rồi vay bao nhiêu cũng được",
+        "vay ít ít thôi",
+        "anh muốn vay nhiều nhiều chút",
+        "anh vay ít thôi em ạ"
+      ]
+    },
+    {
+      "tag": "KH hỏi thông tin thắc mắc về khoản vay",
+      "patterns": [
+        "KH hỏi thông tin thắc mắc về khoản vay"
+      ],
+      "responses": [
+        "vay được bao nhiêu tháng",
+        "tối đa là mấy năm",
+        "thời hạn vay tối đa là bao nhiêu",
+        "hời gian trả góp là bao lâu",
+        "giảm thời hạn của gói tín dụng được không",
+        "sao cho vay lâu thế",
+        "thời hạn của gói tín dụng dài quá",
+        "muốn vay nhiều hơn",
+        "tăng hạn mức được không",
+        "có cách nào vay hơn mức đó không",
+        "vay thêm được không em",
+        "vay vậy ít quá có tăng được không",
+        "muốn vay thấp hơn",
+        "vay ít hơn được không",
+        "không cần nhiều vậy đâu có vay thấp hơn không",
+        "vay được bao nhiêu",
+        "hồ sơ này được duyệt bao nhiêu",
+        "hạn mức vay",
+        "vay được tối đa bao nhiêu tiền",
+        "mức vay là bao nhiêu",
+        "hệ thống cho em vay bao nhiêu vậy",
+        "cho ít tiền quá không đủ",
+        "ít quá không làm được gì",
+        "tưởng được vay nhiều hơn",
+        "thấy hạn mức thấp quá",
+        "bên em cho vay được nhiêu",
+        "tối đa được bao nhiêu",
+        "hạn mức cao nhất là nhiêu",
+        "vay hết cỡ thì được bao nhiêu",
+        "em xem giúp vay được tối đa được nhiêu",
+        "mức cao nhất vay được là bao nhiêu",
+        "bên em cho vay nhiều nhất là bao nhiêu",
+        "vay được bao nhiêu tiền",
+        "tối đa vay được nhiêu",
+        "giảm lãi chút được không",
+        "lãi cao quá giảm được không",
+        "xin lãi tốt hơn đi",
+        "có lãi suất thấp hơn không",
+        "lãi suất như thế nào",
+        "có mất lãi không",
+        "lãi bên em cao lắm",
+        "lãi suất bao nhiêu",
+        "một tháng trả lãi nhiêu",
+        "lãi một ngày tính sao",
+        "có tính lãi mỗi ngày không",
+        "tổng lãi phải trả là bao nhiêu",
+        "có mất lãi không lãi suất bao nhiêu",
+        "lãi suất một tháng",
+        "lãi suất một ngày là bao nhiêu",
+        "thời gian vay dài quá",
+        "sợ rủi ro khi vay lâu em ạ",
+        "vay vậy đến 3 năm lận",
+        "vay ngắn hạn thôi",
+        "căn cước bị rách rồi có vay được không",
+        "căn cước cũ còn dùng được không có CCCD không gắn chip thôi được không",
+        "em không có hộ khẩu thì sao",
+        "giấy tờ em bổ sung sau được không",
+        "thiếu giấy tờ bổ sung sau được chứ",
+        "cần nộp hết giấy tờ một lần không ạ",
+        "bổ sung hồ sơ sau có sao không",
+        "em gởi thiếu giấy tờ mai gửi bổ sung được không",
+        "cần chuẩn bị giấy tờ gì",
+        "hồ sơ gồm những gì em",
+        "thủ tục vay cần gì vậy",
+        "giấy tờ cần photo hay bản gốc",
+        "em gửi danh sách giấy tờ giúp anh nha",
+        "cần căn cước thôi hay thêm gì nữa",
+        "không có giấy tờ thì làm sao vay",
+        "không có hộ khẩu có vay được không",
+        "em không có sao kê lương thì sao",
+        "giờ chỉ có căn cước thôi không có gì khác",
+        "không có bảng lương thì có làm được không",
+        "thiếu hồ sơ có vay được không em",
+        "căn cước của em hết hạn rồi",
+        "giấy tờ cũ quá có sao không",
+        "căn cước anh hết hạn,",
+        "iấy này hết hạn tháng trước có dùng được không",
+        "em mới phát hiện giấy tờ hết hạn rồi",
+        "hết hạn có cần đổi lại mới vay được không",
+        "bao lâu thì có tiền",
+        "làm xong khi nào có tiền",
+        "mất mấy ngày nhận được tiền",
+        "nhận tiền liền được không",
+        "có tiền trong hôm nay không",
+        "khoảng mấy giờ là có tiền",
+        "thích trả góp hơn vay tiền mặt",
+        "mua trả góp tiện hơn",
+        "đang định mua góp nên không vay",
+        "chắc anh trả góp cho khoẻ",
+        "bên em có cho góp không",
+        "đang vay bên em rồi",
+        "đang có khoản tín dụng rồi",
+        "có hồ sơ bên mình rồi",
+        "đang sử dụng gói vay cũ bên mình",
+        "vay rồi em ơi",
+        "khỏi tư vấn thêm",
+        "vẫn còn hợp đồng đang chạy mà",
+        "hỏi lại gia đình đã",
+        "bàn với vợ rồi gọi lại",
+        "hỏi ý kiến chồng nha",
+        "để hỏi thêm người nhà",
+        "để về bàn lại với gia đình đã",
+        "đẻ hỏi thêm người thân đã",
+        "thanh toán bằng cách nào vậy",
+        "chuyển khoản được không em",
+        "có thể đóng qua app không",
+        "đóng tiền qua ví điện tử được không",
+        "có thu hộ ở cửa hàng tiện lợi không",
+        "cần tới ngân hàng nộp tiền hả em",
+        "giờ không có khả năng đóng",
+        "không có thu nhập nên không trả được",
+        "hoản cấp tín dụng là gì vậy em",
+        "nghe nói cấp tín dụng mà không hiểu là sao",
+        "cho anh hỏi cấp tín dụng là cái gì",
+        "cấp tín dụng có phải là khoản tín dụng không",
+        "không rõ cấp tín dụng nghĩa là sao",
+        "khoản cấp tín dụng khác gì vay tiền mặt",
+        "không trả thì bị sao",
+        "thủ tục thu hồi nợ như nào",
+        "sợ kiện không nếu em không trả",
+        "quy trình xử lý nợ ra sao vậy",
+        "có bị niêm phong tài sản không",
+        "sợ bên em thu hồi nợ",
+        "bên em làm gắt quá",
+        "trước bị gọi đòi nợ hoài",
+        "ngại mấy chỗ đòi nợ dữ",
+        "anh không thích cách bên em thu hồi nợ",
+        "ra đâu lấy tiền",
+        "nhận tiền ở đâu vậy em",
+        "có cần lên công ty không",
+        "chuyển về nhà hay sao",
+        "nhận tại ngân hàng nào",
+        "phải đi đâu để lấy tiền",
+        "chuyển khoản được không",
+        "hận tiền qua tài khoản được không",
+        "chuyển tiền giúp vào ngân hàng",
+        "có nhận qua app không",
+        "không muốn gọi người thân nha",
+        "không cần xác minh qua điện thoại đâu",
+        "đừng gọi cho người thân",
+        "không tiện để công ty gọi người nhà",
+        "sợ người nhà biết nên không muốn gọi",
+        "ngại bị gọi nhắc nợ lắm",
+        "không thích bị làm phiền khi trễ hạn",
+        "bên em có gọi suốt không",
+        "sợ bị gọi hoài nhắc nợ như mấy công ty khác",
+        "trễ 1 ngày cũng gọi hoài thì mệt lắm",
+        "không muốn bị làm phiền mỗi tháng",
+        "mỗi tháng đóng tiền ngày nào vậy em",
+        "ngày thanh toán cố định là ngày mấy",
+        "cho anh hỏi ngày đóng tiền hàng tháng với",
+        "tháng nào cũng đóng ngày đó luôn hả",
+        "có thay đổi ngày đóng được không em",
+        "khi nào đến hạn thanh toán vậy",
+        "có hợp đồng không em",
+        "ký hợp đồng khi nào vậy",
+        "hợp đồng này có gửi cho mình không",
+        "hợp đồng có điều khoản gì cần lưu ý không",
+        "có bản sao hợp đồng không em",
+        "coi trước hợp đồng được không",
+        "trả trước tính bao nhiêu",
+        "sao biết tổng số tiền để thanh lý",
+        "tính tiền thanh lý sao em",
+        "em báo giúp anh/anh tổng tiền trả trước đi",
+        "trễ thì bị phạt sao",
+        "chậm có mất phí không em",
+        "phí phạt trễ là bao nhiêu",
+        "phí phạt nếu không đóng kịp",
+        "có mất phí gì không",
+        "phí là bao nhiêu vậy em",
+        "lần đóng những loại phí nào",
+        "mất tiền gì khi vay vậy",
+        "có phải đóng phí trước không",
+        "phí dịch vụ tính sao vậy em",
+        "trả hết rồi có mất phí không",
+        "trả trước có mất phí không em",
+        "thanh lý có tính thêm tiền không",
+        "không muốn mất phí khi trả trước",
+        "trả trước mà cũng thu phí à",
+        "có phải lừa đảo không",
+        "công ty có thật không",
+        "sợ bị lừa lắm",
+        "có hợp đồng đàng hoàng không em",
+        "có ai gọi lừa em không vậy",
+        "sợ thông tin bị lấy đi",
+        "anh đang vay mấy chỗ rồi còn vay được không",
+        "vay nhiều nơi rồi có được duyệt không",
+        "có hồ sơ ở 3 ngân hàng rồi đó",
+        "có bị ảnh hưởng nếu đang vay nhiều chỗ không",
+        "ay rồi ở công ty khác thì sao",
+        "vẫn còn nợ bên kia có làm được không em",
+        "không ghi âm nha",
+        "tôi không muốn bị ghi âm",
+        "em tắt ghi âm đi rồi nói chuyện",
+        "không nói chuyện nếu ghi âm",
+        "tôi không đồng ý ghi âm",
+        "bên em ghi âm làm gì",
+        "cuộc gọi này có ghi âm không em",
+        "có đang ghi âm không vậy",
+        "ghi âm để làm gì vậy em",
+        "ghi âm là bắt buộc hả",
+        "không muốn bị ghi âm có được không",
+        "tại sao lại cần ghi âm cuộc gọi",
+        "vay hai mươi triệu trong 12 tháng thì tháng góp nhiêu",
+        "kỳ góp bao nhiêu",
+        "mỗi tháng đóng nhiêu tiền",
+        "khoản vay có bảo hiểm không",
+        "có bắt buộc mua bảo hiểm không",
+        "không mua bảo hiểm có vay được không",
+        "anh anh không muốn mua bảo hiểm thì sao",
+        "bảo hiểm này có bắt buộc không em",
+        "có thể bỏ bảo hiểm ra được không",
+        "nếu không đăng ký bảo hiểm thì có ảnh hưởng gì không",
+        "bảo hiểm khoản vay là gì vậy",
+        "cho anh anh xin số hotline",
+        "tổng đài bên mình là bao nhiêu",
+        "có số điện thoại liên hệ không",
+        "bên em có zalo không",
+        "có facebook không cho anh xin",
+        "liên hệ bên mình qua đâu",
+        "có kênh hỗ trợ nào khác không",
+        "cho anh anh xin thông tin liên hệ",
+        "anh muốn mua xe máy trả góp",
+        "muốn mua điện thoại trả góp",
+        "có hỗ trợ mua hàng trả góp không",
+        "bên mình có trả góp không",
+        "anh đang định mua đồ trả góp",
+        "có chương trình mua trả góp không",
+        "cho anh hỏi mua trả góp như nào",
+        "trả góp bên em làm sao",
+        "vậy ký hợp đồng là lấy được à",
+        "quy trình nhận tiền như nào",
+        "làm hồ sơ xong là nhận tiền luôn hả",
+        "các bước vay như nào",
+        "làm như nào để được giải ngân",
+        "quy trình bên mình gồm những gì",
+        "sau khi đăng ký thì làm gì tiếp"
+      ]
+    },
+    {
+      "tag": "KH trả lời chung chung hoặc trả lời không rõ ràng, không xác nhận đúng tên là gì",
+      "patterns": [
+        "KH trả lời chung chung hoặc trả lời không rõ ràng, không xác nhận đúng tên là gì",
+        "KH trả lời chung chung hoặc trả lời không rõ ràng, không xác nhận đúng tên là gì lần 1",
+        "KH trả lời chung chung hoặc trả lời không rõ ràng, không xác nhận đúng tên là gì lần 2",
+        "KH trả lời chung chung hoặc trả lời không rõ ràng, không xác nhận đúng tên là gì lần 3"
+      ],
+      "responses": [
+        "ủa",
+        "ủa ủa",
+        "ủa ủa ủa",
+        "em gọi mà không biết tôi là ai à",
+        "gọi mà không biết là ai hả"
+      ]
+    },
+    {
+      "tag": "KH từ chối không vay",
+      "patterns": [
+        "KH từ chối không vay",
+        "KH không đồng ý",
+        "KH từ chối vay",
+        "KH từ chối không vay lần 1",
+        "KH từ chối không vay lần 2",
+        "KH từ chối không vay lần 3"
+      ],
+      "responses": [
+        "quy trình thu hồi nợ bên em rườm rà quá nên thôi không vay",
+        "gì mà thời gian vay dài vậy em tiền đâu mà anh trả hết trong ngần ấy năm nên anh không vay nữa",
+        "chính sách thu hồi nợ bên em gì mà dài thế anh thấy không phù hợp nên không vay",
+        "đợt anh vay có 12 tháng mà trả nợ mãi hơn 1 năm cứ báo lắt nhắt đủ phí thông tin chẳng rõ ràng nên giờ anh không vay nữa",
+        "bên em nói một đằng mà lúc làm hợp đồng xử lý một nẻo đợt trước trả nợ xong anh tởm rồi nên không vay nữa",
+        "anh vay nhiều chỗ rồi nghe chính sách bên em chưa phù hợp nên anh không vay",
+        "tháng nào anh cũng trả đúng ngày mà bên em gọi điện liên tục nên anh không vay nữa",
+        "đợt trước mới trễ một ngày mà bên em đã phạt nhiều phí anh thấy không ổn nên không vay",
+        "bên em nhắc nợ phiền quá nên thôi anh không vay",
+        "sợ bị gọi nhắc nợ hoài nên anh không muốn vay nữa",
+        "không thích bị làm phiền khi trễ hạn nên anh không vay",
+        "bên em gọi nhắc nhiều quá nên anh quyết định không vay",
+        "nay ai vay tiền mặt nữa em thích gì người ta mua trả góp luôn nên anh không vay",
+        "anh cần gì thì ra cửa hàng mua trả góp cho yên tâm hơn nên không vay tiền mặt",
+        "nay anh không xài tiền mặt nữa toàn mua online hoặc trả góp nên anh không vay",
+        "nhà anh gần điện máy xanh fpt nên anh qua đó mua trả góp luôn không vay bên em",
+        "lấy tiền mặt chi em anh mua trả góp thấy đơn giản hơn nên không vay",
+        "anh thấy trả góp tiện hơn nên không vay tiền mặt",
+        "có nhiều bạn tư vấn rồi nhưng quy trình lâu quá nên anh không vay",
+        "anh bị gọi hoài hướng dẫn nhiều bước rắc rối quá nên không vay",
+        "đợt trước anh vay mà giấy tờ nhiều quá nên giờ không vay nữa",
+        "anh thấy ra ngân hàng vay nhanh hơn nên không vay bên em",
+        "thông tin tư vấn một kiểu xử lý một kiểu nên anh không vay",
+        "hẹn hai ngày mà không xong mất thời gian quá nên không vay",
+        "để anh hỏi lại vợ anh đã rồi tính giờ chưa vay",
+        "bà xã anh không cho nên thôi anh không vay",
+        "để lần sau nha hỏi lại nhà đã rồi mới quyết định",
+        "giờ anh chưa quyết định được nên chưa vay",
+        "đợi chồng anh về hỏi lại rồi tính hiện tại chưa vay",
+        "nhà em chưa thống nhất nên em chưa vay",
+        "thôi để anh suy nghĩ thêm rồi tính giờ chưa vay",
+        "chưa biết nữa em để tính toán lại nên chưa vay",
+        "chắc qua tháng xem tình hình rồi mới quyết định giờ chưa vay",
+        "buôn bán đang chậm nên chưa vay đợt sau có nhu cầu anh liên hệ lại",
+        "anh tính toán lại đợt sau rồi báo em giờ chưa vay",
+        "chưa biết vay để làm gì nên tạm thời không vay",
+        "gì mà lãi suất cao thế không vay",
+        "FE cho vay tính lời cao quá anh xem nhiều chỗ rồi khôgn vay",
+        "không vay đâu em lãi kiểu đó như cắt cổ người ta",
+        "thôi lãi gì mắc thế",
+        "lãi bên ngân hàng thấp hơn bên em nhiều khôgn vay đâu",
+        "thôi thôi tôi quá rành lúc đầu bảo đóng lãi nhiêu ấy xong cái ra hợp đồng thanh toán đủ thứ phí lãi cao chót vót",
+        "tôi vay nhiều chỗ rồi mà bên em bị đồn lãi mắc nhất trên thị trường ấy",
+        "43 nhiều bạn bên em gọi cho anh sao thấy mỗi ngày một mức lãi suất thế vay không có lãi đi thì anh lấy",
+        "vay gì mà kỳ hạn hợp đồng cho 36 tháng đi mà lãi gần một nửa số tiền vay tính lừa anh hay gì",
+        "thời gian bên em vay dài quá nên thôi không vay",
+        "hợp đồng vay tận 36 tháng dài quá nên anh không vay",
+        "anh muốn vay 12 tháng thôi nếu không được thì không vay",
+        "bên em cho vay lâu quá sợ phát sinh phí nên không vay",
+        "anh chỉ tính vay ngắn hạn thôi nên không vay gói dài bên em",
+        "thấy vay 3-5 năm lâu quá nên anh không vay",
+        "bạn anh vay rồi trả lâu quá nên anh không vay",
+        "anh chỉ cần vay ngắn hạn vài tháng thôi không vay gói dài",
+        "vay ít vậy không đáng nên anh không vay",
+        "anh muốn vay 200 triệu mà bên em cho ít quá nên không vay",
+        "bên em cho vay ít quá nên thôi không vay",
+        "khoản vay thấp quá không đủ nhu cầu nên anh không vay",
+        "khi nào có mức vay cao hơn thì gọi anh giờ anh không vay",
+        "thu nhập anh cao nên không cần vay khoản nhỏ này",
+        "giờ không có tiền trả nên không vay",
+        "thu nhập không ổn định nên sợ không trả được thôi không vay",
+        "sợ vay xong không trả nổi nên không vay",
+        "làm ăn khó khăn nên không dám vay",
+        "không có khả năng trả nợ nên thôi không vay",
+        "sợ thành nợ xấu nên không vay",
+        "thấy thông tin lừa đảo nhiều nên không vay",
+        "không tin bên em nên thôi không vay",
+        "sợ bị lừa nên không vay qua điện thoại",
+        "muốn vay thì ra ngân hàng cho chắc nên không vay bên em",
+        "không xác minh được thông tin nên không vay",
+        "đã từng bị lừa nên giờ không vay",
+        "thủ tục bên em rườm rà quá nên không vay",
+        "thẩm định người thân phức tạp nên anh không vay",
+        "làm phiền cả người nhà nên anh không vay",
+        "quy trình xét duyệt nhiều bước quá nên không vay",
+        "mất thời gian quá nên thôi không vay",
+        "anh có chỗ vay rồi nên không vay thêm",
+        "anh đang vay bên khác rồi nên không vay",
+        "đang trả nợ rồi nên không vay nữa",
+        "đã có khoản vay rồi nên không vay thêm",
+        "vừa vay xong nên không vay nữa",
+        "đang có khoản tín dụng rồi nên không vay",
+        "anh không vay đâu",
+        "không có nhu cầu nên không vay",
+        "anh có đủ tiền rồi nên không vay",
+        "hiện tại chưa cần nên không vay",
+        "không có nhu cầu vay tiền",
+        "vay có bảo hiểm nên anh không vay",
+        "bắt buộc mua bảo hiểm thì không vay",
+        "không thích bảo hiểm nên không vay",
+        "nếu có bảo hiểm kèm theo thì anh không vay",
+        "anh vay được người nhà rồi nên không vay",
+        "anh vay bạn rồi nên không vay nữa",
+        "có người thân hỗ trợ rồi nên không vay",
+        "đã mượn được tiền rồi nên không vay",
+        "anh hỏi chồng rồi không cho vay nên không vay",
+        "gia đình không đồng ý nên không vay",
+        "người nhà không cho nên không vay",
+        "đã hỏi ý kiến gia đình và họ không đồng ý nên không vay"
+      ]
+    },
+    {
+      "tag": "KH hỏi về Chương trình khuyến mãi (CTKM)",
+      "patterns": [
+        "KH hỏi về Chương trình khuyến mãi (CTKM)"
+      ],
+      "responses": [
+        "chương trình khuyến mãi có gì không",
+        "hiện tại bên em đang có ưu đãi gì",
+        "có miễn phí hồ sơ không em",
+        "có miễn phí phí dịch vụ không",
+        "có quà tặng gì kèm theo không",
+        "khách mới có ưu đãi gì không",
+        "chương trình áp dụng đến bao giờ thế",
+        "điều kiện được hưởng khuyến mãi là gì nhỉ",
+        "nếu chị đăng kí luôn có được ưu đãi gì không",
+        "có ưu đãi dành cho khách hàng như nào không em"
+      ]
+    },
+    {
+      "tag": "KH hỏi thêm thông tin khoản vay",
+      "patterns": [
+        "KH hỏi thêm thông tin khoản vay"
+      ],
+      "responses": [
+        "cho em hỏi thêm thông tin về khoản vay",
+        "em nói rõ hơn về khoản này được không",
+        "cụ thể khoản này như nào nhỉ",
+        "gửi chị xem chi tiết khoản này nhé"
+      ]
+    }, 
+    {
+      "tag": "KH cân nhắc",
+      "patterns": [
+        "KH cân nhắc"
+      ],
+      "responses": [
+        "ừ để chị xem",
+        "để đấy mình coi",
+        "để mình xem xét",
+        "để chị xem kĩ lại nhá",
+        "chưa chắc lắm có gì chị báo lại nha",
+        "có gì điện lai nha"
+      ]
+    },
+    {
+      "tag": "KH hỏi về lãi vay",
+      "patterns": [
+        "KH hỏi về lãi vay"
+      ],
+      "responses": [
+        "lãi suất bên mình  như thế nào thế em",
+        "lãi vay tính như nào vậy em",
+        "mỗi tháng phải trả bao nhiêu em",
+        "tổng lãi chị phải trả là bao nhiêu",
+        "lãi xuất có cố định không em",
+        "lãi tính theo dư nợ gốc hay dư nợ giảm dần vậy em",
+        "vay nhiều lãi có cao hơn không em",
+        "có phát sinh thêm phí ngoài lãi không",
+        "lãi suất này đã bao gồm hết chi phí chưa em",
+        "nếu chị trả trước hạn thì tính lãi như nào vậy em"
+      ]
+    },
+    {
+      "tag": "KH hỏi về số tiền vay",
+      "patterns": [
+        "KH hỏi về số tiền vay"
+      ],
+      "responses": [
+        "bên mình tối đa cho vay được bao nhiêu",
+        "vay được bao nhiêu vậy em",
+        "khoản vay là bao nhiêu em",
+        "có vay ít hơn được không",
+        "hạn mức vay cao nhất là bao nhiêu em",
+        "chị vay được mấy triệu em",
+        "như chị thì vay được bao nhiêu",
+        "chị vay tầm vài triệu được không em",
+        "thường bên em vay được nhiều chứ",
+        "chị vay ít vẫn được chứ"
+      ]
+    },
+    {
+      "tag": "Fallback (mở thẻ, mở sổ tiết kiệm,...)",
+      "patterns": [
+        "Fallback (mở thẻ, mở sổ tiết kiệm,...)"
+      ],
+      "responses": [
+        "ừ mở thẻ",
+        "ok mở sổ tiết kiệm đi",
+        "mở thẻ sao",
+        "mở sổ tiết kiệm cho mình với",
+        "mở sổ cho mình nha"
+      ]
+    },
+    {
+      "tag": "Người nghe muốn Gặp trợ lý ảo",
+      "patterns": [
+        "Người nghe muốn Gặp trợ lý ảo"
+      ],
+      "responses": [
+        "tôi muốn gặp trợ lý ảo",
+        "cho tôi gặp trợ lý ảo",
+        "cho gặp trợ lý ảo đi",
+        "cho mình gặp trợ lý ảo với"
+      ]
+    },
+    {
+      "tag": "BT3 xác nhận là sai",
+      "patterns": [
+        "BT3 xác nhận là sai"
+      ],
+      "responses": [
+        "nhầm số rồi",
+        "nó không còn dùng số này đâu",
+        "không phải  nha em",
+        "không phải số này",
+        "nhầm rồi em ơi",
+        "anh không liên quan",
+        "gọi sai người rồi",
+        "có phải anh đâu",
+        "kiểm tra lại đi",
+        "không phải rồi"
+      ]
+    },
+    {
+      "tag": "BT3 bận",
+      "patterns": [
+        "BT3 bận"
+      ],
+      "responses": [
+        "đang đi làmbận lắm em",
+        "mình đang bận chút khi khác nha",
+        "mình đang đi trên đường",
+        "bận rồi",
+        "mình rất bận lúc khác nha bạn",
+        "anh đang bận họp rồi",
+        "đang bận rồi nhá",
+        "đang có việc",
+        "lúc khác rồi nói"
+      ]
+    },
+    {
+      "tag": "KH yêu cầu nhắc lại",
+      "patterns": [
+        "KH yêu cầu nhắc lại"
+      ],
+      "responses": [
+        "nghe không rõ nói lại đi em",
+        "không nghe thấy gì hết trơn á",
+        "nói lại được không em",
+        "alo alo nghe không có rõ",
+        "tín hiệu kém quá không nghe thấy gì",
+        "nói bé quá nói lại đi em",
+        "chẳng nghe thấy gì",
+        "nói lại giúm mình với nãy không nghe thấy"
+      ]
+    },
+    {
+      "tag": "Người nghe báo nhầm máy / Không quen",
+      "patterns": [
+        "Người nghe báo nhầm máy / Không quen"
+      ],
+      "responses": [
+        "không có quen",
+        "không biết đó là ai",
+        "không không không biết người này",
+        "nhầm máy rồi không có quen",
+        "lộn số rồi biết đấy là ai đâu",
+        "không biết ai bạn gọi nhầm rồi",
+        "có gọi nhầm không bạn mình không có biết đấy là ai"
+      ]
+    },
+    {
+      "tag": "BT3 xác nhận là đúng chung chung",
+      "patterns": [
+        "BT3 xác nhận là đúng chung chung"
+      ],
+      "responses": [
+        "ừ",
+        "ừ đúng rồi",
+        "à phải có gì không ạ",
+        "dạ dạ đúng",
+        "à đúng rồi",
+        "ừ mình nghe có việc gì không",
+        "ừ ừ",
+        "đúng rồi",
+        "phải ai dợ",
+        "đúng rồi ạ"
+      ]
+    },
+    {
+      "tag": "Người nghe báo có quen chung chung",
+      "patterns": [
+        "Người nghe báo có quen chung chung"
+      ],
+      "responses": [
+        "mình có quen sơ sơ",
+        "mình có biết bạn này",
+        "biết chút chít về người ta thôi à",
+        "ừ mình cũng có biết qua qua bạn này ở trường",
+        "ừ biết sơ sơ thôi bạn ạ"
+      ]
+    },
+    {
+      "tag": "BT3 xác nhận là đúng nói rõ mối quan hệ là bạn bè/hàng xóm/anh chị em",
+      "patterns": [
+        "BT3 xác nhận là đúng nói rõ mối quan hệ là bạn bè/hàng xóm/anh chị em"
+      ],
+      "responses": [
+        "mình là bạn cấp ba",
+        "à trước là bạn đại học em à",
+        "mình là hàng xóm á bạn",
+        "anh họ",
+        "em ruột ạ",
+        "bạn học từ thơi xưa em ạ"
+      ]
+    },
+    {
+      "tag": "BT3 trao đổi về tình trạng KH",
+      "patterns": [
+        "BT3 trao đổi về tình trạng KH"
+      ],
+      "responses": [
+        "nó đang bị ốm nó đi tù rồi 2.nó đi viện 3.nó đang cấp cứu 4. nó trốn biệt tăm rồi  5.nó đang thụ án 5. nó ra nước ngoài trốn hay sao ấy 6.nó bị giang hồ bắt đi rồi"
+      ]
+    },
+    {
+      "tag": "KH mất",
+      "patterns": [
+        "KH mất"
+      ],
+      "responses": [
+        "mới ốm mất rồi em ạ",
+        "tại nạn chết rồi em",
+        "mới ung thư mất rồi",
+        "chắc dùng số mới rồi giờ không gọi được",
+        "thay số rồi em ạ",
+        "nó đổi số lâu rồi",
+        "thay số điện thoại khác rồi em ạ"
+      ]
+    },
+    {
+      "tag": "BT3 là người thân, người nhà",
+      "patterns": [
+        "BT3 là người thân, người nhà"
+      ],
+      "responses": [
+        "anh là người thân",
+        "là người nhà của bạn ấy",
+        "mình là người nhà bạn ạ",
+        "ờ tôi người nhà của cháu",
+        "người thân"
+      ]
+    },
+    {
+      "tag": "BT3 muốn trả nợ thay",
+      "patterns": [
+        "BT3 muốn trả nợ thay"
+      ],
+      "responses": [
+        "ừ anh trả thay được không",
+        "trả nợ giúp được không em",
+        "mình đúng ra trả hộ thì có đươc không",
+        "người nhà trả thay được không em",
+        "có được thay mặt trả nợ giúp không em"
+      ]
+    },
+    {
+      "tag": "Không hỗ trợ trả nợ / không thanh toán",
+      "patterns": [
+        "Không hỗ trợ trả nợ / không thanh toán"
+      ],
+      "responses": [
+        "người nhà không trả thay đâu em ạ",
+        "nó tự trả người thân ở nhà không ai thanh toán dính líu gì đến đâu",
+        "em bảo nó tự trả người thân không có trả giúp",
+        "người nhà không thanh toán thay đâu em",
+        "không không gia đình không có trả nợ thay hạy hộ đâu"
+      ]
+    },
+    {
+      "tag": "Hẹn thanh toán > 5 ngày",
+      "patterns": [
+        "Hẹn thanh toán > 5 ngày"
+      ],
+      "responses": [
+        "người nhà không trả thay đâu em ạ",
+        "nó tự trả người thân ở nhà không ai thanh toán dính líu gì đến đâu",
+        "em bảo nó tự trả người thân không có trả giúp",
+        "mười mấy ngày nữa anh lấy được tiền thì anh thanh toán nợ cho bên em",
+        "bảy ngày nữa trả đủ cho bên em"
+      ]
+    },
+    {
+      "tag": "Đã thanh toán",
+      "patterns": [
+        "Đã thanh toán"
+      ],
+      "responses": [
+        "thanh toán rồi em",
+        "anh đã trả hết rồi",
+        "mấy bữa trước mới thanh toán hết cho bên em",
+        "anh thánh toán hết rồi ấy em xem lại đi",
+        "trả đủ rồi"
+      ]
+    },
+    {
+      "tag": "BT3 Hẹn thanh toán 1 phần",
+      "patterns": [
+        "BT3 Hẹn thanh toán 1 phần"
+      ],
+      "responses": [
+        "trả một phần trước được không",
+        "thanh toán một phần trước em nhé",
+        "sẽ ứng trả trước một phần",
+        "rồi sẽ thanh toán một phần cho bên em trước",
+        "rồi trả một phần nhá",
+        "một phần anh trả trước em nhé",
+        "ừ trả trước một phần ít thôi có được không"
+      ]
+    },
+    {
+      "tag": "Hỏi Tổng số tiền cần thanh toán",
+      "patterns": [
+        "Hỏi Tổng số tiền cần thanh toán"
+      ],
+      "responses": [
+        "tổng là bao nhiêu em",
+        "nợ bao tiền em",
+        "cần thanh toán bao tiền",
+        "tổng số tiền cần thanh toán là bao nhiêu",
+        "thánh toán hết chỗ nợ là tổng bao tiền"
+      ]
+    },
+    {
+      "tag": "Intent clear ý định của KH (chị hỏi/ em ơi cho chị hỏi/..)",
+      "patterns": [
+        "Intent clear ý định của KH (chị hỏi/ em ơi cho chị hỏi/..)"
+      ],
+      "responses": [
+        "cho mình hỏi",
+        "em ơi cho anh hỏi",
+        "khoan cho anh hỏi tý",
+        "từ từ anh hỏi cái này cái"
+      ]
+    },
+    {
+      "tag": "BT3 hẹn thanh toán < 20% (bao gồm TH không nói rõ thanh toán bao nhiêu)",
+      "patterns": [
+        "BT3 hẹn thanh toán < 20% (bao gồm TH không nói rõ thanh toán bao nhiêu)"
+      ],
+      "responses": [
+        "chỉ xoay được phần nhỏ thôi gửi trước mười phằn trăm được không",
+        "trả năm phần trăm tổng nợ thôi",
+        "có trả được một hai phần trăm thôi em",
+        "trả được ít thôi em mười mười lăm phần trăm gì đấy"
+      ]
+    },
+    {
+      "tag": "BT3 hẹn thanh toán > 50%",
+      "patterns": [
+        "BT3 hẹn thanh toán > 50%"
+      ],
+      "responses": [
+        "tuần sau trả sau mươi phần trăm cho bên em",
+        "sẽ trả chín mươi phần trăm gốc trước",
+        "cuối tháng sẽ thang toán bảy mươi phần trăm em yên tâm",
+        "sẽ trả tám mươi phần trăm dư nợ cho bên anh",
+        "trả trước sau mưới phần trăm nhé",
+        "biết rồi sẽ thanh toán trước ba phần tư số nợ"
+      ]
+    },
+    {
+      "tag": "BT3 không đồng ý",
+      "patterns": [
+        "BT3 không đồng ý"
+      ],
+      "responses": [
+        "không",
+        "không em",
+        "không không không",
+        "không không",
+        "không nha",
+        "không em nhé",
+        "tôi không đồng ý"
+      ]
+    },
+    {
+      "tag": "BT3 đồng ý",
+      "patterns": [
+        "BT3 đồng ý"
+      ],
+      "responses": [
+        "ừ",
+        "ừ em",
+        "ừ ừ ừ",
+        "ừ ừ",
+        "ok nha",
+        "ok em nhé",
+        "ừ được"
+      ]
+    },
+    {
+      "tag": "Người nghe Hỏi ngày thanh toán",
+      "patterns": [
+        "Người nghe Hỏi ngày thanh toán"
+      ],
+      "responses": [
+        "thanh toán ngày nào",
+        "ngày mấy phải trả em",
+        "hôm nào phải thanh toán",
+        "phải trả vào ngày mấy em",
+        "hôm nào thanh toán được em",
+        "thanh toán hôm nào được em nhỉ",
+        "ngày nào thanh toán em"
+      ]
+    },
+    {
+      "tag": "BT3 hỏi ngày thanh toán",
+      "patterns": [
+        "BT3 hỏi ngày thanh toán"
+      ],
+      "responses": [
+        "thanh toán ngày nào",
+        "ngày mấy phải trả em",
+        "hạn cuối cùng để thanh toán là ngày nào vậy",
+        "phải trả vào ngày mấy em",
+        "hôm nào thanh toán được em",
+        "thanh toán hôm nào được em nhỉ",
+        "ngày nào thanh toán em"
+      ]
+    }
+  ]
+}

@@ -58,6 +58,43 @@ If your workbook has multiple sheets, you can set a sheet name or index:
 python3 excel_to_strings.py --file "input/(FEC_VoiceFlow) KịchBản_XS_2026.xlsx" --sheet 0 --out output/rows.json
 ```
 
+### One-command pipelines
+
+Run the full flow in one command:
+
+- `pipeline_e2e.py`: `excel_to_json.py` -> `tcgen_e2e_human.py` -> `tc_to_excel.py`
+- `pipeline_output.py`: `excel_to_json.py` -> `tcgen_output_human.py` -> `tc_to_excel.py`
+
+Examples:
+
+```bash
+python3 pipeline_e2e.py --file "input/FEC_VoiceAgent_BRD.xlsx"
+python3 pipeline_output.py --file "input/FEC_VoiceAgent_BRD.xlsx"
+```
+
+If `--file` is omitted, the pipeline auto-picks the first non-temporary Excel file in `./input/`.
+
+Default outputs:
+
+- `pipeline_e2e.py`
+  - `output/rows_e2e.json`
+  - `output/testcases_e2e.json`
+  - `output/testcases_e2e.xlsx`
+- `pipeline_output.py`
+  - `output/rows_output.json`
+  - `output/testcases_output.json`
+  - `output/testcases_output.xlsx`
+
+You can override any output path:
+
+```bash
+python3 pipeline_e2e.py \
+  --file "input/FEC_VoiceAgent_BRD.xlsx" \
+  --rows-out output/rows2.json \
+  --testcases-out output/testcasesv2.json \
+  --excel-out output/testcasesv2.xlsx
+```
+
 ### Generate test cases
 
 From the workspace root:

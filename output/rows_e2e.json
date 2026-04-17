@@ -1,0 +1,258 @@
+[
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH đồng ý",
+    "bot_response": "Hiện tại, ACB đang triển khai gói vay ưu đãi với lãi suất chỉ từ 7.5% trên năm, tài trợ lên đến 85% giá trị căn hộ, phương thức trả góp bậc thang linh hoạt với số vốn góp định kỳ thấp, đặc biệt còn có chính sách hỗ trợ khách hàng chuyển dư nợ từ ngân hàng khác về ACB mà không cần chuẩn bị tiền tất toán.\n{{gender}} đang có kế hoạch vay mua nhà, mua sắm trang thiết bị hoặc đang vay tại ngân hàng khác mong muốn tiết kiệm chi phí lãi vay không ạ? Em sẽ tư vấn chi tiết để {{gender}} có thể vay vốn nhanh nhất, tận dụng tốt nhất các ưu đãi đang có của ACB.",
+    "next_step": "A2",
+    "action_code": "Other"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH từ chối",
+    "bot_response": "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi.",
+    "next_step": "End",
+    "action_code": "No_need"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH bận",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Busy"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "FAQ lần 1",
+    "bot_response": "4.3 FAQ Bot reply",
+    "next_step": "A2",
+    "action_code": "Other"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH đi vắng/ Người thân nghe hộ",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Relative_away"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "Không đúng KH",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Wrong_info"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH yêu cầu không gọi nữa",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "DNC_request"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH không nghe rõ lần 1",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A1",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH không nghe rõ lần 2",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A1",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH không nghe rõ lần 3",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH im lặng lần 1",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A1",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH im lặng lần 2",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A1",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A1",
+    "step_name": "A1 – Mở đầu",
+    "customer_intent": "KH im lặng lần 3",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH có nhu cầu",
+    "bot_response": "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
+    "next_step": "A3",
+    "action_code": "Success"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH từ chối",
+    "bot_response": "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi.",
+    "next_step": "End",
+    "action_code": "No_need"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH bận",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Busy"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH yêu cầu không gọi nữa",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "DNC_request"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH không nghe rõ lần 1",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH không nghe rõ lần 2",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH không nghe rõ lần 3",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH im lặng lần 1",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH im lặng lần 2",
+    "bot_response": "Không có trong BRD",
+    "next_step": "A2",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH im lặng lần 3",
+    "bot_response": "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "Repeat"
+  },
+  {
+    "step_no": "A2",
+    "step_name": "A2 – Gói vay",
+    "customer_intent": "KH phàn nàn",
+    "bot_response": "Dạ, em xin phép kết nối {{gender}} với chuyên viên tư vấn chuyên môn để hỗ trợ chi tiết hơn. Kính chúc{{gender}} một ngày tốt lành",
+    "next_step": "End",
+    "action_code": "DNC_request"
+  },
+  {
+    "step_no": "A3",
+    "step_name": "A3 – Địa chỉ",
+    "customer_intent": "KH hỏi địa chỉ / thời gian gặp tư vấn",
+    "bot_response": "Cảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi.",
+    "next_step": "End",
+    "action_code": "Other"
+  },
+  {
+    "step_no": "A3",
+    "step_name": "A3 – Địa chỉ",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  },
+  {
+    "step_no": "A3",
+    "step_name": "A3 – Địa chỉ",
+    "customer_intent": "KH yêu cầu không gọi nữa",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "DNC_request"
+  },
+  {
+    "step_no": "A3",
+    "step_name": "A3 – Địa chỉ",
+    "customer_intent": "KH chửi thô tục",
+    "bot_response": "Không có trong BRD",
+    "next_step": "End",
+    "action_code": "Swear_customer"
+  }
+]

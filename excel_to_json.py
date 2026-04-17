@@ -84,7 +84,11 @@ def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
 
 def _pick_excel_file(input_dir: Path) -> Path:
     candidates = sorted(
-        [*input_dir.glob("*.xlsx"), *input_dir.glob("*.xlsm"), *input_dir.glob("*.xls")]
+        [
+            path
+            for path in [*input_dir.glob("*.xlsx"), *input_dir.glob("*.xlsm"), *input_dir.glob("*.xls")]
+            if not path.name.startswith("~$")
+        ]
     )
     if not candidates:
         raise FileNotFoundError(
@@ -216,9 +220,6 @@ def convert_excel_rows_to_json(
 
     df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
     mapping = _resolve_column_mapping(list(df.columns))
-    
-    # Debug: print the mapping to see what's being matched
-    print(f"Column mapping: {mapping}")
     
     df = df[[mapping[c] for c in CANONICAL_COLUMNS]].copy()
     df = df.rename(columns={v: k for k, v in mapping.items()})

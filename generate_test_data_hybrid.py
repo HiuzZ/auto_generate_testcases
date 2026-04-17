@@ -274,12 +274,11 @@ NHIỆM VỤ: chỉ tạo 1 câu lời thoại KH cho bước số {step_number}
 {context_text}Kịch bản bước {step_number}: {step}{bot_response_text}
 
 YÊU CẦU BẮT BUỘC:
-- Chỉ tạo DUY NHẤT 1 câu thoại KH
+- Chỉ tạo DUY NHẤT 1 câu thoại KH đúng với mõi intent tương ứng
 - CHỈ là lời KH nói, không phải mô tả tình huống
 - KHÔNG được nhắc lại hoặc diễn giải kịch bản
 - KHÔNG được viết kiểu: "khách hàng im lặng", "người thân nói", "cuộc gọi..."
 - Nếu tình huống là "im lặng" → viết câu tự nhiên thể hiện không nghe rõ (vd: alo em không nghe rõ)
-- Intent là các câu hỏi liên quan đến khoản vay (vd: lãi suất sao, thời gian vay, thủ tục vay,...)
 - Nếu "người thân nghe hộ" → vẫn phải nói như người đang nghe điện thoại (vd: chị là mẹ chau đang nghe)
 
 FORMAT CỨNG:

@@ -100,9 +100,9 @@
     "tc_id": "TC008",
     "steps": [
       "KH đồng ý",
-      "KH im lặng lần 1",
-      "KH im lặng lần 2",
-      "KH im lặng lần 3"
+      "KH im lặng lần 1 \\ KH không nghe rõ lần 1",
+      "KH im lặng lần 2 \\ KH không nghe rõ lần 2",
+      "KH im lặng lần 3 \\ KH không nghe rõ lần 3"
     ],
     "bot_responses": [
       "Hiện tại, ACB đang triển khai gói vay ưu đãi với lãi suất chỉ từ 7.5% trên năm, tài trợ lên đến 85% giá trị căn hộ, phương thức trả góp bậc thang linh hoạt với số vốn góp định kỳ thấp, đặc biệt còn có chính sách hỗ trợ khách hàng chuyển dư nợ từ ngân hàng khác về ACB mà không cần chuẩn bị tiền tất toán.\n{{gender}} đang có kế hoạch vay mua nhà, mua sắm trang thiết bị hoặc đang vay tại ngân hàng khác mong muốn tiết kiệm chi phí lãi vay không ạ? Em sẽ tư vấn chi tiết để {{gender}} có thể vay vốn nhanh nhất, tận dụng tốt nhất các ưu đãi đang có của ACB.",
@@ -116,23 +116,6 @@
   {
     "tc_id": "TC009",
     "steps": [
-      "KH đồng ý",
-      "KH không nghe rõ lần 1",
-      "KH không nghe rõ lần 2",
-      "KH không nghe rõ lần 3"
-    ],
-    "bot_responses": [
-      "Hiện tại, ACB đang triển khai gói vay ưu đãi với lãi suất chỉ từ 7.5% trên năm, tài trợ lên đến 85% giá trị căn hộ, phương thức trả góp bậc thang linh hoạt với số vốn góp định kỳ thấp, đặc biệt còn có chính sách hỗ trợ khách hàng chuyển dư nợ từ ngân hàng khác về ACB mà không cần chuẩn bị tiền tất toán.\n{{gender}} đang có kế hoạch vay mua nhà, mua sắm trang thiết bị hoặc đang vay tại ngân hàng khác mong muốn tiết kiệm chi phí lãi vay không ạ? Em sẽ tư vấn chi tiết để {{gender}} có thể vay vốn nhanh nhất, tận dụng tốt nhất các ưu đãi đang có của ACB.",
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
-    ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A2 -> A2 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC010",
-    "steps": [
       "KH đi vắng/ Người thân nghe hộ",
       "KH có nhu cầu",
       "KH yêu cầu không gọi nữa"
@@ -143,6 +126,21 @@
       "Không có trong BRD"
     ],
     "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> End"
+  },
+  {
+    "tc_id": "TC010",
+    "steps": [
+      "KH đi vắng/ Người thân nghe hộ",
+      "KH có nhu cầu",
+      "KH hỏi địa chỉ / thời gian gặp tư vấn"
+    ],
+    "bot_responses": [
+      "Không có trong BRD",
+      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
+      "Cảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
+    ],
+    "expected_action_code": "Other",
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
@@ -150,35 +148,20 @@
     "steps": [
       "KH đi vắng/ Người thân nghe hộ",
       "KH có nhu cầu",
-      "KH hỏi địa chỉ / thời gian gặp tư vấn"
+      "KH chửi thô tục"
     ],
     "bot_responses": [
       "Không có trong BRD",
       "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
-      "Cảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
+      "Không có trong BRD"
     ],
-    "expected_action_code": "Other",
+    "expected_action_code": "Swear_customer",
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
     "tc_id": "TC012",
     "steps": [
       "KH đi vắng/ Người thân nghe hộ",
-      "KH có nhu cầu",
-      "KH chửi thô tục"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
-      "Không có trong BRD"
-    ],
-    "expected_action_code": "Swear_customer",
-    "path": "A1 -> A2 -> A3 -> End"
-  },
-  {
-    "tc_id": "TC013",
-    "steps": [
-      "KH đi vắng/ Người thân nghe hộ",
       "KH bận"
     ],
     "bot_responses": [
@@ -186,130 +169,113 @@
       "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
     ],
     "expected_action_code": "Busy",
+    "path": "A1 -> A2 -> End"
+  },
+  {
+    "tc_id": "TC013",
+    "steps": [
+      "KH đi vắng/ Người thân nghe hộ",
+      "KH phàn nàn \\ KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "Không có trong BRD",
+      "Dạ, em xin phép kết nối {{gender}} với chuyên viên tư vấn chuyên môn để hỗ trợ chi tiết hơn. Kính chúc{{gender}} một ngày tốt lành \\ Không có trong BRD"
+    ],
+    "expected_action_code": "DNC_request",
     "path": "A1 -> A2 -> End"
   },
   {
     "tc_id": "TC014",
     "steps": [
       "KH đi vắng/ Người thân nghe hộ",
-      "KH phàn nàn \\ KH yêu cầu không gọi nữa"
+      "KH từ chối"
     ],
     "bot_responses": [
       "Không có trong BRD",
-      "Dạ, em xin phép kết nối {{gender}} với chuyên viên tư vấn chuyên môn để hỗ trợ chi tiết hơn. Kính chúc{{gender}} một ngày tốt lành \\ Không có trong BRD"
+      "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
     ],
-    "expected_action_code": "DNC_request",
+    "expected_action_code": "No_need",
     "path": "A1 -> A2 -> End"
   },
   {
     "tc_id": "TC015",
     "steps": [
       "KH đi vắng/ Người thân nghe hộ",
-      "KH từ chối"
+      "KH chửi thô tục"
     ],
     "bot_responses": [
       "Không có trong BRD",
-      "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
+      "Không có trong BRD"
     ],
-    "expected_action_code": "No_need",
+    "expected_action_code": "Swear_customer",
     "path": "A1 -> A2 -> End"
   },
   {
     "tc_id": "TC016",
     "steps": [
       "KH đi vắng/ Người thân nghe hộ",
-      "KH chửi thô tục"
+      "KH im lặng lần 1 \\ KH không nghe rõ lần 1",
+      "KH im lặng lần 2 \\ KH không nghe rõ lần 2",
+      "KH im lặng lần 3 \\ KH không nghe rõ lần 3"
     ],
     "bot_responses": [
       "Không có trong BRD",
-      "Không có trong BRD"
+      "Không có trong BRD",
+      "Không có trong BRD",
+      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
     ],
-    "expected_action_code": "Swear_customer",
-    "path": "A1 -> A2 -> End"
+    "expected_action_code": "Repeat",
+    "path": "A1 -> A2 -> A2 -> A2 -> End"
   },
   {
     "tc_id": "TC017",
     "steps": [
-      "KH đi vắng/ Người thân nghe hộ",
-      "KH im lặng lần 1",
-      "KH im lặng lần 2",
-      "KH im lặng lần 3"
+      "Không đúng KH",
+      "KH có nhu cầu",
+      "KH yêu cầu không gọi nữa"
     ],
     "bot_responses": [
       "Không có trong BRD",
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
+      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
+      "Không có trong BRD"
     ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A2 -> A2 -> A2 -> End"
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> End"
   },
   {
     "tc_id": "TC018",
     "steps": [
-      "KH đi vắng/ Người thân nghe hộ",
-      "KH không nghe rõ lần 1",
-      "KH không nghe rõ lần 2",
-      "KH không nghe rõ lần 3"
+      "Không đúng KH",
+      "KH có nhu cầu",
+      "KH hỏi địa chỉ / thời gian gặp tư vấn"
     ],
     "bot_responses": [
       "Không có trong BRD",
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
+      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
+      "Cảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
     ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A2 -> A2 -> A2 -> End"
+    "expected_action_code": "Other",
+    "path": "A1 -> A2 -> A3 -> End"
   },
   {
     "tc_id": "TC019",
     "steps": [
       "Không đúng KH",
       "KH có nhu cầu",
-      "KH yêu cầu không gọi nữa"
+      "KH chửi thô tục"
     ],
     "bot_responses": [
       "Không có trong BRD",
       "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
       "Không có trong BRD"
     ],
-    "expected_action_code": "DNC_request",
+    "expected_action_code": "Swear_customer",
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
     "tc_id": "TC020",
     "steps": [
       "Không đúng KH",
-      "KH có nhu cầu",
-      "KH hỏi địa chỉ / thời gian gặp tư vấn"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
-      "Cảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
-    ],
-    "expected_action_code": "Other",
-    "path": "A1 -> A2 -> A3 -> End"
-  },
-  {
-    "tc_id": "TC021",
-    "steps": [
-      "Không đúng KH",
-      "KH có nhu cầu",
-      "KH chửi thô tục"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Dạ {{gender}}. Hiện tại {{gender}} đang ở địa chỉ nào ạ, Em xin phép gặp {{gender}} một buổi để tư vấn chi tiết ạ.",
-      "Không có trong BRD"
-    ],
-    "expected_action_code": "Swear_customer",
-    "path": "A1 -> A2 -> A3 -> End"
-  },
-  {
-    "tc_id": "TC022",
-    "steps": [
-      "Không đúng KH",
       "KH bận"
     ],
     "bot_responses": [
@@ -317,38 +283,38 @@
       "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
     ],
     "expected_action_code": "Busy",
+    "path": "A1 -> A2 -> End"
+  },
+  {
+    "tc_id": "TC021",
+    "steps": [
+      "Không đúng KH",
+      "KH phàn nàn \\ KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "Không có trong BRD",
+      "Dạ, em xin phép kết nối {{gender}} với chuyên viên tư vấn chuyên môn để hỗ trợ chi tiết hơn. Kính chúc{{gender}} một ngày tốt lành \\ Không có trong BRD"
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> End"
+  },
+  {
+    "tc_id": "TC022",
+    "steps": [
+      "Không đúng KH",
+      "KH từ chối"
+    ],
+    "bot_responses": [
+      "Không có trong BRD",
+      "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
+    ],
+    "expected_action_code": "No_need",
     "path": "A1 -> A2 -> End"
   },
   {
     "tc_id": "TC023",
     "steps": [
       "Không đúng KH",
-      "KH phàn nàn \\ KH yêu cầu không gọi nữa"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Dạ, em xin phép kết nối {{gender}} với chuyên viên tư vấn chuyên môn để hỗ trợ chi tiết hơn. Kính chúc{{gender}} một ngày tốt lành \\ Không có trong BRD"
-    ],
-    "expected_action_code": "DNC_request",
-    "path": "A1 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC024",
-    "steps": [
-      "Không đúng KH",
-      "KH từ chối"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Dạ em hiểu. Nếu trong thời gian tới {{gender}} có nhu cầu vay vốn, ACB luôn sẵn sàng hỗ trợ nhanh chóng và lãi suất cạnh tranh.\nCảm ơn {{gender}} đã dành thời gian nghe máy. Kính chúc{{gender}} một ngày tốt lành, kết thúc cuộc gọi."
-    ],
-    "expected_action_code": "No_need",
-    "path": "A1 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC025",
-    "steps": [
-      "Không đúng KH",
       "KH chửi thô tục"
     ],
     "bot_responses": [
@@ -359,12 +325,12 @@
     "path": "A1 -> A2 -> End"
   },
   {
-    "tc_id": "TC026",
+    "tc_id": "TC024",
     "steps": [
       "Không đúng KH",
-      "KH im lặng lần 1",
-      "KH im lặng lần 2",
-      "KH im lặng lần 3"
+      "KH im lặng lần 1 \\ KH không nghe rõ lần 1",
+      "KH im lặng lần 2 \\ KH không nghe rõ lần 2",
+      "KH im lặng lần 3 \\ KH không nghe rõ lần 3"
     ],
     "bot_responses": [
       "Không có trong BRD",
@@ -376,24 +342,7 @@
     "path": "A1 -> A2 -> A2 -> A2 -> End"
   },
   {
-    "tc_id": "TC027",
-    "steps": [
-      "Không đúng KH",
-      "KH không nghe rõ lần 1",
-      "KH không nghe rõ lần 2",
-      "KH không nghe rõ lần 3"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
-    ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A2 -> A2 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC028",
+    "tc_id": "TC025",
     "steps": [
       "KH bận"
     ],
@@ -404,7 +353,7 @@
     "path": "A1 -> End"
   },
   {
-    "tc_id": "TC029",
+    "tc_id": "TC026",
     "steps": [
       "KH yêu cầu không gọi nữa"
     ],
@@ -415,7 +364,7 @@
     "path": "A1 -> End"
   },
   {
-    "tc_id": "TC030",
+    "tc_id": "TC027",
     "steps": [
       "KH từ chối"
     ],
@@ -426,7 +375,7 @@
     "path": "A1 -> End"
   },
   {
-    "tc_id": "TC031",
+    "tc_id": "TC028",
     "steps": [
       "KH chửi thô tục"
     ],
@@ -437,7 +386,22 @@
     "path": "A1 -> End"
   },
   {
-    "tc_id": "TC032",
+    "tc_id": "TC029",
+    "steps": [
+      "KH im lặng lần 1 \\ KH không nghe rõ lần 1",
+      "KH im lặng lần 2 \\ KH không nghe rõ lần 2",
+      "KH im lặng lần 3 \\ KH không nghe rõ lần 3"
+    ],
+    "bot_responses": [
+      "Không có trong BRD",
+      "Không có trong BRD",
+      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
+    ],
+    "expected_action_code": "Repeat",
+    "path": "A1 -> A1 -> A1 -> End"
+  },
+  {
+    "tc_id": "TC030",
     "steps": [
       "FAQ lần 1",
       "KH có nhu cầu",
@@ -452,7 +416,7 @@
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
-    "tc_id": "TC033",
+    "tc_id": "TC031",
     "steps": [
       "FAQ lần 1",
       "KH có nhu cầu",
@@ -467,7 +431,7 @@
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
-    "tc_id": "TC034",
+    "tc_id": "TC032",
     "steps": [
       "FAQ lần 1",
       "KH có nhu cầu",
@@ -482,7 +446,7 @@
     "path": "A1 -> A2 -> A3 -> End"
   },
   {
-    "tc_id": "TC035",
+    "tc_id": "TC033",
     "steps": [
       "FAQ lần 1",
       "KH bận"
@@ -495,7 +459,7 @@
     "path": "A1 -> A2 -> End"
   },
   {
-    "tc_id": "TC036",
+    "tc_id": "TC034",
     "steps": [
       "FAQ lần 1",
       "KH phàn nàn \\ KH yêu cầu không gọi nữa"
@@ -508,7 +472,7 @@
     "path": "A1 -> A2 -> End"
   },
   {
-    "tc_id": "TC037",
+    "tc_id": "TC035",
     "steps": [
       "FAQ lần 1",
       "KH từ chối"
@@ -521,7 +485,7 @@
     "path": "A1 -> A2 -> End"
   },
   {
-    "tc_id": "TC038",
+    "tc_id": "TC036",
     "steps": [
       "FAQ lần 1",
       "KH chửi thô tục"
@@ -534,12 +498,12 @@
     "path": "A1 -> A2 -> End"
   },
   {
-    "tc_id": "TC039",
+    "tc_id": "TC037",
     "steps": [
       "FAQ lần 1",
-      "KH im lặng lần 1",
-      "KH im lặng lần 2",
-      "KH im lặng lần 3"
+      "KH im lặng lần 1 \\ KH không nghe rõ lần 1",
+      "KH im lặng lần 2 \\ KH không nghe rõ lần 2",
+      "KH im lặng lần 3 \\ KH không nghe rõ lần 3"
     ],
     "bot_responses": [
       "4.3 FAQ Bot reply",
@@ -549,52 +513,5 @@
     ],
     "expected_action_code": "Repeat",
     "path": "A1 -> A2 -> A2 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC040",
-    "steps": [
-      "FAQ lần 1",
-      "KH không nghe rõ lần 1",
-      "KH không nghe rõ lần 2",
-      "KH không nghe rõ lần 3"
-    ],
-    "bot_responses": [
-      "4.3 FAQ Bot reply",
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
-    ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A2 -> A2 -> A2 -> End"
-  },
-  {
-    "tc_id": "TC041",
-    "steps": [
-      "KH im lặng lần 1",
-      "KH im lặng lần 2",
-      "KH im lặng lần 3"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
-    ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A1 -> A1 -> End"
-  },
-  {
-    "tc_id": "TC042",
-    "steps": [
-      "KH không nghe rõ lần 1",
-      "KH không nghe rõ lần 2",
-      "KH không nghe rõ lần 3"
-    ],
-    "bot_responses": [
-      "Không có trong BRD",
-      "Không có trong BRD",
-      "Dạ, em xin phép được gửi trước thông tin chi tiết ưu đãi vay qua zalo của {{gender}} ạ. Kính chúc{{gender}} một ngày tốt lành"
-    ],
-    "expected_action_code": "Repeat",
-    "path": "A1 -> A1 -> A1 -> End"
   }
 ]

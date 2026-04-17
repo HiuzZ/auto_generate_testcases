@@ -44,16 +44,6 @@ def _parse_repeat(intent: str) -> tuple[str, int] | None:
     return base, n
 
 
-def _has_next_repeat(transitions: List[Transition], base: str, current_n: int) -> bool:
-    """Check if next repeat (current_n + 1) exists in given transition list."""
-    next_n = current_n + 1
-    for tr in transitions:
-        rep = _parse_repeat(tr.intent)
-        if rep and rep[0] == base and rep[1] == next_n:
-            return True
-    return False
-
-
 def load_transitions_json(path: Path) -> list[dict[str, str]]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, list):
@@ -109,12 +99,19 @@ def generate_test_cases(
 ) -> list[dict[str, Any]]:
     cases: List[Dict[str, Any]] = []
 
+    def _make_step(trans_list: List[Transition]) -> tuple[str, List[str]]:
+        intents = sorted(set(tr.intent for tr in trans_list))
+        step_intent = " \\ ".join(intents)
+        bot_resp = list(dict.fromkeys(tr.bot_response for tr in trans_list if tr.bot_response))
+        return step_intent, bot_resp
+
     def dfs(
         node: str,
         steps: List[str],
         bot_responses_list: List[List[str]],
         path_nodes: List[str],
-        visited_edges: Set[Tuple[str, str, str]],  # (src, dst, intent_group_key)
+        visited_edges: Set[Tuple[str, str, str]],
+        consumed_chains: Set[Tuple[str, str]],
     ) -> None:
         if len(steps) >= max_depth:
             return
@@ -123,28 +120,25 @@ def generate_test_cases(
         if not transitions:
             return
 
-        # ── Separate repeat vs non-repeat transitions ──────────────────────
-        # Group repeat transitions by (base, n) — each lần N is its own group
-        # Group non-repeat transitions by (dst, action_code)
-
-        # Repeat groups: key = (base, n, dst, action_code)
-        repeat_groups: Dict[Tuple[str, int, str, str], List[Transition]] = defaultdict(list)
-        # Non-repeat groups: key = (dst, action_code)
-        non_repeat_groups: Dict[Tuple[str, str], List[Transition]] = defaultdict(list)
+        repeat_map: Dict[str, Dict[int, Dict[Tuple[str, str], List[Transition]]]] = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(list))
+        )
+        self_loop_groups: Dict[Tuple[str, str], List[Transition]] = defaultdict(list)
+        normal_groups: Dict[Tuple[str, str], List[Transition]] = defaultdict(list)
 
         for tr in transitions:
             rep = _parse_repeat(tr.intent)
             if rep:
                 base, n = rep
-                repeat_groups[(base, n, tr.dst, tr.action_code)].append(tr)
+                repeat_map[base][n][(tr.dst, tr.action_code)].append(tr)
+            elif tr.dst == node:
+                self_loop_groups[(tr.dst, tr.action_code)].append(tr)
             else:
-                non_repeat_groups[(tr.dst, tr.action_code)].append(tr)
+                normal_groups[(tr.dst, tr.action_code)].append(tr)
 
-        # ── Process non-repeat groups ──────────────────────────────────────
-        for (dst, action_code), trans_list in sorted(non_repeat_groups.items()):
-            intents = sorted(set(tr.intent for tr in trans_list))
-            step_intent = " \\ ".join(intents)
-            bot_resp = list(dict.fromkeys(tr.bot_response for tr in trans_list if tr.bot_response))
+        # ── Process normal non-chain groups ────────────────────────────────
+        for (dst, action_code), trans_list in sorted(normal_groups.items()):
+            step_intent, bot_resp = _make_step(trans_list)
 
             edge_key = (node, dst, step_intent)
             if edge_key in visited_edges:
@@ -163,122 +157,139 @@ def generate_test_cases(
                     "path": " -> ".join(new_path),
                 })
             elif dst in graph:
-                dfs(dst, new_steps, new_bot, new_path, new_visited)
+                dfs(dst, new_steps, new_bot, new_path, new_visited, consumed_chains)
 
-        # ── Process repeat groups — walk the full chain ────────────────────
-        # Find all unique (base, dst_self, action_code) chains starting at lần 1
-        # A chain is: lần 1 → lần 2 → ... → lần N (where lần N+1 doesn't exist)
-        # Each lần in the chain must self-loop (dst == node) except possibly the last
-
-        # Collect all bases that have lần 1 from this node
-        chain_starts: Dict[Tuple[str, str, str], int] = {}  # (base, first_dst, first_ac) -> starting n
-        for (base, n, dst, action_code) in repeat_groups:
-            if n == 1:
-                chain_starts[(base, dst, action_code)] = 1
-
-        for (base, first_dst, first_ac) in sorted(chain_starts.keys()):
-            # Walk chain: collect all lần in order
-            chain: List[Tuple[int, str, str, List[Transition]]] = []  # (n, dst, ac, transitions)
-            n = 1
-            while True:
-                # Find the group for (base, n, any_dst, any_ac)
-                found = False
-                for (b, num, dst, ac), trans_list in repeat_groups.items():
-                    if b == base and num == n:
-                        chain.append((n, dst, ac, trans_list))
-                        found = True
-                        break
-                if not found:
-                    break
-                n += 1
-
-            if not chain:
+        # ── Process self-loop chains ───────────────────────────────────────
+        for (dst, action_code), trans_list in sorted(self_loop_groups.items()):
+            chain_id = (node, f"self:{dst}:{action_code}")
+            if chain_id in consumed_chains:
                 continue
 
-            # Now do DFS over the chain steps
-            # We'll recurse step by step through the chain
+            step_intent, bot_resp = _make_step(trans_list)
+            edge_key = (node, dst, step_intent)
+            if edge_key in visited_edges:
+                continue
+
+            new_steps = steps + [step_intent]
+            new_bot = bot_responses_list + [bot_resp]
+            new_path = path_nodes + [dst]
+            new_visited = visited_edges | {edge_key}
+            new_consumed = consumed_chains | {chain_id}
+
+            if _is_terminal_step(dst):
+                cases.append({
+                    "steps": new_steps,
+                    "bot_responses": new_bot,
+                    "expected_action_code": action_code,
+                    "path": " -> ".join(new_path),
+                })
+            elif dst in graph:
+                dfs(dst, new_steps, new_bot, new_path, new_visited, new_consumed)
+
+        # ── Process ordered repeat chains ──────────────────────────────────
+        repeat_clusters: Dict[
+            Tuple[Tuple[Tuple[Tuple[str, str], ...], ...], int],
+            Dict[str, Any],
+        ] = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+
+        for base, n_map in repeat_map.items():
+            if 1 not in n_map:
+                continue
+
+            signature_levels: List[Tuple[Tuple[str, str], ...]] = []
+            expected_n = 1
+            while expected_n in n_map:
+                signature_levels.append(tuple(sorted(n_map[expected_n].keys())))
+                expected_n += 1
+
+            cluster_key = (tuple(signature_levels), len(signature_levels))
+            cluster = repeat_clusters[cluster_key]
+            cluster.setdefault("bases", set()).add(base)
+            cluster.setdefault("levels", defaultdict(lambda: defaultdict(list)))
+            for n, grouped in n_map.items():
+                for group_key, trans_list in grouped.items():
+                    cluster["levels"][n][group_key].extend(trans_list)
+
+        for cluster_key, cluster_map in sorted(repeat_clusters.items(), key=lambda item: item[0]):
+            base_ids = {("__repeat_base__", base) for base in cluster_map["bases"]}
+            if base_ids & consumed_chains:
+                continue
+
+            chain_levels: List[Tuple[int, List[Tuple[str, str, List[Transition]]]]] = []
+            for n in sorted(cluster_map["levels"].keys()):
+                grouped = [
+                    (dst, action_code, trans_list)
+                    for (dst, action_code), trans_list in sorted(cluster_map["levels"][n].items())
+                ]
+                chain_levels.append((n, grouped))
+
             _dfs_repeat_chain(
-                node=node,
-                chain=chain,
+                origin_node=node,
+                chain_ids=base_ids,
+                chain_levels=chain_levels,
                 chain_idx=0,
                 steps=steps,
                 bot_responses_list=bot_responses_list,
                 path_nodes=path_nodes,
                 visited_edges=visited_edges,
-                graph=graph,
-                cases=cases,
-                max_depth=max_depth,
-                dfs_fn=dfs,
+                consumed_chains=consumed_chains,
             )
 
     def _dfs_repeat_chain(
-        node: str,
-        chain: List[Tuple[int, str, str, List[Transition]]],
+        origin_node: str,
+        chain_ids: Set[Tuple[str, str]],
+        chain_levels: List[Tuple[int, List[Tuple[str, str, List[Transition]]]]],
         chain_idx: int,
         steps: List[str],
         bot_responses_list: List[List[str]],
         path_nodes: List[str],
         visited_edges: Set[Tuple[str, str, str]],
-        graph: dict,
-        cases: List,
-        max_depth: int,
-        dfs_fn,
+        consumed_chains: Set[Tuple[str, str]],
     ) -> None:
-        """Recursively walk through a repeat chain, generating one TC per chain ending."""
-        if chain_idx >= len(chain):
+        if chain_idx >= len(chain_levels):
             return
         if len(steps) >= max_depth:
             return
 
-        n, dst, action_code, trans_list = chain[chain_idx]
-        intents = sorted(set(tr.intent for tr in trans_list))
-        step_intent = " \\ ".join(intents)
-        bot_resp = list(dict.fromkeys(tr.bot_response for tr in trans_list if tr.bot_response))
+        _, grouped_transitions = chain_levels[chain_idx]
+        is_last_in_chain = chain_idx == len(chain_levels) - 1
 
-        edge_key = (node, dst, step_intent)
-        if edge_key in visited_edges:
-            return
+        for dst, action_code, trans_list in grouped_transitions:
+            step_intent, bot_resp = _make_step(trans_list)
+            edge_key = (origin_node, dst, step_intent)
+            if edge_key in visited_edges:
+                continue
 
-        new_steps = steps + [step_intent]
-        new_bot = bot_responses_list + [bot_resp]
-        new_path = path_nodes + [dst]
-        new_visited = visited_edges | {edge_key}
+            new_steps = steps + [step_intent]
+            new_bot = bot_responses_list + [bot_resp]
+            new_path = path_nodes + [dst]
+            new_visited = visited_edges | {edge_key}
+            new_consumed = consumed_chains | chain_ids
 
-        is_last_in_chain = (chain_idx == len(chain) - 1)
+            if is_last_in_chain:
+                if _is_terminal_step(dst):
+                    cases.append({
+                        "steps": new_steps,
+                        "bot_responses": new_bot,
+                        "expected_action_code": action_code,
+                        "path": " -> ".join(new_path),
+                    })
+                elif dst in graph:
+                    dfs(dst, new_steps, new_bot, new_path, new_visited, new_consumed)
+            else:
+                _dfs_repeat_chain(
+                    origin_node=origin_node,
+                    chain_ids=chain_ids,
+                    chain_levels=chain_levels,
+                    chain_idx=chain_idx + 1,
+                    steps=new_steps,
+                    bot_responses_list=new_bot,
+                    path_nodes=new_path,
+                    visited_edges=new_visited,
+                    consumed_chains=new_consumed,
+                )
 
-        if _is_terminal_step(dst):
-            # Terminal: emit TC and stop chain
-            cases.append({
-                "steps": new_steps,
-                "bot_responses": new_bot,
-                "expected_action_code": action_code,
-                "path": " -> ".join(new_path),
-            })
-            return
-
-        if is_last_in_chain:
-            # Last repeat step, dst is non-terminal: continue with normal DFS from dst
-            if dst in graph:
-                dfs_fn(dst, new_steps, new_bot, new_path, new_visited)
-            return
-
-        # Not last: must continue chain (self-loop expected)
-        # dst should be == node (self-loop), continue chain
-        _dfs_repeat_chain(
-            node=dst,  # next node (usually same as current for self-loop)
-            chain=chain,
-            chain_idx=chain_idx + 1,
-            steps=new_steps,
-            bot_responses_list=new_bot,
-            path_nodes=new_path,
-            visited_edges=new_visited,
-            graph=graph,
-            cases=cases,
-            max_depth=max_depth,
-            dfs_fn=dfs_fn,
-        )
-
-    dfs(root, [], [], [root], set())
+    dfs(root, [], [], [root], set(), set())
 
     # Remove duplicates
     seen = set()

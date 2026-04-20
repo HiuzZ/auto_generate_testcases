@@ -10,6 +10,20 @@ import pandas as pd
 CANONICAL_COLUMNS = [
     "Step no",
     "Step name",
+    "Conditions",
+    "Customer intent",
+    "Bot response",
+    "Bot response 2",
+    "Bot response 3",
+    "Bot response 4",
+    "Bot response 5",
+    "Next Step",
+    "Action code",
+]
+
+REQUIRED_CANONICAL_COLUMNS = [
+    "Step no",
+    "Step name",
     "Customer intent",
     "Bot response",
     "Next Step",
@@ -22,8 +36,13 @@ CANONICAL_COLUMNS = [
 COLUMN_ALIASES: dict[str, list[str]] = {
     "Step no": ["step no", "step number", "no", "step"],
     "Step name": ["step name", "name", "topic"],
+    "Conditions": ["conditions", "condition"],
     "Customer intent": ["customer intent", "intent"],
     "Bot response": ["bot response", "response", "bot_response"],
+    "Bot response 2": ["bot response 2", "response 2", "bot_response_2"],
+    "Bot response 3": ["bot response 3", "response 3", "bot_response_3"],
+    "Bot response 4": ["bot response 4", "response 4", "bot_response_4"],
+    "Bot response 5": ["bot response 5", "response 5", "bot_response_5"],
     "Next Step": ["next step", "nest step", "next action"],
     "Action code": ["action code", "action_code"],
 }
@@ -31,8 +50,13 @@ COLUMN_ALIASES: dict[str, list[str]] = {
 JSON_KEYS: dict[str, str] = {
     "Step no": "step_no",
     "Step name": "step_name",
+    "Conditions": "conditions",
     "Customer intent": "customer_intent",
     "Bot response": "bot_response",
+    "Bot response 2": "bot_response_2",
+    "Bot response 3": "bot_response_3",
+    "Bot response 4": "bot_response_4",
+    "Bot response 5": "bot_response_5",
     "Next Step": "next_step",
     "Action code": "action_code",
 }
@@ -57,7 +81,7 @@ def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
         norm_to_actual[_normalize_col_key(c)] = c
 
     resolved: dict[str, str] = {}
-    for canonical in CANONICAL_COLUMNS:
+    for canonical in REQUIRED_CANONICAL_COLUMNS:
         aliases = COLUMN_ALIASES[canonical]
         found_actual: str | None = None
 
@@ -78,6 +102,21 @@ def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
             )
 
         resolved[canonical] = found_actual
+
+    for optional_col in [
+        "Conditions",
+        "Bot response 2",
+        "Bot response 3",
+        "Bot response 4",
+        "Bot response 5",
+    ]:
+        found_optional: str | None = None
+        for alias in COLUMN_ALIASES[optional_col]:
+            if alias in norm_to_actual:
+                found_optional = norm_to_actual[alias]
+                break
+        if found_optional is not None:
+            resolved[optional_col] = found_optional
 
     return resolved
 
@@ -107,7 +146,7 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
     # We detect the header row by looking for the presence of at least one alias
     # for every canonical field.
     required_alias_sets = []
-    for canonical in CANONICAL_COLUMNS:
+    for canonical in REQUIRED_CANONICAL_COLUMNS:
         aliases = set(COLUMN_ALIASES[canonical])
         if canonical == "Action code":
             # special-case: allow "action code ..." headers
@@ -166,8 +205,22 @@ def convert_excel_rows_to_strings(
 
     df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
     mapping = _resolve_column_mapping(list(df.columns))
-    df = df[[mapping[c] for c in CANONICAL_COLUMNS]].copy()
+    selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
+    if "Conditions" in mapping:
+        selected_columns.insert(2, mapping["Conditions"])
+    insert_idx = 5
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col in mapping:
+            selected_columns.insert(insert_idx, mapping[optional_response_col])
+        insert_idx += 1
+    df = df[selected_columns].copy()
     df = df.rename(columns={v: k for k, v in mapping.items()})
+    if "Conditions" not in df.columns:
+        df["Conditions"] = ""
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col not in df.columns:
+            df[optional_response_col] = ""
+    df = df[CANONICAL_COLUMNS]
 
     # Default for Action code is N/A.
     if "Action code" in df.columns:
@@ -176,7 +229,10 @@ def convert_excel_rows_to_strings(
         df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
 
     # Convert all other fields to clean strings (empty if NaN).
-    for col in ["Step no", "Step name", "Customer intent", "Bot response", "Next Step"]:
+    for col in [
+        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
+        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
+    ]:
         df[col] = df[col].where(df[col].notna(), "")
         df[col] = df[col].astype(str).str.strip()
         df.loc[df[col].eq("nan"), col] = ""
@@ -186,8 +242,13 @@ def convert_excel_rows_to_strings(
         formatted = (
             f"Step no: {row['Step no']}; "
             f"Step name: {row['Step name']}; "
+            f"Conditions: {row['Conditions']}; "
             f"Customer intent: {row['Customer intent']}; "
             f"Bot response: {row['Bot response']}; "
+            f"Bot response 2: {row['Bot response 2']}; "
+            f"Bot response 3: {row['Bot response 3']}; "
+            f"Bot response 4: {row['Bot response 4']}; "
+            f"Bot response 5: {row['Bot response 5']}; "
             f"Next Step: {row['Next Step']}; "
             f"Action code: {row['Action code']}"
         )
@@ -221,8 +282,22 @@ def convert_excel_rows_to_json(
     df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
     mapping = _resolve_column_mapping(list(df.columns))
     
-    df = df[[mapping[c] for c in CANONICAL_COLUMNS]].copy()
+    selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
+    if "Conditions" in mapping:
+        selected_columns.insert(2, mapping["Conditions"])
+    insert_idx = 5
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col in mapping:
+            selected_columns.insert(insert_idx, mapping[optional_response_col])
+        insert_idx += 1
+    df = df[selected_columns].copy()
     df = df.rename(columns={v: k for k, v in mapping.items()})
+    if "Conditions" not in df.columns:
+        df["Conditions"] = ""
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col not in df.columns:
+            df[optional_response_col] = ""
+    df = df[CANONICAL_COLUMNS]
 
     # Default for Action code is N/A.
     if "Action code" in df.columns:
@@ -231,7 +306,10 @@ def convert_excel_rows_to_json(
         df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
 
     # Convert all other fields to clean strings (empty if NaN).
-    for col in ["Step no", "Step name", "Customer intent", "Bot response", "Next Step"]:
+    for col in [
+        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
+        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
+    ]:
         df[col] = df[col].where(df[col].notna(), "")
         df[col] = df[col].astype(str).str.strip()
         df.loc[df[col].eq("nan"), col] = ""
@@ -241,8 +319,13 @@ def convert_excel_rows_to_json(
         obj = {
             JSON_KEYS["Step no"]: r["Step no"],
             JSON_KEYS["Step name"]: r["Step name"],
+            JSON_KEYS["Conditions"]: r["Conditions"],
             JSON_KEYS["Customer intent"]: r["Customer intent"],
             JSON_KEYS["Bot response"]: r["Bot response"],
+            JSON_KEYS["Bot response 2"]: r["Bot response 2"],
+            JSON_KEYS["Bot response 3"]: r["Bot response 3"],
+            JSON_KEYS["Bot response 4"]: r["Bot response 4"],
+            JSON_KEYS["Bot response 5"]: r["Bot response 5"],
             JSON_KEYS["Next Step"]: r["Next Step"],
             JSON_KEYS["Action code"]: r["Action code"],
         }

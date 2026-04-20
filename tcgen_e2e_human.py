@@ -14,6 +14,7 @@ from typing import Any, DefaultDict, Iterable, Dict, List, Tuple, Set, Optional
 class Transition:
     src: str
     dst: str
+    condition: str
     intent: str
     action_code: str
     bot_response: str
@@ -56,6 +57,7 @@ def load_transitions_json(path: Path) -> list[dict[str, str]]:
             {
                 "step_no": _clean_str(obj.get("step_no", "")),
                 "step_name": _clean_str(obj.get("step_name", "")),
+                "conditions": _clean_str(obj.get("conditions", "")),
                 "customer_intent": _clean_str(obj.get("customer_intent", "")),
                 "bot_response": _clean_str(obj.get("bot_response", "")),
                 "next_step": _clean_str(obj.get("next_step", "")),
@@ -74,6 +76,7 @@ def build_graph(
         dst = _clean_str(t.get("next_step", ""))
         if not dst:
             dst = "End"
+        condition = _clean_str(t.get("conditions", ""))
         intent = _clean_str(t.get("customer_intent", ""))
         if not intent:
             intent = "(empty intent)"
@@ -84,10 +87,17 @@ def build_graph(
         if not src:
             continue
         adjacency[src].append(
-            Transition(src=src, dst=dst, intent=intent, action_code=action_code, bot_response=bot_response)
+            Transition(
+                src=src,
+                dst=dst,
+                condition=condition,
+                intent=intent,
+                action_code=action_code,
+                bot_response=bot_response,
+            )
         )
     for src in adjacency:
-        adjacency[src].sort(key=lambda tr: (tr.dst, tr.action_code, tr.intent))
+        adjacency[src].sort(key=lambda tr: (tr.dst, tr.action_code, tr.condition, tr.intent))
     return dict(adjacency)
 
 
@@ -99,18 +109,32 @@ def generate_test_cases(
 ) -> list[dict[str, Any]]:
     cases: List[Dict[str, Any]] = []
 
-    def _make_step(trans_list: List[Transition]) -> tuple[str, List[str]]:
+    def _make_step(trans_list: List[Transition]) -> tuple[str, List[str], str]:
         intents = sorted(set(tr.intent for tr in trans_list))
         step_intent = " \\ ".join(intents)
         bot_resp = list(dict.fromkeys(tr.bot_response for tr in trans_list if tr.bot_response))
-        return step_intent, bot_resp
+        conditions = list(dict.fromkeys(tr.condition for tr in trans_list))
+        step_condition = conditions[0] if conditions else ""
+        return step_intent, bot_resp, step_condition
+
+    def _append_condition(case_conditions: List[str], condition: str) -> List[str]:
+        if condition in case_conditions:
+            return list(case_conditions)
+        return case_conditions + [condition]
+
+    def _render_conditions(case_conditions: List[str]) -> str:
+        non_empty = [cond for cond in case_conditions if cond]
+        if non_empty:
+            return " \\ ".join(non_empty)
+        return ""
 
     def dfs(
         node: str,
         steps: List[str],
         bot_responses_list: List[List[str]],
+        case_conditions: List[str],
         path_nodes: List[str],
-        visited_edges: Set[Tuple[str, str, str]],
+        visited_edges: Set[Tuple[str, str, str, str]],
         consumed_chains: Set[Tuple[str, str]],
     ) -> None:
         if len(steps) >= max_depth:
@@ -120,75 +144,79 @@ def generate_test_cases(
         if not transitions:
             return
 
-        repeat_map: Dict[str, Dict[int, Dict[Tuple[str, str], List[Transition]]]] = defaultdict(
+        repeat_map: Dict[str, Dict[int, Dict[Tuple[str, str, str], List[Transition]]]] = defaultdict(
             lambda: defaultdict(lambda: defaultdict(list))
         )
-        self_loop_groups: Dict[Tuple[str, str], List[Transition]] = defaultdict(list)
-        normal_groups: Dict[Tuple[str, str], List[Transition]] = defaultdict(list)
+        self_loop_groups: Dict[Tuple[str, str, str], List[Transition]] = defaultdict(list)
+        normal_groups: Dict[Tuple[str, str, str], List[Transition]] = defaultdict(list)
 
         for tr in transitions:
             rep = _parse_repeat(tr.intent)
             if rep:
                 base, n = rep
-                repeat_map[base][n][(tr.dst, tr.action_code)].append(tr)
+                repeat_map[base][n][(tr.dst, tr.action_code, tr.condition)].append(tr)
             elif tr.dst == node:
-                self_loop_groups[(tr.dst, tr.action_code)].append(tr)
+                self_loop_groups[(tr.dst, tr.action_code, tr.condition)].append(tr)
             else:
-                normal_groups[(tr.dst, tr.action_code)].append(tr)
+                normal_groups[(tr.dst, tr.action_code, tr.condition)].append(tr)
 
         # ── Process normal non-chain groups ────────────────────────────────
-        for (dst, action_code), trans_list in sorted(normal_groups.items()):
-            step_intent, bot_resp = _make_step(trans_list)
+        for (dst, action_code, step_condition), trans_list in sorted(normal_groups.items()):
+            step_intent, bot_resp, step_condition = _make_step(trans_list)
 
-            edge_key = (node, dst, step_intent)
+            edge_key = (node, dst, step_intent, step_condition)
             if edge_key in visited_edges:
                 continue
 
             new_steps = steps + [step_intent]
             new_bot = bot_responses_list + [bot_resp]
+            new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
             new_visited = visited_edges | {edge_key}
 
             if _is_terminal_step(dst):
                 cases.append({
+                    "conditions": _render_conditions(new_conditions),
                     "steps": new_steps,
                     "bot_responses": new_bot,
                     "expected_action_code": action_code,
                     "path": " -> ".join(new_path),
                 })
             elif dst in graph:
-                dfs(dst, new_steps, new_bot, new_path, new_visited, consumed_chains)
+                dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, consumed_chains)
 
         # ── Process self-loop chains ───────────────────────────────────────
-        for (dst, action_code), trans_list in sorted(self_loop_groups.items()):
-            chain_id = (node, f"self:{dst}:{action_code}")
+        for (dst, action_code, step_condition), trans_list in sorted(self_loop_groups.items()):
+            chain_id = (node, f"self:{dst}:{action_code}:{step_condition}")
             if chain_id in consumed_chains:
                 continue
 
-            step_intent, bot_resp = _make_step(trans_list)
-            edge_key = (node, dst, step_intent)
+            step_intent, bot_resp, step_condition = _make_step(trans_list)
+            edge_key = (node, dst, step_intent, step_condition)
             if edge_key in visited_edges:
                 continue
 
             new_steps = steps + [step_intent]
             new_bot = bot_responses_list + [bot_resp]
+            new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
             new_visited = visited_edges | {edge_key}
             new_consumed = consumed_chains | {chain_id}
 
             if _is_terminal_step(dst):
                 cases.append({
+                    "conditions": _render_conditions(new_conditions),
                     "steps": new_steps,
                     "bot_responses": new_bot,
                     "expected_action_code": action_code,
                     "path": " -> ".join(new_path),
                 })
             elif dst in graph:
-                dfs(dst, new_steps, new_bot, new_path, new_visited, new_consumed)
+                dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, new_consumed)
 
         # ── Process ordered repeat chains ──────────────────────────────────
         repeat_clusters: Dict[
-            Tuple[Tuple[Tuple[Tuple[str, str], ...], ...], int],
+            Tuple[Tuple[Tuple[Tuple[str, str, str], ...], ...], int],
             Dict[str, Any],
         ] = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
@@ -215,11 +243,11 @@ def generate_test_cases(
             if base_ids & consumed_chains:
                 continue
 
-            chain_levels: List[Tuple[int, List[Tuple[str, str, List[Transition]]]]] = []
+            chain_levels: List[Tuple[int, List[Tuple[str, str, str, List[Transition]]]]] = []
             for n in sorted(cluster_map["levels"].keys()):
                 grouped = [
-                    (dst, action_code, trans_list)
-                    for (dst, action_code), trans_list in sorted(cluster_map["levels"][n].items())
+                    (dst, action_code, step_condition, trans_list)
+                    for (dst, action_code, step_condition), trans_list in sorted(cluster_map["levels"][n].items())
                 ]
                 chain_levels.append((n, grouped))
 
@@ -230,6 +258,7 @@ def generate_test_cases(
                 chain_idx=0,
                 steps=steps,
                 bot_responses_list=bot_responses_list,
+                case_conditions=case_conditions,
                 path_nodes=path_nodes,
                 visited_edges=visited_edges,
                 consumed_chains=consumed_chains,
@@ -238,12 +267,13 @@ def generate_test_cases(
     def _dfs_repeat_chain(
         origin_node: str,
         chain_ids: Set[Tuple[str, str]],
-        chain_levels: List[Tuple[int, List[Tuple[str, str, List[Transition]]]]],
+        chain_levels: List[Tuple[int, List[Tuple[str, str, str, List[Transition]]]]],
         chain_idx: int,
         steps: List[str],
         bot_responses_list: List[List[str]],
+        case_conditions: List[str],
         path_nodes: List[str],
-        visited_edges: Set[Tuple[str, str, str]],
+        visited_edges: Set[Tuple[str, str, str, str]],
         consumed_chains: Set[Tuple[str, str]],
     ) -> None:
         if chain_idx >= len(chain_levels):
@@ -254,14 +284,15 @@ def generate_test_cases(
         _, grouped_transitions = chain_levels[chain_idx]
         is_last_in_chain = chain_idx == len(chain_levels) - 1
 
-        for dst, action_code, trans_list in grouped_transitions:
-            step_intent, bot_resp = _make_step(trans_list)
-            edge_key = (origin_node, dst, step_intent)
+        for dst, action_code, step_condition, trans_list in grouped_transitions:
+            step_intent, bot_resp, step_condition = _make_step(trans_list)
+            edge_key = (origin_node, dst, step_intent, step_condition)
             if edge_key in visited_edges:
                 continue
 
             new_steps = steps + [step_intent]
             new_bot = bot_responses_list + [bot_resp]
+            new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
             new_visited = visited_edges | {edge_key}
             new_consumed = consumed_chains | chain_ids
@@ -269,13 +300,14 @@ def generate_test_cases(
             if is_last_in_chain:
                 if _is_terminal_step(dst):
                     cases.append({
+                        "conditions": _render_conditions(new_conditions),
                         "steps": new_steps,
                         "bot_responses": new_bot,
                         "expected_action_code": action_code,
                         "path": " -> ".join(new_path),
                     })
                 elif dst in graph:
-                    dfs(dst, new_steps, new_bot, new_path, new_visited, new_consumed)
+                    dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, new_consumed)
             else:
                 _dfs_repeat_chain(
                     origin_node=origin_node,
@@ -284,18 +316,19 @@ def generate_test_cases(
                     chain_idx=chain_idx + 1,
                     steps=new_steps,
                     bot_responses_list=new_bot,
+                    case_conditions=new_conditions,
                     path_nodes=new_path,
                     visited_edges=new_visited,
                     consumed_chains=new_consumed,
                 )
 
-    dfs(root, [], [], [root], set(), set())
+    dfs(root, [], [], [], [root], set(), set())
 
     # Remove duplicates
     seen = set()
     unique_cases = []
     for case in cases:
-        key = (tuple(case["steps"]), case["expected_action_code"])
+        key = (tuple(case["steps"]), case.get("conditions", ""), case["expected_action_code"])
         if key not in seen:
             seen.add(key)
             unique_cases.append(case)
@@ -312,6 +345,7 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
         ]
         payload.append({
             "tc_id": f"TC{i+1:03d}",
+            "conditions": tc.get("conditions", ""),
             "steps": tc["steps"],
             "bot_responses": bot_responses_str,
             "expected_action_code": tc.get("expected_action_code", "N/A"),
@@ -323,7 +357,7 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
 def write_cases_csv(cases: list[dict[str, Any]], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     max_len = max((len(tc["steps"]) for tc in cases), default=0)
-    headers = ["tc_id", "path", "expected_action_code",
+    headers = ["tc_id", "conditions", "path", "expected_action_code",
                *[f"step_{i+1}" for i in range(max_len)],
                *[f"bot_response_{i+1}" for i in range(max_len)]]
 
@@ -337,11 +371,12 @@ def write_cases_csv(cases: list[dict[str, Any]], out_path: Path) -> None:
                 " \\ ".join(resp_list) if resp_list else ""
                 for resp_list in bot_responses_raw
             ]
+            conditions = tc.get("conditions", "")
             action_code = tc.get("expected_action_code", "N/A")
             path = str(tc.get("path", ""))
             padded_steps = steps + [""] * (max_len - len(steps))
             padded_responses = bot_responses + [""] * (max_len - len(bot_responses))
-            row = [f"TC{i+1:03d}", path, action_code] + padded_steps + padded_responses
+            row = [f"TC{i+1:03d}", conditions, path, action_code] + padded_steps + padded_responses
             w.writerow(row)
 
 
@@ -369,6 +404,7 @@ def main() -> int:
             ]
             payload.append({
                 "tc_id": f"TC{i+1:03d}",
+                "conditions": tc.get("conditions", ""),
                 "steps": tc["steps"],
                 "bot_responses": bot_responses_str,
                 "expected_action_code": tc.get("expected_action_code", "N/A"),

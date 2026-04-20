@@ -3,11 +3,12 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from excel_to_json import _pick_excel_file, convert_excel_rows_to_json
 from tc_to_excel import export_to_excel
 import tcgen_e2e_human
+import tcgen_multi_responses
 import tcgen_output_human
 
 
@@ -17,16 +18,22 @@ GeneratorModule = Any
 def _serialize_cases(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
     payload: list[dict[str, Any]] = []
     for i, tc in enumerate(cases):
-        bot_responses_str = [
-            " \\ ".join(resp_list) if resp_list else ""
-            for resp_list in tc.get("bot_responses", [])
-        ]
+        bot_responses_str = []
+        for resp_item in tc.get("bot_responses", []):
+            if isinstance(resp_item, str):
+                bot_responses_str.append(resp_item)
+            elif resp_item:
+                bot_responses_str.append(" \\ ".join(resp_item))
+            else:
+                bot_responses_str.append("")
         payload.append({
             "tc_id": f"TC{i+1:03d}",
+            "conditions": tc.get("conditions", ""),
             "steps": tc["steps"],
             "bot_responses": bot_responses_str,
             "expected_action_code": tc.get("expected_action_code", "N/A"),
             "path": tc.get("path", ""),
+            "highlight_last_step": bool(tc.get("highlight_last_step", False)),
         })
     return payload
 
@@ -67,6 +74,8 @@ def run_pipeline(
     generator: GeneratorModule
     if mode == "e2e":
         generator = tcgen_e2e_human
+    elif mode == "multi_responses":
+        generator = tcgen_multi_responses
     elif mode == "output":
         generator = tcgen_output_human
     else:
@@ -99,7 +108,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run Excel -> JSON -> testcase generation -> Excel export in one command."
     )
-    parser.add_argument("mode", choices=["e2e", "output"])
+    parser.add_argument("mode", choices=["e2e", "output", "multi_responses"])
     parser.add_argument(
         "--file",
         type=Path,

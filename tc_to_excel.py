@@ -6,6 +6,9 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import openpyxl
+from openpyxl.cell.rich_text import CellRichText, TextBlock
+from openpyxl.cell.text import InlineFont
+from openpyxl.styles import PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -19,10 +22,12 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
         if not isinstance(item, dict):
             raise ValueError(f"Item at index {i} is not an object.")
         tc_id = str(item.get("tc_id", f"TC{i+1}"))
+        conditions = str(item.get("conditions", ""))
         steps = item.get("steps", [])
         bot_responses = item.get("bot_responses", [])   # new field
         expected_action_code = item.get("expected_action_code", "N/A")
         tc_path = str(item.get("path", ""))
+        highlight_last_step = bool(item.get("highlight_last_step", False))
         if not isinstance(steps, Iterable):
             raise ValueError(f"'steps' for {tc_id} must be a list.")
         if not isinstance(bot_responses, Iterable):
@@ -46,10 +51,12 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
         cases.append(
             {
                 "tc_id": tc_id,
+                "conditions": conditions,
                 "steps": clean_steps,
                 "bot_responses": clean_bot_responses,
                 "expected_action_code": expected_action_code,
                 "path": tc_path,
+                "highlight_last_step": highlight_last_step,
             }
         )
     return cases
@@ -72,19 +79,32 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path) -> None:
 
     # Header
     ws["A1"] = "TC_ID"
-    ws["B1"] = "Test Scenario"
-    ws["C1"] = "Bot Responses"
-    ws["D1"] = "Path"
-    ws["E1"] = "Expected Action Code"
-    ws["F1"] = "Test Data"
+    ws["B1"] = "Conditions"
+    ws["C1"] = "Test Scenario"
+    ws["D1"] = "Bot Responses"
+    ws["E1"] = "Path"
+    ws["F1"] = "Expected Action Code"
+    ws["G1"] = "Test Data"
 
     row = 2
+    red_font = InlineFont(color="00FF0000")
+    group_fills = [
+        PatternFill(fill_type="solid", fgColor="00FDE2E2"),  # light red
+        PatternFill(fill_type="solid", fgColor="00E3F2FD"),  # light blue
+        PatternFill(fill_type="solid", fgColor="00E8F5E9"),  # light green
+        PatternFill(fill_type="solid", fgColor="00E3F2FD"),  # light blue
+    ]
+    current_group_key: tuple[Any, ...] | None = None
+    group_index = -1
+
     for case in cases:
         tc_id = str(case["tc_id"])
+        conditions = str(case.get("conditions", ""))
         steps: list[str] = case.get("steps", [])
         bot_responses: list[str] = case.get("bot_responses", [])
         expected_action_code = str(case.get("expected_action_code", "N/A"))
         tc_path = str(case.get("path", ""))
+        highlight_last_step = bool(case.get("highlight_last_step", False))
 
         # Format steps as numbered list
         numbered_steps = [f"{idx}. {text}" for idx, text in enumerate(steps, start=1)]
@@ -99,26 +119,52 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path) -> None:
                 numbered_responses.append(f"{idx}. ")
         bot_responses_text = "\n".join(numbered_responses)
 
+        group_key = (conditions, tuple(steps), tc_path, expected_action_code)
+        if group_key != current_group_key:
+            group_index += 1
+            current_group_key = group_key
+        fill = group_fills[group_index % len(group_fills)]
+
         ws.cell(row=row, column=1, value=tc_id)
-        cell_scn = ws.cell(row=row, column=2, value=scenario)
+        ws.cell(row=row, column=2, value=conditions)
+        cell_scn = ws.cell(row=row, column=3)
+        if highlight_last_step and numbered_steps:
+            rich_text = CellRichText()
+            if len(numbered_steps) > 1:
+                rich_text.append("\n".join(numbered_steps[:-1]) + "\n")
+            rich_text.append(TextBlock(red_font, numbered_steps[-1]))
+            cell_scn.value = rich_text
+        else:
+            cell_scn.value = scenario
         cell_scn.alignment = openpyxl.styles.Alignment(wrap_text=True)
 
-        cell_bot = ws.cell(row=row, column=3, value=bot_responses_text)
+        cell_bot = ws.cell(row=row, column=4)
+        if highlight_last_step and numbered_responses:
+            rich_text_bot = CellRichText()
+            if len(numbered_responses) > 1:
+                rich_text_bot.append("\n".join(numbered_responses[:-1]) + "\n")
+            rich_text_bot.append(TextBlock(red_font, numbered_responses[-1]))
+            cell_bot.value = rich_text_bot
+        else:
+            cell_bot.value = bot_responses_text
         cell_bot.alignment = openpyxl.styles.Alignment(wrap_text=True)
 
-        ws.cell(row=row, column=4, value=tc_path)
-        ws.cell(row=row, column=5, value=expected_action_code)
-        # Column F ("Test Data") left empty for generate_test_data.py to fill later.
+        ws.cell(row=row, column=5, value=tc_path)
+        ws.cell(row=row, column=6, value=expected_action_code)
+        # Column G ("Test Data") left empty for generate_test_data.py to fill later.
+        for col in range(1, 7):
+            ws.cell(row=row, column=col).fill = fill
 
         row += 1
 
     # Auto-fit columns
     _auto_fit_column(ws, 1, extra=2)
-    _auto_fit_column(ws, 2, extra=4)
+    _auto_fit_column(ws, 2, extra=2)
     _auto_fit_column(ws, 3, extra=4)
-    _auto_fit_column(ws, 4, extra=2)
+    _auto_fit_column(ws, 4, extra=4)
     _auto_fit_column(ws, 5, extra=2)
-    _auto_fit_column(ws, 6, extra=4)
+    _auto_fit_column(ws, 6, extra=2)
+    _auto_fit_column(ws, 7, extra=4)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out_path)

@@ -60,6 +60,20 @@ def _detect_root(rows: list[dict[str, str]]) -> str:
     raise ValueError("Could not detect a root step from the Excel rows.")
 
 
+def _build_step_name_map(rows: list[dict[str, str]]) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for row in rows:
+        step_no = str(row.get("step_no", "")).strip()
+        step_name = str(row.get("step_name", "")).strip()
+        if not step_no or not step_name:
+            continue
+        if step_name.upper() == step_no.upper():
+            continue
+        if step_no not in mapping:
+            mapping[step_no] = step_name
+    return mapping
+
+
 def run_pipeline(
     *,
     mode: str,
@@ -100,7 +114,7 @@ def run_pipeline(
         encoding="utf-8",
     )
 
-    export_to_excel(serialized_cases, excel_out)
+    export_to_excel(serialized_cases, excel_out, step_name_map=_build_step_name_map(rows))
     return rows_out, testcases_out, excel_out, len(serialized_cases), effective_root
 
 

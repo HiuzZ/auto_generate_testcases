@@ -134,21 +134,18 @@ def build_graph(
 
     grouped_graph: dict[str, list[GroupedTransition]] = {}
     for src, src_transitions in adjacency.items():
-        grouped: DefaultDict[Tuple[str, str, str, Tuple[str, ...]], list[Transition]] = defaultdict(list)
-        for tr in src_transitions:
-            grouped[(tr.dst, tr.action_code, tr.condition, tr.responses)].append(tr)
-
+        # Keep each source row as an independent transition (no intent grouping/merging).
         grouped_graph[src] = sorted(
             [
                 GroupedTransition(
                     src=src,
-                    dst=dst,
-                    condition=condition,
-                    intents=tuple(sorted(set(t.intent for t in trans_list))),
-                    action_code=action_code,
-                    responses=responses,
+                    dst=tr.dst,
+                    condition=tr.condition,
+                    intents=(tr.intent,),
+                    action_code=tr.action_code,
+                    responses=tr.responses,
                 )
-                for (dst, action_code, condition, responses), trans_list in grouped.items()
+                for tr in src_transitions
             ],
             key=lambda tr: (tr.dst, tr.action_code, tr.condition, tr.intents),
         )

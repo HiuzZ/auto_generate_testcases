@@ -78,6 +78,18 @@ If `--file` is omitted, the pipeline auto-picks the first non-temporary Excel fi
 
 Default outputs:
 
+python3 pipeline_multi_responses.py \
+  --file "input/VB_M1_Revamp_Credit_card.xlsx" \
+  --rows-out output/rows_multi_vb.json \
+  --testcases-out output/testcases_multi_vb.json \
+  --excel-out output/testcases_multi_vb.xlsx
+
+python3 pipeline_e2e.py \
+  --file "input/VB_M1_Revamp_Credit_card.xlsx" \
+  --rows-out output/rows_e2e_vb.json \
+  --testcases-out output/testcases_e2e_vb.json \
+  --excel-out output/testcases_e2e_vb.xlsx
+
 - `pipeline_e2e.py`
   - `output/rows_e2e.json`
   - `output/testcases_e2e.json`

@@ -87,7 +87,7 @@
     "bot_response_3": "Em là nhân viên công ty HomeCredit, để đảm bảo gặp đúng chủ hợp đồng, cho em xác nhận có phải {{GENDER}} {{FIRSTNAME}} nghe máy không ạ?",
     "bot_response_4": "",
     "bot_response_5": "",
-    "next_step": "A2",
+    "next_step": "A1",
     "action_code": "Call disconnected (RPC)"
   },
   {
@@ -100,7 +100,7 @@
     "bot_response_3": "Dạ {{GENDER}} {{FIRSTNAME}} có đang nghe không ạ?",
     "bot_response_4": "",
     "bot_response_5": "",
-    "next_step": "A2",
+    "next_step": "A1",
     "action_code": "Call disconnected (RPC)"
   },
   {

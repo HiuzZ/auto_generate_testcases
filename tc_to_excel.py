@@ -172,7 +172,18 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
         ws.cell(row=row, column=1).alignment = openpyxl.styles.Alignment(wrap_text=True)
         row += 1
 
-        for case in grouped_cases[step_no]:
+        section_cases = sorted(
+            grouped_cases[step_no],
+            key=lambda case: (
+                str(case.get("conditions", "")),
+                tuple(case.get("steps", [])),
+                str(case.get("path", "")),
+                str(case.get("expected_action_code", "")),
+                tuple(case.get("bot_responses", [])),
+            ),
+        )
+
+        for case in section_cases:
             tc_id = f"TC{display_tc_index:03d}"
             conditions = str(case.get("conditions", ""))
             steps: list[str] = case.get("steps", [])

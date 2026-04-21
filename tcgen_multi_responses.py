@@ -167,6 +167,19 @@ def generate_test_cases(
         non_empty = [cond for cond in case_conditions if cond]
         return " \\ ".join(non_empty) if non_empty else ""
 
+    def _has_self_repeat_path(path: str) -> bool:
+        nodes = [p.strip() for p in str(path).split("->") if p.strip()]
+        return any(nodes[i] == nodes[i - 1] for i in range(1, len(nodes)))
+
+    def _dialogue_step_from_path(path: str) -> str:
+        nodes = [p.strip() for p in str(path).split("->") if p.strip()]
+        if not nodes:
+            return ""
+        last = nodes[-1]
+        if _is_terminal_step(last) and len(nodes) >= 2:
+            return nodes[-2]
+        return last
+
     repeat_index: Dict[str, Dict[Tuple[str, int], GroupedTransition]] = defaultdict(dict)
     for src, transitions in graph.items():
         for tr in transitions:
@@ -292,18 +305,23 @@ def generate_test_cases(
             seen.add(key)
             unique_cases.append(case)
 
-    # De-duplicate redundant cases by last step: if a shorter testcase already covers the same
-    # last step + last bot response + expected action code, drop the longer one.
+    # De-duplicate redundant cases by dialogue step:
+    # - keep shortest flow for same dialogue step + same final sentence
+    # - preserve same dialogue across different steps (e.g., A3..A11)
     unique_cases.sort(key=lambda c: (len(c.get("steps", [])), c.get("tc_id", "")))
     kept: List[dict[str, Any]] = []
-    covered_last: set[Tuple[str, str, str]] = set()
+    covered_last: set[Tuple[str, str]] = set()
     for case in unique_cases:
-        steps = case.get("steps", [])
+        # Do not apply "last-step shortest" pruning for self-repeat paths
+        # (e.g., A1 -> A2 -> A2). These are valid repeated-step checks.
+        if _has_self_repeat_path(str(case.get("path", ""))):
+            kept.append(case)
+            continue
+
         bots = case.get("bot_responses", [])
-        last_step = steps[-1] if steps else ""
+        dialogue_step = _dialogue_step_from_path(str(case.get("path", "")))
         last_bot = bots[-1] if bots else ""
-        action = str(case.get("expected_action_code", ""))
-        last_key = (last_step, last_bot, action)
+        last_key = (dialogue_step, last_bot)
         if last_key in covered_last:
             continue
         covered_last.add(last_key)

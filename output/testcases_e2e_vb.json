@@ -3,7 +3,7 @@
     "tc_id": "TC001",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH mất"
@@ -22,7 +22,7 @@
     "tc_id": "TC002",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH đã trả"
@@ -41,7 +41,7 @@
     "tc_id": "TC003",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH mất"
@@ -60,7 +60,7 @@
     "tc_id": "TC004",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH tự nguyện trả"
@@ -79,7 +79,7 @@
     "tc_id": "TC005",
     "conditions": "Payment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH tự nguyện trả"
@@ -98,7 +98,7 @@
     "tc_id": "TC006",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH tự nguyện trả"
@@ -117,7 +117,7 @@
     "tc_id": "TC007",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "FAQ lần 1 \\ KH im lặng lần 1 \\ KH trả sau lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -138,7 +138,7 @@
     "tc_id": "TC008",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "FAQ lần 1 \\ KH im lặng lần 1 \\ KH trả sau lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -159,7 +159,7 @@
     "tc_id": "TC009",
     "conditions": "Payment_amt < {{OVERDUE_AMT}} \\ Payment_amt < {{OVERDUE_AMT}}\n\nBusiness Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH trả một ít lần 1",
@@ -180,7 +180,7 @@
     "tc_id": "TC010",
     "conditions": "Payment_amt < {{OVERDUE_AMT}} \\ Payment_amt < {{OVERDUE_AMT}}\n\nOut of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả một ít \\ KH tự nguyện trả",
       "KH trả một ít lần 1",
@@ -201,7 +201,7 @@
     "tc_id": "TC011",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH mất"
     ],
@@ -218,7 +218,7 @@
     "tc_id": "TC012",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH đã trả"
     ],
@@ -235,7 +235,7 @@
     "tc_id": "TC013",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH mất"
     ],
@@ -252,7 +252,7 @@
     "tc_id": "TC014",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH từ chối trả"
     ],
@@ -269,7 +269,7 @@
     "tc_id": "TC015",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "FAQ lần 1 \\ KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
       "FAQ lần 2 \\ KH im lặng lần 2 \\ KH yêu cầu nhắc lại lần 2"
@@ -288,7 +288,7 @@
     "tc_id": "TC016",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "FAQ lần 1 \\ KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
       "FAQ lần 2 \\ KH im lặng lần 2 \\ KH yêu cầu nhắc lại lần 2"
@@ -307,7 +307,7 @@
     "tc_id": "TC017",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH bận lần 1",
       "KH bận lần 2"
@@ -326,7 +326,7 @@
     "tc_id": "TC018",
     "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nBusiness Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả sau lần 1",
       "KH trả sau lần 2"
@@ -345,7 +345,7 @@
     "tc_id": "TC019",
     "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nOut of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
       "KH trả sau lần 1",
       "KH trả sau lần 2"
@@ -364,7 +364,7 @@
     "tc_id": "TC020",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -393,7 +393,7 @@
     "tc_id": "TC021",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -422,7 +422,7 @@
     "tc_id": "TC022",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -451,7 +451,7 @@
     "tc_id": "TC023",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -480,7 +480,7 @@
     "tc_id": "TC024",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -509,7 +509,7 @@
     "tc_id": "TC025",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -538,7 +538,7 @@
     "tc_id": "TC026",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -567,7 +567,7 @@
     "tc_id": "TC027",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -598,7 +598,7 @@
     "tc_id": "TC028",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -629,7 +629,7 @@
     "tc_id": "TC029",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -660,7 +660,7 @@
     "tc_id": "TC030",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -691,7 +691,7 @@
     "tc_id": "TC031",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -722,7 +722,7 @@
     "tc_id": "TC032",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -749,7 +749,7 @@
     "tc_id": "TC033",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -776,7 +776,7 @@
     "tc_id": "TC034",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -803,7 +803,7 @@
     "tc_id": "TC035",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -830,7 +830,7 @@
     "tc_id": "TC036",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -857,7 +857,7 @@
     "tc_id": "TC037",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -886,7 +886,7 @@
     "tc_id": "TC038",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -915,7 +915,7 @@
     "tc_id": "TC039",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -944,7 +944,7 @@
     "tc_id": "TC040",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -973,7 +973,7 @@
     "tc_id": "TC041",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1002,7 +1002,7 @@
     "tc_id": "TC042",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1027,7 +1027,7 @@
     "tc_id": "TC043",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1052,7 +1052,7 @@
     "tc_id": "TC044",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1077,7 +1077,7 @@
     "tc_id": "TC045",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1102,7 +1102,7 @@
     "tc_id": "TC046",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1127,7 +1127,7 @@
     "tc_id": "TC047",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1152,7 +1152,7 @@
     "tc_id": "TC048",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1177,7 +1177,7 @@
     "tc_id": "TC049",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1204,7 +1204,7 @@
     "tc_id": "TC050",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1231,7 +1231,7 @@
     "tc_id": "TC051",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1258,7 +1258,7 @@
     "tc_id": "TC052",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1285,7 +1285,7 @@
     "tc_id": "TC053",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1312,7 +1312,7 @@
     "tc_id": "TC054",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1335,7 +1335,7 @@
     "tc_id": "TC055",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1358,7 +1358,7 @@
     "tc_id": "TC056",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1381,7 +1381,7 @@
     "tc_id": "TC057",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1404,7 +1404,7 @@
     "tc_id": "TC058",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1427,7 +1427,7 @@
     "tc_id": "TC059",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1452,7 +1452,7 @@
     "tc_id": "TC060",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1477,7 +1477,7 @@
     "tc_id": "TC061",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1502,7 +1502,7 @@
     "tc_id": "TC062",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1527,7 +1527,7 @@
     "tc_id": "TC063",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1552,7 +1552,7 @@
     "tc_id": "TC064",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1581,7 +1581,7 @@
     "tc_id": "TC065",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1610,7 +1610,7 @@
     "tc_id": "TC066",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1639,7 +1639,7 @@
     "tc_id": "TC067",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1668,7 +1668,7 @@
     "tc_id": "TC068",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1697,7 +1697,7 @@
     "tc_id": "TC069",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1726,7 +1726,7 @@
     "tc_id": "TC070",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1755,7 +1755,7 @@
     "tc_id": "TC071",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1786,7 +1786,7 @@
     "tc_id": "TC072",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1817,7 +1817,7 @@
     "tc_id": "TC073",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1848,7 +1848,7 @@
     "tc_id": "TC074",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1879,7 +1879,7 @@
     "tc_id": "TC075",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1910,7 +1910,7 @@
     "tc_id": "TC076",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1937,7 +1937,7 @@
     "tc_id": "TC077",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1964,7 +1964,7 @@
     "tc_id": "TC078",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -1991,7 +1991,7 @@
     "tc_id": "TC079",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2018,7 +2018,7 @@
     "tc_id": "TC080",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2045,7 +2045,7 @@
     "tc_id": "TC081",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2074,7 +2074,7 @@
     "tc_id": "TC082",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2103,7 +2103,7 @@
     "tc_id": "TC083",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2132,7 +2132,7 @@
     "tc_id": "TC084",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2161,7 +2161,7 @@
     "tc_id": "TC085",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2190,7 +2190,7 @@
     "tc_id": "TC086",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2215,7 +2215,7 @@
     "tc_id": "TC087",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2240,7 +2240,7 @@
     "tc_id": "TC088",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2265,7 +2265,7 @@
     "tc_id": "TC089",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2290,7 +2290,7 @@
     "tc_id": "TC090",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2315,7 +2315,7 @@
     "tc_id": "TC091",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2340,7 +2340,7 @@
     "tc_id": "TC092",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2365,7 +2365,7 @@
     "tc_id": "TC093",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2392,7 +2392,7 @@
     "tc_id": "TC094",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2419,7 +2419,7 @@
     "tc_id": "TC095",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2446,7 +2446,7 @@
     "tc_id": "TC096",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2473,7 +2473,7 @@
     "tc_id": "TC097",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2500,7 +2500,7 @@
     "tc_id": "TC098",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2523,7 +2523,7 @@
     "tc_id": "TC099",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2546,7 +2546,7 @@
     "tc_id": "TC100",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2569,7 +2569,7 @@
     "tc_id": "TC101",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2592,7 +2592,7 @@
     "tc_id": "TC102",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2615,7 +2615,7 @@
     "tc_id": "TC103",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2640,7 +2640,7 @@
     "tc_id": "TC104",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2665,7 +2665,7 @@
     "tc_id": "TC105",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2690,7 +2690,7 @@
     "tc_id": "TC106",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2715,7 +2715,7 @@
     "tc_id": "TC107",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2740,7 +2740,7 @@
     "tc_id": "TC108",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2761,7 +2761,7 @@
     "tc_id": "TC109",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2782,7 +2782,7 @@
     "tc_id": "TC110",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2803,7 +2803,7 @@
     "tc_id": "TC111",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2824,7 +2824,7 @@
     "tc_id": "TC112",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2845,7 +2845,7 @@
     "tc_id": "TC113",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2866,7 +2866,7 @@
     "tc_id": "TC114",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2887,7 +2887,7 @@
     "tc_id": "TC115",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2910,7 +2910,7 @@
     "tc_id": "TC116",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2933,7 +2933,7 @@
     "tc_id": "TC117",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2956,7 +2956,7 @@
     "tc_id": "TC118",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -2979,7 +2979,7 @@
     "tc_id": "TC119",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH hứa trả",
@@ -3002,7 +3002,7 @@
     "tc_id": "TC120",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -3021,7 +3021,7 @@
     "tc_id": "TC121",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH mất"
@@ -3040,7 +3040,7 @@
     "tc_id": "TC122",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH đã trả"
@@ -3059,7 +3059,7 @@
     "tc_id": "TC123",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -3078,7 +3078,7 @@
     "tc_id": "TC124",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH mất"
@@ -3097,7 +3097,7 @@
     "tc_id": "TC125",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -3118,7 +3118,7 @@
     "tc_id": "TC126",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -3139,7 +3139,7 @@
     "tc_id": "TC127",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "FAQ lần 1",
@@ -3160,7 +3160,7 @@
     "tc_id": "TC128",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "FAQ lần 1",
@@ -3181,7 +3181,7 @@
     "tc_id": "TC129",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH vay hộ/đứng tên giùm",
       "KH bận lần 1",
@@ -3202,7 +3202,7 @@
     "tc_id": "TC130",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3231,7 +3231,7 @@
     "tc_id": "TC131",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3260,7 +3260,7 @@
     "tc_id": "TC132",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3289,7 +3289,7 @@
     "tc_id": "TC133",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3318,7 +3318,7 @@
     "tc_id": "TC134",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3347,7 +3347,7 @@
     "tc_id": "TC135",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3376,7 +3376,7 @@
     "tc_id": "TC136",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3405,7 +3405,7 @@
     "tc_id": "TC137",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3436,7 +3436,7 @@
     "tc_id": "TC138",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3467,7 +3467,7 @@
     "tc_id": "TC139",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3498,7 +3498,7 @@
     "tc_id": "TC140",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3529,7 +3529,7 @@
     "tc_id": "TC141",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3560,7 +3560,7 @@
     "tc_id": "TC142",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3587,7 +3587,7 @@
     "tc_id": "TC143",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3614,7 +3614,7 @@
     "tc_id": "TC144",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3641,7 +3641,7 @@
     "tc_id": "TC145",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3668,7 +3668,7 @@
     "tc_id": "TC146",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3695,7 +3695,7 @@
     "tc_id": "TC147",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3724,7 +3724,7 @@
     "tc_id": "TC148",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3753,7 +3753,7 @@
     "tc_id": "TC149",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3782,7 +3782,7 @@
     "tc_id": "TC150",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3811,7 +3811,7 @@
     "tc_id": "TC151",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3840,7 +3840,7 @@
     "tc_id": "TC152",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3865,7 +3865,7 @@
     "tc_id": "TC153",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3890,7 +3890,7 @@
     "tc_id": "TC154",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3915,7 +3915,7 @@
     "tc_id": "TC155",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3940,7 +3940,7 @@
     "tc_id": "TC156",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3965,7 +3965,7 @@
     "tc_id": "TC157",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -3990,7 +3990,7 @@
     "tc_id": "TC158",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4015,7 +4015,7 @@
     "tc_id": "TC159",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4042,7 +4042,7 @@
     "tc_id": "TC160",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4069,7 +4069,7 @@
     "tc_id": "TC161",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4096,7 +4096,7 @@
     "tc_id": "TC162",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4123,7 +4123,7 @@
     "tc_id": "TC163",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4150,7 +4150,7 @@
     "tc_id": "TC164",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4173,7 +4173,7 @@
     "tc_id": "TC165",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4196,7 +4196,7 @@
     "tc_id": "TC166",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4219,7 +4219,7 @@
     "tc_id": "TC167",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4242,7 +4242,7 @@
     "tc_id": "TC168",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4265,7 +4265,7 @@
     "tc_id": "TC169",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4290,7 +4290,7 @@
     "tc_id": "TC170",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4315,7 +4315,7 @@
     "tc_id": "TC171",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4340,7 +4340,7 @@
     "tc_id": "TC172",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4365,7 +4365,7 @@
     "tc_id": "TC173",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4390,7 +4390,7 @@
     "tc_id": "TC174",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4419,7 +4419,7 @@
     "tc_id": "TC175",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4448,7 +4448,7 @@
     "tc_id": "TC176",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4477,7 +4477,7 @@
     "tc_id": "TC177",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4506,7 +4506,7 @@
     "tc_id": "TC178",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4535,7 +4535,7 @@
     "tc_id": "TC179",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4564,7 +4564,7 @@
     "tc_id": "TC180",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4593,7 +4593,7 @@
     "tc_id": "TC181",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4624,7 +4624,7 @@
     "tc_id": "TC182",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4655,7 +4655,7 @@
     "tc_id": "TC183",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4686,7 +4686,7 @@
     "tc_id": "TC184",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4717,7 +4717,7 @@
     "tc_id": "TC185",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4748,7 +4748,7 @@
     "tc_id": "TC186",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4775,7 +4775,7 @@
     "tc_id": "TC187",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4802,7 +4802,7 @@
     "tc_id": "TC188",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4829,7 +4829,7 @@
     "tc_id": "TC189",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4856,7 +4856,7 @@
     "tc_id": "TC190",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4883,7 +4883,7 @@
     "tc_id": "TC191",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4912,7 +4912,7 @@
     "tc_id": "TC192",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4941,7 +4941,7 @@
     "tc_id": "TC193",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4970,7 +4970,7 @@
     "tc_id": "TC194",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -4999,7 +4999,7 @@
     "tc_id": "TC195",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5028,7 +5028,7 @@
     "tc_id": "TC196",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5053,7 +5053,7 @@
     "tc_id": "TC197",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5078,7 +5078,7 @@
     "tc_id": "TC198",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5103,7 +5103,7 @@
     "tc_id": "TC199",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5128,7 +5128,7 @@
     "tc_id": "TC200",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5153,7 +5153,7 @@
     "tc_id": "TC201",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5178,7 +5178,7 @@
     "tc_id": "TC202",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5203,7 +5203,7 @@
     "tc_id": "TC203",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5230,7 +5230,7 @@
     "tc_id": "TC204",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5257,7 +5257,7 @@
     "tc_id": "TC205",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5284,7 +5284,7 @@
     "tc_id": "TC206",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5311,7 +5311,7 @@
     "tc_id": "TC207",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5338,7 +5338,7 @@
     "tc_id": "TC208",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5361,7 +5361,7 @@
     "tc_id": "TC209",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5384,7 +5384,7 @@
     "tc_id": "TC210",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5407,7 +5407,7 @@
     "tc_id": "TC211",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5430,7 +5430,7 @@
     "tc_id": "TC212",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5453,7 +5453,7 @@
     "tc_id": "TC213",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5478,7 +5478,7 @@
     "tc_id": "TC214",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5503,7 +5503,7 @@
     "tc_id": "TC215",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5528,7 +5528,7 @@
     "tc_id": "TC216",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5553,7 +5553,7 @@
     "tc_id": "TC217",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5578,7 +5578,7 @@
     "tc_id": "TC218",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5599,7 +5599,7 @@
     "tc_id": "TC219",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5620,7 +5620,7 @@
     "tc_id": "TC220",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5641,7 +5641,7 @@
     "tc_id": "TC221",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5662,7 +5662,7 @@
     "tc_id": "TC222",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5683,7 +5683,7 @@
     "tc_id": "TC223",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5704,7 +5704,7 @@
     "tc_id": "TC224",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5725,7 +5725,7 @@
     "tc_id": "TC225",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5748,7 +5748,7 @@
     "tc_id": "TC226",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5771,7 +5771,7 @@
     "tc_id": "TC227",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5794,7 +5794,7 @@
     "tc_id": "TC228",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5817,7 +5817,7 @@
     "tc_id": "TC229",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH hứa trả",
@@ -5840,7 +5840,7 @@
     "tc_id": "TC230",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -5859,7 +5859,7 @@
     "tc_id": "TC231",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH mất"
@@ -5878,7 +5878,7 @@
     "tc_id": "TC232",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH đã trả"
@@ -5897,7 +5897,7 @@
     "tc_id": "TC233",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -5916,7 +5916,7 @@
     "tc_id": "TC234",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH mất"
@@ -5935,7 +5935,7 @@
     "tc_id": "TC235",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -5956,7 +5956,7 @@
     "tc_id": "TC236",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -5977,7 +5977,7 @@
     "tc_id": "TC237",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "FAQ lần 1",
@@ -5998,7 +5998,7 @@
     "tc_id": "TC238",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "FAQ lần 1",
@@ -6019,7 +6019,7 @@
     "tc_id": "TC239",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH không biết khoản vay",
       "KH bận lần 1",
@@ -6040,7 +6040,7 @@
     "tc_id": "TC240",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6067,7 +6067,7 @@
     "tc_id": "TC241",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6094,7 +6094,7 @@
     "tc_id": "TC242",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6121,7 +6121,7 @@
     "tc_id": "TC243",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6148,7 +6148,7 @@
     "tc_id": "TC244",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6175,7 +6175,7 @@
     "tc_id": "TC245",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6202,7 +6202,7 @@
     "tc_id": "TC246",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6229,7 +6229,7 @@
     "tc_id": "TC247",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6258,7 +6258,7 @@
     "tc_id": "TC248",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6287,7 +6287,7 @@
     "tc_id": "TC249",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6316,7 +6316,7 @@
     "tc_id": "TC250",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6345,7 +6345,7 @@
     "tc_id": "TC251",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6374,7 +6374,7 @@
     "tc_id": "TC252",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6399,7 +6399,7 @@
     "tc_id": "TC253",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6424,7 +6424,7 @@
     "tc_id": "TC254",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6449,7 +6449,7 @@
     "tc_id": "TC255",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6474,7 +6474,7 @@
     "tc_id": "TC256",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6499,7 +6499,7 @@
     "tc_id": "TC257",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6526,7 +6526,7 @@
     "tc_id": "TC258",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6553,7 +6553,7 @@
     "tc_id": "TC259",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6580,7 +6580,7 @@
     "tc_id": "TC260",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6607,7 +6607,7 @@
     "tc_id": "TC261",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6634,7 +6634,7 @@
     "tc_id": "TC262",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6657,7 +6657,7 @@
     "tc_id": "TC263",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6680,7 +6680,7 @@
     "tc_id": "TC264",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6703,7 +6703,7 @@
     "tc_id": "TC265",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6726,7 +6726,7 @@
     "tc_id": "TC266",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6749,7 +6749,7 @@
     "tc_id": "TC267",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6772,7 +6772,7 @@
     "tc_id": "TC268",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6795,7 +6795,7 @@
     "tc_id": "TC269",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6820,7 +6820,7 @@
     "tc_id": "TC270",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6845,7 +6845,7 @@
     "tc_id": "TC271",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6870,7 +6870,7 @@
     "tc_id": "TC272",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6895,7 +6895,7 @@
     "tc_id": "TC273",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6920,7 +6920,7 @@
     "tc_id": "TC274",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6941,7 +6941,7 @@
     "tc_id": "TC275",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6962,7 +6962,7 @@
     "tc_id": "TC276",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -6983,7 +6983,7 @@
     "tc_id": "TC277",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7004,7 +7004,7 @@
     "tc_id": "TC278",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7025,7 +7025,7 @@
     "tc_id": "TC279",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7048,7 +7048,7 @@
     "tc_id": "TC280",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7071,7 +7071,7 @@
     "tc_id": "TC281",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7094,7 +7094,7 @@
     "tc_id": "TC282",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7117,7 +7117,7 @@
     "tc_id": "TC283",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả một ít",
@@ -7140,7 +7140,7 @@
     "tc_id": "TC284",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7167,7 +7167,7 @@
     "tc_id": "TC285",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7194,7 +7194,7 @@
     "tc_id": "TC286",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7221,7 +7221,7 @@
     "tc_id": "TC287",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7248,7 +7248,7 @@
     "tc_id": "TC288",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7275,7 +7275,7 @@
     "tc_id": "TC289",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7302,7 +7302,7 @@
     "tc_id": "TC290",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7329,7 +7329,7 @@
     "tc_id": "TC291",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7358,7 +7358,7 @@
     "tc_id": "TC292",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7387,7 +7387,7 @@
     "tc_id": "TC293",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7416,7 +7416,7 @@
     "tc_id": "TC294",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7445,7 +7445,7 @@
     "tc_id": "TC295",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7474,7 +7474,7 @@
     "tc_id": "TC296",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7499,7 +7499,7 @@
     "tc_id": "TC297",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7524,7 +7524,7 @@
     "tc_id": "TC298",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7549,7 +7549,7 @@
     "tc_id": "TC299",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7574,7 +7574,7 @@
     "tc_id": "TC300",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7599,7 +7599,7 @@
     "tc_id": "TC301",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7626,7 +7626,7 @@
     "tc_id": "TC302",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7653,7 +7653,7 @@
     "tc_id": "TC303",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7680,7 +7680,7 @@
     "tc_id": "TC304",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7707,7 +7707,7 @@
     "tc_id": "TC305",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7734,7 +7734,7 @@
     "tc_id": "TC306",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7757,7 +7757,7 @@
     "tc_id": "TC307",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7780,7 +7780,7 @@
     "tc_id": "TC308",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7803,7 +7803,7 @@
     "tc_id": "TC309",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7826,7 +7826,7 @@
     "tc_id": "TC310",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7849,7 +7849,7 @@
     "tc_id": "TC311",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7872,7 +7872,7 @@
     "tc_id": "TC312",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7895,7 +7895,7 @@
     "tc_id": "TC313",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7920,7 +7920,7 @@
     "tc_id": "TC314",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7945,7 +7945,7 @@
     "tc_id": "TC315",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7970,7 +7970,7 @@
     "tc_id": "TC316",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -7995,7 +7995,7 @@
     "tc_id": "TC317",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8020,7 +8020,7 @@
     "tc_id": "TC318",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8041,7 +8041,7 @@
     "tc_id": "TC319",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8062,7 +8062,7 @@
     "tc_id": "TC320",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8083,7 +8083,7 @@
     "tc_id": "TC321",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8104,7 +8104,7 @@
     "tc_id": "TC322",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8125,7 +8125,7 @@
     "tc_id": "TC323",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8148,7 +8148,7 @@
     "tc_id": "TC324",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8171,7 +8171,7 @@
     "tc_id": "TC325",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8194,7 +8194,7 @@
     "tc_id": "TC326",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8217,7 +8217,7 @@
     "tc_id": "TC327",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH trả sau",
@@ -8240,7 +8240,7 @@
     "tc_id": "TC328",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH mất"
@@ -8259,7 +8259,7 @@
     "tc_id": "TC329",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH đã trả"
@@ -8278,7 +8278,7 @@
     "tc_id": "TC330",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH mất"
@@ -8297,7 +8297,7 @@
     "tc_id": "TC331",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH đóng nhầm hợp đồng"
@@ -8316,7 +8316,7 @@
     "tc_id": "TC332",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH hứa trả"
@@ -8335,7 +8335,7 @@
     "tc_id": "TC333",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH hứa trả"
@@ -8354,7 +8354,7 @@
     "tc_id": "TC334",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH hứa trả"
@@ -8373,7 +8373,7 @@
     "tc_id": "TC335",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -8394,7 +8394,7 @@
     "tc_id": "TC336",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -8415,7 +8415,7 @@
     "tc_id": "TC337",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "FAQ lần 1",
@@ -8436,7 +8436,7 @@
     "tc_id": "TC338",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "FAQ lần 1",
@@ -8457,7 +8457,7 @@
     "tc_id": "TC339",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH hứa trả",
       "KH bận lần 1",
@@ -8478,7 +8478,7 @@
     "tc_id": "TC340",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8501,7 +8501,7 @@
     "tc_id": "TC341",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8524,7 +8524,7 @@
     "tc_id": "TC342",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8547,7 +8547,7 @@
     "tc_id": "TC343",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8570,7 +8570,7 @@
     "tc_id": "TC344",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8593,7 +8593,7 @@
     "tc_id": "TC345",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8618,7 +8618,7 @@
     "tc_id": "TC346",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8643,7 +8643,7 @@
     "tc_id": "TC347",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8668,7 +8668,7 @@
     "tc_id": "TC348",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8693,7 +8693,7 @@
     "tc_id": "TC349",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8718,7 +8718,7 @@
     "tc_id": "TC350",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8745,7 +8745,7 @@
     "tc_id": "TC351",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8772,7 +8772,7 @@
     "tc_id": "TC352",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8799,7 +8799,7 @@
     "tc_id": "TC353",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8826,7 +8826,7 @@
     "tc_id": "TC354",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8853,7 +8853,7 @@
     "tc_id": "TC355",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8882,7 +8882,7 @@
     "tc_id": "TC356",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8911,7 +8911,7 @@
     "tc_id": "TC357",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8940,7 +8940,7 @@
     "tc_id": "TC358",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8969,7 +8969,7 @@
     "tc_id": "TC359",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -8998,7 +8998,7 @@
     "tc_id": "TC360",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9023,7 +9023,7 @@
     "tc_id": "TC361",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9048,7 +9048,7 @@
     "tc_id": "TC362",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9073,7 +9073,7 @@
     "tc_id": "TC363",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9098,7 +9098,7 @@
     "tc_id": "TC364",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9123,7 +9123,7 @@
     "tc_id": "TC365",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9148,7 +9148,7 @@
     "tc_id": "TC366",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9173,7 +9173,7 @@
     "tc_id": "TC367",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9200,7 +9200,7 @@
     "tc_id": "TC368",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9227,7 +9227,7 @@
     "tc_id": "TC369",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9254,7 +9254,7 @@
     "tc_id": "TC370",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9281,7 +9281,7 @@
     "tc_id": "TC371",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9308,7 +9308,7 @@
     "tc_id": "TC372",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9331,7 +9331,7 @@
     "tc_id": "TC373",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9354,7 +9354,7 @@
     "tc_id": "TC374",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9377,7 +9377,7 @@
     "tc_id": "TC375",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9400,7 +9400,7 @@
     "tc_id": "TC376",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9423,7 +9423,7 @@
     "tc_id": "TC377",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9448,7 +9448,7 @@
     "tc_id": "TC378",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9473,7 +9473,7 @@
     "tc_id": "TC379",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9498,7 +9498,7 @@
     "tc_id": "TC380",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9523,7 +9523,7 @@
     "tc_id": "TC381",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9548,7 +9548,7 @@
     "tc_id": "TC382",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9569,7 +9569,7 @@
     "tc_id": "TC383",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9590,7 +9590,7 @@
     "tc_id": "TC384",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9611,7 +9611,7 @@
     "tc_id": "TC385",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9632,7 +9632,7 @@
     "tc_id": "TC386",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9653,7 +9653,7 @@
     "tc_id": "TC387",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9674,7 +9674,7 @@
     "tc_id": "TC388",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9695,7 +9695,7 @@
     "tc_id": "TC389",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9718,7 +9718,7 @@
     "tc_id": "TC390",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9741,7 +9741,7 @@
     "tc_id": "TC391",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9764,7 +9764,7 @@
     "tc_id": "TC392",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9787,7 +9787,7 @@
     "tc_id": "TC393",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH hứa trả",
@@ -9810,7 +9810,7 @@
     "tc_id": "TC394",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -9829,7 +9829,7 @@
     "tc_id": "TC395",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH mất"
@@ -9848,7 +9848,7 @@
     "tc_id": "TC396",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH đã trả"
@@ -9867,7 +9867,7 @@
     "tc_id": "TC397",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -9886,7 +9886,7 @@
     "tc_id": "TC398",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH mất"
@@ -9905,7 +9905,7 @@
     "tc_id": "TC399",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -9926,7 +9926,7 @@
     "tc_id": "TC400",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -9947,7 +9947,7 @@
     "tc_id": "TC401",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "FAQ lần 1",
@@ -9968,7 +9968,7 @@
     "tc_id": "TC402",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "FAQ lần 1",
@@ -9989,7 +9989,7 @@
     "tc_id": "TC403",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả một ít",
       "KH bận lần 1",
@@ -10010,7 +10010,7 @@
     "tc_id": "TC404",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10037,7 +10037,7 @@
     "tc_id": "TC405",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10064,7 +10064,7 @@
     "tc_id": "TC406",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10091,7 +10091,7 @@
     "tc_id": "TC407",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10118,7 +10118,7 @@
     "tc_id": "TC408",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10145,7 +10145,7 @@
     "tc_id": "TC409",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10174,7 +10174,7 @@
     "tc_id": "TC410",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10203,7 +10203,7 @@
     "tc_id": "TC411",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10232,7 +10232,7 @@
     "tc_id": "TC412",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10261,7 +10261,7 @@
     "tc_id": "TC413",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10290,7 +10290,7 @@
     "tc_id": "TC414",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10315,7 +10315,7 @@
     "tc_id": "TC415",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10340,7 +10340,7 @@
     "tc_id": "TC416",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10365,7 +10365,7 @@
     "tc_id": "TC417",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10390,7 +10390,7 @@
     "tc_id": "TC418",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10415,7 +10415,7 @@
     "tc_id": "TC419",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10440,7 +10440,7 @@
     "tc_id": "TC420",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10465,7 +10465,7 @@
     "tc_id": "TC421",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10492,7 +10492,7 @@
     "tc_id": "TC422",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10519,7 +10519,7 @@
     "tc_id": "TC423",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10546,7 +10546,7 @@
     "tc_id": "TC424",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10573,7 +10573,7 @@
     "tc_id": "TC425",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10600,7 +10600,7 @@
     "tc_id": "TC426",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10623,7 +10623,7 @@
     "tc_id": "TC427",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10646,7 +10646,7 @@
     "tc_id": "TC428",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10669,7 +10669,7 @@
     "tc_id": "TC429",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10692,7 +10692,7 @@
     "tc_id": "TC430",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10715,7 +10715,7 @@
     "tc_id": "TC431",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10740,7 +10740,7 @@
     "tc_id": "TC432",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10765,7 +10765,7 @@
     "tc_id": "TC433",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10790,7 +10790,7 @@
     "tc_id": "TC434",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10815,7 +10815,7 @@
     "tc_id": "TC435",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10840,7 +10840,7 @@
     "tc_id": "TC436",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10863,7 +10863,7 @@
     "tc_id": "TC437",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10886,7 +10886,7 @@
     "tc_id": "TC438",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10909,7 +10909,7 @@
     "tc_id": "TC439",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10932,7 +10932,7 @@
     "tc_id": "TC440",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10955,7 +10955,7 @@
     "tc_id": "TC441",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -10980,7 +10980,7 @@
     "tc_id": "TC442",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11005,7 +11005,7 @@
     "tc_id": "TC443",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11030,7 +11030,7 @@
     "tc_id": "TC444",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11055,7 +11055,7 @@
     "tc_id": "TC445",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11080,7 +11080,7 @@
     "tc_id": "TC446",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11101,7 +11101,7 @@
     "tc_id": "TC447",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11122,7 +11122,7 @@
     "tc_id": "TC448",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11143,7 +11143,7 @@
     "tc_id": "TC449",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11164,7 +11164,7 @@
     "tc_id": "TC450",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11185,7 +11185,7 @@
     "tc_id": "TC451",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11206,7 +11206,7 @@
     "tc_id": "TC452",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11227,7 +11227,7 @@
     "tc_id": "TC453",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11250,7 +11250,7 @@
     "tc_id": "TC454",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11273,7 +11273,7 @@
     "tc_id": "TC455",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11296,7 +11296,7 @@
     "tc_id": "TC456",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11319,7 +11319,7 @@
     "tc_id": "TC457",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH hứa trả",
@@ -11342,7 +11342,7 @@
     "tc_id": "TC458",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -11361,7 +11361,7 @@
     "tc_id": "TC459",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH mất"
@@ -11380,7 +11380,7 @@
     "tc_id": "TC460",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH đã trả"
@@ -11399,7 +11399,7 @@
     "tc_id": "TC461",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -11418,7 +11418,7 @@
     "tc_id": "TC462",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH mất"
@@ -11437,7 +11437,7 @@
     "tc_id": "TC463",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -11458,7 +11458,7 @@
     "tc_id": "TC464",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -11479,7 +11479,7 @@
     "tc_id": "TC465",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "FAQ lần 1",
@@ -11500,7 +11500,7 @@
     "tc_id": "TC466",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "FAQ lần 1",
@@ -11521,7 +11521,7 @@
     "tc_id": "TC467",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH trả sau",
       "KH bận lần 1",
@@ -11542,7 +11542,7 @@
     "tc_id": "TC468",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11571,7 +11571,7 @@
     "tc_id": "TC469",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11600,7 +11600,7 @@
     "tc_id": "TC470",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11629,7 +11629,7 @@
     "tc_id": "TC471",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11658,7 +11658,7 @@
     "tc_id": "TC472",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11687,7 +11687,7 @@
     "tc_id": "TC473",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11716,7 +11716,7 @@
     "tc_id": "TC474",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11745,7 +11745,7 @@
     "tc_id": "TC475",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11776,7 +11776,7 @@
     "tc_id": "TC476",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11807,7 +11807,7 @@
     "tc_id": "TC477",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11838,7 +11838,7 @@
     "tc_id": "TC478",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11869,7 +11869,7 @@
     "tc_id": "TC479",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11900,7 +11900,7 @@
     "tc_id": "TC480",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11927,7 +11927,7 @@
     "tc_id": "TC481",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11954,7 +11954,7 @@
     "tc_id": "TC482",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -11981,7 +11981,7 @@
     "tc_id": "TC483",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12008,7 +12008,7 @@
     "tc_id": "TC484",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12035,7 +12035,7 @@
     "tc_id": "TC485",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12064,7 +12064,7 @@
     "tc_id": "TC486",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12093,7 +12093,7 @@
     "tc_id": "TC487",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12122,7 +12122,7 @@
     "tc_id": "TC488",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12151,7 +12151,7 @@
     "tc_id": "TC489",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12180,7 +12180,7 @@
     "tc_id": "TC490",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12205,7 +12205,7 @@
     "tc_id": "TC491",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12230,7 +12230,7 @@
     "tc_id": "TC492",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12255,7 +12255,7 @@
     "tc_id": "TC493",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12280,7 +12280,7 @@
     "tc_id": "TC494",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12305,7 +12305,7 @@
     "tc_id": "TC495",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12330,7 +12330,7 @@
     "tc_id": "TC496",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12355,7 +12355,7 @@
     "tc_id": "TC497",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12382,7 +12382,7 @@
     "tc_id": "TC498",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12409,7 +12409,7 @@
     "tc_id": "TC499",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12436,7 +12436,7 @@
     "tc_id": "TC500",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12463,7 +12463,7 @@
     "tc_id": "TC501",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12490,7 +12490,7 @@
     "tc_id": "TC502",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12513,7 +12513,7 @@
     "tc_id": "TC503",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12536,7 +12536,7 @@
     "tc_id": "TC504",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12559,7 +12559,7 @@
     "tc_id": "TC505",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12582,7 +12582,7 @@
     "tc_id": "TC506",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12605,7 +12605,7 @@
     "tc_id": "TC507",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12630,7 +12630,7 @@
     "tc_id": "TC508",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12655,7 +12655,7 @@
     "tc_id": "TC509",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12680,7 +12680,7 @@
     "tc_id": "TC510",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12705,7 +12705,7 @@
     "tc_id": "TC511",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12730,7 +12730,7 @@
     "tc_id": "TC512",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12759,7 +12759,7 @@
     "tc_id": "TC513",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12788,7 +12788,7 @@
     "tc_id": "TC514",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12817,7 +12817,7 @@
     "tc_id": "TC515",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12846,7 +12846,7 @@
     "tc_id": "TC516",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12875,7 +12875,7 @@
     "tc_id": "TC517",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12904,7 +12904,7 @@
     "tc_id": "TC518",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ {{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12933,7 +12933,7 @@
     "tc_id": "TC519",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12964,7 +12964,7 @@
     "tc_id": "TC520",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -12995,7 +12995,7 @@
     "tc_id": "TC521",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13026,7 +13026,7 @@
     "tc_id": "TC522",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13057,7 +13057,7 @@
     "tc_id": "TC523",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13088,7 +13088,7 @@
     "tc_id": "TC524",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13115,7 +13115,7 @@
     "tc_id": "TC525",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13142,7 +13142,7 @@
     "tc_id": "TC526",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13169,7 +13169,7 @@
     "tc_id": "TC527",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13196,7 +13196,7 @@
     "tc_id": "TC528",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13223,7 +13223,7 @@
     "tc_id": "TC529",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13252,7 +13252,7 @@
     "tc_id": "TC530",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13281,7 +13281,7 @@
     "tc_id": "TC531",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13310,7 +13310,7 @@
     "tc_id": "TC532",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\" \\ Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13339,7 +13339,7 @@
     "tc_id": "TC533",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}\"",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13368,7 +13368,7 @@
     "tc_id": "TC534",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13393,7 +13393,7 @@
     "tc_id": "TC535",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13418,7 +13418,7 @@
     "tc_id": "TC536",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13443,7 +13443,7 @@
     "tc_id": "TC537",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13468,7 +13468,7 @@
     "tc_id": "TC538",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13493,7 +13493,7 @@
     "tc_id": "TC539",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13518,7 +13518,7 @@
     "tc_id": "TC540",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13543,7 +13543,7 @@
     "tc_id": "TC541",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13570,7 +13570,7 @@
     "tc_id": "TC542",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13597,7 +13597,7 @@
     "tc_id": "TC543",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13624,7 +13624,7 @@
     "tc_id": "TC544",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13651,7 +13651,7 @@
     "tc_id": "TC545",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13678,7 +13678,7 @@
     "tc_id": "TC546",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13701,7 +13701,7 @@
     "tc_id": "TC547",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13724,7 +13724,7 @@
     "tc_id": "TC548",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13747,7 +13747,7 @@
     "tc_id": "TC549",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13770,7 +13770,7 @@
     "tc_id": "TC550",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13793,7 +13793,7 @@
     "tc_id": "TC551",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13818,7 +13818,7 @@
     "tc_id": "TC552",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13843,7 +13843,7 @@
     "tc_id": "TC553",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13868,7 +13868,7 @@
     "tc_id": "TC554",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13893,7 +13893,7 @@
     "tc_id": "TC555",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13918,7 +13918,7 @@
     "tc_id": "TC556",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13939,7 +13939,7 @@
     "tc_id": "TC557",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13960,7 +13960,7 @@
     "tc_id": "TC558",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -13981,7 +13981,7 @@
     "tc_id": "TC559",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14002,7 +14002,7 @@
     "tc_id": "TC560",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14023,7 +14023,7 @@
     "tc_id": "TC561",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14044,7 +14044,7 @@
     "tc_id": "TC562",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14065,7 +14065,7 @@
     "tc_id": "TC563",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14088,7 +14088,7 @@
     "tc_id": "TC564",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14111,7 +14111,7 @@
     "tc_id": "TC565",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14134,7 +14134,7 @@
     "tc_id": "TC566",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14157,7 +14157,7 @@
     "tc_id": "TC567",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH hứa trả",
@@ -14180,7 +14180,7 @@
     "tc_id": "TC568",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -14199,7 +14199,7 @@
     "tc_id": "TC569",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH mất"
@@ -14218,7 +14218,7 @@
     "tc_id": "TC570",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH đã trả"
@@ -14237,7 +14237,7 @@
     "tc_id": "TC571",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH không biết khoản vay \\ KH trả một ít \\ KH trả sau \\ KH từ chối trả"
@@ -14256,7 +14256,7 @@
     "tc_id": "TC572",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH mất"
@@ -14275,7 +14275,7 @@
     "tc_id": "TC573",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -14296,7 +14296,7 @@
     "tc_id": "TC574",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
@@ -14317,7 +14317,7 @@
     "tc_id": "TC575",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "FAQ lần 1",
@@ -14338,7 +14338,7 @@
     "tc_id": "TC576",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "FAQ lần 1",
@@ -14359,7 +14359,7 @@
     "tc_id": "TC577",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH từ chối trả",
       "KH bận lần 1",
@@ -14380,7 +14380,7 @@
     "tc_id": "TC578",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH mất"
     ],
@@ -14397,7 +14397,7 @@
     "tc_id": "TC579",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH đã trả"
     ],
@@ -14414,7 +14414,7 @@
     "tc_id": "TC580",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH mất"
     ],
@@ -14431,7 +14431,7 @@
     "tc_id": "TC581",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH đóng nhầm hợp đồng"
     ],
@@ -14448,7 +14448,7 @@
     "tc_id": "TC582",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
       "KH im lặng lần 2 \\ KH yêu cầu nhắc lại lần 2"
@@ -14467,7 +14467,7 @@
     "tc_id": "TC583",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH im lặng lần 1 \\ KH yêu cầu nhắc lại lần 1",
       "KH im lặng lần 2 \\ KH yêu cầu nhắc lại lần 2"
@@ -14486,7 +14486,7 @@
     "tc_id": "TC584",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "FAQ lần 1",
       "FAQ lần 2"
@@ -14505,7 +14505,7 @@
     "tc_id": "TC585",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "FAQ lần 1",
       "FAQ lần 2"
@@ -14524,7 +14524,7 @@
     "tc_id": "TC586",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH nghe máy \\ Vợ /chồng KH nghe máy",
       "KH bận lần 1",
       "KH bận lần 2"
@@ -14543,7 +14543,7 @@
     "tc_id": "TC587",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH mất"
     ],
     "bot_responses": [
@@ -14558,7 +14558,7 @@
     "tc_id": "TC588",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH mất"
     ],
     "bot_responses": [
@@ -14573,7 +14573,7 @@
     "tc_id": "TC589",
     "conditions": "Business Hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH yêu cầu nhắc lại lần 1 \\ Không đúng KH lần 1",
       "KH yêu cầu nhắc lại lần 2 \\ Không đúng KH lần 2"
     ],
@@ -14590,7 +14590,7 @@
     "tc_id": "TC590",
     "conditions": "Out of business hour",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH yêu cầu nhắc lại lần 1 \\ Không đúng KH lần 1",
       "KH yêu cầu nhắc lại lần 2 \\ Không đúng KH lần 2"
     ],
@@ -14607,7 +14607,7 @@
     "tc_id": "TC591",
     "conditions": "",
     "steps": [
-      "KH đi vắng",
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH bận lần 1 \\ KH im lặng lần 1",
       "KH bận lần 2 \\ KH im lặng lần 2"
     ],
@@ -27723,17 +27723,15 @@
     "steps": [
       "KH hỏi là ai lần 1",
       "KH hỏi là ai lần 2",
-      "KH hỏi là ai lần 3",
-      "KH hỏi là ai lần 4"
+      "KH hỏi là ai lần 3"
     ],
     "bot_responses": [
       "Em gọi đến từ công ty tài chính Home Credit. Em có thông tin cần gặp {{GENDER}} {{FIRSTNAME}}. {{GENDER}} {{FIRSTNAME}}  đang nghe máy đúng không ạ?",
       "Em gọi đến từ công ty tài chính Home Credit. Em có thông tin cần gặp {{GENDER}} {{FIRSTNAME}}. {{GENDER}} {{FIRSTNAME}}  đang nghe máy đúng không ạ?",
-      "Alo, em bên Home Credit, {{GENDER}} {{FIRSTNAME}} đang nghe máy đúng không ạ?",
       "Business Hour: Xin lỗi, em không nghe rõ thông tin, anh chị vui lòng giữ máy, cuộc gọi sẽ được chuyển đến bộ phận liên quan. \nOut of Business Hour: Xin lỗi, em không nghe rõ thông tin từ anh chị, bên em sẽ liên hệ lại. Cám ơn đã sử dụng dịch vụ của Home Credit."
     ],
     "expected_action_code": "Business Hour:                                   *Nếu transfer không thành công: \n => Call disconnected (non RPC)\n * Nếu transfer thành công:\n => Transferred to operator\"\nOut of business hour:                           Call disconnected (non RPC)",
-    "path": "A1 -> A1 -> A1 -> A1 -> End",
+    "path": "A1 -> A1 -> A1 -> End",
     "highlight_last_step": false
   },
   {

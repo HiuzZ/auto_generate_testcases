@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, DefaultDict, Iterable, Dict, List, Tuple, Set, Optional
 
+import tcgen_e2e_human
+
 
 @dataclass(frozen=True)
 class Transition:
@@ -21,6 +23,7 @@ class Transition:
 
 
 _REPEAT_RE = re.compile(r"(?i)\blần\s*(\d+)\b")
+_SPECIAL_STEP_COND_RE = re.compile(r"\b(YES|NO)_([A-Za-z0-9_]+)\b")
 
 
 def _clean_str(v: Any) -> str:
@@ -43,6 +46,24 @@ def _parse_repeat(intent: str) -> tuple[str, int] | None:
     base = _REPEAT_RE.sub("", intent)
     base = " ".join(base.strip().split())
     return base, n
+
+
+def _evaluate_step_condition(raw_condition: str, traversed_nodes: set[str]) -> tuple[bool, str]:
+    text = str(raw_condition or "")
+    for match in _SPECIAL_STEP_COND_RE.finditer(text):
+        mode = match.group(1).upper()
+        nodes = [token.strip() for token in match.group(2).split("_") if token.strip()]
+        if not nodes:
+            continue
+        passed_any = any(node in traversed_nodes for node in nodes)
+        if mode == "YES" and not passed_any:
+            return False, ""
+        if mode == "NO" and passed_any:
+            return False, ""
+
+    cleaned = _SPECIAL_STEP_COND_RE.sub("", text)
+    parts = [part.strip() for part in re.split(r"\s*\\\s*|\n+", cleaned) if part.strip()]
+    return True, " \\ ".join(parts)
 
 
 def load_transitions_json(path: Path) -> list[dict[str, str]]:
@@ -111,7 +132,7 @@ def generate_test_cases(
     Generate test cases by DFS over the transition graph.
 
     Key rules:
-    - Non-repeat intents: group by (dst, action_code), emit one TC per group.
+    - Non-repeat intents: keep each source row as its own transition.
     - Repeat intents (lần N): each base+chain is kept SEPARATE from non-repeat
       and from other bases. Walk lần 1 → lần 2 → lần 3 in sequence.
     - visited_edges prevents re-traversing the same (src, dst, intent) edge.
@@ -133,6 +154,10 @@ def generate_test_cases(
         conditions = list(dict.fromkeys(tr.condition for tr in trans_list))
         step_condition = conditions[0] if conditions else ""
         return step_intent, bot_resp, step_condition
+
+    def _make_single_step(tr: Transition) -> tuple[str, List[str], str]:
+        bot_resp = [tr.bot_response] if tr.bot_response else []
+        return tr.intent, bot_resp, tr.condition
 
     def _append_condition(case_conditions: List[str], condition: str) -> List[str]:
         if condition in case_conditions:
@@ -164,22 +189,24 @@ def generate_test_cases(
         repeat_map: Dict[str, Dict[int, Dict[Tuple[str, str, str], List[Transition]]]] = defaultdict(
             lambda: defaultdict(lambda: defaultdict(list))
         )
-        self_loop_group: Dict[Tuple[str, str, str], List[Transition]] = defaultdict(list)
-        normal_group: Dict[Tuple[str, str, str], List[Transition]] = defaultdict(list)
+        normal_transitions: List[Transition] = []
 
         for tr in transitions:
             rep = _parse_repeat(tr.intent)
             if rep:
                 base, n = rep
                 repeat_map[base][n][(tr.dst, tr.action_code, tr.condition)].append(tr)
-            elif tr.dst == node:
-                self_loop_group[(tr.dst, tr.action_code, tr.condition)].append(tr)
             else:
-                normal_group[(tr.dst, tr.action_code, tr.condition)].append(tr)
+                normal_transitions.append(tr)
 
-        # ── 1. Process normal groups ───────────────────────────────────────
-        for (dst, action_code, step_condition), trans_list in sorted(normal_group.items()):
-            step_intent, bot_resp, step_condition = _make_step(trans_list)
+        # ── 1. Process normal transitions (no intent grouping) ────────────
+        for tr in sorted(normal_transitions, key=lambda tr: (tr.dst, tr.action_code, tr.condition, tr.intent)):
+            dst = tr.dst
+            action_code = tr.action_code
+            step_intent, bot_resp, step_condition = _make_single_step(tr)
+            allowed, step_condition = _evaluate_step_condition(step_condition, {node.strip() for node in path_nodes})
+            if not allowed:
+                continue
             edge_key = (node, dst, step_intent, step_condition)
 
             if edge_key in visited_edges:
@@ -197,69 +224,29 @@ def generate_test_cases(
             if not _is_terminal_step(dst) and dst in graph:
                 dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, consumed_chains)
 
-        # ── 2. Process self-loop chains ────────────────────────────────────
-        for (dst, action_code, step_condition), trans_list in sorted(self_loop_group.items()):
-            chain_id = (node, f"self:{dst}:{action_code}:{step_condition}")
-            if chain_id in consumed_chains:
-                continue
-
-            step_intent, bot_resp, step_condition = _make_step(trans_list)
-            edge_key = (node, dst, step_intent, step_condition)
-            if edge_key in visited_edges:
-                continue
-
-            new_steps = steps + [step_intent]
-            new_bot = bot_responses_list + [bot_resp]
-            new_conditions = _append_condition(case_conditions, step_condition)
-            new_path = path_nodes + [dst]
-            new_visited = visited_edges | {edge_key}
-            new_consumed = consumed_chains | {chain_id}
-
-            _emit(new_steps, new_bot, action_code, new_path)
-            cases[-1]["conditions"] = _render_conditions(new_conditions)
-            if not _is_terminal_step(dst) and dst in graph:
-                dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, new_consumed)
-
-        # ── 3. Process ordered repeat-chain clusters ───────────────────────
-        repeat_clusters: Dict[
-            Tuple[Tuple[Tuple[Tuple[str, str, str], ...], ...], int],
-            Dict[str, Any],
-        ] = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
-
-        for base, n_map in repeat_map.items():
+        # ── 2. Process ordered repeat chains per base ──────────────────────
+        for base in sorted(repeat_map.keys()):
+            n_map = repeat_map[base]
             if 1 not in n_map:
                 continue
 
-            signature_levels: List[Tuple[Tuple[str, str], ...]] = []
-            expected_n = 1
-            while expected_n in n_map:
-                signature_levels.append(tuple(sorted(n_map[expected_n].keys())))
-                expected_n += 1
-
-            cluster_key = (tuple(signature_levels), len(signature_levels))
-            cluster = repeat_clusters[cluster_key]
-            cluster.setdefault("bases", set()).add(base)
-            cluster.setdefault("levels", defaultdict(lambda: defaultdict(list)))
-            for n, grouped in n_map.items():
-                for group_key, trans_list in grouped.items():
-                    cluster["levels"][n][group_key].extend(trans_list)
-
-        for cluster_key, cluster_map in sorted(repeat_clusters.items(), key=lambda item: item[0]):
-            base_ids = {("__repeat_base__", base) for base in cluster_map["bases"]}
-            if base_ids & consumed_chains:
+            chain_id = {("__repeat_base__", base)}
+            if chain_id & consumed_chains:
                 continue
 
             chain_levels: List[Tuple[int, List[Tuple[str, str, str, List[Transition]]]]] = []
-            for n in sorted(cluster_map["levels"].keys()):
+            expected_n = 1
+            while expected_n in n_map:
                 grouped = [
                     (dst, action_code, step_condition, trans_list)
-                    for (dst, action_code, step_condition), trans_list in sorted(cluster_map["levels"][n].items())
+                    for (dst, action_code, step_condition), trans_list in sorted(n_map[expected_n].items())
                 ]
-                chain_levels.append((n, grouped))
+                chain_levels.append((expected_n, grouped))
+                expected_n += 1
 
             _walk_repeat_chain(
                 origin_node=node,
-                chain_ids=base_ids,
+                chain_ids=chain_id,
                 chain_levels=chain_levels,
                 chain_idx=0,
                 steps=steps,
@@ -292,6 +279,9 @@ def generate_test_cases(
 
         for dst, action_code, step_condition, trans_list in grouped_transitions:
             step_intent, bot_resp, step_condition = _make_step(trans_list)
+            allowed, step_condition = _evaluate_step_condition(step_condition, {node.strip() for node in path_nodes})
+            if not allowed:
+                continue
             edge_key = (origin_node, dst, step_intent, step_condition)
 
             if edge_key in visited_edges:
@@ -338,6 +328,9 @@ def generate_test_cases(
         if key not in seen:
             seen.add(key)
             unique.append(case)
+
+    if root != "A0":
+        return tcgen_e2e_human._prepend_single_a0_case(unique, graph, multi_response=False)
     return unique
 
 

@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import json
+import re
 from pathlib import Path
 from typing import Any
 
 from excel_to_json import _pick_excel_file, convert_excel_rows_to_json
 from tc_to_excel import export_to_excel
 import tcgen_e2e_human
+import tcgen_e2e_short
 import tcgen_multi_responses
 import tcgen_output_human
 
@@ -15,20 +18,121 @@ import tcgen_output_human
 GeneratorModule = Any
 
 
-def _serialize_cases(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
+_COND_SPLIT_RE = re.compile(r"\s*\\\s*|\n+")
+
+
+def _normalize_conditions_text(text: str) -> str:
+    parts = [part.strip() for part in _COND_SPLIT_RE.split(str(text)) if part.strip()]
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        if part in seen:
+            continue
+        seen.add(part)
+        deduped.append(part)
+    timing_tokens = {"Business Hour", "Out of business hour"}
+    timing_parts = [part for part in deduped if part in timing_tokens]
+    base_parts = [part for part in deduped if part not in timing_tokens]
+    base_text = " \\ ".join(base_parts)
+    timing_text = " \\ ".join(timing_parts)
+    if base_text and timing_text:
+        return f"{base_text}\n\n{timing_text}"
+    return base_text or timing_text
+
+
+def _build_response_count_map(rows: list[dict[str, str]]) -> dict[tuple[str, str, str], int]:
+    mapping: dict[tuple[str, str, str], int] = {}
+    for row in rows:
+        step_no = str(row.get("step_no", "")).strip()
+        intent = str(row.get("customer_intent", "")).strip()
+        condition = _normalize_conditions_text(str(row.get("conditions", "")))
+        if not step_no or not intent:
+            continue
+        count = 0
+        for key in ["bot_response", "bot_response_2", "bot_response_3", "bot_response_4", "bot_response_5"]:
+            if str(row.get(key, "")).strip():
+                count += 1
+        if count <= 0:
+            continue
+        map_key = (step_no, intent, condition)
+        mapping[map_key] = max(mapping.get(map_key, 0), count)
+    return mapping
+
+
+def _serialize_cases(
+    cases: list[dict[str, Any]],
+    *,
+    response_count_map: dict[tuple[str, str, str], int] | None = None,
+) -> list[dict[str, Any]]:
     payload: list[dict[str, Any]] = []
+    seen_signatures: set[tuple[Any, ...]] = set()
     for i, tc in enumerate(cases):
+        path_nodes = [part.strip() for part in str(tc.get("path", "")).split("->") if part.strip()]
+        steps = list(tc.get("steps", []))
+        case_conditions = {part.strip() for part in _COND_SPLIT_RE.split(str(tc.get("conditions", ""))) if part.strip()}
+
+        def _match_random_count(step_idx: int, step_text: str) -> int:
+            if not response_count_map or step_idx >= len(path_nodes) - 1:
+                return 0
+            src = path_nodes[step_idx]
+            intents = [part.strip() for part in str(step_text).split(" \\ ") if part.strip()]
+            best = 0
+            for intent in intents:
+                for (m_step, m_intent, m_condition), m_count in response_count_map.items():
+                    if m_step != src or m_intent != intent:
+                        continue
+                    if m_condition and m_condition not in case_conditions:
+                        continue
+                    best = max(best, m_count)
+            return best
+
         bot_responses_str = []
-        for resp_item in tc.get("bot_responses", []):
+        for idx, resp_item in enumerate(tc.get("bot_responses", [])):
             if isinstance(resp_item, str):
-                bot_responses_str.append(resp_item)
+                normalized_resp = resp_item.strip()
+                if normalized_resp.startswith("[") and normalized_resp.endswith("]"):
+                    try:
+                        parsed = ast.literal_eval(normalized_resp)
+                    except Exception:
+                        parsed = None
+                    if isinstance(parsed, list):
+                        bot_responses_str.append(" \\ ".join(str(x) for x in parsed))
+                    else:
+                        bot_responses_str.append(resp_item)
+                else:
+                    bot_responses_str.append(resp_item)
             elif resp_item:
-                bot_responses_str.append(" \\ ".join(resp_item))
+                responses = [str(x) for x in resp_item if str(x)]
+                if not responses:
+                    bot_responses_str.append("")
+                elif len(responses) == 1:
+                    bot_responses_str.append(responses[0])
+                else:
+                    bot_responses_str.append(f"{responses[0]} (random {len(responses)})")
             else:
                 bot_responses_str.append("")
+
+            if idx < len(bot_responses_str) and idx < len(steps):
+                text = bot_responses_str[idx]
+                if text and "(random " not in text:
+                    random_count = _match_random_count(idx, str(steps[idx]))
+                    if random_count > 1:
+                        bot_responses_str[idx] = f"{text} (random {random_count})"
+        normalized_conditions = _normalize_conditions_text(str(tc.get("conditions", "")))
+        signature = (
+            normalized_conditions,
+            tuple(str(step) for step in tc.get("steps", [])),
+            tuple(bot_responses_str),
+            str(tc.get("expected_action_code", "N/A")),
+            str(tc.get("path", "")),
+            bool(tc.get("highlight_last_step", False)),
+        )
+        if signature in seen_signatures:
+            continue
+        seen_signatures.add(signature)
         payload.append({
-            "tc_id": f"TC{i+1:03d}",
-            "conditions": tc.get("conditions", ""),
+            "tc_id": f"TC{len(payload)+1:03d}",
+            "conditions": normalized_conditions,
             "steps": tc["steps"],
             "bot_responses": bot_responses_str,
             "expected_action_code": tc.get("expected_action_code", "N/A"),
@@ -51,6 +155,9 @@ def _detect_root(rows: list[dict[str, str]]) -> str:
             source_set.add(src)
         if dst and dst.lower() not in {"end", "stop", "__end__", "__terminal__"}:
             dest_set.add(dst)
+
+    if "A0" in source_set and "A1" in source_set:
+        return "A1"
 
     root_candidates = [src for src in sources if src not in dest_set]
     if root_candidates:
@@ -88,6 +195,8 @@ def run_pipeline(
     generator: GeneratorModule
     if mode == "e2e":
         generator = tcgen_e2e_human
+    elif mode == "e2e_short":
+        generator = tcgen_e2e_short
     elif mode == "multi_responses":
         generator = tcgen_multi_responses
     elif mode == "output":
@@ -106,7 +215,8 @@ def run_pipeline(
 
     graph = generator.build_graph(rows)
     cases = generator.generate_test_cases(graph, root=effective_root, max_depth=max_depth)
-    serialized_cases = _serialize_cases(cases)
+    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "output"} else None
+    serialized_cases = _serialize_cases(cases, response_count_map=response_count_map)
 
     testcases_out.parent.mkdir(parents=True, exist_ok=True)
     testcases_out.write_text(
@@ -122,7 +232,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run Excel -> JSON -> testcase generation -> Excel export in one command."
     )
-    parser.add_argument("mode", choices=["e2e", "output", "multi_responses"])
+    parser.add_argument("mode", choices=["e2e", "e2e_short", "output", "multi_responses"])
     parser.add_argument(
         "--file",
         type=Path,

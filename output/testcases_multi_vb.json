@@ -2,6 +2,39 @@
   {
     "tc_id": "TC001",
     "conditions": "",
+    "steps": [],
+    "bot_responses": [
+      "Chào {{GENDER}}, {{GENDER}} có phải {{GENDER}} {{Name}} không ạ?"
+    ],
+    "expected_action_code": "Unidentified person (RPC)",
+    "path": "A0",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC002",
+    "conditions": "",
+    "steps": [],
+    "bot_responses": [
+      "Dạ,{{GENDER}} {{Name}}  đang nghe máy phải không ạ?"
+    ],
+    "expected_action_code": "Unidentified person (RPC)",
+    "path": "A0",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC003",
+    "conditions": "",
+    "steps": [],
+    "bot_responses": [
+      "Dạ,  em đang nói chuyện với {{GENDER}} {{Name}} đúng không ạ?"
+    ],
+    "expected_action_code": "Unidentified person (RPC)",
+    "path": "A0",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC004",
+    "conditions": "",
     "steps": [
       "KH bận lần 1"
     ],
@@ -13,7 +46,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC002",
+    "tc_id": "TC005",
     "conditions": "",
     "steps": [
       "KH bận lần 1"
@@ -26,7 +59,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC003",
+    "tc_id": "TC006",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1"
@@ -39,7 +72,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC004",
+    "tc_id": "TC007",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1"
@@ -52,7 +85,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC005",
+    "tc_id": "TC008",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1"
@@ -65,7 +98,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC006",
+    "tc_id": "TC009",
     "conditions": "",
     "steps": [
       "KH yêu cầu nhắc lại lần 1"
@@ -78,7 +111,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC007",
+    "tc_id": "TC010",
     "conditions": "",
     "steps": [
       "KH yêu cầu nhắc lại lần 1"
@@ -91,7 +124,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC008",
+    "tc_id": "TC011",
     "conditions": "",
     "steps": [
       "KH yêu cầu nhắc lại lần 1"
@@ -104,7 +137,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC009",
+    "tc_id": "TC012",
     "conditions": "",
     "steps": [
       "KH im lặng lần 1"
@@ -117,7 +150,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC010",
+    "tc_id": "TC013",
     "conditions": "",
     "steps": [
       "KH im lặng lần 1"
@@ -130,7 +163,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC011",
+    "tc_id": "TC014",
     "conditions": "",
     "steps": [
       "KH im lặng lần 1"
@@ -143,7 +176,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC012",
+    "tc_id": "TC015",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH"
@@ -156,7 +189,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC013",
+    "tc_id": "TC016",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH"
@@ -169,7 +202,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC014",
+    "tc_id": "TC017",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH"
@@ -182,7 +215,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC015",
+    "tc_id": "TC018",
     "conditions": "",
     "steps": [
       "KH nghe máy"
@@ -195,7 +228,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC016",
+    "tc_id": "TC019",
     "conditions": "",
     "steps": [
       "KH nghe máy"
@@ -208,7 +241,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC017",
+    "tc_id": "TC020",
     "conditions": "",
     "steps": [
       "KH nghe máy"
@@ -221,7 +254,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC018",
+    "tc_id": "TC021",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1",
@@ -236,7 +269,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC019",
+    "tc_id": "TC022",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1",
@@ -251,7 +284,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC020",
+    "tc_id": "TC023",
     "conditions": "",
     "steps": [
       "KH hỏi là ai lần 1",
@@ -266,56 +299,11 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC021",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH im lặng lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Dạ cho em hỏi mình có quen {{GENDER}} {{Name}} không ạ?"
-    ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC022",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH im lặng lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Mình có quen biết như thế nào với {{GENDER}} {{Name}} ạ?"
-    ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC023",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH im lặng lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Dạ mình có biết ai tên {{Name}} không ạ?"
-    ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
-  },
-  {
     "tc_id": "TC024",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH yêu cầu nhắc lại lần 1"
+      "KH im lặng lần 1"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
@@ -330,7 +318,7 @@
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH yêu cầu nhắc lại lần 1"
+      "KH im lặng lần 1"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
@@ -345,7 +333,7 @@
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH yêu cầu nhắc lại lần 1"
+      "KH im lặng lần 1"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
@@ -360,6 +348,51 @@
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Dạ cho em hỏi mình có quen {{GENDER}} {{Name}} không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A2 -> A2",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC028",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Mình có quen biết như thế nào với {{GENDER}} {{Name}} ạ?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A2 -> A2",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC029",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Dạ mình có biết ai tên {{Name}} không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A2 -> A2",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC030",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết"
     ],
     "bot_responses": [
@@ -371,7 +404,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC028",
+    "tc_id": "TC031",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -386,7 +419,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC029",
+    "tc_id": "TC032",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -401,7 +434,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC030",
+    "tc_id": "TC033",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -416,7 +449,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC031",
+    "tc_id": "TC034",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -431,7 +464,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC032",
+    "tc_id": "TC035",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -446,7 +479,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC033",
+    "tc_id": "TC036",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -461,7 +494,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC034",
+    "tc_id": "TC037",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -476,7 +509,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC035",
+    "tc_id": "TC038",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -491,7 +524,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC036",
+    "tc_id": "TC039",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -506,7 +539,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC037",
+    "tc_id": "TC040",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -521,7 +554,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC038",
+    "tc_id": "TC041",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -536,7 +569,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC039",
+    "tc_id": "TC042",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -551,7 +584,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC040",
+    "tc_id": "TC043",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -566,7 +599,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC041",
+    "tc_id": "TC044",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -581,7 +614,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC042",
+    "tc_id": "TC045",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -596,7 +629,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC043",
+    "tc_id": "TC046",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -611,7 +644,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC044",
+    "tc_id": "TC047",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -626,7 +659,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC045",
+    "tc_id": "TC048",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -641,7 +674,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC046",
+    "tc_id": "TC049",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -656,7 +689,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC047",
+    "tc_id": "TC050",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -671,7 +704,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC048",
+    "tc_id": "TC051",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -686,7 +719,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC049",
+    "tc_id": "TC052",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -701,7 +734,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC050",
+    "tc_id": "TC053",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -716,7 +749,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC051",
+    "tc_id": "TC054",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -731,7 +764,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC052",
+    "tc_id": "TC055",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -746,7 +779,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC053",
+    "tc_id": "TC056",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -761,7 +794,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC054",
+    "tc_id": "TC057",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -776,7 +809,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC055",
+    "tc_id": "TC058",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -791,7 +824,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC056",
+    "tc_id": "TC059",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -808,7 +841,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC057",
+    "tc_id": "TC060",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -825,68 +858,17 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC058",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH có quen biết",
-      "KH im lặng lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
-    ],
-    "expected_action_code": "Call disconnected (non RPC)",
-    "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC059",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH có quen biết",
-      "KH im lặng lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Anh chị sẽ hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hay ngày mai vậy ạ?"
-    ],
-    "expected_action_code": "Call disconnected (non RPC)",
-    "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC060",
-    "conditions": "",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH có quen biết",
-      "KH yêu cầu nhắc lại lần 1"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
-    ],
-    "expected_action_code": "Call disconnected (non RPC)",
-    "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
-  },
-  {
     "tc_id": "TC061",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
-      "KH yêu cầu nhắc lại lần 1"
+      "KH im lặng lần 1"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
       "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Anh chị sẽ hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hay ngày mai vậy ạ?"
+      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
@@ -894,6 +876,57 @@
   },
   {
     "tc_id": "TC062",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH im lặng lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Anh chị sẽ hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hay ngày mai vậy ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC063",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC064",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Anh chị sẽ hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hay ngày mai vậy ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC065",
     "conditions": "Payment_date > {{PROMISEDATE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -910,7 +943,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC063",
+    "tc_id": "TC066",
     "conditions": "Payment_date > {{PROMISEDATE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -927,7 +960,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC064",
+    "tc_id": "TC067",
     "conditions": "Payment_date > {{PROMISEDATE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -944,7 +977,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC065",
+    "tc_id": "TC068",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -961,7 +994,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC066",
+    "tc_id": "TC069",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -978,7 +1011,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC067",
+    "tc_id": "TC070",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -995,7 +1028,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC068",
+    "tc_id": "TC071",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1012,7 +1045,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC069",
+    "tc_id": "TC072",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1029,7 +1062,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC070",
+    "tc_id": "TC073",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1046,71 +1079,20 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC071",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH vay hộ/đứng tên giùm",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Em hiểu. Tuy nhiên, thẻ tín dụng hiện đang đứng tên {{GENDER}} {{FIRSTNAME}} , {{GENDER/Spouse}} nên hoàn tất thanh toán trong hôm nay hoặc ngày mai để tránh phát sinh thêm  lãi quá hạn được tính theo ngày nha",
-      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A10 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC072",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH vay hộ/đứng tên giùm",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Em hiểu. Tuy nhiên, thẻ tín dụng hiện đang đứng tên {{GENDER}} {{FIRSTNAME}} , {{GENDER/Spouse}} nên hoàn tất thanh toán trong hôm nay hoặc ngày mai để tránh phát sinh thêm  lãi quá hạn được tính theo ngày nha",
-      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A10 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC073",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH không biết khoản vay",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Hệ thống bên em ghi nhận {{GENDER}} {{FIRSTNAME}} là chủ thẻ này, vui lòng hoàn tất thanh toán tối thiểu là {{OVERDUE_AMT}} ngay trong hôm nay hoặc ngày mai để tránh phát sinh thêm lãi chậm trả và ảnh hưởng đến lịch sử tín dụng nhé ạ ?",
-      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A11 -> End",
-    "highlight_last_step": true
-  },
-  {
     "tc_id": "TC074",
     "conditions": "",
     "steps": [
       "KH nghe máy",
-      "KH không biết khoản vay",
+      "KH vay hộ/đứng tên giùm",
       "KH đã trả"
     ],
     "bot_responses": [
       "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Hệ thống bên em ghi nhận {{GENDER}} {{FIRSTNAME}} là chủ thẻ này, vui lòng hoàn tất thanh toán tối thiểu là {{OVERDUE_AMT}} ngay trong hôm nay hoặc ngày mai để tránh phát sinh thêm lãi chậm trả và ảnh hưởng đến lịch sử tín dụng nhé ạ ?",
-      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
+      "Em hiểu. Tuy nhiên, thẻ tín dụng hiện đang đứng tên {{GENDER}} {{FIRSTNAME}} , {{GENDER/Spouse}} nên hoàn tất thanh toán trong hôm nay hoặc ngày mai để tránh phát sinh thêm  lãi quá hạn được tính theo ngày nha",
+      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A11 -> End",
+    "path": "A1 -> A5 -> A10 -> End",
     "highlight_last_step": true
   },
   {
@@ -1118,16 +1100,16 @@
     "conditions": "",
     "steps": [
       "KH nghe máy",
-      "KH hứa trả",
-      "KH im lặng lần 1"
+      "KH vay hộ/đứng tên giùm",
+      "KH đã trả"
     ],
     "bot_responses": [
       "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
-      "Cho em xác nhận lại là {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} phải không ạ?"
+      "Em hiểu. Tuy nhiên, thẻ tín dụng hiện đang đứng tên {{GENDER}} {{FIRSTNAME}} , {{GENDER/Spouse}} nên hoàn tất thanh toán trong hôm nay hoặc ngày mai để tránh phát sinh thêm  lãi quá hạn được tính theo ngày nha",
+      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
     ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A5 -> A6 -> A6",
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A10 -> End",
     "highlight_last_step": true
   },
   {
@@ -1135,16 +1117,16 @@
     "conditions": "",
     "steps": [
       "KH nghe máy",
-      "KH hứa trả",
-      "KH im lặng lần 1"
+      "KH không biết khoản vay",
+      "KH đã trả"
     ],
     "bot_responses": [
       "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
-      "{{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {OVERDUE_AMT} đồng trong hôm nay hay ngày mai vậy {{GENDER/Spouse}}?"
+      "Hệ thống bên em ghi nhận {{GENDER}} {{FIRSTNAME}} là chủ thẻ này, vui lòng hoàn tất thanh toán tối thiểu là {{OVERDUE_AMT}} ngay trong hôm nay hoặc ngày mai để tránh phát sinh thêm lãi chậm trả và ảnh hưởng đến lịch sử tín dụng nhé ạ ?",
+      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
     ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A5 -> A6 -> A6",
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A11 -> End",
     "highlight_last_step": true
   },
   {
@@ -1152,16 +1134,16 @@
     "conditions": "",
     "steps": [
       "KH nghe máy",
-      "KH hứa trả",
-      "KH yêu cầu nhắc lại lần 1"
+      "KH không biết khoản vay",
+      "KH đã trả"
     ],
     "bot_responses": [
       "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
-      "Cho em xác nhận lại là {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} phải không ạ?"
+      "Hệ thống bên em ghi nhận {{GENDER}} {{FIRSTNAME}} là chủ thẻ này, vui lòng hoàn tất thanh toán tối thiểu là {{OVERDUE_AMT}} ngay trong hôm nay hoặc ngày mai để tránh phát sinh thêm lãi chậm trả và ảnh hưởng đến lịch sử tín dụng nhé ạ ?",
+      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
     ],
-    "expected_action_code": "Call disconnected (RPC)",
-    "path": "A1 -> A5 -> A6 -> A6",
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A11 -> End",
     "highlight_last_step": true
   },
   {
@@ -1170,6 +1152,57 @@
     "steps": [
       "KH nghe máy",
       "KH hứa trả",
+      "KH im lặng lần 1"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
+      "Cho em xác nhận lại là {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} phải không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A5 -> A6 -> A6",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC079",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
+      "KH hứa trả",
+      "KH im lặng lần 1"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
+      "{{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {OVERDUE_AMT} đồng trong hôm nay hay ngày mai vậy {{GENDER/Spouse}}?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A5 -> A6 -> A6",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC080",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
+      "KH hứa trả",
+      "KH yêu cầu nhắc lại lần 1"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ vậy {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
+      "Cho em xác nhận lại là {{GENDER/Spouse}} sẽ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} phải không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (RPC)",
+    "path": "A1 -> A5 -> A6 -> A6",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC081",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
+      "KH hứa trả",
       "KH yêu cầu nhắc lại lần 1"
     ],
     "bot_responses": [
@@ -1182,7 +1215,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC079",
+    "tc_id": "TC082",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1199,7 +1232,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC080",
+    "tc_id": "TC083",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1216,7 +1249,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC081",
+    "tc_id": "TC084",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1233,7 +1266,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC082",
+    "tc_id": "TC085",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1250,7 +1283,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC083",
+    "tc_id": "TC086",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1267,7 +1300,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC084",
+    "tc_id": "TC087",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1284,7 +1317,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC085",
+    "tc_id": "TC088",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1301,7 +1334,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC086",
+    "tc_id": "TC089",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1318,7 +1351,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC087",
+    "tc_id": "TC090",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "KH nghe máy",
@@ -1335,7 +1368,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC088",
+    "tc_id": "TC091",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "KH nghe máy",
@@ -1352,71 +1385,20 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC089",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH trả một ít",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ số tiền {{GENDER/Spouse}} {{FIRSTNAME/None}} dự định thanh toán đang thấp hơn số tiền tối thiểu cần thanh toán là {{OVERDUE_AMT}}, nên hệ thống vẫn ghi nhận khoản thẻ tín dụng chưa được hoàn tất thanh toán. Để được mở khóa thẻ và tiếp tục sử dụng, {{GENDER/Spouse}}  vui lòng sắp xếp thanh toán tối thiểu {{OVERDUE_AMT}} trong hôm nay hoặc ngày mai giúp em được không ạ?",
-      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A7 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC090",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH trả một ít",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ số tiền {{GENDER/Spouse}} {{FIRSTNAME/None}} dự định thanh toán đang thấp hơn số tiền tối thiểu cần thanh toán là {{OVERDUE_AMT}}, nên hệ thống vẫn ghi nhận khoản thẻ tín dụng chưa được hoàn tất thanh toán. Để được mở khóa thẻ và tiếp tục sử dụng, {{GENDER/Spouse}}  vui lòng sắp xếp thanh toán tối thiểu {{OVERDUE_AMT}} trong hôm nay hoặc ngày mai giúp em được không ạ?",
-      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A7 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC091",
-    "conditions": "",
-    "steps": [
-      "KH nghe máy",
-      "KH trả sau",
-      "KH đã trả"
-    ],
-    "bot_responses": [
-      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ hiện tại khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã trễ hạn rồi, và việc chậm trễ thêm sẽ ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse}} {{FIRSTNAME/None}} vui lòng thanh toán trong hôm nay hoặc ngày mai được không ạ?",
-      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
-    ],
-    "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A8 -> End",
-    "highlight_last_step": true
-  },
-  {
     "tc_id": "TC092",
     "conditions": "",
     "steps": [
       "KH nghe máy",
-      "KH trả sau",
+      "KH trả một ít",
       "KH đã trả"
     ],
     "bot_responses": [
       "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
-      "Dạ hiện tại khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã trễ hạn rồi, và việc chậm trễ thêm sẽ ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse}} {{FIRSTNAME/None}} vui lòng thanh toán trong hôm nay hoặc ngày mai được không ạ?",
-      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
+      "Dạ số tiền {{GENDER/Spouse}} {{FIRSTNAME/None}} dự định thanh toán đang thấp hơn số tiền tối thiểu cần thanh toán là {{OVERDUE_AMT}}, nên hệ thống vẫn ghi nhận khoản thẻ tín dụng chưa được hoàn tất thanh toán. Để được mở khóa thẻ và tiếp tục sử dụng, {{GENDER/Spouse}}  vui lòng sắp xếp thanh toán tối thiểu {{OVERDUE_AMT}} trong hôm nay hoặc ngày mai giúp em được không ạ?",
+      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
-    "path": "A1 -> A5 -> A8 -> End",
+    "path": "A1 -> A5 -> A7 -> End",
     "highlight_last_step": true
   },
   {
@@ -1424,6 +1406,57 @@
     "conditions": "",
     "steps": [
       "KH nghe máy",
+      "KH trả một ít",
+      "KH đã trả"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ số tiền {{GENDER/Spouse}} {{FIRSTNAME/None}} dự định thanh toán đang thấp hơn số tiền tối thiểu cần thanh toán là {{OVERDUE_AMT}}, nên hệ thống vẫn ghi nhận khoản thẻ tín dụng chưa được hoàn tất thanh toán. Để được mở khóa thẻ và tiếp tục sử dụng, {{GENDER/Spouse}}  vui lòng sắp xếp thanh toán tối thiểu {{OVERDUE_AMT}} trong hôm nay hoặc ngày mai giúp em được không ạ?",
+      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
+    ],
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A7 -> End",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC094",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
+      "KH trả sau",
+      "KH đã trả"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ hiện tại khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã trễ hạn rồi, và việc chậm trễ thêm sẽ ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse}} {{FIRSTNAME/None}} vui lòng thanh toán trong hôm nay hoặc ngày mai được không ạ?",
+      "Dạ, hiện tại công ty vẫn chưa ghi nhận khoản thanh toán,  vui lòng giữ lại biên lai hoặc tin nhắn để đối chiếu khi cần. Em xin chào."
+    ],
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A8 -> End",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC095",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
+      "KH trả sau",
+      "KH đã trả"
+    ],
+    "bot_responses": [
+      "Em là {{bot_name}}, gọi từ bộ phận hỗ trợ thanh toán của Home Credit. Hợp đồng thẻ tín dụng của {{GENDER}} {{FIRSTNAME}} đã quá hạn thanh toán {{DPD}} ngày với số tiền tối thiểu là {{OVERDUE_AMT}}, còn tổng dự nợ cuối kì là {{ENDINGBALANCE}}, vậy {{GENDER/Spouse}} sẽ thanh toán vào hôm nay hay ngày mai ạ?",
+      "Dạ hiện tại khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã trễ hạn rồi, và việc chậm trễ thêm sẽ ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse}} {{FIRSTNAME/None}} vui lòng thanh toán trong hôm nay hoặc ngày mai được không ạ?",
+      "Dạ, hiện tại hệ thống vẫn chưa nhận được tiền, vui lòng kiểm tra lại thông tin thanh toán hoặc liên hệ hotline 1900633999. Em xin chào."
+    ],
+    "expected_action_code": "AlreadyPaid VB (RPC)",
+    "path": "A1 -> A5 -> A8 -> End",
+    "highlight_last_step": true
+  },
+  {
+    "tc_id": "TC096",
+    "conditions": "",
+    "steps": [
+      "KH nghe máy",
       "KH từ chối trả",
       "KH đã trả"
     ],
@@ -1437,7 +1470,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC094",
+    "tc_id": "TC097",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1454,7 +1487,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC095",
+    "tc_id": "TC098",
     "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nBusiness Hour",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1473,7 +1506,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC096",
+    "tc_id": "TC099",
     "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nBusiness Hour",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1492,7 +1525,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC097",
+    "tc_id": "TC100",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1511,7 +1544,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC098",
+    "tc_id": "TC101",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1530,7 +1563,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC099",
+    "tc_id": "TC102",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1549,7 +1582,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC100",
+    "tc_id": "TC103",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1568,7 +1601,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC101",
+    "tc_id": "TC104",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1587,7 +1620,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC102",
+    "tc_id": "TC105",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1606,7 +1639,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC103",
+    "tc_id": "TC106",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1625,7 +1658,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC104",
+    "tc_id": "TC107",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1644,7 +1677,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC105",
+    "tc_id": "TC108",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1663,7 +1696,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC106",
+    "tc_id": "TC109",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1682,7 +1715,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC107",
+    "tc_id": "TC110",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1701,7 +1734,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC108",
+    "tc_id": "TC111",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1720,7 +1753,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC109",
+    "tc_id": "TC112",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1739,7 +1772,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC110",
+    "tc_id": "TC113",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1758,7 +1791,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC111",
+    "tc_id": "TC114",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1777,8 +1810,8 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC112",
-    "conditions": "Out of business hour",
+    "tc_id": "TC115",
+    "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
@@ -1796,8 +1829,8 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC113",
-    "conditions": "Out of business hour",
+    "tc_id": "TC116",
+    "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
@@ -1815,7 +1848,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC114",
+    "tc_id": "TC117",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1834,7 +1867,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC115",
+    "tc_id": "TC118",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1853,7 +1886,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC116",
+    "tc_id": "TC119",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1872,7 +1905,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC117",
+    "tc_id": "TC120",
     "conditions": "Payment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1891,7 +1924,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC118",
+    "tc_id": "TC121",
     "conditions": "Payment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1910,7 +1943,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC119",
+    "tc_id": "TC122",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1929,7 +1962,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC120",
+    "tc_id": "TC123",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1948,7 +1981,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC121",
+    "tc_id": "TC124",
     "conditions": "Business Hour",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1969,7 +2002,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC122",
+    "tc_id": "TC125",
     "conditions": "Business Hour",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1990,7 +2023,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC123",
+    "tc_id": "TC126",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -2011,7 +2044,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC124",
+    "tc_id": "TC127",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -2032,7 +2065,7 @@
     "highlight_last_step": true
   },
   {
-    "tc_id": "TC125",
+    "tc_id": "TC128",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",

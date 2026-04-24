@@ -172,16 +172,10 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
         ws.cell(row=row, column=1).alignment = openpyxl.styles.Alignment(wrap_text=True)
         row += 1
 
-        section_cases = sorted(
-            grouped_cases[step_no],
-            key=lambda case: (
-                str(case.get("conditions", "")),
-                tuple(case.get("steps", [])),
-                str(case.get("path", "")),
-                str(case.get("expected_action_code", "")),
-                tuple(case.get("bot_responses", [])),
-            ),
-        )
+        # Preserve the incoming case order inside each section.
+        # This lets each pipeline control adjacency in its own output,
+        # while Excel still groups by the section header step.
+        section_cases = grouped_cases[step_no]
 
         for case in section_cases:
             tc_id = f"TC{display_tc_index:03d}"

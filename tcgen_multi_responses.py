@@ -152,6 +152,45 @@ def build_graph(
     return grouped_graph
 
 
+def _a0_greeting_cases(
+    graph: dict[str, list[GroupedTransition]],
+) -> list[dict[str, Any]]:
+    transitions = graph.get("A0", [])
+    if not transitions:
+        return []
+
+    first = transitions[0]
+    bot_responses: list[str] = []
+    for tr in transitions:
+        bot_responses.extend(list(tr.responses))
+
+    # Keep stable order while removing duplicate greeting strings.
+    deduped = list(dict.fromkeys(bot_responses))
+    if not deduped:
+        return []
+    return [
+        {
+            "conditions": "",
+            "steps": [],
+            "bot_responses": [response],
+            "expected_action_code": first.action_code,
+            "path": "A0",
+        }
+        for response in deduped
+    ]
+
+
+def _prepend_single_a0_case(
+    cases: list[dict[str, Any]],
+    graph: dict[str, list[GroupedTransition]],
+) -> list[dict[str, Any]]:
+    a0_cases = _a0_greeting_cases(graph)
+    if not a0_cases:
+        return cases
+    non_a0_cases = [case for case in cases if str(case.get("path", "")).strip() != "A0"]
+    return a0_cases + non_a0_cases
+
+
 def generate_test_cases(
     graph: dict[str, list[GroupedTransition]],
     *,
@@ -326,6 +365,8 @@ def generate_test_cases(
             continue
         covered_last.add(last_key)
         kept.append(case)
+    if root != "A0":
+        return _prepend_single_a0_case(kept, graph)
     return kept
 
 

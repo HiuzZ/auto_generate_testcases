@@ -63,6 +63,7 @@ python3 excel_to_strings.py --file "input/(FEC_VoiceFlow) KịchBản_XS_2026.xl
 Run the full flow in one command:
 
 - `pipeline_e2e.py`: `excel_to_json.py` -> `tcgen_e2e_human.py` -> `tc_to_excel.py`
+- `pipeline_e2e_short.py`: `excel_to_json.py` -> `tcgen_e2e_short.py` -> `tc_to_excel.py`
 - `pipeline_output.py`: `excel_to_json.py` -> `tcgen_output_human.py` -> `tc_to_excel.py`
 - `pipeline_multi_responses.py`: `excel_to_json.py` -> `tcgen_multi_responses.py` -> `tc_to_excel.py`
 
@@ -70,6 +71,7 @@ Examples:
 
 ```bash
 python3 pipeline_e2e.py --file "input/FEC_VoiceAgent_BRD.xlsx"
+python3 pipeline_e2e_short.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_output.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_multi_responses.py --file "input/VB_M1_Revamp_Credit_card.xlsx"
 ```
@@ -90,10 +92,20 @@ python3 pipeline_e2e.py \
   --testcases-out output/testcases_e2e_vb.json \
   --excel-out output/testcases_e2e_vb.xlsx
 
+python3 pipeline_e2e_short.py \
+  --file "input/VB_M1_Revamp_Credit_card.xlsx" \
+  --rows-out output/rows_e2e_short_vb.json \
+  --testcases-out output/testcases_e2e_short_vb.json \
+  --excel-out output/testcases_e2e_short_vb.xlsx
+
 - `pipeline_e2e.py`
   - `output/rows_e2e.json`
   - `output/testcases_e2e.json`
   - `output/testcases_e2e.xlsx`
+- `pipeline_e2e_short.py`
+  - `output/rows_e2e_short.json`
+  - `output/testcases_e2e_short.json`
+  - `output/testcases_e2e_short.xlsx`
 - `pipeline_output.py`
   - `output/rows_output.json`
   - `output/testcases_output.json`

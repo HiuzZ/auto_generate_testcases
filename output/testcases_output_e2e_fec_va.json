@@ -1,0 +1,1107 @@
+[
+  {
+    "tc_id": "TC001",
+    "conditions": "",
+    "steps": [],
+    "bot_responses": [],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A0",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC002",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC003",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC004",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC005",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC006",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC007",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH cung cấp số tiền từ 1 tỷ trở lên"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Non_Qualified_Customer",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC008",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH cung cấp số tiền 100 triệu trở xuống"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_A_XS",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC009",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC010",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC011",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Other",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC012",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC013",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC014",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC015",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH cung cấp số tiền từ 1 tỷ trở lên"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Non_Qualified_Customer",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC016",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH cung cấp số tiền 100 triệu trở xuống"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_A_XS",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC017",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC018",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC019",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC020",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 1",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC021",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "KH từ chối không vay lần 1",
+      "KH từ chối không vay lần 2",
+      "KH từ chối không vay lần 3"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "No_Demand",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC022",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC023",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC024",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 1",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC025",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "KH từ chối không vay lần 1",
+      "KH từ chối không vay lần 2",
+      "KH từ chối không vay lần 3"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "No_Demand",
+    "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC026",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH đồng ý",
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC027",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC028",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC029",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC030",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC031",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "Other",
+    "path": "A1 -> A2 -> A2",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC032",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A3",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC033",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC034",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC035",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC036",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH cung cấp số tiền từ 1 tỷ trở lên"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Non_Qualified_Customer",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC037",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH cung cấp số tiền 100 triệu trở xuống"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_A_XS",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC038",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A2 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC039",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC040",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC041",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 1",
+      "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "Success_B_XS",
+    "path": "A1 -> A2 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC042",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "KH từ chối không vay lần 1",
+      "KH từ chối không vay lần 2",
+      "KH từ chối không vay lần 3"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "No_Demand",
+    "path": "A1 -> A2 -> A2 -> A3 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC043",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH đồng ý",
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A3 -> A3 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC044",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC045",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC046",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC047",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC048",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC049",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "KH từ chối không vay lần 1",
+      "KH từ chối không vay lần 2",
+      "KH từ chối không vay lần 3"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "No_Demand",
+    "path": "A1 -> A2 -> A2 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC050",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC051",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC052",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "KH từ chối không vay lần 1",
+      "KH từ chối không vay lần 2",
+      "KH từ chối không vay lần 3"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "No_Demand",
+    "path": "A1 -> A2 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC053",
+    "conditions": "",
+    "steps": [
+      "KH đồng ý",
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A2 -> A2 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC054",
+    "conditions": "",
+    "steps": [
+      "KH chửi thô tục"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC055",
+    "conditions": "",
+    "steps": [
+      "KH phản ứng tiêu cực mạnh"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC056",
+    "conditions": "",
+    "steps": [
+      "KH yêu cầu không gọi nữa"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "DNC_request",
+    "path": "A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC057",
+    "conditions": "",
+    "steps": [
+      "Không đúng KH"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "Non_Qualified_Customer",
+    "path": "A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC058",
+    "conditions": "",
+    "steps": [
+      "KH đi vắng/ Người thân nghe hộ"
+    ],
+    "bot_responses": [
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC059",
+    "conditions": "",
+    "steps": [
+      "KH bận lần 1",
+      "KH bận lần 2"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC060",
+    "conditions": "",
+    "steps": [
+      "KH im lặng lần 1",
+      "KH im lặng lần 2"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A1 -> End",
+    "highlight_last_step": false
+  },
+  {
+    "tc_id": "TC061",
+    "conditions": "",
+    "steps": [
+      "Không nghe rõ lần 1",
+      "Không nghe rõ lần 2"
+    ],
+    "bot_responses": [
+      "",
+      ""
+    ],
+    "expected_action_code": "To_Follow_Up",
+    "path": "A1 -> A1 -> End",
+    "highlight_last_step": false
+  }
+]

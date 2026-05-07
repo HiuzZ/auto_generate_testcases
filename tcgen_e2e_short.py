@@ -1,937 +1,543 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
+import re
+from collections import defaultdict
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
-
-import tcgen_e2e_human
+from typing import Any, DefaultDict, Iterable, Dict, List, Tuple, Set, Optional
 
 
-_STEP_SEPARATOR = " \\ "
+@dataclass(frozen=True)
+class Transition:
+    src: str
+    dst: str
+    condition: str
+    intent: str
+    action_code: str
+    bot_response: str
+
+
+_REPEAT_RE = re.compile(r"(?i)\blần\s*(\d+)\b")
+
+# FIX 1: Use a non-greedy atomic group for the node-list part so the whole
+# "YES_A7_A8_A9_A10_A11" token is captured as one unit.
+# group(1) = YES or NO
+# group(2) = A7_A8_A9_A10_A11  (then we split on "_" inside the function)
+_SPECIAL_STEP_COND_RE = re.compile(
+    r"\b(YES|NO)_([A-Za-z0-9]+(?:_[A-Za-z0-9]+)*)\b"
+)
+
+
+def _clean_str(v: Any) -> str:
+    if v is None:
+        return ""
+    s = str(v).strip()
+    return "" if s.lower() == "nan" else s
 
 
 def _is_terminal_step(step_no: str) -> bool:
-    s = str(step_no).strip().lower()
+    s = step_no.strip().lower()
     return s in {"end", "stop", "__end__", "__terminal__"}
 
 
-def _extract_nodes_from_path(path: str) -> list[str]:
-    return [part.strip() for part in str(path).split("->") if part.strip()]
+def _parse_repeat(intent: str) -> tuple[str, int] | None:
+    m = _REPEAT_RE.search(intent)
+    if not m:
+        return None
+    n = int(m.group(1))
+    base = _REPEAT_RE.sub("", intent)
+    base = " ".join(base.strip().split())
+    return base, n
 
 
-def _path_length(case: dict[str, Any]) -> int:
-    path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-    if len(path_nodes) >= 2:
-        return len(path_nodes) - 1
-    return len(case.get("steps", []))
+def _evaluate_step_condition(
+    raw_condition: str,
+    traversed_nodes: set[str],
+) -> tuple[bool, str]:
+    """
+    Evaluate YES_*/NO_* special tokens against the set of already-traversed nodes.
 
+    YES_A7_A8_A9_A10_A11  →  allow only if the path passed through A7 OR A8 OR … OR A11
+    NO_A7_A8_A9_A10_A11   →  allow only if the path did NOT pass through any of them
 
-def _prefix_to_node(case: dict[str, Any], target_node: str) -> tuple[str, ...]:
-    path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-    if not path_nodes:
-        return tuple()
-    try:
-        idx = path_nodes.index(target_node)
-    except ValueError:
-        return tuple(path_nodes)
-    return tuple(path_nodes[: idx + 1])
+    Returns (allowed, cleaned_condition_string).
+    The cleaned string has all YES_*/NO_* tokens removed so only the human-readable
+    condition text remains for the output conditions column.
+    """
+    text = str(raw_condition or "")
 
-
-def _collect_universe(graph: dict[str, list[tcgen_e2e_human.Transition]]) -> set[str]:
-    universe: set[str] = set(graph.keys())
-    for transitions in graph.values():
-        for tr in transitions:
-            dst = str(tr.dst).strip()
-            if dst and not _is_terminal_step(dst):
-                universe.add(dst)
-    return universe
-
-
-def _split_step_intents(step_text: str) -> list[str]:
-    return [part.strip() for part in str(step_text).split(_STEP_SEPARATOR) if part.strip()]
-
-
-def _collect_intent_universe(
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    step_nodes: set[str],
-) -> set[tuple[str, str, str]]:
-    intent_universe: set[tuple[str, str, str]] = set()
-    for src, transitions in graph.items():
-        if src not in step_nodes:
+    for match in _SPECIAL_STEP_COND_RE.finditer(text):
+        mode = match.group(1).upper()
+        # Split on underscore to recover individual node IDs.
+        # filter(None, ...) drops empty strings from accidental double-underscores.
+        nodes = [token.strip() for token in match.group(2).split("_") if token.strip()]
+        if not nodes:
             continue
-        for tr in transitions:
-            intent = str(tr.intent).strip()
-            condition = str(tr.condition).strip()
-            if intent:
-                intent_universe.add((src, condition, intent))
-    return intent_universe
+
+        passed_any = any(node in traversed_nodes for node in nodes)
+
+        if mode == "YES" and not passed_any:
+            return False, ""
+        if mode == "NO" and passed_any:
+            return False, ""
+
+    # FIX 2: Strip the special tokens cleanly, then collapse any orphaned
+    # separator fragments (e.g. a lone " \\ " with nothing on one side).
+    cleaned = _SPECIAL_STEP_COND_RE.sub("", text)
+    parts = [p.strip() for p in re.split(r"\s*\\\s*", cleaned) if p.strip()]
+    return True, " \\ ".join(parts)
 
 
-def _case_intent_pairs(
-    case: dict[str, Any],
-    step_nodes: set[str],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-) -> set[tuple[str, str, str]]:
-    path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-    steps = list(case.get("steps", []))
-    conditions_text = str(case.get("conditions", ""))
-    case_conditions = {part.strip() for part in conditions_text.split(_STEP_SEPARATOR) if part.strip()}
-    intent_pairs: set[tuple[str, str, str]] = set()
-    for idx, step_text in enumerate(steps):
-        if idx >= len(path_nodes) - 1:
-            break
-        src = path_nodes[idx]
-        if src not in step_nodes:
+def load_transitions_json(path: Path) -> list[dict[str, str]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("Input must be a JSON list of transition objects.")
+    rows: list[dict[str, str]] = []
+    for i, obj in enumerate(data):
+        if not isinstance(obj, dict):
+            raise ValueError(f"Item at index {i} is not an object.")
+        rows.append(
+            {
+                "step_no": _clean_str(obj.get("step_no", "")),
+                "step_name": _clean_str(obj.get("step_name", "")),
+                "conditions": _clean_str(obj.get("conditions", "")),
+                "customer_intent": _clean_str(obj.get("customer_intent", "")),
+                "bot_response": _clean_str(obj.get("bot_response", "")),
+                "next_step": _clean_str(obj.get("next_step", "")),
+                "action_code": _clean_str(obj.get("action_code", "")),
+            }
+        )
+    return rows
+
+
+def build_graph(
+    transitions: Iterable[dict[str, str]],
+) -> dict[str, list[Transition]]:
+    adjacency: DefaultDict[str, list[Transition]] = defaultdict(list)
+    for t in transitions:
+        src = _clean_str(t.get("step_no", ""))
+        dst = _clean_str(t.get("next_step", ""))
+        if not dst:
+            dst = "End"
+        condition = _clean_str(t.get("conditions", ""))
+        intent = _clean_str(t.get("customer_intent", ""))
+        if not intent:
+            intent = "(empty intent)"
+        action_code = _clean_str(t.get("action_code", ""))
+        if not action_code:
+            action_code = "N/A"
+        bot_response = _clean_str(t.get("bot_response", ""))
+        if not src:
             continue
-        for intent in _split_step_intents(str(step_text)):
-            matched = False
-            for tr in graph.get(src, []):  # type: ignore[name-defined]
-                tr_intent = str(tr.intent).strip()
-                tr_condition = str(tr.condition).strip()
-                if tr_intent != intent:
-                    continue
-                if tr_condition and tr_condition not in case_conditions:
-                    continue
-                intent_pairs.add((src, tr_condition, intent))
-                matched = True
-            if not matched:
-                intent_pairs.add((src, "", intent))
-    return intent_pairs
-
-
-def _collect_terminal_outcome_universe(
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    step_nodes: set[str],
-) -> set[tuple[str, str, str, str]]:
-    universe: set[tuple[str, str, str, str]] = set()
-    for src, transitions in graph.items():
-        if src not in step_nodes:
-            continue
-        for tr in transitions:
-            dst = str(tr.dst).strip()
-            if not _is_terminal_step(dst):
-                continue
-            intent = str(tr.intent).strip()
-            condition = str(tr.condition).strip()
-            action_code = str(tr.action_code).strip()
-            if intent:
-                universe.add((src, condition, intent, action_code))
-    return universe
-
-
-def _case_terminal_outcome_pairs(
-    case: dict[str, Any],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-) -> set[tuple[str, str, str, str]]:
-    path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-    steps = list(case.get("steps", []))
-    if not path_nodes or not steps:
-        return set()
-    conditions_text = str(case.get("conditions", ""))
-    case_conditions = {part.strip() for part in conditions_text.split(_STEP_SEPARATOR) if part.strip()}
-    expected_action = str(case.get("expected_action_code", "")).strip()
-    pairs: set[tuple[str, str, str, str]] = set()
-
-    for idx, step_text in enumerate(steps):
-        if idx >= len(path_nodes) - 1:
-            break
-        src = path_nodes[idx]
-        dst = path_nodes[idx + 1]
-        if not _is_terminal_step(dst):
-            continue
-        intents = _split_step_intents(str(step_text))
-        for intent in intents:
-            matched = False
-            for tr in graph.get(src, []):
-                tr_intent = str(tr.intent).strip()
-                tr_condition = str(tr.condition).strip()
-                tr_dst = str(tr.dst).strip()
-                tr_action = str(tr.action_code).strip()
-                if tr_intent != intent or tr_dst != dst:
-                    continue
-                if tr_condition and tr_condition not in case_conditions:
-                    continue
-                # For terminal transition, bind to testcase expected action
-                # so distinct outcomes are represented separately.
-                if expected_action and tr_action != expected_action:
-                    continue
-                pairs.add((src, tr_condition, intent, tr_action))
-                matched = True
-            if not matched and expected_action:
-                pairs.add((src, "", intent, expected_action))
-    return pairs
-
-
-def _case_signature(case: dict[str, Any]) -> tuple[Any, ...]:
-    return (
-        tuple(str(step) for step in case.get("steps", [])),
-        tuple(str(resp) for resp in case.get("bot_responses", [])),
-        str(case.get("conditions", "")),
-        str(case.get("expected_action_code", "")),
-        str(case.get("path", "")),
-    )
-
-
-def _case_transition_pairs(
-    case: dict[str, Any],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-) -> set[tuple[str, str, str, str]]:
-    path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-    steps = list(case.get("steps", []))
-    conditions_text = str(case.get("conditions", ""))
-    case_conditions = {part.strip() for part in conditions_text.split(_STEP_SEPARATOR) if part.strip()}
-    pairs: set[tuple[str, str, str, str]] = set()
-
-    for idx, step_text in enumerate(steps):
-        if idx >= len(path_nodes) - 1:
-            break
-        src = path_nodes[idx]
-        dst = path_nodes[idx + 1]
-        for intent in _split_step_intents(str(step_text)):
-            matched = False
-            for tr in graph.get(src, []):
-                tr_intent = str(tr.intent).strip()
-                tr_condition = str(tr.condition).strip()
-                tr_dst = str(tr.dst).strip()
-                if tr_intent != intent or tr_dst != dst:
-                    continue
-                if tr_condition and tr_condition not in case_conditions:
-                    continue
-                pairs.add((src, tr_condition, intent, dst))
-                matched = True
-            if not matched:
-                pairs.add((src, "", intent, dst))
-    return pairs
-
-
-def _collect_same_next_step_groups(
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-) -> dict[tuple[str, str, str], set[str]]:
-    groups: dict[tuple[str, str, str], set[str]] = {}
-    for src, transitions in graph.items():
-        for tr in transitions:
-            key = (src, str(tr.condition).strip(), str(tr.dst).strip())
-            groups.setdefault(key, set()).add(str(tr.intent).strip())
-    return groups
-
-
-def _reduce_cases_by_step_coverage(
-    cases: list[dict[str, Any]],
-    universe: set[str],
-) -> list[dict[str, Any]]:
-    if not cases or not universe:
-        return cases
-
-    indexed_case_data: list[tuple[int, dict[str, Any], set[str], int, int]] = []
-    for idx, case in enumerate(cases):
-        path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-        covered = {node for node in path_nodes if node in universe}
-        indexed_case_data.append((idx, case, covered, _path_length(case), len(case.get("steps", []))))
-
-    selected_indices: set[int] = set()
-
-    # Rule 1: for each Step_no, choose one shortest testcase.
-    # Rule 2: for longer feasible paths to that Step_no, keep one representative
-    # per distinct path prefix reaching that Step_no.
-    for target_node in sorted(universe):
-        candidates = [item for item in indexed_case_data if target_node in item[2]]
-        if not candidates:
-            # Fallback: keep original list if full step coverage is impossible.
-            return cases
-
-        shortest_path_len = min(item[3] for item in candidates)
-        shortest_candidates = [item for item in candidates if item[3] == shortest_path_len]
-        shortest_choice = min(shortest_candidates, key=lambda item: (item[4], item[0]))
-        selected_indices.add(shortest_choice[0])
-
-        # For longer feasible paths, keep one representative per distinct
-        # prefix path reaching the target node.
-        longer_candidates = [item for item in candidates if item[3] > shortest_path_len]
-        by_prefix: dict[tuple[str, ...], list[tuple[int, dict[str, Any], set[str], int, int]]] = {}
-        for item in longer_candidates:
-            _, case, _, _, _ = item
-            prefix = _prefix_to_node(case, target_node)
-            by_prefix.setdefault(prefix, []).append(item)
-        for reps in by_prefix.values():
-            rep_choice = min(reps, key=lambda item: (item[3], item[4], item[0]))
-            selected_indices.add(rep_choice[0])
-
-    selected = [item for item in indexed_case_data if item[0] in selected_indices]
-    selected.sort(key=lambda item: item[0])
-    return [item[1] for item in selected]
-
-
-def _expand_cases_by_intent_coverage(
-    cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    *,
-    root: str,
-    max_depth: int,
-) -> list[dict[str, Any]]:
-    if not cases:
-        return cases
-
-    step_nodes: set[str] = set()
-    for case in cases:
-        for node in _extract_nodes_from_path(str(case.get("path", ""))):
-            if not _is_terminal_step(node):
-                step_nodes.add(node)
-
-    intent_universe = _collect_intent_universe(graph, step_nodes)
-    if not intent_universe:
-        return cases
-
-    all_cases = tcgen_e2e_human.generate_test_cases(graph, root=root, max_depth=max_depth)
-    indexed_case_data: list[tuple[int, dict[str, Any], set[tuple[str, str, str]]]] = []
-    for idx, case in enumerate(all_cases):
-        intent_pairs = _case_intent_pairs(case, step_nodes, graph)
-        if intent_pairs:
-            indexed_case_data.append((idx, case, intent_pairs))
-
-    selected: list[tuple[int, dict[str, Any], set[tuple[str, str, str]]]] = []
-    selected_signatures = {_case_signature(case) for case in cases}
-    for idx, case, intent_pairs in indexed_case_data:
-        if _case_signature(case) in selected_signatures:
-            selected.append((idx, case, intent_pairs))
-
-    if not selected:
-        return cases
-
-    covered = set().union(*(intent_pairs for _, _, intent_pairs in selected))
-    uncovered = intent_universe - covered
-    remaining = [item for item in indexed_case_data if _case_signature(item[1]) not in selected_signatures]
-
-    while uncovered:
-        best: tuple[int, dict[str, Any], set[tuple[str, str, str]]] | None = None
-        best_path_len = 10**9
-        best_step_len = 10**9
-        best_gain = -1
-        best_idx = 10**9
-
-        for idx, case, intent_pairs in remaining:
-            gain = len(intent_pairs & uncovered)
-            if gain <= 0:
-                continue
-            path_len = _path_length(case)
-            step_len = len(case.get("steps", []))
-            if (
-                gain > best_gain
-                or (gain == best_gain and path_len < best_path_len)
-                or (gain == best_gain and path_len == best_path_len and step_len < best_step_len)
-                or (
-                    gain == best_gain
-                    and path_len == best_path_len
-                    and step_len == best_step_len
-                    and idx < best_idx
-                )
-            ):
-                best = (idx, case, intent_pairs)
-                best_path_len = path_len
-                best_step_len = step_len
-                best_gain = gain
-                best_idx = idx
-
-        if best is None:
-            break
-
-        selected.append(best)
-        covered |= best[2]
-        uncovered = intent_universe - covered
-        remaining = [item for item in remaining if item[0] != best[0]]
-
-    # Hard guarantee: if any (src, condition, intent) pair is still missing,
-    # backfill with the shortest testcase that covers that pair.
-    covered = set().union(*(intent_pairs for _, _, intent_pairs in selected))
-    still_missing = intent_universe - covered
-    if still_missing:
-        selected_sig = {_case_signature(case) for _, case, _ in selected}
-        for pair in sorted(still_missing):
-            candidates = [
-                item
-                for item in indexed_case_data
-                if pair in item[2] and _case_signature(item[1]) not in selected_sig
-            ]
-            if not candidates:
-                continue
-            chosen = min(
-                candidates,
-                key=lambda item: (_path_length(item[1]), len(item[1].get("steps", [])), item[0]),
+        adjacency[src].append(
+            Transition(
+                src=src,
+                dst=dst,
+                condition=condition,
+                intent=intent,
+                action_code=action_code,
+                bot_response=bot_response,
             )
-            selected.append(chosen)
-            selected_sig.add(_case_signature(chosen[1]))
-
-    # Also guarantee terminal action outcomes for selected nodes.
-    selected_cases = [item[1] for item in selected]
-    terminal_universe = _collect_terminal_outcome_universe(graph, step_nodes)
-    covered_terminal: set[tuple[str, str, str, str]] = set()
-    for case in selected_cases:
-        covered_terminal |= _case_terminal_outcome_pairs(case, graph)
-    missing_terminal = terminal_universe - covered_terminal
-    if missing_terminal:
-        selected_sig = {_case_signature(case) for case in selected_cases}
-        for outcome in sorted(missing_terminal):
-            candidates = [
-                item
-                for item in indexed_case_data
-                if _case_signature(item[1]) not in selected_sig
-                and outcome in _case_terminal_outcome_pairs(item[1], graph)
-            ]
-            if not candidates:
-                continue
-            chosen = min(
-                candidates,
-                key=lambda item: (_path_length(item[1]), len(item[1].get("steps", [])), item[0]),
-            )
-            selected.append(chosen)
-            selected_sig.add(_case_signature(chosen[1]))
-
-    selected.sort(key=lambda item: item[0])
-    return [item[1] for item in selected]
-
-
-def _expand_cases_by_shared_next_step_siblings(
-    cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    *,
-    root: str,
-    max_depth: int,
-) -> list[dict[str, Any]]:
-    if not cases:
-        return cases
-
-    sibling_groups = _collect_same_next_step_groups(graph)
-    all_cases = tcgen_e2e_human.generate_test_cases(graph, root=root, max_depth=max_depth)
-    indexed_case_data: list[tuple[int, dict[str, Any], set[tuple[str, str, str, str]]]] = []
-    for idx, case in enumerate(all_cases):
-        transition_pairs = _case_transition_pairs(case, graph)
-        if transition_pairs:
-            indexed_case_data.append((idx, case, transition_pairs))
-
-    selected_signatures = {_case_signature(case) for case in cases}
-    selected: list[tuple[int, dict[str, Any], set[tuple[str, str, str, str]]]] = []
-    for idx, case, transition_pairs in indexed_case_data:
-        if _case_signature(case) in selected_signatures:
-            selected.append((idx, case, transition_pairs))
-
-    if not selected:
-        return cases
-
-    remaining = [item for item in indexed_case_data if _case_signature(item[1]) not in selected_signatures]
-
-    while True:
-        covered_pairs = set().union(*(pairs for _, _, pairs in selected))
-        missing_pairs: set[tuple[str, str, str, str]] = set()
-
-        for _, _, pairs in selected:
-            intents_by_group: dict[tuple[str, str, str], set[str]] = {}
-            for src, condition, intent, dst in pairs:
-                intents_by_group.setdefault((src, condition, dst), set()).add(intent)
-
-            for group_key, case_intents in intents_by_group.items():
-                sibling_intents = sibling_groups.get(group_key, set())
-                if len(sibling_intents) <= 1:
-                    continue
-                # Only expand groups where this selected case already contains
-                # all intents in the sibling group.
-                if case_intents != sibling_intents:
-                    continue
-                src, condition, dst = group_key
-                for sibling_intent in sibling_intents:
-                    sibling_pair = (src, condition, sibling_intent, dst)
-                    if sibling_pair not in covered_pairs:
-                        missing_pairs.add(sibling_pair)
-
-        if not missing_pairs:
-            break
-
-        best: tuple[int, dict[str, Any], set[tuple[str, str, str, str]]] | None = None
-        best_path_len = 10**9
-        best_step_len = 10**9
-        best_gain = -1
-        best_idx = 10**9
-
-        for idx, case, transition_pairs in remaining:
-            gain = len(transition_pairs & missing_pairs)
-            if gain <= 0:
-                continue
-            path_len = _path_length(case)
-            step_len = len(case.get("steps", []))
-            if (
-                gain > best_gain
-                or (gain == best_gain and path_len < best_path_len)
-                or (gain == best_gain and path_len == best_path_len and step_len < best_step_len)
-                or (
-                    gain == best_gain
-                    and path_len == best_path_len
-                    and step_len == best_step_len
-                    and idx < best_idx
-                )
-            ):
-                best = (idx, case, transition_pairs)
-                best_path_len = path_len
-                best_step_len = step_len
-                best_gain = gain
-                best_idx = idx
-
-        if best is None:
-            break
-
-        selected.append(best)
-        remaining = [item for item in remaining if item[0] != best[0]]
-
-    selected.sort(key=lambda item: item[0])
-    return [item[1] for item in selected]
-
-
-def _expand_cases_by_shortest_sibling_representatives(
-    cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    *,
-    root: str,
-    max_depth: int,
-) -> list[dict[str, Any]]:
-    if not cases:
-        return cases
-
-    all_cases = tcgen_e2e_human.generate_test_cases(graph, root=root, max_depth=max_depth)
-    sibling_groups = _collect_same_next_step_groups(graph)
-
-    indexed_case_data: list[tuple[int, dict[str, Any], set[tuple[str, str, str, str]]]] = []
-    for idx, case in enumerate(all_cases):
-        transition_pairs = _case_transition_pairs(case, graph)
-        if transition_pairs:
-            indexed_case_data.append((idx, case, transition_pairs))
-
-    selected_signatures = {_case_signature(case) for case in cases}
-    selected: list[tuple[int, dict[str, Any], set[tuple[str, str, str, str]]]] = []
-    for idx, case, transition_pairs in indexed_case_data:
-        if _case_signature(case) in selected_signatures:
-            selected.append((idx, case, transition_pairs))
-
-    if not selected:
-        return cases
-
-    needed_pairs: set[tuple[str, str, str, str]] = set()
-    for _, _, transition_pairs in selected:
-        for src, condition, _, dst in transition_pairs:
-            sibling_intents = sibling_groups.get((src, condition, dst), set())
-            if len(sibling_intents) <= 1:
-                continue
-            for sibling_intent in sibling_intents:
-                needed_pairs.add((src, condition, sibling_intent, dst))
-
-    if not needed_pairs:
-        return cases
-
-    shortest_case_for_pair: dict[tuple[str, str, str, str], tuple[int, dict[str, Any], set[tuple[str, str, str, str]]]] = {}
-    for idx, case, transition_pairs in indexed_case_data:
-        path_len = _path_length(case)
-        step_len = len(case.get("steps", []))
-        for pair in transition_pairs & needed_pairs:
-            current = shortest_case_for_pair.get(pair)
-            if current is None:
-                shortest_case_for_pair[pair] = (idx, case, transition_pairs)
-                continue
-            current_idx, current_case, _ = current
-            current_path_len = _path_length(current_case)
-            current_step_len = len(current_case.get("steps", []))
-            if (
-                path_len < current_path_len
-                or (path_len == current_path_len and step_len < current_step_len)
-                or (path_len == current_path_len and step_len == current_step_len and idx < current_idx)
-            ):
-                shortest_case_for_pair[pair] = (idx, case, transition_pairs)
-
-    for pair in sorted(needed_pairs):
-        chosen = shortest_case_for_pair.get(pair)
-        if chosen is None:
-            continue
-        signature = _case_signature(chosen[1])
-        if signature in selected_signatures:
-            continue
-        selected.append(chosen)
-        selected_signatures.add(signature)
-
-    selected.sort(key=lambda item: item[0])
-    return [item[1] for item in selected]
-
-
-def _fix_terminal_action_and_detours(
-    cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-    *,
-    root: str,
-    max_depth: int,
-) -> list[dict[str, Any]]:
-    if not cases:
-        return cases
-
-    all_cases = tcgen_e2e_human.generate_test_cases(graph, root=root, max_depth=max_depth)
-
-    def _flow_key_without_action(case: dict[str, Any]) -> tuple[Any, ...]:
-        return (
-            tuple(str(step) for step in case.get("steps", [])),
-            str(case.get("conditions", "")),
-            str(case.get("path", "")),
         )
-
-    # 1) Keep all action variants for a selected exact flow.
-    by_key_actions: dict[tuple[Any, ...], dict[str, dict[str, Any]]] = {}
-    for case in all_cases:
-        key = _flow_key_without_action(case)
-        action = str(case.get("expected_action_code", ""))
-        by_key_actions.setdefault(key, {})
-        by_key_actions[key].setdefault(action, case)
-
-    merged: list[dict[str, Any]] = []
-    selected_sigs = {_case_signature(case) for case in cases}
-    for case in cases:
-        merged.append(case)
-        key = _flow_key_without_action(case)
-        action_map = by_key_actions.get(key, {})
-        if len(action_map) <= 1:
-            continue
-        present_actions = {
-            str(c.get("expected_action_code", ""))
-            for c in merged
-            if _flow_key_without_action(c) == key
-        }
-        for action, candidate in action_map.items():
-            if action in present_actions:
-                continue
-            sig = _case_signature(candidate)
-            if sig in selected_sigs:
-                continue
-            merged.append(candidate)
-            selected_sigs.add(sig)
-            present_actions.add(action)
-
-    # Remove very narrow redundant detours:
-    # same condition/action/terminal-intent/node-before-end and longer path
-    # differs from another by exactly one inserted hop + one inserted step.
-    step_nodes: set[str] = set()
-    for case in merged:
-        for node in _extract_nodes_from_path(str(case.get("path", ""))):
-            if not _is_terminal_step(node):
-                step_nodes.add(node)
-    intent_sets = [_case_intent_pairs(case, step_nodes, graph) for case in merged]
-    outcome_sets = [_case_terminal_outcome_pairs(case, graph) for case in merged]
-    intent_freq: dict[tuple[str, str, str], int] = {}
-    outcome_freq: dict[tuple[str, str, str, str], int] = {}
-    for pairs in intent_sets:
-        for pair in pairs:
-            intent_freq[pair] = intent_freq.get(pair, 0) + 1
-    for pairs in outcome_sets:
-        for pair in pairs:
-            outcome_freq[pair] = outcome_freq.get(pair, 0) + 1
-
-    def _is_one_insertion(long_seq: list[str], short_seq: list[str]) -> bool:
-        if len(long_seq) != len(short_seq) + 1:
-            return False
-        i = j = 0
-        skipped = False
-        while i < len(long_seq) and j < len(short_seq):
-            if long_seq[i] == short_seq[j]:
-                i += 1
-                j += 1
-                continue
-            if skipped:
-                return False
-            skipped = True
-            i += 1
-        return True
-
-    removable: set[int] = set()
-    terminal_nodes = {"end", "stop", "__end__", "__terminal__"}
-    for i, case_i in enumerate(merged):
-        path_i = _extract_nodes_from_path(str(case_i.get("path", "")))
-        steps_i = [str(s) for s in case_i.get("steps", [])]
-        if len(path_i) < 3 or not steps_i:
-            continue
-        if path_i[-1].strip().lower() not in terminal_nodes:
-            continue
-        has_unique_intent = any(intent_freq.get(pair, 0) == 1 for pair in intent_sets[i])
-        has_unique_outcome = any(outcome_freq.get(pair, 0) == 1 for pair in outcome_sets[i])
-        if has_unique_intent or has_unique_outcome:
-            continue
-        for j, case_j in enumerate(merged):
-            if i == j:
-                continue
-            if str(case_i.get("conditions", "")) != str(case_j.get("conditions", "")):
-                continue
-            if str(case_i.get("expected_action_code", "")) != str(case_j.get("expected_action_code", "")):
-                continue
-            path_j = _extract_nodes_from_path(str(case_j.get("path", "")))
-            steps_j = [str(s) for s in case_j.get("steps", [])]
-            if len(path_j) < 3 or not steps_j:
-                continue
-            if path_j[-1].strip().lower() not in terminal_nodes:
-                continue
-            if path_i[-2] != path_j[-2]:
-                continue
-            if steps_i[-1] != steps_j[-1]:
-                continue
-            if _is_one_insertion(path_i[:-1], path_j[:-1]) and _is_one_insertion(steps_i, steps_j):
-                removable.add(i)
-                break
-
-    if not removable:
-        return merged
-    return [case for idx, case in enumerate(merged) if idx not in removable]
+    for src in adjacency:
+        adjacency[src].sort(key=lambda tr: (tr.dst, tr.action_code, tr.condition, tr.intent))
+    return dict(adjacency)
 
 
-def _apply_tc051_tc052_hotfix(
+def _a0_greeting_case(
+    graph: dict[str, list[Transition]],
+    *,
+    multi_response: bool = False,
+) -> dict[str, Any] | None:
+    transitions = graph.get("A0", [])
+    if not transitions:
+        return None
+
+    first = transitions[0]
+    if multi_response:
+        bot_responses = [tr.bot_response for tr in transitions if tr.bot_response]
+    else:
+        bot_responses = [first.bot_response] if first.bot_response else []
+
+    return {
+        "conditions": "",
+        "steps": [],
+        "bot_responses": bot_responses,
+        "expected_action_code": first.action_code,
+        "path": "A0",
+    }
+
+
+def _prepend_single_a0_case(
     cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
+    graph: dict[str, list[Transition]],
+    *,
+    multi_response: bool = False,
 ) -> list[dict[str, Any]]:
-    # Focused fix for known sibling issue in A5/A6 branch:
-    # - Keep both terminal outcomes for path A1 -> A2 -> A5 -> A6 -> End (KH mất)
-    # - Drop redundant detour case A1 -> A2 -> A5 -> A7 -> A6 -> A8 -> End
-    fixed = list(cases)
-
-    target_path = "A1 -> A2 -> A5 -> A6 -> End"
-    has_transfer = False
-    has_non_rpc = False
-    transfer_case: dict[str, Any] | None = None
-    transfer_idx: int | None = None
-    for idx, case in enumerate(fixed):
-        if str(case.get("path", "")) != target_path:
-            continue
-        steps = [str(s) for s in case.get("steps", [])]
-        if not steps or steps[-1] != "KH mất":
-            continue
-        action = str(case.get("expected_action_code", ""))
-        if "Call disconnected (non RPC)" in action and "Transferred to operator" not in action:
-            has_non_rpc = True
-        if "Transferred to operator" in action:
-            has_transfer = True
-            transfer_case = case
-            transfer_idx = idx
-
-    if has_transfer and not has_non_rpc and transfer_case is not None:
-        # Clone transfer case into non-RPC outcome using graph transition bot text.
-        non_rpc_bot = None
-        for tr in graph.get("A6", []):
-            if str(tr.intent).strip() == "KH mất" and str(tr.dst).strip().lower() in {"end", "stop", "__end__", "__terminal__"}:
-                action = str(tr.action_code).strip()
-                if "Call disconnected (non RPC)" in action and "Transferred to operator" not in action:
-                    non_rpc_bot = str(tr.bot_response)
-                    break
-        clone = dict(transfer_case)
-        clone["expected_action_code"] = "Call disconnected (non RPC)"
-        if non_rpc_bot:
-            bots = list(clone.get("bot_responses", []))
-            if bots:
-                last_item = bots[-1]
-                if isinstance(last_item, list):
-                    bots[-1] = [non_rpc_bot]
-                else:
-                    bots[-1] = non_rpc_bot
-            else:
-                bots = [[non_rpc_bot]]
-            clone["bot_responses"] = bots
-        insert_at = (transfer_idx + 1) if transfer_idx is not None else len(fixed)
-        fixed.insert(insert_at, clone)
-
-    detour_path = "A1 -> A2 -> A5 -> A7 -> A6 -> A8 -> End"
-    fixed = [
-        case
-        for case in fixed
-        if not (
-            str(case.get("path", "")) == detour_path
-            and str(case.get("conditions", "")) == "Business Hour"
-        )
-    ]
-
-    # Focused fix for A1 -> A2 -> A3 -> A4 branch:
-    # - Remove unnecessary FAQ loop testcase after "KH tự nguyện trả"
-    # - Ensure direct "KH mất" has both Business/Out-of-business variants,
-    #   and place the Out-of-business variant right after Business variant.
-    fixed = [
-        case
-        for case in fixed
-        if not (
-            str(case.get("path", "")) == "A1 -> A2 -> A3 -> A4 -> A4 -> A4 -> End"
-            and [str(s) for s in case.get("steps", [])]
-            == [
-                "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-                "KH có quen biết",
-                "KH tự nguyện trả",
-                "FAQ lần 1",
-                "FAQ lần 2",
-                "FAQ lần 3",
-            ]
-            and str(case.get("conditions", "")) == "Business Hour"
-        )
-    ]
-
-    direct_steps = [
-        "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-        "KH có quen biết",
-        "KH tự nguyện trả",
-        "KH mất",
-    ]
-    direct_path = "A1 -> A2 -> A3 -> A4 -> End"
-    business_idx: int | None = None
-    out_idx: int | None = None
-    for idx, case in enumerate(fixed):
-        if str(case.get("path", "")) != direct_path:
-            continue
-        if [str(s) for s in case.get("steps", [])] != direct_steps:
-            continue
-        cond = str(case.get("conditions", ""))
-        if cond == "Business Hour":
-            business_idx = idx
-        elif cond == "Out of business hour":
-            out_idx = idx
-
-    if business_idx is not None and out_idx is None:
-        business_case = fixed[business_idx]
-        out_case = dict(business_case)
-        out_case["conditions"] = "Out of business hour"
-        out_case["expected_action_code"] = "Call disconnected (non RPC)"
-        out_bot = None
-        for tr in graph.get("A4", []):
-            if (
-                str(tr.intent).strip() == "KH mất"
-                and str(tr.condition).strip() == "Out of business hour"
-                and str(tr.dst).strip().lower() in {"end", "stop", "__end__", "__terminal__"}
-            ):
-                out_bot = str(tr.bot_response)
-                break
-        if out_bot is not None:
-            bots = list(out_case.get("bot_responses", []))
-            if bots:
-                last_item = bots[-1]
-                if isinstance(last_item, list):
-                    bots[-1] = [out_bot]
-                else:
-                    bots[-1] = out_bot
-            else:
-                bots = [[out_bot]]
-            out_case["bot_responses"] = bots
-        fixed.insert(business_idx + 1, out_case)
-        out_idx = business_idx + 1
-
-    if business_idx is not None and out_idx is not None and out_idx != business_idx + 1:
-        out_case = fixed.pop(out_idx)
-        insert_at = business_idx + 1 if out_idx > business_idx else business_idx
-        fixed.insert(insert_at, out_case)
-
-    return fixed
-
-
-def _ensure_terminal_sibling_condition_variants(
-    cases: list[dict[str, Any]],
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
-) -> list[dict[str, Any]]:
-    if not cases:
+    a0_case = _a0_greeting_case(graph, multi_response=multi_response)
+    if a0_case is None:
         return cases
-
-    terminal_nodes = {"end", "stop", "__end__", "__terminal__"}
-    # (src, intent) -> condition variants for terminal transitions
-    terminal_variants: dict[tuple[str, str], dict[str, tuple[str, str]]] = {}
-    for src, transitions in graph.items():
-        for tr in transitions:
-            if str(tr.dst).strip().lower() not in terminal_nodes:
-                continue
-            key = (str(src).strip(), str(tr.intent).strip())
-            cond = str(tr.condition).strip()
-            action = str(tr.action_code).strip()
-            bot = str(tr.bot_response)
-            terminal_variants.setdefault(key, {})
-            terminal_variants[key].setdefault(cond, (action, bot))
-
-    merged = list(cases)
-    sigs = {_case_signature(c) for c in merged}
-    for case in list(merged):
-        path_nodes = _extract_nodes_from_path(str(case.get("path", "")))
-        steps = [str(s) for s in case.get("steps", [])]
-        if not path_nodes or len(path_nodes) < 2 or not steps:
-            continue
-        if path_nodes[-1].strip().lower() not in terminal_nodes:
-            continue
-        src = path_nodes[-2].strip()
-        last_intent = steps[-1].strip()
-        key = (src, last_intent)
-        variants = terminal_variants.get(key, {})
-        if len(variants) <= 1:
-            continue
-
-        # Build existing condition set for same path+steps.
-        existing_conditions = {
-            str(c.get("conditions", ""))
-            for c in merged
-            if str(c.get("path", "")) == str(case.get("path", ""))
-            and [str(s) for s in c.get("steps", [])] == steps
-        }
-        for cond, (action, bot) in variants.items():
-            if cond in existing_conditions:
-                continue
-            clone = dict(case)
-            clone["conditions"] = cond
-            clone["expected_action_code"] = action
-            bots = list(clone.get("bot_responses", []))
-            if bots:
-                last_item = bots[-1]
-                if isinstance(last_item, list):
-                    bots[-1] = [bot]
-                else:
-                    bots[-1] = bot
-            else:
-                bots = [[bot]]
-            clone["bot_responses"] = bots
-            sig = _case_signature(clone)
-            if sig in sigs:
-                continue
-            merged.append(clone)
-            sigs.add(sig)
-            existing_conditions.add(cond)
-    return merged
-
-
-def build_graph(transitions: list[dict[str, str]]) -> dict[str, list[tcgen_e2e_human.Transition]]:
-    return tcgen_e2e_human.build_graph(transitions)
+    non_a0_cases = [case for case in cases if str(case.get("path", "")).strip() != "A0"]
+    return [a0_case] + non_a0_cases
 
 
 def generate_test_cases(
-    graph: dict[str, list[tcgen_e2e_human.Transition]],
+    graph: dict[str, list[Transition]],
     *,
     root: str = "A1",
     max_depth: int = 200,
 ) -> list[dict[str, Any]]:
-    cases = tcgen_e2e_human.generate_test_cases(graph, root=root, max_depth=max_depth)
-    universe = _collect_universe(graph)
-    reduced_cases = _reduce_cases_by_step_coverage(cases, universe)
-    expanded_cases = _expand_cases_by_intent_coverage(
-        reduced_cases,
-        graph,
-        root=root,
-        max_depth=max_depth,
-    )
-    expanded_cases = _expand_cases_by_shared_next_step_siblings(
-        expanded_cases,
-        graph,
-        root=root,
-        max_depth=max_depth,
-    )
-    cases = _expand_cases_by_shortest_sibling_representatives(
-        expanded_cases,
-        graph,
-        root=root,
-        max_depth=max_depth,
-    )
-    cases = _apply_tc051_tc052_hotfix(cases, graph)
-    cases = _ensure_terminal_sibling_condition_variants(cases, graph)
+    cases: List[Dict[str, Any]] = []
+    full_dfs_dst_owner: Dict[str, str] = {}
+
+    def _make_step(trans_list: List[Transition]) -> tuple[str, List[str], str]:
+        intents = sorted(set(tr.intent for tr in trans_list))
+        step_intent = " \\ ".join(intents)
+        bot_resp = list(dict.fromkeys(tr.bot_response for tr in trans_list if tr.bot_response))
+        conditions = list(dict.fromkeys(tr.condition for tr in trans_list))
+        step_condition = conditions[0] if conditions else ""
+        return step_intent, bot_resp, step_condition
+
+    def _make_single_step(tr: Transition) -> tuple[str, List[str], str]:
+        bot_resp = [tr.bot_response] if tr.bot_response else []
+        return tr.intent, bot_resp, tr.condition
+
+    def _append_condition(case_conditions: List[str], condition: str) -> List[str]:
+        if condition in case_conditions:
+            return list(case_conditions)
+        return case_conditions + [condition]
+
+    def _render_conditions(case_conditions: List[str]) -> str:
+        non_empty = [cond for cond in case_conditions if cond]
+        if non_empty:
+            return " \\ ".join(non_empty)
+        return ""
+
+    # ------------------------------------------------------------------ #
+    # Main DFS traversal (with optional stop‑after‑first‑terminal flag)
+    # ------------------------------------------------------------------ #
+    def dfs(
+        node: str,
+        steps: List[str],
+        bot_responses_list: List[List[str]],
+        case_conditions: List[str],
+        path_nodes: List[str],
+        visited_edges: Set[Tuple[str, str, str, str]],
+        consumed_chains: Set[Tuple[str, str]],
+        *,
+        stop_after_first: bool = False,
+    ) -> bool:
+        """
+        Returns True if a terminal case was generated (useful when
+        stop_after_first=True), otherwise returns False.
+        """
+        if len(steps) >= max_depth:
+            return False
+
+        transitions = graph.get(node, [])
+        if not transitions:
+            return False
+
+        repeat_map: Dict[str, Dict[int, Dict[Tuple[str, str, str], List[Transition]]]] = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(list))
+        )
+        normal_transitions: List[Transition] = []
+
+        for tr in transitions:
+            rep = _parse_repeat(tr.intent)
+            if rep:
+                base, n = rep
+                repeat_map[base][n][(tr.dst, tr.action_code, tr.condition)].append(tr)
+            else:
+                normal_transitions.append(tr)
+
+        # For non-self-repeat transitions sharing the same dst:
+        # 1) first occurrence gets full DFS,
+        # 2) subsequent occurrences each stop after one terminal case.
+        # Terminal transitions keep one case per condition because there is no
+        # deeper DFS where stop_after_first can choose a path. A1 preserves
+        # distinct terminal intents for direct root-level outcomes.
+        # Self-repeat transitions (dst == node) are exempt from this rule.
+        normal_sorted = sorted(
+            normal_transitions,
+            key=lambda tr: (tr.dst, tr.action_code, tr.condition, tr.intent),
+        )
+        dst_first: Dict[Tuple[str, str, str], Transition] = {}
+        duplicates: List[Transition] = []
+        self_repeats: List[Transition] = []
+        for tr in normal_sorted:
+            if tr.dst == node:
+                self_repeats.append(tr)
+            else:
+                if _is_terminal_step(tr.dst):
+                    if node == "A1":
+                        group_key = (tr.dst, tr.condition, tr.intent)
+                    else:
+                        group_key = (tr.dst, tr.condition, "")
+                else:
+                    group_key = (tr.dst, "", "")
+                if group_key not in dst_first:
+                    dst_first[group_key] = tr
+                else:
+                    duplicates.append(tr)
+
+        normal_work: List[Tuple[Transition, bool, bool]] = []
+        normal_work.extend((tr, stop_after_first, False) for tr in dst_first.values())
+        normal_work.extend((tr, stop_after_first, False) for tr in self_repeats)
+        normal_work.extend((tr, True, True) for tr in duplicates)
+
+        for tr, effective_stop, is_duplicate_dst in normal_work:
+            dst = tr.dst
+            action_code = tr.action_code
+            step_intent, bot_resp, step_condition = _make_single_step(tr)
+
+            allowed, step_condition = _evaluate_step_condition(
+                step_condition, {n.strip() for n in path_nodes}
+            )
+            if not allowed:
+                continue
+
+            edge_key = (node, dst, step_intent, step_condition)
+            if edge_key in visited_edges:
+                continue
+
+            new_steps = steps + [step_intent]
+            new_bot = bot_responses_list + [bot_resp]
+            new_conditions = _append_condition(case_conditions, step_condition)
+            new_path = path_nodes + [dst]
+            new_visited = visited_edges | {edge_key}
+
+            if _is_terminal_step(dst):
+                if is_duplicate_dst:
+                    continue
+                cases.append({
+                    "conditions": _render_conditions(new_conditions),
+                    "steps": new_steps,
+                    "bot_responses": new_bot,
+                    "expected_action_code": action_code,
+                    "path": " -> ".join(new_path),
+                })
+                if stop_after_first:
+                    return True
+                continue
+
+            if dst in graph:
+                cross_source_stop = effective_stop
+                if dst != node:
+                    owner = full_dfs_dst_owner.get(dst)
+                    if owner is None:
+                        if not effective_stop:
+                            full_dfs_dst_owner[dst] = node
+                    elif owner != node:
+                        cross_source_stop = True
+                found = dfs(
+                    dst, new_steps, new_bot, new_conditions, new_path,
+                    new_visited, consumed_chains,
+                    stop_after_first=cross_source_stop,
+                )
+                if stop_after_first and found:
+                    return True
+
+        # ── Process ordered repeat chains per base ────────────────────────
+        for base in sorted(repeat_map.keys()):
+            n_map = repeat_map[base]
+            if 1 not in n_map:
+                continue
+
+            chain_id = {("__repeat_base__", base)}
+            if chain_id & consumed_chains:
+                continue
+
+            chain_levels: List[Tuple[int, List[Tuple[str, str, str, List[Transition]]]]] = []
+            expected_n = 1
+            while expected_n in n_map:
+                grouped = [
+                    (dst, action_code, step_condition, trans_list)
+                    for (dst, action_code, step_condition), trans_list in sorted(n_map[expected_n].items())
+                ]
+                chain_levels.append((expected_n, grouped))
+                expected_n += 1
+
+            found = _dfs_repeat_chain(
+                origin_node=node,
+                chain_ids=chain_id,
+                chain_levels=chain_levels,
+                chain_idx=0,
+                steps=steps,
+                bot_responses_list=bot_responses_list,
+                case_conditions=case_conditions,
+                path_nodes=path_nodes,
+                visited_edges=visited_edges,
+                consumed_chains=consumed_chains,
+                stop_after_first=stop_after_first,
+            )
+            if stop_after_first and found:
+                return True
+
+        return False
+
+    def _dfs_repeat_chain(
+        origin_node: str,
+        chain_ids: Set[Tuple[str, str]],
+        chain_levels: List[Tuple[int, List[Tuple[str, str, str, List[Transition]]]]],
+        chain_idx: int,
+        steps: List[str],
+        bot_responses_list: List[List[str]],
+        case_conditions: List[str],
+        path_nodes: List[str],
+        visited_edges: Set[Tuple[str, str, str, str]],
+        consumed_chains: Set[Tuple[str, str]],
+        *,
+        stop_after_first: bool = False,
+    ) -> bool:
+        """Returns True if a terminal case was generated (only meaningful when stop_after_first=True)."""
+        if chain_idx >= len(chain_levels):
+            return False
+        if len(steps) >= max_depth:
+            return False
+
+        _, grouped_transitions = chain_levels[chain_idx]
+        is_last_in_chain = chain_idx == len(chain_levels) - 1
+
+        for dst, action_code, step_condition, trans_list in grouped_transitions:
+            step_intent, bot_resp, step_condition = _make_step(trans_list)
+
+            new_path = path_nodes + [dst]
+            allowed, step_condition = _evaluate_step_condition(
+                step_condition, {n.strip() for n in new_path}
+            )
+            if not allowed:
+                continue
+
+            edge_key = (origin_node, dst, step_intent, step_condition)
+            if edge_key in visited_edges:
+                continue
+
+            new_steps = steps + [step_intent]
+            new_bot = bot_responses_list + [bot_resp]
+            new_conditions = _append_condition(case_conditions, step_condition)
+            new_visited = visited_edges | {edge_key}
+            new_consumed = consumed_chains | chain_ids
+
+            if is_last_in_chain:
+                if _is_terminal_step(dst):
+                    cases.append({
+                        "conditions": _render_conditions(new_conditions),
+                        "steps": new_steps,
+                        "bot_responses": new_bot,
+                        "expected_action_code": action_code,
+                        "path": " -> ".join(new_path),
+                    })
+                    if stop_after_first:
+                        return True
+                    continue
+                if dst in graph:
+                    cross_source_stop = stop_after_first
+                    if dst != origin_node:
+                        owner = full_dfs_dst_owner.get(dst)
+                        if owner is None:
+                            if not stop_after_first:
+                                full_dfs_dst_owner[dst] = origin_node
+                        elif owner != origin_node:
+                            cross_source_stop = True
+                    found = dfs(
+                        dst, new_steps, new_bot, new_conditions, new_path,
+                        new_visited, new_consumed,
+                        stop_after_first=cross_source_stop,
+                    )
+                    if stop_after_first and found:
+                        return True
+            else:
+                found = _dfs_repeat_chain(
+                    origin_node=origin_node,
+                    chain_ids=chain_ids,
+                    chain_levels=chain_levels,
+                    chain_idx=chain_idx + 1,
+                    steps=new_steps,
+                    bot_responses_list=new_bot,
+                    case_conditions=new_conditions,
+                    path_nodes=new_path,
+                    visited_edges=new_visited,
+                    consumed_chains=new_consumed,
+                    stop_after_first=stop_after_first,
+                )
+                if stop_after_first and found:
+                    return True
+
+        return False
+
+    # Universal DFS entry point: per-dst transition grouping inside dfs() handles all nodes
+    # (first transition per dst → full DFS; subsequent same-dst transitions → stop_after_first=True).
+    # A cross-source owner map also limits later non-terminal transitions from
+    # different source steps to the same dst to stop_after_first=True.
+    # Self-repeat nodes and A0 are exempt (A0 is prepended separately below).
+    dfs(root, [], [], [], [root], set(), set(), stop_after_first=False)
+
+    # Remove duplicates
+    seen = set()
+    unique_cases = []
+    for case in cases:
+        key = (tuple(case["steps"]), case.get("conditions", ""), case["expected_action_code"])
+        if key not in seen:
+            seen.add(key)
+            unique_cases.append(case)
+
     if root != "A0":
-        return tcgen_e2e_human._prepend_single_a0_case(cases, graph, multi_response=False)
-    return cases
+        return _prepend_single_a0_case(unique_cases, graph, multi_response=False)
+    return unique_cases
+
+
+def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = []
+    for i, tc in enumerate(cases):
+        bot_responses_str = [
+            " \\ ".join(resp_list) if resp_list else ""
+            for resp_list in tc.get("bot_responses", [])
+        ]
+        payload.append({
+            "tc_id": f"TC{i+1:03d}",
+            "conditions": tc.get("conditions", ""),
+            "steps": tc["steps"],
+            "bot_responses": bot_responses_str,
+            "expected_action_code": tc.get("expected_action_code", "N/A"),
+            "path": tc.get("path", ""),
+        })
+    out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def write_cases_csv(cases: list[dict[str, Any]], out_path: Path) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    max_len = max((len(tc["steps"]) for tc in cases), default=0)
+    headers = ["tc_id", "conditions", "path", "expected_action_code",
+               *[f"step_{i+1}" for i in range(max_len)],
+               *[f"bot_response_{i+1}" for i in range(max_len)]]
+
+    with out_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(headers)
+        for i, tc in enumerate(cases):
+            steps = tc["steps"]
+            bot_responses_raw = tc.get("bot_responses", [])
+            bot_responses = [
+                " \\ ".join(resp_list) if resp_list else ""
+                for resp_list in bot_responses_raw
+            ]
+            conditions = tc.get("conditions", "")
+            action_code = tc.get("expected_action_code", "N/A")
+            path = str(tc.get("path", ""))
+            padded_steps = steps + [""] * (max_len - len(steps))
+            padded_responses = bot_responses + [""] * (max_len - len(bot_responses))
+            row = [f"TC{i+1:03d}", conditions, path, action_code] + padded_steps + padded_responses
+            w.writerow(row)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Generate minimal E2E test cases that cover all Step_no."
+        description="Generate Test Cases from decision tree dataset."
     )
     parser.add_argument("--in", dest="in_path", type=Path, required=True)
     parser.add_argument("--root", type=str, default="A1")
@@ -940,7 +546,7 @@ def main() -> int:
     parser.add_argument("--max-depth", type=int, default=200)
     args = parser.parse_args()
 
-    transitions = tcgen_e2e_human.load_transitions_json(args.in_path)
+    transitions = load_transitions_json(args.in_path)
     graph = build_graph(transitions)
     cases = generate_test_cases(graph, root=args.root, max_depth=args.max_depth)
 
@@ -963,9 +569,9 @@ def main() -> int:
         return 0
 
     if args.format == "json":
-        tcgen_e2e_human.write_cases_json(cases, args.out_path)
+        write_cases_json(cases, args.out_path)
     else:
-        tcgen_e2e_human.write_cases_csv(cases, args.out_path)
+        write_cases_csv(cases, args.out_path)
 
     print(f"Wrote {len(cases)} test cases to: {args.out_path}")
     return 0

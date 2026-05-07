@@ -3,9 +3,7 @@ Generate realistic customer conversation utterances for each test case using a h
 1. First try TLS Client Bot (NLP intent classifier)
 2. If TLS bot fails for a specific step, fallback to Llama 3.1 (Ollama) for that step only
 
-Multi‑intent steps are split by " \ " (backslash) and multiple rounds are generated:
-- Round N selects the N-th intent from each step (circularly if a step has fewer intents).
-- Bot responses may contain multiple variants separated by " \ "; one is chosen randomly per generation.
+Bot responses may contain multiple variants separated by " \ "; one is chosen randomly per generation.
 """
 
 from __future__ import annotations
@@ -406,14 +404,17 @@ def _pick_random_bot_response(bot_response_str: str) -> str:
     return random.choice(parts)
 
 
-def _generate_hybrid_for_round(steps: list[str], bot_responses: list[str], tc_id: str, round_num: int) -> str:
+def _is_a0_path(path_value: Any) -> bool:
+    return str(path_value or "").strip() == "A0"
+
+
+def _generate_hybrid(steps: list[str], bot_responses: list[str], tc_id: str) -> str:
     """
-    Hybrid generation for a single round (specific selected intents per step).
-    Steps already contain the specific intent (e.g., after circular selection).
+    Hybrid generation for one test case.
     For each step, if the bot_response string contains multiple variants (separated by " \ "),
     we randomly pick one to use as expected bot response.
     """
-    print(f"\n[DEBUG] Processing TC: {tc_id}, Round {round_num} with hybrid approach")
+    print(f"\n[DEBUG] Processing TC: {tc_id} with hybrid approach")
     
     utterances: list[str] = []
     tls_failed_steps: list[int] = []
@@ -454,14 +455,9 @@ def _generate_hybrid_for_round(steps: list[str], bot_responses: list[str], tc_id
     
     tls_success = len(steps) - len(tls_failed_steps)
     llama_used = len(tls_failed_steps)
-    print(f"  Summary Round {round_num}: {tls_success}/{len(steps)} steps from TLS, {llama_used} steps from Llama")
+    print(f"  Summary: {tls_success}/{len(steps)} steps from TLS, {llama_used} steps from Llama")
     
     return result
-
-
-def _parse_step_intents(step_str: str) -> list[str]:
-    """Split a step string into a list of intents using backslash delimiter."""
-    return [p.strip() for p in re.split(r"\s*\\\s*", step_str) if p.strip()]
 
 
 def _auto_fit_column(ws: Worksheet, col_idx: int, extra: int = 2) -> None:
@@ -481,8 +477,7 @@ def fill_excel_from_json(
     limit: int | None = None,
 ) -> None:
     """
-    Load TC JSON, generate test data for each test case, producing one row per round.
-    Handles multi‑intent steps split by backslash.
+    Load TC JSON, generate test data for each test case, producing one row per test case.
     """
     data = json.loads(json_path.read_text(encoding="utf-8"))
     if not isinstance(data, list):
@@ -505,33 +500,29 @@ def fill_excel_from_json(
             for s in steps
             if str(s).strip() and not str(s).strip().startswith("(cycle to")
         ]
-        clean_bot_responses = [
-            str(r).strip()
-            for r in bot_responses
-            if str(r).strip()
-        ]
+        clean_bot_responses = [str(r).strip() for r in bot_responses]
         
         # Ensure bot_responses length matches steps length
         while len(clean_bot_responses) < len(clean_steps):
             clean_bot_responses.append("")
         
-        expected_action_code = str(item.get("expected_action_code", ""))
         tc_path = str(item.get("path", ""))
-
-        # Parse each step into list of intents (using backslash)
-        steps_intents = [_parse_step_intents(s) for s in clean_steps]
-        if not steps_intents:
+        if _is_a0_path(tc_path):
             continue
-        max_rounds = max(len(intents) for intents in steps_intents) if steps_intents else 1
+
+        conditions = str(item.get("conditions", ""))
+        expected_action_code = str(item.get("expected_action_code", ""))
+
+        if not clean_steps:
+            continue
 
         cases.append({
             "tc_id": tc_id,
+            "conditions": conditions,
             "steps": clean_steps,
-            "steps_intents": steps_intents,
             "bot_responses": clean_bot_responses,
             "expected_action_code": expected_action_code,
             "path": tc_path,
-            "max_rounds": max_rounds,
         })
 
     if limit is not None:
@@ -541,46 +532,35 @@ def fill_excel_from_json(
     ws = wb.active
     ws.title = "TestCases"
     ws["A1"] = "TC_ID"
-    ws["B1"] = "Round"
+    ws["B1"] = "Conditions"
     ws["C1"] = "Test Scenario"
     ws["D1"] = "Bot Responses"
     ws["E1"] = "Path"
     ws["F1"] = "Expected Action Code"
     ws["G1"] = "Test Data"
 
-    row_idx = 2
-    for case in cases:
+    for row_idx, case in enumerate(cases, start=2):
         tc_id = case["tc_id"]
-        steps_intents = case["steps_intents"]
+        steps = case["steps"]
         bot_responses = case["bot_responses"]
         expected_action_code = case["expected_action_code"]
         tc_path = case["path"]
-        max_rounds = case["max_rounds"]
+        scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(steps))
+        bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
+        
+        test_data = _generate_hybrid(steps, bot_responses, tc_id)
 
-        for round_num in range(1, max_rounds + 1):
-            round_steps = []
-            for i, intents in enumerate(steps_intents):
-                idx = (round_num - 1) % len(intents)
-                round_steps.append(intents[idx])
-            
-            scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(round_steps))
-            bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
-            
-            test_data = _generate_hybrid_for_round(round_steps, bot_responses, tc_id, round_num)
-
-            ws.cell(row=row_idx, column=1, value=tc_id)
-            ws.cell(row=row_idx, column=2, value=round_num)
-            cell_c = ws.cell(row=row_idx, column=3, value=scenario_text)
-            cell_c.alignment = Alignment(wrap_text=True)
-            cell_d = ws.cell(row=row_idx, column=4, value=bot_responses_text)
-            cell_d.alignment = Alignment(wrap_text=True)
-            ws.cell(row=row_idx, column=5, value=tc_path)
-            ws.cell(row=row_idx, column=6, value=expected_action_code)
-            cell_g = ws.cell(row=row_idx, column=7, value=test_data)
-            cell_g.alignment = Alignment(wrap_text=True)
-            print(f"  Generated: {tc_id} Round {round_num} ({len(round_steps)} steps)")
-
-            row_idx += 1
+        ws.cell(row=row_idx, column=1, value=tc_id)
+        ws.cell(row=row_idx, column=2, value=case["conditions"])
+        cell_c = ws.cell(row=row_idx, column=3, value=scenario_text)
+        cell_c.alignment = Alignment(wrap_text=True)
+        cell_d = ws.cell(row=row_idx, column=4, value=bot_responses_text)
+        cell_d.alignment = Alignment(wrap_text=True)
+        ws.cell(row=row_idx, column=5, value=tc_path)
+        ws.cell(row=row_idx, column=6, value=expected_action_code)
+        cell_g = ws.cell(row=row_idx, column=7, value=test_data)
+        cell_g.alignment = Alignment(wrap_text=True)
+        print(f"  Generated: {tc_id} ({len(steps)} steps)")
 
     for c in range(1, 8):
         _auto_fit_column(ws, c, extra=4)
@@ -596,7 +576,7 @@ def fill_excel_from_excel(
     limit: int | None = None,
 ) -> None:
     """
-    Read existing Excel, fill Test Data column using hybrid approach, one row per round.
+    Read existing Excel, fill Test Data column using hybrid approach, one row per test case.
     Assumes the input Excel already has columns: TC_ID, Test Scenario, Bot Responses, Path, Expected Action Code.
     """
     wb = openpyxl.load_workbook(excel_path)
@@ -614,6 +594,7 @@ def fill_excel_from_excel(
         header_to_col[str(header_val).strip()] = col
 
     tc_id_col = header_to_col.get("TC_ID", 1)
+    conditions_col = header_to_col.get("Conditions", 0)
     scenario_col = header_to_col.get("Test Scenario", 2)
     bot_responses_col = header_to_col.get("Bot Responses", 3)
     path_col = header_to_col.get("Path", 4)
@@ -626,6 +607,9 @@ def fill_excel_from_excel(
         bot_responses_cell = ws.cell(row=row, column=bot_responses_col).value or "" if bot_responses_col else ""
         path_val = ws.cell(row=row, column=path_col).value or ""
         expected_action = ws.cell(row=row, column=expected_action_col).value or ""
+        conditions = ws.cell(row=row, column=conditions_col).value or "" if conditions_col else ""
+        if _is_a0_path(path_val):
+            continue
 
         # Parse steps from scenario (numbered lines)
         steps: list[str] = []
@@ -669,55 +653,44 @@ def fill_excel_from_excel(
 
         rows_data.append({
             "tc_id": tc_id,
+            "conditions": conditions,
             "steps": steps,
             "bot_responses": bot_responses,
             "path": path_val,
             "expected_action": expected_action,
         })
 
-    # Build new workbook with Round column
+    # Build new workbook with consistent columns
     new_wb = openpyxl.Workbook()
     new_ws = new_wb.active
     new_ws.title = "TestCases"
     new_ws["A1"] = "TC_ID"
-    new_ws["B1"] = "Round"
+    new_ws["B1"] = "Conditions"
     new_ws["C1"] = "Test Scenario"
     new_ws["D1"] = "Bot Responses"
     new_ws["E1"] = "Path"
     new_ws["F1"] = "Expected Action Code"
     new_ws["G1"] = "Test Data"
 
-    row_idx = 2
-    for case in rows_data:
+    for row_idx, case in enumerate(rows_data, start=2):
         tc_id = case["tc_id"]
         steps = case["steps"]
         bot_responses = case["bot_responses"]
-        # Parse each step into intents using backslash
-        steps_intents = [_parse_step_intents(s) for s in steps]
-        if not steps_intents:
-            continue
-        max_rounds = max(len(intents) for intents in steps_intents)
-        for round_num in range(1, max_rounds + 1):
-            round_steps = []
-            for i, intents in enumerate(steps_intents):
-                idx = (round_num - 1) % len(intents)
-                round_steps.append(intents[idx])
-            scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(round_steps))
-            bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
-            test_data = _generate_hybrid_for_round(round_steps, bot_responses, str(tc_id), round_num)
+        scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(steps))
+        bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
+        test_data = _generate_hybrid(steps, bot_responses, str(tc_id))
 
-            new_ws.cell(row=row_idx, column=1, value=tc_id)
-            new_ws.cell(row=row_idx, column=2, value=round_num)
-            cell_c = new_ws.cell(row=row_idx, column=3, value=scenario_text)
-            cell_c.alignment = Alignment(wrap_text=True)
-            cell_d = new_ws.cell(row=row_idx, column=4, value=bot_responses_text)
-            cell_d.alignment = Alignment(wrap_text=True)
-            new_ws.cell(row=row_idx, column=5, value=case["path"])
-            new_ws.cell(row=row_idx, column=6, value=case["expected_action"])
-            cell_g = new_ws.cell(row=row_idx, column=7, value=test_data)
-            cell_g.alignment = Alignment(wrap_text=True)
-            print(f"  Generated: {tc_id} Round {round_num} ({len(round_steps)} steps)")
-            row_idx += 1
+        new_ws.cell(row=row_idx, column=1, value=tc_id)
+        new_ws.cell(row=row_idx, column=2, value=case["conditions"])
+        cell_c = new_ws.cell(row=row_idx, column=3, value=scenario_text)
+        cell_c.alignment = Alignment(wrap_text=True)
+        cell_d = new_ws.cell(row=row_idx, column=4, value=bot_responses_text)
+        cell_d.alignment = Alignment(wrap_text=True)
+        new_ws.cell(row=row_idx, column=5, value=case["path"])
+        new_ws.cell(row=row_idx, column=6, value=case["expected_action"])
+        cell_g = new_ws.cell(row=row_idx, column=7, value=test_data)
+        cell_g.alignment = Alignment(wrap_text=True)
+        print(f"  Generated: {tc_id} ({len(steps)} steps)")
 
     for c in range(1, 8):
         _auto_fit_column(new_ws, c, extra=4)
@@ -728,7 +701,7 @@ def fill_excel_from_excel(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Generate test data using hybrid approach: TLS Client Bot + Llama 3.1 fallback per step, with multi‑intent step handling (backslash delimiter) and multiple rounds."
+        description="Generate test data using hybrid approach: TLS Client Bot + Llama 3.1 fallback per step."
     )
     parser.add_argument(
         "--in",
@@ -769,8 +742,8 @@ def main() -> int:
 
     print("=" * 60)
     print("HYBRID GENERATION MODE: TLS Client Bot + Llama 3.1 Fallback (per-step)")
-    print("Multi‑intent steps: each round selects the N-th intent (circularly).")
     print("Bot responses may have multiple variants (separated by ' \\ ') -> random selection.")
+    print("Skipping test cases where Path == A0.")
     print("=" * 60)
     
     if ollama_chat is None:
@@ -785,7 +758,6 @@ def main() -> int:
         fill_excel_from_json(in_path, out_path, model=args.model, limit=args.limit)
     else:
         print(f"Reading Excel: {in_path}")
-        print("Generating multiple rounds (one per intent combination)...")
         fill_excel_from_excel(in_path, out_path, model=args.model, limit=args.limit)
 
     print(f"\nDone. Output: {out_path}")

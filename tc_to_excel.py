@@ -25,7 +25,7 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
         tc_id = str(item.get("tc_id", f"TC{i+1}"))
         conditions = str(item.get("conditions", ""))
         steps = item.get("steps", [])
-        bot_responses = item.get("bot_responses", [])   # new field
+        bot_responses = item.get("bot_responses", [])
         expected_action_code = item.get("expected_action_code", "N/A")
         tc_path = str(item.get("path", ""))
         highlight_last_step = bool(item.get("highlight_last_step", False))
@@ -42,10 +42,8 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
                 continue
             clean_steps.append(s_str)
 
-        # Keep bot responses as they are (may be empty strings)
         clean_bot_responses: list[str] = [str(r) for r in bot_responses]
 
-        # Ensure bot_responses length matches steps length (pad with empty strings)
         while len(clean_bot_responses) < len(clean_steps):
             clean_bot_responses.append("")
 
@@ -76,11 +74,42 @@ def _auto_fit_column(ws: Worksheet, col_idx: int, extra: int = 2) -> None:
 _STEP_NO_RE = re.compile(r"\bA(\d+)\b", re.IGNORECASE)
 
 
-def _extract_max_step_no(path_text: str) -> str | None:
-    nums = [int(m.group(1)) for m in _STEP_NO_RE.finditer(path_text or "")]
-    if not nums:
+def _extract_group_step(path_text: str) -> str | None:
+    """
+    Trích xuất bước dùng để nhóm test case:
+    - Nếu path có "End" (không phân biệt hoa thường), lấy bước A<number> xuất hiện NGAY TRƯỚC "End".
+    - Nếu không có "End", lấy bước A<number> CUỐI CÙNG trong path.
+    - Nếu không tìm thấy bước A<number> nào, trả về None.
+    """
+    if not path_text:
         return None
-    return f"A{max(nums)}"
+
+    # Tách path bằng các dấu phân cách phổ biến: "->", "→", ","
+    tokens = re.split(r"\s*(?:->|→|,)\s*", path_text.strip())
+    tokens = [t.strip() for t in tokens if t.strip()]
+
+    # Tìm vị trí của "End" (case-insensitive)
+    end_idx = -1
+    for i, tok in enumerate(tokens):
+        if tok.lower() == "end":
+            end_idx = i
+            break
+
+    if end_idx != -1:
+        # Lấy token ngay trước "End", nếu tồn tại
+        if end_idx > 0:
+            candidate = tokens[end_idx - 1]
+            m = _STEP_NO_RE.fullmatch(candidate)
+            if m:
+                return candidate  # trả về nguyên chuỗi như "A2"
+        return None
+    else:
+        # Không có "End": lấy token cuối cùng
+        last_token = tokens[-1] if tokens else ""
+        m = _STEP_NO_RE.fullmatch(last_token)
+        if m:
+            return last_token
+        return None
 
 
 def _step_sort_key(step_no: str) -> tuple[int, str]:
@@ -96,7 +125,6 @@ def _load_step_name_map(testcases_path: Path, rows_path: Path | None = None) -> 
     else:
         candidates = []
 
-    # Try to infer matching rows file from testcase filename.
     in_name = testcases_path.name
     if in_name.startswith("testcases_"):
         candidates.append(testcases_path.with_name(in_name.replace("testcases_", "rows_", 1)))
@@ -116,7 +144,6 @@ def _load_step_name_map(testcases_path: Path, rows_path: Path | None = None) -> 
                     continue
                 step_no = str(item.get("step_no", "")).strip()
                 step_name = str(item.get("step_name", "")).strip()
-                # Ignore degenerate values like step_name == step_no ("A1").
                 if step_no and step_name and step_name.upper() != step_no.upper() and step_no not in mapping:
                     mapping[step_no] = step_name
             if mapping:
@@ -146,17 +173,19 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
     section_font = Font(bold=True, color="001F4E78")
     section_fill = PatternFill(fill_type="solid", fgColor="00EEF3FB")
     group_fills = [
-        PatternFill(fill_type="solid", fgColor="00FDE2E2"),  # light red
-        PatternFill(fill_type="solid", fgColor="00E3F2FD"),  # light blue
-        PatternFill(fill_type="solid", fgColor="00E8F5E9"),  # light green
-        PatternFill(fill_type="solid", fgColor="00E3F2FD"),  # light blue
+        PatternFill(fill_type="solid", fgColor="00FDE2E2"),
+        PatternFill(fill_type="solid", fgColor="00E3F2FD"),
+        PatternFill(fill_type="solid", fgColor="00E8F5E9"),
+        PatternFill(fill_type="solid", fgColor="00E3F2FD"),
     ]
 
+    # --- Thay đổi chính: nhóm theo _extract_group_step ---
     grouped_cases: dict[str, list[dict[str, Any]]] = {}
     for case in cases:
-        max_step = _extract_max_step_no(str(case.get("path", ""))) or "UNKNOWN"
-        grouped_cases.setdefault(max_step, []).append(case)
+        group_step = _extract_group_step(str(case.get("path", ""))) or "UNKNOWN"
+        grouped_cases.setdefault(group_step, []).append(case)
 
+    # Sắp xếp các nhóm theo thứ tự số (A1, A2, ...), "UNKNOWN" xếp cuối
     ordered_groups = sorted(grouped_cases.keys(), key=_step_sort_key)
     current_group_key: tuple[Any, ...] | None = None
     group_index = -1
@@ -172,9 +201,6 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
         ws.cell(row=row, column=1).alignment = openpyxl.styles.Alignment(wrap_text=True)
         row += 1
 
-        # Preserve the incoming case order inside each section.
-        # This lets each pipeline control adjacency in its own output,
-        # while Excel still groups by the section header step.
         section_cases = grouped_cases[step_no]
 
         for case in section_cases:
@@ -186,11 +212,9 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
             tc_path = str(case.get("path", ""))
             highlight_last_step = bool(case.get("highlight_last_step", False))
 
-            # Format steps as numbered list
             numbered_steps = [f"{idx}. {text}" for idx, text in enumerate(steps, start=1)]
             scenario = "\n".join(numbered_steps)
 
-            # Format bot responses as numbered list (same numbering as steps)
             numbered_responses = []
             for idx, resp in enumerate(bot_responses, start=1):
                 if resp:
@@ -231,14 +255,12 @@ def export_to_excel(cases: list[dict[str, Any]], out_path: Path, step_name_map: 
 
             ws.cell(row=row, column=5, value=tc_path)
             ws.cell(row=row, column=6, value=expected_action_code)
-            # Column G ("Test Data") left empty for generate_test_data.py to fill later.
             for col in range(1, 7):
                 ws.cell(row=row, column=col).fill = fill
 
             row += 1
             display_tc_index += 1
 
-    # Auto-fit columns
     _auto_fit_column(ws, 1, extra=2)
     _auto_fit_column(ws, 2, extra=2)
     _auto_fit_column(ws, 3, extra=4)

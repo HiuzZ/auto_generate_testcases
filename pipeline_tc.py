@@ -11,6 +11,7 @@ from excel_to_json import _pick_excel_file, convert_excel_rows_to_json
 from tc_to_excel import export_to_excel
 import tcgen_e2e_human
 import tcgen_e2e_short
+import tcgen_e2e_short_v2
 import tcgen_multi_responses
 import tcgen_output_human
 
@@ -197,6 +198,8 @@ def run_pipeline(
         generator = tcgen_e2e_human
     elif mode == "e2e_short":
         generator = tcgen_e2e_short
+    elif mode == "e2e_short_v2":
+        generator = tcgen_e2e_short_v2
     elif mode == "multi_responses":
         generator = tcgen_multi_responses
     elif mode == "output":
@@ -215,7 +218,7 @@ def run_pipeline(
 
     graph = generator.build_graph(rows)
     cases = generator.generate_test_cases(graph, root=effective_root, max_depth=max_depth)
-    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "output"} else None
+    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output"} else None
     serialized_cases = _serialize_cases(cases, response_count_map=response_count_map)
 
     testcases_out.parent.mkdir(parents=True, exist_ok=True)
@@ -232,7 +235,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run Excel -> JSON -> testcase generation -> Excel export in one command."
     )
-    parser.add_argument("mode", choices=["e2e", "e2e_short", "output", "multi_responses"])
+    parser.add_argument("mode", choices=["e2e", "e2e_short", "e2e_short_v2", "output", "multi_responses"])
     parser.add_argument(
         "--file",
         type=Path,

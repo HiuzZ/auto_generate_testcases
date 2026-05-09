@@ -3,7 +3,8 @@
     {
       "tag": "KH đồng ý",
       "patterns": [
-        "KH đồng ý"
+        "KH đồng ý",
+        "KH nghe máy"
       ],
       "responses": [
         "ừ",
@@ -21,24 +22,27 @@
     {
       "tag": "KH đi vắng/ Người thân nghe hộ",
       "patterns": [
-        "KH đi vắng/ Người thân nghe hộ"
+        "KH đi vắng/ Người thân nghe hộ",
+        "Người thân nghe máy/ KH đi vắng/ Không đúng KH"
       ],
       "responses": [
         "nó đi ra ngoài rồi không có nhà đâu",
         "tôi là anh nó",
         "đang nghe hộ không biết đâu",
         "nó đi vắng rồi chưa về",
-        "tí nữa rồi gọi lại",
-        "tí tao nhắn lại cho nó",
+        "bố cháu đang nghe",
+        "tí anh nhắn lại cho nó nó ra ngoài rồi",
         "nó ra ngoài rồi",
-        "đi chơi rồi",
+        "nó đi chơi rồi",
         "anh nghe hộ thôi"
       ]
     },
     {
       "tag": "Không đúng KH",
       "patterns": [
-        "Không đúng KH"
+        "Không đúng KH",
+        "Không đúng KH lần 1",
+        "Không đúng KH lần 2"
       ],
       "responses": [
         "nhầm số rồi",
@@ -57,7 +61,8 @@
       "tag": "KH bận",
       "patterns": [
         "KH bận",
-        "BT3 bận"
+        "BT3 bận",
+        "EC bận"
       ],
       "responses": [
         "đang đi làm",
@@ -73,9 +78,36 @@
       ]
     },
     {
+      "tag": "KH mất",
+      "patterns": [
+        "KH mất",
+        "EC báo KH mất",
+        "1. KH mất"
+      ],
+      "responses": [
+        "mất rồi em",
+        "mới ốm mất trong viện tuần trước em ạ",
+        "chết rồi",
+        "ừ mất rôi em thông cảm",
+        "đột quỵ chết rồi em ạ",
+        "ốm chết rồi",
+        "mới bị tai nạn chết hôm qua đau sót quá em ạ",
+        "mới ốm mất rồi em ạ",
+        "tại nạn chết rồi em",
+        "mới ung thư mất rồi",
+        "chắc dùng số mới rồi giờ không gọi được",
+        "thay số rồi em ạ",
+        "nó đổi số lâu rồi",
+        "thay số điện thoại khác rồi em ạ"
+      ]
+    },
+    {
       "tag": "KH chửi thô tục",
       "patterns": [
-        "KH chửi thô tục"
+        "KH chửi thô tục",
+        "KH phàn nàn, quát tháo, chửi, chửi tục lần 1",
+        "KH phàn nàn, quát tháo, chửi, chửi tục lần 2",
+        "KH chửi"
       ],
       "responses": [
         "cút mẹ mày đi",
@@ -93,7 +125,7 @@
     {
       "tag": "KH phản ứng tiêu cực mạnh",
       "patterns": [
-        "KH phản ứng tiêu cực mạnh"
+        "1. KH phản ứng tiêu cực mạnh"
       ],
       "responses": [
         "đã bảo không cần rồi mà mày cứ gọi",
@@ -111,7 +143,7 @@
     {
       "tag": "KH yêu cầu không gọi nữa",
       "patterns": [
-        "KH yêu cầu không gọi nữa"
+        "1. KH yêu cầu không gọi nữa"
       ],
       "responses": [
         "đừng có gọi cho tao nữa tao báo công an đó",
@@ -129,7 +161,11 @@
     {
       "tag": "Không nghe rõ",
       "patterns": [
-        "Không nghe rõ"
+        "Không nghe rõ",
+        "KH yêu cầu nhắc lại lần 1",
+        "KH yêu cầu nhắc lại lần 2",
+        "EC yêu cầu nhắc lại lần 1",
+        "EC yêu cầu nhắc lại lần 2"
       ],
       "responses": [
         "nói lại anh nghe",
@@ -150,7 +186,11 @@
         "KH im lặng",
         "KH im lặng lần 1",
         "KH im lặng lần 2",
-        "KH im lặng lần 3"
+        "KH im lặng lần 3",
+        "EC im lặng",
+        "EC im lặng lần 1",
+        "EC im lặng lần 2",
+        "EC im lặng lần 3"
       ],
       "responses": [
         "_SILENCE_"
@@ -159,7 +199,7 @@
     {
       "tag": "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ",
       "patterns": [
-        "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
+        "1. KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
       ],
       "responses": [
         "anh muốn vay hai trăm triệu",
@@ -171,9 +211,53 @@
       ]
     },
     {
+      "tag": "KH vay hộ/đứng tên giùm",
+      "patterns": [
+        "KH vay hộ/đứng tên giùm"
+      ],
+      "responses": [
+        "anh vay hộ thôi",
+        "anh đứng tên giùm thôi"
+      ]
+    },
+    {
+      "tag": "KH hứa trả",
+      "patterns": [
+        "KH hứa trả"
+      ],
+      "responses": [
+        "rồi anh hứa sẽ trả cho bọn em",
+        "chắc chắn sẽ trả cho bên em",
+        "hứa sẽ trả yên tâm"
+      ]
+    },
+    {
+      "tag": "KH đóng nhầm hợp đồng",
+      "patterns": [
+        "KH đóng nhầm hợp đồng"
+      ],
+      "responses": [
+        "anh đóng nhầm hợp đồng",
+        "đóng nhầm hợp đồng em ạ",
+        "trả lộn hợp đồng rồi"
+      ]
+    },
+    {
+      "tag": "KH không biết khoản vay",
+      "patterns": [
+        "KH không biết khoản vay"
+      ],
+      "responses": [
+        "khoản nào em anh biết gì đâu",
+        "anh không biết khoản vay nào",
+        "khoản vay gì anh biết đâu",
+        "không biết khoản vay nào luôn"
+      ]
+    },
+    {
       "tag": "KH cung cấp số tiền 100 triệu trở xuống",
       "patterns": [
-        "KH cung cấp số tiền 100 triệu trở xuống"
+        "1. KH cung cấp số tiền 100 triệu trở xuống"
       ],
       "responses": [
         "tôi muốn vay năm mươi triệu để mua xe",
@@ -188,7 +272,7 @@
     {
       "tag": "KH cung cấp số tiền từ 1 tỷ trở lên",
       "patterns": [
-        "KH cung cấp số tiền từ 1 tỷ trở lên"
+        "1. KH cung cấp số tiền từ 1 tỷ trở lên"
       ],
       "responses": [
         "cho anh vay một tỷ rưỡi để xoay vòng vốn được không em",
@@ -199,9 +283,24 @@
       ]
     },
     {
+      "tag": "KH muốn gặp TĐV",
+      "patterns": [
+        "KH muốn gặp TĐV",
+        "EC muốn gặp TĐV"
+      ],
+      "responses": [
+        "cho anh gặp tồng đài viên",
+        "cho gặp nhân viên tư vấn đi em",
+        "chuyển máy cho tổng đài viên giúp anh",
+        "kết nối tổng đài viên giúp mình"
+      ]
+    },
+    {
       "tag": "KH không nói rõ số tiền /KH báo bao nhiêu cũng được/KH báo vay tối đa",
       "patterns": [
-        "KH không nói rõ số tiền /\nKH báo bao nhiêu cũng được/\nKH báo vay tối đa lần"
+        "KH không nói rõ số tiền /",
+        "KH báo bao nhiêu cũng được/",
+        "KH báo vay tối đa lần"
       ],
       "responses": [
         "ừ ừ anh vay",
@@ -212,9 +311,24 @@
       ]
     },
     {
+      "tag": "KH hỏi là ai",
+      "patterns": [
+        "KH hỏi là ai lần 1",
+        "KH hỏi là ai lần 2",
+        "KH hỏi là ai lần 3"
+      ],
+      "responses": [
+        "alo ai đấy ạ",
+        "ai đấy",
+        "alo ai đang gọi vậy",
+        "ai đấy nhỉ",
+        "ai đấy alo ạ"
+      ]
+    },
+    {
       "tag": "KH hỏi thông tin thắc mắc về khoản vay",
       "patterns": [
-        "KH hỏi thông tin thắc mắc về khoản vay"
+        "1. KH hỏi thông tin thắc mắc về khoản vay"
       ],
       "responses": [
         "vay được bao nhiêu tháng",
@@ -473,6 +587,545 @@
       ]
     },
     {
+      "tag": "Vợ /chồng KH nghe máy",
+      "patterns": [
+        "Vợ /chồng KH nghe máy",
+        "Vợ /chồng EC nghe máy"
+      ],
+      "responses": [
+        "anh là chông đang nghe",
+        "ông xã đang nghe ạ",
+        "anh là chồng có việc gì thế em",
+        "chồng đang nghe sao thế"
+      ]
+    },
+    {
+      "tag": "KH có quen biết",
+      "patterns": [
+        "KH có quen biết",
+        "EC có quen biết"
+      ],
+      "responses": [
+        "ừ tôi có biết",
+        "ừ ừ người quen",
+        "có quen sao em",
+        "anh biết bạn ấy có gì không",
+        "có có quen có việc gì không"
+      ]
+    },
+    {
+      "tag": "KH đã trả",
+      "patterns": [
+        "KH đã trả",
+        "EC đã trả"
+      ],
+      "responses": [
+        "thanh toán rồi mà em ơi",
+        "trả hết rôi mà",
+        "mới thanh toán đủ cho em rối",
+        "tất toán hết rồi em",
+        "thanh toán xong hết rồi nhá",
+        "ủa đã trả rồi mà em",
+        "trả rồi"
+      ]
+    },
+    {
+      "tag": "KH tự nguyện trả",
+      "patterns": [
+        "KH tự nguyện trả",
+        "EC tự nguyện trả"
+      ],
+      "responses": [
+        "rồi để anh trả",
+        "ừ để anh thanh toán cho bên em nhé",
+        "được để anh trả tiền",
+        "ừ anh thanh toán đủ cho nhá"
+      ]
+    },
+    {
+      "tag": "KH trả sau",
+      "patterns": [
+        "KH trả sau lần 1",
+        "KH trả sau lần 2",
+        "EC trả sau lần 1",
+        "EC trả sau lần 2"
+      ],
+      "responses": [
+        "ừ tháng sau trả nhé",
+        "mấy hôm nữa thanh toán nhé",
+        "ừ biết rồi anh sẽ trả cho bọn em sau",
+        "được rồi anh sẽ thanh toán cho em sau nhé phải mấy hôm nữa",
+        "ừ anh sẽ tất toán hết cho bên em sau nhé",
+        "anh trả cho bên em sau không bùng đâu yên tâm"
+      ]
+    },
+    {
+      "tag": "KH trả một ít",
+      "patterns": [
+        "KH trả một ít lần 1",
+        "KH trả một ít lần 2",
+        "EC trả một ít lần 1",
+        "EC trả một ít lần 2"
+      ],
+      "responses": [
+        "anh thanh toán một ít trước nhé",
+        "trả trước một phần có được không em",
+        "anh thanh toán một ít trước nhé hơi kẹt em ạ",
+        "anh thanh toán cho bên em trước một phần có được không",
+        "giờ trả được một ít trước thôi em",
+        "thanh toán một phần trước nhé em"
+      ]
+    },
+    {
+      "tag": "KH từ chối trả",
+      "patterns": [
+        "KH từ chối trả",
+        "EC từ chối trả"
+      ],
+      "responses": [
+        "không trả đâu",
+        "bùng không thanh toán",
+        "không trả không có tiền",
+        "hết tiền rồi không trả được",
+        "dạo này kẹt anh không trả được",
+        "đang khó khăn tôi không trả",
+        "tôi không trả đấy",
+        "thanh toán cái gì không trả tiền đâu"
+      ]
+    },
+    {
+      "tag": "KH hỏi tổng dư nợ cuối kì",
+      "patterns": [
+        "KH hỏi tổng dư nợ cuối kì lần 1",
+        "KH hỏi tổng dư nợ cuối kì lần 2",
+        "KH hỏi tổng dư nợ cuối kì lần 3"
+      ],
+      "responses": [
+        "dư nợ nhiêu em",
+        "tông dư nợ là bao nhiêu em",
+        "dư nợ cuối kì nhu nào em"
+      ]
+    },
+    {
+      "tag": "KH hỏi số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH hỏi số tiền tối thiểu cần thanh toán lần 1",
+        "KH hỏi số tiền tối thiểu cần thanh toán lần 2",
+        "KH hỏi số tiền tối thiểu cần thanh toán lần 3"
+      ],
+      "responses": [
+        "cần trả it nhất bao nhiêu em",
+        "tối thiểu cần thanh toán nhiêu em",
+        "cân thanh toán tối thiểu bao nhiêu tiền em",
+        "giờ tối thiểu phải thanh toán bao tiền"
+      ]
+    },
+    {
+      "tag": "KH hỏi lãi phạt",
+      "patterns": [
+        "KH hỏi lãi phạt lần 1",
+        "KH hỏi lãi phạt lần 2",
+        "KH hỏi lãi phạt lần 3",
+        "EC hỏi lãi phạt lần 1",
+        "EC hỏi lãi phạt lần 2",
+        "EC hỏi lãi phạt lần 3"
+      ],
+      "responses": [
+        "có lãi phạt hả em bao nhiêu",
+        "lãi phạt như nào em",
+        "lãi phạt cao không"
+      ]
+    },
+    {
+      "tag": "KH hỏi phí sử dụng thẻ",
+      "patterns": [
+        "KH hỏi phí sử dụng thẻ lần 1",
+        "KH hỏi phí sử dụng thẻ lần 2",
+        "KH hỏi phí sử dụng thẻ lần 3",
+        "EC hỏi phí sử dụng thẻ lần 1",
+        "EC hỏi phí sử dụng thẻ lần 2",
+        "EC hỏi phí sử dụng thẻ lần 3"
+      ],
+      "responses": [
+        "phí dùng thẻ như nào em em",
+        "dùng thẻ thì phí bao nhiêu em",
+        "phí dùng thẻ như nào"
+      ]
+    },
+    {
+      "tag": "KH hỏi lãi suất",
+      "patterns": [
+        "KH hỏi Lãi suất lần 1",
+        "KH hỏi Lãi suất lần 2",
+        "KH hỏi Lãi suất lần 3",
+        "EC hỏi Lãi suất lần 1",
+        "EC hỏi Lãi suất lần 2",
+        "EC hỏi Lãi suất lần 3"
+      ],
+      "responses": [
+        "lãi suất bên mình  như thế nào thế em",
+        "lãi vay tính như nào vậy em",
+        "mỗi tháng phải trả bao nhiêu em",
+        "tổng lãi chị phải trả là bao nhiêu",
+        "lãi xuất có cố định không em",
+        "lãi tính theo dư nợ gốc hay dư nợ giảm dần vậy em",
+        "vay nhiều lãi có cao hơn không em",
+        "có phát sinh thêm phí ngoài lãi không",
+        "lãi suất này đã bao gồm hết chi phí chưa em",
+        "tính lãi như nào vậy em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Rút tiền mặt",
+      "patterns": [
+        "KH hỏi Rút tiền mặt lần 1",
+        "KH hỏi Rút tiền mặt lần 2",
+        "KH hỏi Rút tiền mặt lần 3",
+        "EC hỏi Rút tiền mặt lần 1",
+        "EC hỏi Rút tiền mặt lần 2",
+        "EC hỏi Rút tiền mặt lần 3"
+      ],
+      "responses": [
+        "rút tiền mặt như nào em",
+        "giờ anh muốn rút tiền mặt âý",
+        "rút tiền kiểu gì em nhỉ",
+        "anh muốn rút tiền mặt ấy"
+      ]
+    },
+    {
+      "tag": "KH hỏi Phí thường niên",
+      "patterns": [
+        "KH hỏi Phí thường niên lần 1",
+        "KH hỏi Phí thường niên lần 2",
+        "KH hỏi Phí thường niên lần 3"
+      ],
+      "responses": [
+        "phí thường niên là bao nhiêu",
+        "phí thường niên cao không em",
+        "ý là phí thường bên em lấy như nào"
+      ]
+    },
+    {
+      "tag": "KH hỏi Cách chuyển đổi trả góp",
+      "patterns": [
+        "KH hỏi Cách chuyển đổi trả góp lần 1",
+        "KH hỏi Cách chuyển đổi trả góp lần 2",
+        "KH hỏi Cách chuyển đổi trả góp lần 3"
+      ],
+      "responses": [
+        "anh muốn chuyển sang trả góp được không",
+        "có trả góp được không",
+        "giờ trả góp có được không em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Lãi suất chuyển đổi trả góp",
+      "patterns": [
+        "KH hỏi Lãi suất chuyển đổi trả góp lần 1",
+        "KH hỏi Lãi suất chuyển đổi trả góp lần 2",
+        "KH hỏi Lãi suất chuyển đổi trả góp lần 3"
+      ],
+      "responses": [
+        "lãi suất chuyển đổi trả góp nhiêu em",
+        "lãi suất  suất chuyển đổi trả góp như nào thế",
+        "lãi  suất chuyển đổi trả góp có cao không"
+      ]
+    },
+    {
+      "tag": "KH hỏi Hạn mức thẻ",
+      "patterns": [
+        "KH hỏi Hạn mức thẻ lần 1",
+        "KH hỏi Hạn mức thẻ lần 2",
+        "KH hỏi Hạn mức thẻ lần 3"
+      ],
+      "responses": [
+        "hạn mức thẻ là bao nhiêu em",
+        "hạn mức thẻ có cao không máy chục thế em",
+        "thẻ có những hạn mức nào em"
+      ]
+    },
+    {
+      "tag": "KH hỏi ai gọi, bên nào gọi đến",
+      "patterns": [
+        "KH hỏi ai gọi, bên nào gọi đến lần 1",
+        "KH hỏi ai gọi, bên nào gọi đến lần 2",
+        "KH hỏi ai gọi, bên nào gọi đến lần 3"
+      ],
+      "responses": [
+        "em bên ngân hàng nào đấy",
+        "em bên nào nhở",
+        "em bên nào gọi đến vậy em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước",
+      "patterns": [
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2",
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 3"
+      ],
+      "responses": [
+        "sao tiền kỳ này lại khác kỳ trước hả em",
+        "số tiền kỳ này lại khác đợt trước à em",
+        "tiền đợt trước khác đợt này lại khác hả em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Kênh thanh toán",
+      "patterns": [
+        "KH hỏi Kênh thanh toán lần 1",
+        "KH hỏi Kênh thanh toán lần 2",
+        "KH hỏi Kênh thanh toán lần 3"
+      ],
+      "responses": [
+        "thanh toán online được không em",
+        "chuyển khoản được không em",
+        "thanh toán bằng Mo Mo được không",
+        "anh trả qua zalo pay có được không"
+      ]
+    },
+    {
+      "tag": "KH hỏi Sản phẩm vay",
+      "patterns": [
+        "KH hỏi Sản phẩm vay lần 1",
+        "KH hỏi Sản phẩm vay lần 2",
+        "KH hỏi Sản phẩm vay lần 3"
+      ],
+      "responses": [
+        "sản phẩm vay gì đây",
+        "em gọi giới thiệu sản phẩm gì",
+        "sản phẩm gì em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Ngày đến hạn đóng tiền",
+      "patterns": [
+        "KH hỏi Ngày đến hạn đóng tiền lần 1",
+        "KH hỏi Ngày đến hạn đóng tiền lần 2",
+        "KH hỏi Ngày đến hạn đóng tiền lần 3"
+      ],
+      "responses": [
+        "hạn đóng tiền là hôm nào",
+        "hôm nào đến hạn thanh toán em",
+        "hạn trả là ngày mấy",
+        "hạn cuối để trả là hôm nào em ha",
+        "hạn chót thanh toán là hôm nào",
+        "hạn chót để trà là ngày mấy"
+      ]
+    },
+    {
+      "tag": "KH hỏi Số ngày trễ hạn",
+      "patterns": [
+        "KH hỏi Số ngày trễ hạn lần 1",
+        "KH hỏi Số ngày trễ hạn lần 2",
+        "KH hỏi Số ngày trễ hạn lần 3"
+      ],
+      "responses": [
+        "anh trả trễ mấy hôm rồi",
+        "khoản này trễ mấy hôm rồi",
+        "khoản này trễ mấy hôm rồi em nhỉ",
+        "nợ trễ lâu chưa em"
+      ]
+    },
+    {
+      "tag": "KH hỏi Ngày chốt sao kê",
+      "patterns": [
+        "KH hỏi Ngày chốt sao kê lần 1",
+        "KH hỏi Ngày chốt sao kê lần 2",
+        "KH hỏi Ngày chốt sao kê lần 3"
+      ],
+      "responses": [
+        "ngày chốt sao kê là ngày mấy",
+        "hôm nào chốt sao kê em nhỉ",
+        "ngày mấy chốt sao kê em",
+        "chốt sao kê ngày nào"
+      ]
+    },
+    {
+      "tag": "KH hỏi Hủy thẻ",
+      "patterns": [
+        "KH hỏi Hủy thẻ lần 1",
+        "KH hỏi Hủy thẻ lần 2",
+        "KH hỏi Hủy thẻ lần 3"
+      ],
+      "responses": [
+        "huỷ thẻ giúp anh",
+        "anh không có dùng huỷ thẻ giúp anh",
+        "anh không dùng thẻ huỷ cho anh nhé"
+      ]
+    },
+    {
+      "tag": "KH hỏi Mất thẻ",
+      "patterns": [
+        "KH hỏi Mất thẻ lần 1",
+        "KH hỏi Mất thẻ lần 2",
+        "KH hỏi Mất thẻ lần 3"
+      ],
+      "responses": [
+        "anh mất thẻ rồi",
+        "anh làm mất thẻ rồi em ạ",
+        "mất thẻ thì giờ như nào",
+        "anh làm rơi mất thẻ lâu rồi"
+      ]
+    },
+    {
+      "tag": "KH hỏi Tra soát giao dịch",
+      "patterns": [
+        "KH hỏi Tra soát giao dịch lần 1",
+        "KH hỏi Tra soát giao dịch lần 2",
+        "KH hỏi Tra soát giao dịch lần 3"
+      ],
+      "responses": [
+        "ừ kiểm tra lại giao dịch giúp anh với",
+        "em tra lại giao dịch giúp anh nhé",
+        "tra lại giao dịch hộ anh với"
+      ]
+    },
+    {
+      "tag": "Hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì/",
+      "patterns": [
+        "1. Hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì/"
+      ],
+      "responses": [
+        "mua gì",
+        "quẹt gì",
+        "giao dịch cái gì",
+        "tiền gì"
+      ]
+    },
+    {
+      "tag": "Hỏi Số ngày miễn lãi",
+      "patterns": [
+        "2. Hỏi Số ngày miễn lãi"
+      ],
+      "responses": [
+        "miễn lãi mấy hôm",
+        "miễn lãi nhiều ngày không em",
+        "được miễn lãi mấy hôm em"
+      ]
+    },
+    {
+      "tag": "Hỏi Mở lại thẻ",
+      "patterns": [
+        "3. Hỏi Mở lại thẻ"
+      ],
+      "responses": [
+        "mở lại thẻ giúp anh",
+        "anh muốn mở lại thẻ ấy em",
+        "thẻ anh bị khoá em mở ra giúp anh với"
+      ]
+    },
+    {
+      "tag": "Hỏi Số hợp đồng",
+      "patterns": [
+        "Hỏi Số hợp đồng lần 1",
+        "Hỏi Số hợp đồng lần 2",
+        "Hỏi Số hợp đồng lần 3"
+      ],
+      "responses": [
+        "số hợp đồng của anh là bao nhiêu",
+        "số hợp đồng là gì em",
+        "hợp đồng mã số là gì"
+      ]
+    },
+    {
+      "tag": "Than phiền gọi nhiều",
+      "patterns": [
+        "Than phiền gọi nhiều lần 1",
+        "Than phiền gọi nhiều lần 2",
+        "Than phiền gọi nhiều lần 3"
+      ],
+      "responses": [
+        "gọi hoài",
+        "suốt ngày gọi",
+        "sao cứ gọi hoài vậy đừng gọi nữa",
+        "gọi nhiều mắc phiền"
+      ]
+    },
+    {
+      "tag": "Hỏi Tổng số tiền thanh lý, tổng số tiền còn lại",
+      "patterns": [
+        "1. Hỏi Tổng số tiền thanh lý, tổng số tiền còn lại"
+      ],
+      "responses": [
+        "anh trả được nhiêu còn nợ nhiêu em",
+        "anh còn nợ nhiều không trả được bao nhiêu rồi",
+        "anh còn nợ bao tiền đã trả được nhiều chưa"
+      ]
+    },
+    {
+      "tag": "Hỏi về app Home (cách tải , cách thanh toán qua app)",
+      "patterns": [
+        "1. Hỏi về app Home (cách tải , cách thanh toán qua app)"
+      ],
+      "responses": [
+        "cách tải app như nào",
+        "thanh toán qua app như nào",
+        "tải app Home như nào"
+      ]
+    },
+    {
+      "tag": "KH hỏi ngày hôm nay",
+      "patterns": [
+        "KH hỏi ngày hôm nay lần 1",
+        "KH hỏi ngày hôm nay lần 2",
+        "KH hỏi ngày hôm nay lần 3"
+      ],
+      "responses": [
+        "hôm nay ngày mấy em",
+        "hôm nay là ngày bao nhiêu"
+      ]
+    },
+    {
+      "tag": "KH yêu cầu gửi tin nhắn",
+      "patterns": [
+        "KH yêu cầu gửi tin nhắn lần 1",
+        "KH yêu cầu gửi tin nhắn lần 2",
+        "KH yêu cầu gửi tin nhắn lần 3"
+      ],
+      "responses": [
+        "gửi tin nhắn giúp anh nhé",
+        "gửi lại tin qua zalo hay gì cho anh nhé",
+        "em gửi cho anh tin nhắn nhé"
+      ]
+    },
+    {
+      "tag": "Kh hỏi hotline",
+      "patterns": [
+        "Kh hỏi hotline lần 1",
+        "Kh hỏi hotline lần 2",
+        "Kh hỏi hotline lần 3"
+      ],
+      "responses": [
+        "số hotline là gì em nhỉ",
+        "anh điện bên em bằng số nào",
+        "hotline bên em là số nào"
+      ]
+    },
+    {
+      "tag": "KH muốn gặp TVV",
+      "patterns": [
+        "1. KH muốn gặp TVV"
+      ],
+      "responses": [
+        "cho mình gặp tư vấn viên",
+        "chuyển máy cho tư vấn viên"
+      ]
+    },
+    {
+      "tag": "KH muốn miễn giảm nợ",
+      "patterns": [
+        "KH muốn miễn giảm nợ lần 1",
+        "KH muốn miễn giảm nợ lần 2",
+        "KH muốn miễn giảm nợ lần 3"
+      ],
+      "responses": [
+        "giảm nợ cho anh được không",
+        "kẹt quá có bớt nợ cho anh được không",
+        "bớt nợ cho anh được không dạo này khó khắn quá em ạ"
+      ]
+    },
+    {
       "tag": "KH từ chối không vay",
       "patterns": [
         "KH từ chối không vay",
@@ -587,7 +1240,7 @@
     {
       "tag": "KH hỏi về Chương trình khuyến mãi (CTKM)",
       "patterns": [
-        "KH hỏi về Chương trình khuyến mãi (CTKM)"
+        "1. KH hỏi về Chương trình khuyến mãi (CTKM)"
       ],
       "responses": [
         "chương trình khuyến mãi có gì không",
@@ -605,7 +1258,7 @@
     {
       "tag": "KH hỏi thêm thông tin khoản vay",
       "patterns": [
-        "KH hỏi thêm thông tin khoản vay"
+        "1. KH hỏi thêm thông tin khoản vay"
       ],
       "responses": [
         "cho em hỏi thêm thông tin về khoản vay",
@@ -613,11 +1266,11 @@
         "cụ thể khoản này như nào nhỉ",
         "gửi chị xem chi tiết khoản này nhé"
       ]
-    }, 
+    },
     {
       "tag": "KH cân nhắc",
       "patterns": [
-        "KH cân nhắc"
+        "1. KH cân nhắc"
       ],
       "responses": [
         "ừ để chị xem",
@@ -631,7 +1284,7 @@
     {
       "tag": "KH hỏi về lãi vay",
       "patterns": [
-        "KH hỏi về lãi vay"
+        "1. KH hỏi về lãi vay"
       ],
       "responses": [
         "lãi suất bên mình  như thế nào thế em",
@@ -649,7 +1302,7 @@
     {
       "tag": "KH hỏi về số tiền vay",
       "patterns": [
-        "KH hỏi về số tiền vay"
+        "1. KH hỏi về số tiền vay"
       ],
       "responses": [
         "bên mình tối đa cho vay được bao nhiêu",
@@ -667,7 +1320,7 @@
     {
       "tag": "Fallback (mở thẻ, mở sổ tiết kiệm,...)",
       "patterns": [
-        "Fallback (mở thẻ, mở sổ tiết kiệm,...)"
+        "1. Fallback (mở thẻ, mở sổ tiết kiệm,...)"
       ],
       "responses": [
         "ừ mở thẻ",
@@ -680,7 +1333,7 @@
     {
       "tag": "Người nghe muốn Gặp trợ lý ảo",
       "patterns": [
-        "Người nghe muốn Gặp trợ lý ảo"
+        "1. Người nghe muốn Gặp trợ lý ảo"
       ],
       "responses": [
         "tôi muốn gặp trợ lý ảo",
@@ -692,7 +1345,7 @@
     {
       "tag": "BT3 xác nhận là sai",
       "patterns": [
-        "BT3 xác nhận là sai"
+        "1. BT3 xác nhận là sai"
       ],
       "responses": [
         "nhầm số rồi",
@@ -710,7 +1363,7 @@
     {
       "tag": "BT3 bận",
       "patterns": [
-        "BT3 bận"
+        "1. BT3 bận"
       ],
       "responses": [
         "đang đi làmbận lắm em",
@@ -727,7 +1380,7 @@
     {
       "tag": "KH yêu cầu nhắc lại",
       "patterns": [
-        "KH yêu cầu nhắc lại"
+        "1. KH yêu cầu nhắc lại"
       ],
       "responses": [
         "nghe không rõ nói lại đi em",
@@ -743,7 +1396,7 @@
     {
       "tag": "Người nghe báo nhầm máy / Không quen",
       "patterns": [
-        "Người nghe báo nhầm máy / Không quen"
+        "1. Người nghe báo nhầm máy / Không quen"
       ],
       "responses": [
         "không có quen",
@@ -758,7 +1411,7 @@
     {
       "tag": "BT3 xác nhận là đúng chung chung",
       "patterns": [
-        "BT3 xác nhận là đúng chung chung"
+        "1. BT3 xác nhận là đúng chung chung"
       ],
       "responses": [
         "ừ",
@@ -776,7 +1429,7 @@
     {
       "tag": "Người nghe báo có quen chung chung",
       "patterns": [
-        "Người nghe báo có quen chung chung"
+        "1. Người nghe báo có quen chung chung"
       ],
       "responses": [
         "mình có quen sơ sơ",
@@ -789,7 +1442,7 @@
     {
       "tag": "BT3 xác nhận là đúng nói rõ mối quan hệ là bạn bè/hàng xóm/anh chị em",
       "patterns": [
-        "BT3 xác nhận là đúng nói rõ mối quan hệ là bạn bè/hàng xóm/anh chị em"
+        "1. BT3 xác nhận là đúng nói rõ mối quan hệ là bạn bè/hàng xóm/anh chị em"
       ],
       "responses": [
         "mình là bạn cấp ba",
@@ -803,31 +1456,16 @@
     {
       "tag": "BT3 trao đổi về tình trạng KH",
       "patterns": [
-        "BT3 trao đổi về tình trạng KH"
+        "1. BT3 trao đổi về tình trạng KH"
       ],
       "responses": [
         "nó đang bị ốm nó đi tù rồi 2.nó đi viện 3.nó đang cấp cứu 4. nó trốn biệt tăm rồi  5.nó đang thụ án 5. nó ra nước ngoài trốn hay sao ấy 6.nó bị giang hồ bắt đi rồi"
       ]
     },
     {
-      "tag": "KH mất",
-      "patterns": [
-        "KH mất"
-      ],
-      "responses": [
-        "mới ốm mất rồi em ạ",
-        "tại nạn chết rồi em",
-        "mới ung thư mất rồi",
-        "chắc dùng số mới rồi giờ không gọi được",
-        "thay số rồi em ạ",
-        "nó đổi số lâu rồi",
-        "thay số điện thoại khác rồi em ạ"
-      ]
-    },
-    {
       "tag": "BT3 là người thân, người nhà",
       "patterns": [
-        "BT3 là người thân, người nhà"
+        "1. BT3 là người thân, người nhà"
       ],
       "responses": [
         "anh là người thân",
@@ -840,7 +1478,7 @@
     {
       "tag": "BT3 muốn trả nợ thay",
       "patterns": [
-        "BT3 muốn trả nợ thay"
+        "1. BT3 muốn trả nợ thay"
       ],
       "responses": [
         "ừ anh trả thay được không",
@@ -853,7 +1491,7 @@
     {
       "tag": "Không hỗ trợ trả nợ / không thanh toán",
       "patterns": [
-        "Không hỗ trợ trả nợ / không thanh toán"
+        "1. Không hỗ trợ trả nợ / không thanh toán"
       ],
       "responses": [
         "người nhà không trả thay đâu em ạ",
@@ -866,7 +1504,7 @@
     {
       "tag": "Hẹn thanh toán > 5 ngày",
       "patterns": [
-        "Hẹn thanh toán > 5 ngày"
+        "1. Hẹn thanh toán > 5 ngày"
       ],
       "responses": [
         "người nhà không trả thay đâu em ạ",
@@ -879,7 +1517,7 @@
     {
       "tag": "Đã thanh toán",
       "patterns": [
-        "Đã thanh toán"
+        "1. Đã thanh toán"
       ],
       "responses": [
         "thanh toán rồi em",
@@ -892,7 +1530,7 @@
     {
       "tag": "BT3 Hẹn thanh toán 1 phần",
       "patterns": [
-        "BT3 Hẹn thanh toán 1 phần"
+        "1. BT3 Hẹn thanh toán 1 phần"
       ],
       "responses": [
         "trả một phần trước được không",
@@ -907,7 +1545,7 @@
     {
       "tag": "Hỏi Tổng số tiền cần thanh toán",
       "patterns": [
-        "Hỏi Tổng số tiền cần thanh toán"
+        "1. Hỏi Tổng số tiền cần thanh toán"
       ],
       "responses": [
         "tổng là bao nhiêu em",
@@ -920,7 +1558,7 @@
     {
       "tag": "Intent clear ý định của KH (chị hỏi/ em ơi cho chị hỏi/..)",
       "patterns": [
-        "Intent clear ý định của KH (chị hỏi/ em ơi cho chị hỏi/..)"
+        "1. Intent clear ý định của KH (chị hỏi/ em ơi cho chị hỏi/..)"
       ],
       "responses": [
         "cho mình hỏi",
@@ -932,7 +1570,7 @@
     {
       "tag": "BT3 hẹn thanh toán < 20% (bao gồm TH không nói rõ thanh toán bao nhiêu)",
       "patterns": [
-        "BT3 hẹn thanh toán < 20% (bao gồm TH không nói rõ thanh toán bao nhiêu)"
+        "1. BT3 hẹn thanh toán < 20% (bao gồm TH không nói rõ thanh toán bao nhiêu)"
       ],
       "responses": [
         "chỉ xoay được phần nhỏ thôi gửi trước mười phằn trăm được không",
@@ -944,7 +1582,7 @@
     {
       "tag": "BT3 hẹn thanh toán > 50%",
       "patterns": [
-        "BT3 hẹn thanh toán > 50%"
+        "1. BT3 hẹn thanh toán > 50%"
       ],
       "responses": [
         "tuần sau trả sau mươi phần trăm cho bên em",
@@ -958,7 +1596,7 @@
     {
       "tag": "BT3 không đồng ý",
       "patterns": [
-        "BT3 không đồng ý"
+        "1. BT3 không đồng ý"
       ],
       "responses": [
         "không",
@@ -973,7 +1611,7 @@
     {
       "tag": "BT3 đồng ý",
       "patterns": [
-        "BT3 đồng ý"
+        "1. BT3 đồng ý"
       ],
       "responses": [
         "ừ",
@@ -988,7 +1626,7 @@
     {
       "tag": "Người nghe Hỏi ngày thanh toán",
       "patterns": [
-        "Người nghe Hỏi ngày thanh toán"
+        "1. Người nghe Hỏi ngày thanh toán"
       ],
       "responses": [
         "thanh toán ngày nào",
@@ -1003,7 +1641,7 @@
     {
       "tag": "BT3 hỏi ngày thanh toán",
       "patterns": [
-        "BT3 hỏi ngày thanh toán"
+        "1. BT3 hỏi ngày thanh toán"
       ],
       "responses": [
         "thanh toán ngày nào",

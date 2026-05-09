@@ -13,10 +13,11 @@ def _clean_text(value):
     return str(value).strip()
 
 
-def _split_responses(text):
+def _split_numbered_list(text):
     """
-    Split multiline numbered responses like:
-    1. ok\n2. yes
+    Split multiline numbered text like:
+    1. item1\n2. item2
+    Returns a list of items without the number prefix.
     """
     if not text:
         return []
@@ -36,6 +37,28 @@ def _split_responses(text):
     return results
 
 
+def _split_responses(text):
+    """Alias for splitting responses (same behaviour)."""
+    return _split_numbered_list(text)
+
+
+def _split_patterns(text):
+    """
+    If text contains newlines and looks like a numbered list,
+    split it using _split_numbered_list.
+    Otherwise, return as a single-element list if not empty.
+    """
+    if not text:
+        return []
+
+    # Kiểm tra có xuống dòng và dòng đầu tiên bắt đầu bằng số + dấu chấm/đóng ngoặc
+    if "\n" in text and re.search(r"^\d+[\.\)]", text, re.MULTILINE):
+        return _split_numbered_list(text)
+    else:
+        # Không phải danh sách đánh số, giữ nguyên một pattern
+        return [text] if text else []
+
+
 def parse_excel_to_intents(excel_path, sheet_name=None):
     workbook = load_workbook(excel_path, data_only=True)
     worksheet = workbook[sheet_name] if sheet_name else workbook[workbook.sheetnames[0]]
@@ -53,7 +76,8 @@ def parse_excel_to_intents(excel_path, sheet_name=None):
         response_cell = row[2] if len(row) > 2 else None  # column C – responses
 
         tag      = _clean_text(intent_cell)
-        pattern  = _clean_text(pattern_cell)
+        # patterns: xử lý đặc biệt để hỗ trợ cả ô gộp nhiều pattern
+        patterns = _split_patterns(_clean_text(pattern_cell))
         response = _clean_text(response_cell)
 
         if tag:
@@ -69,9 +93,10 @@ def parse_excel_to_intents(excel_path, sheet_name=None):
                 "responses": [],
             }
 
-        # Add pattern (column B) if present and not duplicate
-        if pattern and pattern not in intents_map[current_tag]["patterns"]:
-            intents_map[current_tag]["patterns"].append(pattern)
+        # Add each pattern from the (possibly multiple) list
+        for pat in patterns:
+            if pat not in intents_map[current_tag]["patterns"]:
+                intents_map[current_tag]["patterns"].append(pat)
 
         # Add responses (column C) – split numbered lists
         for r in _split_responses(response):

@@ -22,28 +22,32 @@ from openpyxl.worksheet.datavalidation import DataValidation
 HEADER_FILL = PatternFill(start_color="0016365C", end_color="0016365C", fill_type="solid")
 HEADER_FONT = Font(bold=True, color="00FFFFFF")
 
-# Full list of columns A → M
-HEADERS = [
-    "TC_ID",
-    "Conditions",
-    "Test Scenario",
-    "Bot Responses",
-    "Path",
-    "Expected Action Code",
-    "Test Data",
-    "User Attributes",
-    "Call Id",
-    "Test Results",
-    "Error Type",
-    "Error Description",
-    "FPT Comment",
+# Main headers (first row, columns A–F)
+MAIN_HEADERS = [
+    "TC_ID \n (Mã TC)",
+    "Conditions \n (Điều kiện kiểm tra)",
+    "Test Scenario \n (Tình huống kiểm tra)",
+    "Bot Responses \n (Câu trả lời của bot)",
+    "Path \n (Đường dẫn)",
+    "Expected Action Code \n (Mã mong muốn)",
+]
+
+# Sub‑headers for each round (columns G‑M and N‑T)
+ROUND_SUB_HEADERS = [
+    "Test Data \n (Dữ liệu kiểm tra)",
+    "User Attributes \n (Thuộc tính người dùng)",
+    "Call Id \n (ID cuộc gọi)",
+    "Test Results \n (Kết quả kiểm tra)",
+    "Error Type \n (Loại lỗi)",
+    "Error Description \n (Mô tả lỗi)",
+    "FPT Comment \n (Ghi chú FPT)",
 ]
 
 # Section header style (for grouping rows)
 SECTION_FONT = Font(bold=True, color="000000")
 SECTION_FILL = PatternFill(fill_type="solid", fgColor="ffff00")
 
-# Group fill colors – only used when use_group_fills=True
+# Group fill colors – only used when use_group_fills=True, applied to columns A-F
 GROUP_FILLS = [
     PatternFill(fill_type="solid", fgColor="00FDE2E2"),
     PatternFill(fill_type="solid", fgColor="00E3F2FD"),
@@ -61,7 +65,7 @@ THIN_BORDER = Border(
     bottom=Side(style="thin"),
 )
 
-# Column widths
+# Column widths for columns 1..20
 COL_WIDTHS = {
     1: 10,   # TC_ID
     2: 40,   # Conditions
@@ -69,16 +73,23 @@ COL_WIDTHS = {
     4: 90,   # Bot Responses
     5: 25,   # Path
     6: 25,   # Expected Action Code
-    7: 40,   # Test Data
-    8: 20,   # User Attributes
-    9: 20,   # Call Id
-    10: 20,   # Test Results
-    11: 20,   # Error Type
-    12: 20,   # Error Description
-    13: 20,   # FPT Comment
+    7: 40,   # Round 1 Test Data
+    8: 20,   # Round 1 User Attributes
+    9: 20,   # Round 1 Call Id
+    10: 20,  # Round 1 Test Results
+    11: 20,  # Round 1 Error Type
+    12: 20,  # Round 1 Error Description
+    13: 20,  # Round 1 FPT Comment
+    14: 40,  # Round 2 Test Data
+    15: 20,  # Round 2 User Attributes
+    16: 20,  # Round 2 Call Id
+    17: 20,  # Round 2 Test Results
+    18: 20,  # Round 2 Error Type
+    19: 20,  # Round 2 Error Description
+    20: 20,  # Round 2 FPT Comment
 }
 
-# Conditional formatting colors for Test Results (column 10)
+# Conditional formatting colors for Test Results columns (J and Q)
 RESULT_COLORS = {
     "Pass": "00C6EFCE",        # light green
     "Fail": "00FFC7CE",        # light red
@@ -89,7 +100,7 @@ RESULT_COLORS = {
     "Todo": "00FFFFFF",        # white
 }
 ERROR_TYPE_COLORS = {
-    "ASR": "00FFFFFF",
+    "ASR Mistake": "00FFFFFF",
     "Intent": "00FFFFFF",
     "Flow": "00FFFFFF",
     "Script": "00FFFFFF",
@@ -245,11 +256,12 @@ def _set_column_widths(ws: Worksheet) -> None:
 
 
 def _apply_alignments(ws: Worksheet, section_header_rows: list[int] | None = None) -> None:
-    """Vertical center for all cells, horizontal center for column A, J, K and row 1.
+    """Vertical center for all cells, horizontal center for column A, J, K, Q, R and row 1.
     Section header rows (if provided) are set to left alignment afterwards."""
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row, max_col=ws.max_column):
         for cell in row:
-            if cell.column == 1 or cell.column == 10 or cell.column == 11 or cell.row == 1:
+            if cell.column == 1 or cell.row == 2 or cell.column == 10 or cell.column == 11 or \
+               cell.column == 17 or cell.column == 18 or cell.row == 1:
                 cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
             else:
                 cell.alignment = Alignment(vertical="center", wrap_text=True)
@@ -261,7 +273,7 @@ def _apply_alignments(ws: Worksheet, section_header_rows: list[int] | None = Non
 
 
 def _add_data_validations(ws: Worksheet, max_row: int) -> None:
-    """Add dropdown lists to columns J (Test Results) and K (Error Type)."""
+    """Add dropdown lists to Test Results and Error Type columns for both rounds."""
     # Test Results list
     dv_results = DataValidation(
         type="list",
@@ -271,23 +283,25 @@ def _add_data_validations(ws: Worksheet, max_row: int) -> None:
     dv_results.error = "Please select a value from the list."
     dv_results.errorTitle = "Invalid Result"
     ws.add_data_validation(dv_results)
-    dv_results.add(f"J2:J{max_row}")
+    dv_results.add(f"J2:J{max_row}")   # Round 1 Test Results
+    dv_results.add(f"Q2:Q{max_row}")   # Round 2 Test Results
 
     # Error Type list
     dv_error = DataValidation(
         type="list",
-        formula1='"ASR,Intent,Flow,Script,Other"',
+        formula1='"ASR Mistake,Intent,Flow,Script,Other"',
         allow_blank=True,
     )
     dv_error.error = "Please select a value from the list."
     dv_error.errorTitle = "Invalid Error Type"
     ws.add_data_validation(dv_error)
-    dv_error.add(f"K2:K{max_row}")
+    dv_error.add(f"K2:K{max_row}")   # Round 1 Error Type
+    dv_error.add(f"R2:R{max_row}")   # Round 2 Error Type
 
 
 def _add_conditional_formatting(ws: Worksheet, max_row: int) -> None:
-    """Apply background color rules to Test Results (J) and Error Type (K) columns."""
-    # Test Results column
+    """Apply background color rules to Test Results and Error Type columns for both rounds."""
+    # Test Results columns (J and Q)
     for value, color in RESULT_COLORS.items():
         fill = PatternFill(start_color=color, end_color=color, fill_type="solid")
         dxf = DifferentialStyle(fill=fill)
@@ -298,8 +312,9 @@ def _add_conditional_formatting(ws: Worksheet, max_row: int) -> None:
             dxf=dxf,
         )
         ws.conditional_formatting.add(f"J2:J{max_row}", rule)
+        ws.conditional_formatting.add(f"Q2:Q{max_row}", rule)
 
-    # Error Type column (white background for all choices, optional)
+    # Error Type columns (K and R)
     for value, color in ERROR_TYPE_COLORS.items():
         fill = PatternFill(start_color=color, end_color=color, fill_type="solid")
         dxf = DifferentialStyle(fill=fill)
@@ -310,6 +325,7 @@ def _add_conditional_formatting(ws: Worksheet, max_row: int) -> None:
             dxf=dxf,
         )
         ws.conditional_formatting.add(f"K2:K{max_row}", rule)
+        ws.conditional_formatting.add(f"R2:R{max_row}", rule)
 
 
 def export_to_excel(
@@ -327,18 +343,49 @@ def export_to_excel(
     ws = wb.active
     ws.title = "TestCases"
 
-    # ---------- Write header row ----------
-    for col_idx, header_text in enumerate(HEADERS, start=1):
+    # ---------- Write two‑row header ----------
+    # Row 1: main headers + Round labels
+    for col_idx, header_text in enumerate(MAIN_HEADERS, start=1):
         cell = ws.cell(row=1, column=col_idx, value=header_text)
         cell.fill = HEADER_FILL
         cell.font = HEADER_FONT
         cell.alignment = Alignment(wrap_text=True, vertical="center")
 
+    # Merge and write "Round 1" over columns G‑M (7 columns)
+    ws.merge_cells(start_row=1, start_column=7, end_row=1, end_column=13)
+    cell_r1 = ws.cell(row=1, column=7, value="Round 1 (Vòng 1)")
+    cell_r1.fill = HEADER_FILL
+    cell_r1.font = HEADER_FONT
+    cell_r1.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+    # Merge and write "Round 2" over columns N‑T (7 columns)
+    ws.merge_cells(start_row=1, start_column=14, end_row=1, end_column=20)
+    cell_r2 = ws.cell(row=1, column=14, value="Round 2 (Vòng 2)")
+    cell_r2.fill = HEADER_FILL
+    cell_r2.font = HEADER_FONT
+    cell_r2.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+    # Row 2: sub‑headers for each round
+    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=7):
+        cell = ws.cell(row=2, column=col_idx, value=sub_header)
+        cell.fill = HEADER_FILL
+        cell.font = HEADER_FONT
+        cell.alignment = Alignment(wrap_text=True, vertical="center")
+    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=14):
+        cell = ws.cell(row=2, column=col_idx, value=sub_header)
+        cell.fill = HEADER_FILL
+        cell.font = HEADER_FONT
+        cell.alignment = Alignment(wrap_text=True, vertical="center")
+
+    # Merge columns A–F vertically (row 1 and 2) to match the example
+    for col_idx in range(1, 7):
+        ws.merge_cells(start_row=1, start_column=col_idx, end_row=2, end_column=col_idx)
+
     # ---------- Common helper for writing a data row ----------
     def _write_data_row(
         row: int, case: dict[str, Any], display_tc_index: int, fill: PatternFill | None = None
     ) -> int:
-        """Write a single data row (columns A–M) and return the next row index."""
+        """Write a single data row (columns A–T) and return the next row index."""
         tc_id = f"TC{display_tc_index:03d}"
         conditions = str(case.get("conditions", ""))
         steps: list[str] = case.get("steps", [])
@@ -356,12 +403,10 @@ def export_to_excel(
             numbered_responses.append(f"{i}. {r}" if r else f"{i}. ")
         bot_responses_text = "\n".join(numbered_responses)
 
-        # Column A – TC_ID
+        # Columns A – F
         ws.cell(row=row, column=1, value=tc_id)
-        # Column B – Conditions
         ws.cell(row=row, column=2, value=conditions)
 
-        # Column C – Test Scenario
         cell_scn = ws.cell(row=row, column=3)
         if allow_highlight_last and highlight_last and numbered_steps:
             rt = CellRichText()
@@ -372,7 +417,6 @@ def export_to_excel(
         else:
             cell_scn.value = scenario
 
-        # Column D – Bot Responses
         cell_bot = ws.cell(row=row, column=4)
         if allow_highlight_last and highlight_last and numbered_responses:
             rt_bot = CellRichText()
@@ -383,25 +427,28 @@ def export_to_excel(
         else:
             cell_bot.value = bot_responses_text
 
-        # Column E – Path
         ws.cell(row=row, column=5, value=tc_path)
-        # Column F – Expected Action Code
         ws.cell(row=row, column=6, value=expected_action)
-        # Column G – Test Data
-        ws.cell(row=row, column=7, value=test_data)
-        # Columns H–M remain empty (User Attributes, Call Id, Test Results, ...)
 
+        # Round 1 Test Data (column G)
+        ws.cell(row=row, column=7, value=test_data)
+
+        # Default values for Test Results (both rounds) = "Todo"
+        ws.cell(row=row, column=10, value="Todo")   # Round 1 Test Results
+        ws.cell(row=row, column=17, value="Todo")   # Round 2 Test Results
+
+        # Apply group fill **only to columns A-F**
         if fill is not None:
-            for c in range(1, 8):
+            for c in range(1, 7):
                 ws.cell(row=row, column=c).fill = fill
 
         return row + 1
 
     # ---------- Write test cases ----------
-    section_header_rows: list[int] = []  # Keep track of group header rows
+    section_header_rows: list[int] = []
 
     if not group_by_step:
-        row = 2
+        row = 3   # data starts at row 3 because rows 1-2 are headers
         for idx, case in enumerate(cases, start=1):
             row = _write_data_row(row, case, idx, fill=None)
     else:
@@ -414,18 +461,18 @@ def export_to_excel(
         current_group_key: tuple[Any, ...] | None = None
         group_index = -1
         display_tc_index = 1
-        row = 2
+        row = 3
 
         for step_no in ordered_groups:
             step_name = step_name_map.get(step_no, step_no)
             section_label = f"{step_no} - {step_name}"
 
-            # Insert section header row (merge across all columns)
-            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=13)
+            # Section header row – merge across all 20 columns
+            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=20)
             cell_sec = ws.cell(row=row, column=1, value=section_label)
             cell_sec.font = SECTION_FONT
             cell_sec.fill = SECTION_FILL
-            section_header_rows.append(row)   # remember this row index
+            section_header_rows.append(row)
             row += 1
 
             for case in grouped_cases[step_no]:
@@ -449,7 +496,7 @@ def export_to_excel(
     # ---------- Apply formatting ----------
     _apply_borders(ws)
     _set_column_widths(ws)
-    _apply_alignments(ws, section_header_rows=section_header_rows)   # section headers become left-aligned
+    _apply_alignments(ws, section_header_rows=section_header_rows)
     _auto_fit_row_heights(ws)
     _add_data_validations(ws, ws.max_row)
     _add_conditional_formatting(ws, ws.max_row)

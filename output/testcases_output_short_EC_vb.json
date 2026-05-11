@@ -23,7 +23,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được"
+    "test_data": "1. được rồi đang nghe đây"
   },
   {
     "tc_id": "TC003",
@@ -39,7 +39,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ"
+    "test_data": "1. được rồi đang nghe đây\n2. thanh toán một phần trước nhé em"
   },
   {
     "tc_id": "TC004",
@@ -57,7 +57,7 @@
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. thanh toán một phần trước nhé em\n3. ủa đã trả rồi mà em"
+    "test_data": "1. rồi nói nghe coi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. mới thanh toán đủ cho em rối"
   },
   {
     "tc_id": "TC005",
@@ -75,7 +75,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh thanh toán cho bên em trước một phần có được không\n3. thanh toán cái gì không trả tiền đâu"
+    "test_data": "1. ok\n2. thanh toán một phần trước nhé em\n3. không trả đâu"
   },
   {
     "tc_id": "TC006",
@@ -93,7 +93,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. trả trước một phần có được không em\n3. mới ung thư mất rồi"
+    "test_data": "1. phải rồi\n2. anh thanh toán một ít trước nhé\n3. mới ốm mất rồi em ạ"
   },
   {
     "tc_id": "TC007",
@@ -111,7 +111,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. anh thanh toán cho bên em trước một phần có được không\n3. anh còn nợ nhiều không trả được bao nhiêu rồi"
+    "test_data": "1. ok em nói đi\n2. thanh toán một phần trước nhé em\n3. anh trả được nhiêu còn nợ nhiêu em"
   },
   {
     "tc_id": "TC008",
@@ -129,7 +129,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. trả trước một phần có được không em\n3. mới ốm mất trong viện tuần trước em ạ"
+    "test_data": "1. nói đi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. tại nạn chết rồi em"
   },
   {
     "tc_id": "TC009",
@@ -147,7 +147,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. anh trả được nhiêu còn nợ nhiêu em"
+    "test_data": "1. được rồi đang nghe đây\n2. thanh toán một phần trước nhé em\n3. anh còn nợ nhiều không trả được bao nhiêu rồi"
   },
   {
     "tc_id": "TC010",
@@ -165,7 +165,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. anh thanh toán một ít trước nhé\n3. tại nạn chết rồi em"
+    "test_data": "1. rồi nói nghe coi\n2. giờ trả được một ít trước thôi em\n3. đột quỵ chết rồi em ạ"
   },
   {
     "tc_id": "TC011",
@@ -183,7 +183,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. thanh toán một phần trước nhé em\n3. anh còn nợ bao tiền đã trả được nhiều chưa"
+    "test_data": "1. ừ ừ rồi\n2. trả trước một phần có được không em\n3. anh còn nợ nhiều không trả được bao nhiêu rồi"
   },
   {
     "tc_id": "TC012",
@@ -201,7 +201,7 @@
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. được để anh trả tiền"
+    "test_data": "1. rồi nói nghe coi\n2. anh thanh toán cho bên em trước một phần có được không\n3. rồi để anh trả"
   },
   {
     "tc_id": "TC013",
@@ -219,7 +219,7 @@
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. trả trước một phần có được không em\n3. được để anh trả tiền"
+    "test_data": "1. ok em nói đi\n2. trả trước một phần có được không em\n3. được để anh trả tiền"
   },
   {
     "tc_id": "TC014",
@@ -237,7 +237,7 @@
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. giờ trả được một ít trước thôi em\n3. được để anh trả tiền"
+    "test_data": "1. được rồi đang nghe đây\n2. trả trước một phần có được không em\n3. rồi để anh trả"
   },
   {
     "tc_id": "TC015",
@@ -255,7 +255,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. trả trước một phần có được không em\n3. anh đang bận"
+    "test_data": "1. ok\n2. anh thanh toán cho bên em trước một phần có được không\n3. đang có việc"
   },
   {
     "tc_id": "TC016",
@@ -275,7 +275,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. trả trước một phần có được không em\n3. lát rồi gọi lại\n4. lát rồi gọi lại"
+    "test_data": "1. ok em nói đi\n2. thanh toán một phần trước nhé em\n3. đang đi làm\n4. đang có việc"
   },
   {
     "tc_id": "TC017",
@@ -293,7 +293,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. trả trước một phần có được không em\n3. _silence_"
+    "test_data": "1. ok\n2. giờ trả được một ít trước thôi em\n3. _silence_"
   },
   {
     "tc_id": "TC018",
@@ -313,7 +313,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. _silence_\n4. _silence_"
+    "test_data": "1. ừ\n2. thanh toán một phần trước nhé em\n3. _silence_\n4. _silence_"
   },
   {
     "tc_id": "TC019",
@@ -333,7 +333,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. thanh toán một phần trước nhé em\n3. _silence_\n4. _silence_"
+    "test_data": "1. rồi nói nghe coi\n2. trả trước một phần có được không em\n3. _silence_\n4. _silence_"
   },
   {
     "tc_id": "TC020",
@@ -353,7 +353,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. anh thanh toán một ít trước nhé\n3. _silence_\n4. _silence_"
+    "test_data": "1. ok\n2. anh thanh toán một ít trước nhé\n3. _silence_\n4. _silence_"
   },
   {
     "tc_id": "TC021",
@@ -371,7 +371,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. giờ trả được một ít trước thôi em\n3. anh thanh toán một ít trước nhé"
+    "test_data": "1. ừ\n2. anh thanh toán một ít trước nhé\n3. thanh toán một phần trước nhé em"
   },
   {
     "tc_id": "TC022",
@@ -391,7 +391,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. thanh toán một phần trước nhé em\n3. giờ trả được một ít trước thôi em\n4. giờ trả được một ít trước thôi em"
+    "test_data": "1. ừ ừ rồi\n2. trả trước một phần có được không em\n3. anh thanh toán một ít trước nhé\n4. anh thanh toán một ít trước nhé"
   },
   {
     "tc_id": "TC023",
@@ -411,7 +411,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. trả trước một phần có được không em\n3. anh thanh toán một ít trước nhé\n4. thanh toán một phần trước nhé em"
+    "test_data": "1. ok em nói đi\n2. anh thanh toán một ít trước nhé\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. giờ trả được một ít trước thôi em"
   },
   {
     "tc_id": "TC024",
@@ -431,7 +431,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. anh thanh toán một ít trước nhé\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. giờ trả được một ít trước thôi em"
+    "test_data": "1. được\n2. anh thanh toán một ít trước nhé\n3. thanh toán một phần trước nhé em\n4. anh thanh toán một ít trước nhé"
   },
   {
     "tc_id": "TC025",
@@ -449,7 +449,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. thanh toán một phần trước nhé em\n3. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
+    "test_data": "1. được rồi đang nghe đây\n2. anh thanh toán cho bên em trước một phần có được không\n3. ừ biết rồi anh sẽ trả cho bọn em sau"
   },
   {
     "tc_id": "TC026",
@@ -469,7 +469,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. giờ trả được một ít trước thôi em\n3. ừ biết rồi anh sẽ trả cho bọn em sau\n4. ừ tháng sau trả nhé"
+    "test_data": "1. phải rồi\n2. thanh toán một phần trước nhé em\n3. ừ anh sẽ tất toán hết cho bên em sau nhé\n4. anh trả cho bên em sau không bùng đâu yên tâm"
   },
   {
     "tc_id": "TC027",
@@ -489,7 +489,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. ừ anh sẽ tất toán hết cho bên em sau nhé\n4. ừ anh sẽ tất toán hết cho bên em sau nhé"
+    "test_data": "1. ok em nói đi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. mấy hôm nữa thanh toán nhé\n4. anh trả cho bên em sau không bùng đâu yên tâm"
   },
   {
     "tc_id": "TC028",
@@ -509,7 +509,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. mấy hôm nữa thanh toán nhé\n4. ừ anh sẽ tất toán hết cho bên em sau nhé"
+    "test_data": "1. ok\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. được rồi anh sẽ thanh toán cho em sau nhé phải mấy\n4. ừ anh sẽ tất toán hết cho bên em sau nhé"
   },
   {
     "tc_id": "TC029",
@@ -527,7 +527,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. em vừa nói gì cơ"
+    "test_data": "1. được rồi đang nghe đây\n2. trả trước một phần có được không em\n3. anh nghe không rõ"
   },
   {
     "tc_id": "TC030",
@@ -547,7 +547,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. giờ trả được một ít trước thôi em\n3. em nói gì cơ\n4. ồn quá em ạ"
+    "test_data": "1. ok\n2. anh thanh toán một ít trước nhé\n3. nhắc lại đi\n4. em nói gì cơ"
   },
   {
     "tc_id": "TC031",
@@ -567,7 +567,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. giờ trả được một ít trước thôi em\n3. em nói lại đi\n4. nói lại anh nghe"
+    "test_data": "1. nói nghe xem nào\n2. thanh toán một phần trước nhé em\n3. chả nghe thấy gì cả\n4. em vừa nói gì cơ"
   },
   {
     "tc_id": "TC032",
@@ -587,7 +587,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. anh thanh toán cho bên em trước một phần có được không\n3. nhắc lại đi\n4. nhắc lại đi"
+    "test_data": "1. nói nghe xem nào\n2. anh thanh toán cho bên em trước một phần có được không\n3. anh nghe không rõ\n4. em vừa nói gì cơ"
   },
   {
     "tc_id": "TC033",
@@ -605,7 +605,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. anh thanh toán cho bên em trước một phần có được không\n3. giao dịch cái gì"
+    "test_data": "1. phải rồi\n2. thanh toán một phần trước nhé em\n3. tiền gì"
   },
   {
     "tc_id": "TC034",
@@ -625,7 +625,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. thanh toán một phần trước nhé em\n3. tiền gì\n4. mua gì"
+    "test_data": "1. phải rồi\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. tiền gì\n4. quẹt gì"
   },
   {
     "tc_id": "TC035",
@@ -647,7 +647,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. giờ trả được một ít trước thôi em\n3. tiền gì\n4. mua gì\n5. tiền gì"
+    "test_data": "1. nói nghe xem nào\n2. anh thanh toán một ít trước nhé hơi kẹt em ạ\n3. giao dịch cái gì\n4. quẹt gì\n5. quẹt gì"
   },
   {
     "tc_id": "TC036",
@@ -669,7 +669,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. anh thanh toán một ít trước nhé\n3. giao dịch cái gì\n4. giao dịch cái gì\n5. quẹt gì"
+    "test_data": "1. được\n2. anh thanh toán cho bên em trước một phần có được không\n3. giao dịch cái gì\n4. giao dịch cái gì\n5. tiền gì"
   },
   {
     "tc_id": "TC037",
@@ -691,7 +691,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A3 -> A3 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. giờ trả được một ít trước thôi em\n3. giao dịch cái gì\n4. quẹt gì\n5. giao dịch cái gì"
+    "test_data": "1. ừ\n2. trả trước một phần có được không em\n3. giao dịch cái gì\n4. tiền gì\n5. quẹt gì"
   },
   {
     "tc_id": "TC038",
@@ -707,7 +707,7 @@
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. mới thanh toán đủ cho em rối"
+    "test_data": "1. được\n2. trả hết rôi mà"
   },
   {
     "tc_id": "TC039",
@@ -723,7 +723,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. mới bị tai nạn chết hôm qua đau sót quá em ạ"
+    "test_data": "1. ok\n2. mới ốm mất rồi em ạ"
   },
   {
     "tc_id": "TC040",
@@ -739,7 +739,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. chuyển máy cho tư vấn viên"
+    "test_data": "1. được\n2. chuyển máy cho tư vấn viên"
   },
   {
     "tc_id": "TC041",
@@ -755,7 +755,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. mở lại thẻ giúp anh"
+    "test_data": "1. ok em nói đi\n2. anh muốn mở lại thẻ ấy em"
   },
   {
     "tc_id": "TC042",
@@ -771,7 +771,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. miễn lãi mấy hôm"
+    "test_data": "1. phải rồi\n2. miễn lãi mấy hôm"
   },
   {
     "tc_id": "TC043",
@@ -787,7 +787,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh còn nợ bao tiền đã trả được nhiều chưa"
+    "test_data": "1. được\n2. anh còn nợ bao tiền đã trả được nhiều chưa"
   },
   {
     "tc_id": "TC044",
@@ -803,7 +803,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. thanh toán qua app như nào"
+    "test_data": "1. rồi nói nghe coi\n2. tải app home như nào"
   },
   {
     "tc_id": "TC045",
@@ -819,7 +819,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. mất rồi em"
+    "test_data": "1. được rồi đang nghe đây\n2. mới ốm mất rồi em ạ"
   },
   {
     "tc_id": "TC046",
@@ -835,7 +835,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. chuyển máy cho tư vấn viên"
+    "test_data": "1. nói nghe xem nào\n2. cho mình gặp tư vấn viên"
   },
   {
     "tc_id": "TC047",
@@ -851,7 +851,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. anh muốn mở lại thẻ ấy em"
+    "test_data": "1. ok em nói đi\n2. mở lại thẻ giúp anh"
   },
   {
     "tc_id": "TC048",
@@ -867,7 +867,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. miễn lãi nhiều ngày không em"
+    "test_data": "1. được\n2. được miễn lãi mấy hôm em"
   },
   {
     "tc_id": "TC049",
@@ -883,7 +883,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh còn nợ nhiều không trả được bao nhiêu rồi"
+    "test_data": "1. được rồi đang nghe đây\n2. anh còn nợ bao tiền đã trả được nhiều chưa"
   },
   {
     "tc_id": "TC050",
@@ -899,7 +899,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. cách tải app như nào"
+    "test_data": "1. được\n2. thanh toán qua app như nào"
   },
   {
     "tc_id": "TC051",
@@ -915,7 +915,7 @@
     "expected_action_code": "Refuse to pay (non RPC)",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. không trả đâu"
+    "test_data": "1. nói đi\n2. không trả đâu"
   },
   {
     "tc_id": "TC052",
@@ -931,7 +931,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. mất rồi em"
+    "test_data": "1. ừ\n2. ốm chết rồi"
   },
   {
     "tc_id": "TC053",
@@ -947,7 +947,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. chuyển máy cho tư vấn viên"
+    "test_data": "1. ừ\n2. chuyển máy cho tư vấn viên"
   },
   {
     "tc_id": "TC054",
@@ -963,7 +963,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. anh muốn mở lại thẻ ấy em"
+    "test_data": "1. được rồi đang nghe đây\n2. anh muốn mở lại thẻ ấy em"
   },
   {
     "tc_id": "TC055",
@@ -979,7 +979,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. miễn lãi nhiều ngày không em"
+    "test_data": "1. nói đi\n2. được miễn lãi mấy hôm em"
   },
   {
     "tc_id": "TC056",
@@ -995,7 +995,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. anh còn nợ bao tiền đã trả được nhiều chưa"
+    "test_data": "1. ok em nói đi\n2. anh còn nợ bao tiền đã trả được nhiều chưa"
   },
   {
     "tc_id": "TC057",
@@ -1011,7 +1011,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. thanh toán qua app như nào"
+    "test_data": "1. nói đi\n2. thanh toán qua app như nào"
   },
   {
     "tc_id": "TC058",
@@ -1027,7 +1027,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. ừ anh thanh toán đủ cho nhá"
+    "test_data": "1. ok em nói đi\n2. rồi để anh trả"
   },
   {
     "tc_id": "TC059",
@@ -1045,7 +1045,7 @@
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. ừ anh thanh toán đủ cho nhá\n3. ủa đã trả rồi mà em"
+    "test_data": "1. nói nghe xem nào\n2. được để anh trả tiền\n3. trả hết rôi mà"
   },
   {
     "tc_id": "TC060",
@@ -1061,7 +1061,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. lúc khác rồi nói"
+    "test_data": "1. ok\n2. đi học rồi"
   },
   {
     "tc_id": "TC061",
@@ -1079,7 +1079,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. bận rồi\n3. lúc khác rồi nói"
+    "test_data": "1. phải rồi\n2. không nói chuyện được\n3. đang có việc"
   },
   {
     "tc_id": "TC062",
@@ -1095,7 +1095,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. cút mẹ mày đi"
+    "test_data": "1. được rồi đang nghe đây\n2. đồ ngu"
   },
   {
     "tc_id": "TC063",
@@ -1113,7 +1113,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. con điên kia\n3. cút mẹ mày đi"
+    "test_data": "1. nói đi\n2. mày điếc à\n3. mày có cút không"
   },
   {
     "tc_id": "TC064",
@@ -1133,7 +1133,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. sao mày ngu thế\n3. sao mày ngu thế\n4. con điên kia"
+    "test_data": "1. ok\n2. mày điếc à\n3. mày có cút không\n4. mày điếc à"
   },
   {
     "tc_id": "TC065",
@@ -1153,7 +1153,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. mày điếc à\n3. óc lợn à\n4. mày bị ngu à"
+    "test_data": "1. nói nghe xem nào\n2. mày có cút không\n3. mày có cút không\n4. con điên kia"
   },
   {
     "tc_id": "TC066",
@@ -1173,7 +1173,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. cút mẹ mày đi\n3. mày điếc à\n4. óc lợn à"
+    "test_data": "1. ok em nói đi\n2. mày điếc à\n3. óc lợn à\n4. óc lợn à"
   },
   {
     "tc_id": "TC067",
@@ -1189,7 +1189,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. anh muốn chuyển sang trả góp được không"
+    "test_data": "1. phải rồi\n2. giờ trả góp có được không em"
   },
   {
     "tc_id": "TC068",
@@ -1207,7 +1207,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. giờ trả góp có được không em\n3. có trả góp được không"
+    "test_data": "1. ừ ừ rồi\n2. có trả góp được không\n3. có trả góp được không"
   },
   {
     "tc_id": "TC069",
@@ -1227,7 +1227,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. giờ trả góp có được không em\n3. anh muốn chuyển sang trả góp được không\n4. anh muốn chuyển sang trả góp được không"
+    "test_data": "1. được rồi đang nghe đây\n2. có trả góp được không\n3. anh muốn chuyển sang trả góp được không\n4. giờ trả góp có được không em"
   },
   {
     "tc_id": "TC070",
@@ -1247,7 +1247,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. giờ trả góp có được không em\n3. giờ trả góp có được không em\n4. anh muốn chuyển sang trả góp được không"
+    "test_data": "1. ok\n2. anh muốn chuyển sang trả góp được không\n3. anh muốn chuyển sang trả góp được không\n4. anh muốn chuyển sang trả góp được không"
   },
   {
     "tc_id": "TC071",
@@ -1267,7 +1267,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. anh muốn chuyển sang trả góp được không\n3. có trả góp được không\n4. có trả góp được không"
+    "test_data": "1. được\n2. có trả góp được không\n3. anh muốn chuyển sang trả góp được không\n4. anh muốn chuyển sang trả góp được không"
   },
   {
     "tc_id": "TC072",
@@ -1283,7 +1283,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. hạn mức thẻ có cao không máy chục thế em"
+    "test_data": "1. ừ\n2. hạn mức thẻ có cao không máy chục thế em"
   },
   {
     "tc_id": "TC073",
@@ -1301,7 +1301,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. thẻ có những hạn mức nào em\n3. hạn mức thẻ có cao không máy chục thế em"
+    "test_data": "1. ừ\n2. thẻ có những hạn mức nào em\n3. thẻ có những hạn mức nào em"
   },
   {
     "tc_id": "TC074",
@@ -1321,7 +1321,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. hạn mức thẻ là bao nhiêu em\n3. hạn mức thẻ là bao nhiêu em\n4. hạn mức thẻ là bao nhiêu em"
+    "test_data": "1. nói đi\n2. hạn mức thẻ là bao nhiêu em\n3. hạn mức thẻ là bao nhiêu em\n4. hạn mức thẻ có cao không máy chục thế em"
   },
   {
     "tc_id": "TC075",
@@ -1341,7 +1341,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. thẻ có những hạn mức nào em\n3. hạn mức thẻ có cao không máy chục thế em\n4. hạn mức thẻ là bao nhiêu em"
+    "test_data": "1. được\n2. hạn mức thẻ là bao nhiêu em\n3. hạn mức thẻ có cao không máy chục thế em\n4. hạn mức thẻ là bao nhiêu em"
   },
   {
     "tc_id": "TC076",
@@ -1361,7 +1361,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. thẻ có những hạn mức nào em\n3. thẻ có những hạn mức nào em\n4. hạn mức thẻ là bao nhiêu em"
+    "test_data": "1. ok\n2. hạn mức thẻ là bao nhiêu em\n3. hạn mức thẻ là bao nhiêu em\n4. thẻ có những hạn mức nào em"
   },
   {
     "tc_id": "TC077",
@@ -1377,7 +1377,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. huỷ thẻ giúp anh"
+    "test_data": "1. được rồi đang nghe đây\n2. anh không dùng thẻ huỷ cho anh nhé"
   },
   {
     "tc_id": "TC078",
@@ -1395,7 +1395,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. huỷ thẻ giúp anh\n3. anh không dùng thẻ huỷ cho anh nhé"
+    "test_data": "1. nói đi\n2. anh không có dùng huỷ thẻ giúp anh\n3. anh không dùng thẻ huỷ cho anh nhé"
   },
   {
     "tc_id": "TC079",
@@ -1415,7 +1415,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh không có dùng huỷ thẻ giúp anh\n3. huỷ thẻ giúp anh\n4. huỷ thẻ giúp anh"
+    "test_data": "1. phải rồi\n2. anh không dùng thẻ huỷ cho anh nhé\n3. anh không có dùng huỷ thẻ giúp anh\n4. anh không có dùng huỷ thẻ giúp anh"
   },
   {
     "tc_id": "TC080",
@@ -1435,7 +1435,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. anh không có dùng huỷ thẻ giúp anh\n3. anh không có dùng huỷ thẻ giúp anh\n4. anh không có dùng huỷ thẻ giúp anh"
+    "test_data": "1. ok em nói đi\n2. anh không dùng thẻ huỷ cho anh nhé\n3. anh không có dùng huỷ thẻ giúp anh\n4. huỷ thẻ giúp anh"
   },
   {
     "tc_id": "TC081",
@@ -1455,7 +1455,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. huỷ thẻ giúp anh\n3. huỷ thẻ giúp anh\n4. anh không dùng thẻ huỷ cho anh nhé"
+    "test_data": "1. nói nghe xem nào\n2. anh không dùng thẻ huỷ cho anh nhé\n3. anh không có dùng huỷ thẻ giúp anh\n4. anh không có dùng huỷ thẻ giúp anh"
   },
   {
     "tc_id": "TC082",
@@ -1471,7 +1471,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. chuyển khoản được không em"
+    "test_data": "1. nói đi\n2. thanh toán online được không em"
   },
   {
     "tc_id": "TC083",
@@ -1489,7 +1489,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. thanh toán online được không em\n3. thanh toán online được không em"
+    "test_data": "1. phải rồi\n2. thanh toán bằng mo mo được không\n3. thanh toán online được không em"
   },
   {
     "tc_id": "TC084",
@@ -1509,7 +1509,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. chuyển khoản được không em\n3. thanh toán bằng mo mo được không\n4. anh trả qua zalo pay có được không"
+    "test_data": "1. ok em nói đi\n2. thanh toán online được không em\n3. anh trả qua zalo pay có được không\n4. anh trả qua zalo pay có được không"
   },
   {
     "tc_id": "TC085",
@@ -1529,7 +1529,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. anh trả qua zalo pay có được không\n3. anh trả qua zalo pay có được không\n4. chuyển khoản được không em"
+    "test_data": "1. được rồi đang nghe đây\n2. thanh toán bằng mo mo được không\n3. thanh toán online được không em\n4. thanh toán online được không em"
   },
   {
     "tc_id": "TC086",
@@ -1549,7 +1549,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. chuyển khoản được không em\n3. thanh toán online được không em\n4. thanh toán bằng mo mo được không"
+    "test_data": "1. rồi nói nghe coi\n2. chuyển khoản được không em\n3. thanh toán bằng mo mo được không\n4. chuyển khoản được không em"
   },
   {
     "tc_id": "TC087",
@@ -1565,7 +1565,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. lãi vay tính như nào vậy em"
+    "test_data": "1. phải rồi\n2. mỗi tháng phải trả bao nhiêu em"
   },
   {
     "tc_id": "TC088",
@@ -1583,7 +1583,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. lãi suất này đã bao gồm hết chi phí chưa em\n3. lãi xuất có cố định không em"
+    "test_data": "1. ok em nói đi\n2. lãi xuất có cố định không em\n3. lãi suất này đã bao gồm hết chi phí chưa em"
   },
   {
     "tc_id": "TC089",
@@ -1603,7 +1603,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. tổng lãi chị phải trả là bao nhiêu\n3. lãi vay tính như nào vậy em\n4. lãi xuất có cố định không em"
+    "test_data": "1. nói nghe xem nào\n2. lãi tính theo dư nợ gốc hay dư nợ giảm dần vậy\n3. lãi suất này đã bao gồm hết chi phí chưa em\n4. có phát sinh thêm phí ngoài lãi không"
   },
   {
     "tc_id": "TC090",
@@ -1623,7 +1623,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. vay nhiều lãi có cao hơn không em\n3. lãi xuất có cố định không em\n4. tổng lãi chị phải trả là bao nhiêu"
+    "test_data": "1. ừ\n2. lãi suất bên mình như thế nào thế em\n3. lãi suất này đã bao gồm hết chi phí chưa em\n4. tổng lãi chị phải trả là bao nhiêu"
   },
   {
     "tc_id": "TC091",
@@ -1643,7 +1643,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. tính lãi như nào vậy em\n3. lãi vay tính như nào vậy em\n4. lãi xuất có cố định không em"
+    "test_data": "1. rồi nói nghe coi\n2. lãi xuất có cố định không em\n3. có phát sinh thêm phí ngoài lãi không\n4. mỗi tháng phải trả bao nhiêu em"
   },
   {
     "tc_id": "TC092",
@@ -1659,7 +1659,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. lãi suất chuyển đổi trả góp có cao không"
+    "test_data": "1. ừ ừ rồi\n2. lãi suất suất chuyển đổi trả góp như nào thế"
   },
   {
     "tc_id": "TC093",
@@ -1677,7 +1677,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. lãi suất chuyển đổi trả góp có cao không\n3. lãi suất suất chuyển đổi trả góp như nào thế"
+    "test_data": "1. ừ ừ rồi\n2. lãi suất chuyển đổi trả góp nhiêu em\n3. lãi suất chuyển đổi trả góp có cao không"
   },
   {
     "tc_id": "TC094",
@@ -1697,7 +1697,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. lãi suất suất chuyển đổi trả góp như nào thế\n3. lãi suất chuyển đổi trả góp nhiêu em\n4. lãi suất suất chuyển đổi trả góp như nào thế"
+    "test_data": "1. nói đi\n2. lãi suất chuyển đổi trả góp có cao không\n3. lãi suất suất chuyển đổi trả góp như nào thế\n4. lãi suất chuyển đổi trả góp nhiêu em"
   },
   {
     "tc_id": "TC095",
@@ -1717,7 +1717,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. lãi suất suất chuyển đổi trả góp như nào thế\n3. lãi suất chuyển đổi trả góp nhiêu em\n4. lãi suất chuyển đổi trả góp nhiêu em"
+    "test_data": "1. nói đi\n2. lãi suất suất chuyển đổi trả góp như nào thế\n3. lãi suất chuyển đổi trả góp có cao không\n4. lãi suất suất chuyển đổi trả góp như nào thế"
   },
   {
     "tc_id": "TC096",
@@ -1737,7 +1737,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. lãi suất chuyển đổi trả góp nhiêu em\n3. lãi suất chuyển đổi trả góp nhiêu em\n4. lãi suất chuyển đổi trả góp nhiêu em"
+    "test_data": "1. ừ\n2. lãi suất chuyển đổi trả góp nhiêu em\n3. lãi suất chuyển đổi trả góp nhiêu em\n4. lãi suất chuyển đổi trả góp có cao không"
   },
   {
     "tc_id": "TC097",
@@ -1771,7 +1771,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. mất thẻ thì giờ như nào\n3. mất thẻ thì giờ như nào"
+    "test_data": "1. phải rồi\n2. anh làm rơi mất thẻ lâu rồi\n3. anh làm rơi mất thẻ lâu rồi"
   },
   {
     "tc_id": "TC099",
@@ -1791,7 +1791,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. mất thẻ thì giờ như nào\n3. anh làm mất thẻ rồi em ạ\n4. anh làm mất thẻ rồi em ạ"
+    "test_data": "1. được\n2. anh làm mất thẻ rồi em ạ\n3. anh mất thẻ rồi\n4. anh mất thẻ rồi"
   },
   {
     "tc_id": "TC100",
@@ -1811,7 +1811,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. mất thẻ thì giờ như nào\n3. mất thẻ thì giờ như nào\n4. anh làm rơi mất thẻ lâu rồi"
+    "test_data": "1. ừ\n2. anh làm rơi mất thẻ lâu rồi\n3. mất thẻ thì giờ như nào\n4. anh mất thẻ rồi"
   },
   {
     "tc_id": "TC101",
@@ -1831,7 +1831,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. anh mất thẻ rồi\n3. anh làm mất thẻ rồi em ạ\n4. mất thẻ thì giờ như nào"
+    "test_data": "1. ừ\n2. anh làm mất thẻ rồi em ạ\n3. anh làm mất thẻ rồi em ạ\n4. anh làm mất thẻ rồi em ạ"
   },
   {
     "tc_id": "TC102",
@@ -1847,7 +1847,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. ngày mấy chốt sao kê em"
+    "test_data": "1. ok em nói đi\n2. hôm nào chốt sao kê em nhỉ"
   },
   {
     "tc_id": "TC103",
@@ -1865,7 +1865,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. chốt sao kê ngày nào\n3. chốt sao kê ngày nào"
+    "test_data": "1. được rồi đang nghe đây\n2. chốt sao kê ngày nào\n3. ngày mấy chốt sao kê em"
   },
   {
     "tc_id": "TC104",
@@ -1885,7 +1885,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. ngày mấy chốt sao kê em\n3. ngày chốt sao kê là ngày mấy\n4. chốt sao kê ngày nào"
+    "test_data": "1. nói đi\n2. ngày chốt sao kê là ngày mấy\n3. ngày chốt sao kê là ngày mấy\n4. ngày mấy chốt sao kê em"
   },
   {
     "tc_id": "TC105",
@@ -1905,7 +1905,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. ngày chốt sao kê là ngày mấy\n3. chốt sao kê ngày nào\n4. ngày chốt sao kê là ngày mấy"
+    "test_data": "1. được\n2. ngày mấy chốt sao kê em\n3. hôm nào chốt sao kê em nhỉ\n4. hôm nào chốt sao kê em nhỉ"
   },
   {
     "tc_id": "TC106",
@@ -1925,7 +1925,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. hôm nào chốt sao kê em nhỉ\n3. hôm nào chốt sao kê em nhỉ\n4. ngày mấy chốt sao kê em"
+    "test_data": "1. ừ ừ rồi\n2. ngày mấy chốt sao kê em\n3. ngày chốt sao kê là ngày mấy\n4. chốt sao kê ngày nào"
   },
   {
     "tc_id": "TC107",
@@ -1941,7 +1941,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. hạn chót thanh toán là hôm nào"
+    "test_data": "1. nói đi\n2. hạn cuối để trả là hôm nào em ha"
   },
   {
     "tc_id": "TC108",
@@ -1959,7 +1959,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. hạn trả là ngày mấy\n3. hạn cuối để trả là hôm nào em ha"
+    "test_data": "1. ừ\n2. hạn chót để trà là ngày mấy\n3. hạn chót để trà là ngày mấy"
   },
   {
     "tc_id": "TC109",
@@ -1979,7 +1979,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. hạn trả là ngày mấy\n3. hạn cuối để trả là hôm nào em ha\n4. hạn cuối để trả là hôm nào em ha"
+    "test_data": "1. được rồi đang nghe đây\n2. hạn đóng tiền là hôm nào\n3. hôm nào đến hạn thanh toán em\n4. hạn trả là ngày mấy"
   },
   {
     "tc_id": "TC110",
@@ -1999,7 +1999,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. hạn chót để trà là ngày mấy\n3. hôm nào đến hạn thanh toán em\n4. hạn đóng tiền là hôm nào"
+    "test_data": "1. ừ\n2. hôm nào đến hạn thanh toán em\n3. hạn trả là ngày mấy\n4. hạn cuối để trả là hôm nào em ha"
   },
   {
     "tc_id": "TC111",
@@ -2019,7 +2019,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. hạn chót để trà là ngày mấy\n3. hôm nào đến hạn thanh toán em\n4. hạn trả là ngày mấy"
+    "test_data": "1. ok\n2. hạn đóng tiền là hôm nào\n3. hạn đóng tiền là hôm nào\n4. hôm nào đến hạn thanh toán em"
   },
   {
     "tc_id": "TC112",
@@ -2035,7 +2035,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. phí thường niên là bao nhiêu"
+    "test_data": "1. ok em nói đi\n2. phí thường niên là bao nhiêu"
   },
   {
     "tc_id": "TC113",
@@ -2053,7 +2053,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. phí thường niên là bao nhiêu\n3. ý là phí thường bên em lấy như nào"
+    "test_data": "1. ok em nói đi\n2. phí thường niên cao không em\n3. phí thường niên là bao nhiêu"
   },
   {
     "tc_id": "TC114",
@@ -2073,7 +2073,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. phí thường niên cao không em\n3. ý là phí thường bên em lấy như nào\n4. phí thường niên cao không em"
+    "test_data": "1. phải rồi\n2. ý là phí thường bên em lấy như nào\n3. phí thường niên là bao nhiêu\n4. ý là phí thường bên em lấy như nào"
   },
   {
     "tc_id": "TC115",
@@ -2093,7 +2093,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. phí thường niên cao không em\n3. phí thường niên cao không em\n4. phí thường niên cao không em"
+    "test_data": "1. được rồi đang nghe đây\n2. ý là phí thường bên em lấy như nào\n3. phí thường niên là bao nhiêu\n4. phí thường niên cao không em"
   },
   {
     "tc_id": "TC116",
@@ -2113,7 +2113,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. phí thường niên cao không em\n3. ý là phí thường bên em lấy như nào\n4. ý là phí thường bên em lấy như nào"
+    "test_data": "1. ừ\n2. phí thường niên cao không em\n3. phí thường niên là bao nhiêu\n4. ý là phí thường bên em lấy như nào"
   },
   {
     "tc_id": "TC117",
@@ -2129,7 +2129,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. giờ anh muốn rút tiền mặt âý"
+    "test_data": "1. ok em nói đi\n2. giờ anh muốn rút tiền mặt âý"
   },
   {
     "tc_id": "TC118",
@@ -2147,7 +2147,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. rút tiền kiểu gì em nhỉ\n3. giờ anh muốn rút tiền mặt âý"
+    "test_data": "1. phải rồi\n2. rút tiền kiểu gì em nhỉ\n3. anh muốn rút tiền mặt ấy"
   },
   {
     "tc_id": "TC119",
@@ -2167,7 +2167,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. rút tiền kiểu gì em nhỉ\n3. giờ anh muốn rút tiền mặt âý\n4. anh muốn rút tiền mặt ấy"
+    "test_data": "1. được\n2. giờ anh muốn rút tiền mặt âý\n3. anh muốn rút tiền mặt ấy\n4. rút tiền kiểu gì em nhỉ"
   },
   {
     "tc_id": "TC120",
@@ -2187,7 +2187,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. rút tiền mặt như nào em\n3. rút tiền kiểu gì em nhỉ\n4. rút tiền mặt như nào em"
+    "test_data": "1. rồi nói nghe coi\n2. rút tiền mặt như nào em\n3. anh muốn rút tiền mặt ấy\n4. rút tiền kiểu gì em nhỉ"
   },
   {
     "tc_id": "TC121",
@@ -2207,7 +2207,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. anh muốn rút tiền mặt ấy\n3. rút tiền kiểu gì em nhỉ\n4. rút tiền kiểu gì em nhỉ"
+    "test_data": "1. ừ ừ rồi\n2. giờ anh muốn rút tiền mặt âý\n3. rút tiền mặt như nào em\n4. giờ anh muốn rút tiền mặt âý"
   },
   {
     "tc_id": "TC122",
@@ -2223,7 +2223,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. sản phẩm vay gì đây"
+    "test_data": "1. nói nghe xem nào\n2. em gọi giới thiệu sản phẩm gì"
   },
   {
     "tc_id": "TC123",
@@ -2241,7 +2241,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. sản phẩm vay gì đây\n3. sản phẩm gì em"
+    "test_data": "1. nói nghe xem nào\n2. em gọi giới thiệu sản phẩm gì\n3. em gọi giới thiệu sản phẩm gì"
   },
   {
     "tc_id": "TC124",
@@ -2261,7 +2261,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. sản phẩm gì em\n3. sản phẩm vay gì đây\n4. em gọi giới thiệu sản phẩm gì"
+    "test_data": "1. ừ ừ rồi\n2. sản phẩm vay gì đây\n3. sản phẩm gì em\n4. sản phẩm vay gì đây"
   },
   {
     "tc_id": "TC125",
@@ -2281,7 +2281,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. sản phẩm gì em\n3. sản phẩm gì em\n4. em gọi giới thiệu sản phẩm gì"
+    "test_data": "1. được rồi đang nghe đây\n2. sản phẩm gì em\n3. sản phẩm gì em\n4. sản phẩm gì em"
   },
   {
     "tc_id": "TC126",
@@ -2301,7 +2301,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. em gọi giới thiệu sản phẩm gì\n3. sản phẩm gì em\n4. sản phẩm vay gì đây"
+    "test_data": "1. phải rồi\n2. em gọi giới thiệu sản phẩm gì\n3. em gọi giới thiệu sản phẩm gì\n4. sản phẩm gì em"
   },
   {
     "tc_id": "TC127",
@@ -2317,7 +2317,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. khoản này trễ mấy hôm rồi"
+    "test_data": "1. nói nghe xem nào\n2. nợ trễ lâu chưa em"
   },
   {
     "tc_id": "TC128",
@@ -2335,7 +2335,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. khoản này trễ mấy hôm rồi em nhỉ\n3. khoản này trễ mấy hôm rồi em nhỉ"
+    "test_data": "1. nói nghe xem nào\n2. khoản này trễ mấy hôm rồi\n3. khoản này trễ mấy hôm rồi em nhỉ"
   },
   {
     "tc_id": "TC129",
@@ -2355,7 +2355,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. khoản này trễ mấy hôm rồi em nhỉ\n3. nợ trễ lâu chưa em\n4. khoản này trễ mấy hôm rồi em nhỉ"
+    "test_data": "1. phải rồi\n2. khoản này trễ mấy hôm rồi em nhỉ\n3. nợ trễ lâu chưa em\n4. nợ trễ lâu chưa em"
   },
   {
     "tc_id": "TC130",
@@ -2375,7 +2375,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. khoản này trễ mấy hôm rồi em nhỉ\n3. khoản này trễ mấy hôm rồi em nhỉ\n4. nợ trễ lâu chưa em"
+    "test_data": "1. nói đi\n2. nợ trễ lâu chưa em\n3. khoản này trễ mấy hôm rồi\n4. anh trả trễ mấy hôm rồi"
   },
   {
     "tc_id": "TC131",
@@ -2395,7 +2395,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. khoản này trễ mấy hôm rồi\n3. nợ trễ lâu chưa em\n4. nợ trễ lâu chưa em"
+    "test_data": "1. nói đi\n2. khoản này trễ mấy hôm rồi em nhỉ\n3. khoản này trễ mấy hôm rồi\n4. khoản này trễ mấy hôm rồi em nhỉ"
   },
   {
     "tc_id": "TC132",
@@ -2411,7 +2411,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. ừ kiểm tra lại giao dịch giúp anh với"
+    "test_data": "1. ok em nói đi\n2. tra lại giao dịch hộ anh với"
   },
   {
     "tc_id": "TC133",
@@ -2429,7 +2429,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. ừ kiểm tra lại giao dịch giúp anh với\n3. em tra lại giao dịch giúp anh nhé"
+    "test_data": "1. ok\n2. ừ kiểm tra lại giao dịch giúp anh với\n3. tra lại giao dịch hộ anh với"
   },
   {
     "tc_id": "TC134",
@@ -2449,7 +2449,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. tra lại giao dịch hộ anh với\n3. ừ kiểm tra lại giao dịch giúp anh với\n4. ừ kiểm tra lại giao dịch giúp anh với"
+    "test_data": "1. nói nghe xem nào\n2. ừ kiểm tra lại giao dịch giúp anh với\n3. em tra lại giao dịch giúp anh nhé\n4. ừ kiểm tra lại giao dịch giúp anh với"
   },
   {
     "tc_id": "TC135",
@@ -2469,7 +2469,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. tra lại giao dịch hộ anh với\n3. ừ kiểm tra lại giao dịch giúp anh với\n4. em tra lại giao dịch giúp anh nhé"
+    "test_data": "1. ừ\n2. em tra lại giao dịch giúp anh nhé\n3. tra lại giao dịch hộ anh với\n4. ừ kiểm tra lại giao dịch giúp anh với"
   },
   {
     "tc_id": "TC136",
@@ -2489,7 +2489,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. em tra lại giao dịch giúp anh nhé\n3. ừ kiểm tra lại giao dịch giúp anh với\n4. em tra lại giao dịch giúp anh nhé"
+    "test_data": "1. được rồi đang nghe đây\n2. ừ kiểm tra lại giao dịch giúp anh với\n3. em tra lại giao dịch giúp anh nhé\n4. ừ kiểm tra lại giao dịch giúp anh với"
   },
   {
     "tc_id": "TC137",
@@ -2505,7 +2505,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. sao tiền kỳ này lại khác kỳ trước hả em"
+    "test_data": "1. ok em nói đi\n2. tiền đợt trước khác đợt này lại khác hả em"
   },
   {
     "tc_id": "TC138",
@@ -2523,7 +2523,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. tiền đợt trước khác đợt này lại khác hả em\n3. số tiền kỳ này lại khác đợt trước à em"
+    "test_data": "1. rồi nói nghe coi\n2. số tiền kỳ này lại khác đợt trước à em\n3. số tiền kỳ này lại khác đợt trước à em"
   },
   {
     "tc_id": "TC139",
@@ -2543,7 +2543,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. số tiền kỳ này lại khác đợt trước à em\n3. số tiền kỳ này lại khác đợt trước à em\n4. sao tiền kỳ này lại khác kỳ trước hả em"
+    "test_data": "1. được\n2. tiền đợt trước khác đợt này lại khác hả em\n3. số tiền kỳ này lại khác đợt trước à em\n4. sao tiền kỳ này lại khác kỳ trước hả em"
   },
   {
     "tc_id": "TC140",
@@ -2563,7 +2563,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. số tiền kỳ này lại khác đợt trước à em\n3. tiền đợt trước khác đợt này lại khác hả em\n4. sao tiền kỳ này lại khác kỳ trước hả em"
+    "test_data": "1. ok em nói đi\n2. sao tiền kỳ này lại khác kỳ trước hả em\n3. sao tiền kỳ này lại khác kỳ trước hả em\n4. số tiền kỳ này lại khác đợt trước à em"
   },
   {
     "tc_id": "TC141",
@@ -2583,7 +2583,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. tiền đợt trước khác đợt này lại khác hả em\n3. tiền đợt trước khác đợt này lại khác hả em\n4. số tiền kỳ này lại khác đợt trước à em"
+    "test_data": "1. rồi nói nghe coi\n2. tiền đợt trước khác đợt này lại khác hả em\n3. tiền đợt trước khác đợt này lại khác hả em\n4. sao tiền kỳ này lại khác kỳ trước hả em"
   },
   {
     "tc_id": "TC142",
@@ -2599,7 +2599,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. em bên nào gọi đến vậy em"
+    "test_data": "1. rồi nói nghe coi\n2. em bên nào nhở"
   },
   {
     "tc_id": "TC143",
@@ -2617,7 +2617,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. em bên ngân hàng nào đấy\n3. em bên nào nhở"
+    "test_data": "1. ok\n2. em bên ngân hàng nào đấy\n3. em bên nào nhở"
   },
   {
     "tc_id": "TC144",
@@ -2637,7 +2637,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. em bên nào nhở\n3. em bên ngân hàng nào đấy\n4. em bên nào nhở"
+    "test_data": "1. nói đi\n2. em bên nào nhở\n3. em bên nào nhở\n4. em bên ngân hàng nào đấy"
   },
   {
     "tc_id": "TC145",
@@ -2657,7 +2657,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. em bên nào nhở\n3. em bên ngân hàng nào đấy\n4. em bên ngân hàng nào đấy"
+    "test_data": "1. phải rồi\n2. em bên nào nhở\n3. em bên nào gọi đến vậy em\n4. em bên ngân hàng nào đấy"
   },
   {
     "tc_id": "TC146",
@@ -2677,7 +2677,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. em bên ngân hàng nào đấy\n3. em bên ngân hàng nào đấy\n4. em bên nào gọi đến vậy em"
+    "test_data": "1. được\n2. em bên ngân hàng nào đấy\n3. em bên nào nhở\n4. em bên nào nhở"
   },
   {
     "tc_id": "TC147",
@@ -2693,7 +2693,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. anh điện bên em bằng số nào"
+    "test_data": "1. rồi nói nghe coi\n2. hotline bên em là số nào"
   },
   {
     "tc_id": "TC148",
@@ -2711,7 +2711,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. anh điện bên em bằng số nào\n3. anh điện bên em bằng số nào"
+    "test_data": "1. phải rồi\n2. anh điện bên em bằng số nào\n3. anh điện bên em bằng số nào"
   },
   {
     "tc_id": "TC149",
@@ -2731,7 +2731,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. hotline bên em là số nào\n3. anh điện bên em bằng số nào\n4. số hotline là gì em nhỉ"
+    "test_data": "1. được rồi đang nghe đây\n2. số hotline là gì em nhỉ\n3. hotline bên em là số nào\n4. số hotline là gì em nhỉ"
   },
   {
     "tc_id": "TC150",
@@ -2751,7 +2751,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. anh điện bên em bằng số nào\n3. anh điện bên em bằng số nào\n4. hotline bên em là số nào"
+    "test_data": "1. nói nghe xem nào\n2. hotline bên em là số nào\n3. hotline bên em là số nào\n4. anh điện bên em bằng số nào"
   },
   {
     "tc_id": "TC151",
@@ -2771,7 +2771,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. hotline bên em là số nào\n3. số hotline là gì em nhỉ\n4. hotline bên em là số nào"
+    "test_data": "1. được rồi đang nghe đây\n2. hotline bên em là số nào\n3. hotline bên em là số nào\n4. anh điện bên em bằng số nào"
   },
   {
     "tc_id": "TC152",
@@ -2787,7 +2787,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. có lãi phạt hả em bao nhiêu"
+    "test_data": "1. rồi nói nghe coi\n2. có lãi phạt hả em bao nhiêu"
   },
   {
     "tc_id": "TC153",
@@ -2805,7 +2805,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. lãi phạt như nào em\n3. có lãi phạt hả em bao nhiêu"
+    "test_data": "1. nói đi\n2. lãi phạt cao không\n3. lãi phạt như nào em"
   },
   {
     "tc_id": "TC154",
@@ -2825,7 +2825,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. có lãi phạt hả em bao nhiêu\n3. lãi phạt như nào em\n4. lãi phạt cao không"
+    "test_data": "1. nói nghe xem nào\n2. lãi phạt như nào em\n3. có lãi phạt hả em bao nhiêu\n4. có lãi phạt hả em bao nhiêu"
   },
   {
     "tc_id": "TC155",
@@ -2845,7 +2845,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. lãi phạt như nào em\n3. có lãi phạt hả em bao nhiêu\n4. lãi phạt cao không"
+    "test_data": "1. phải rồi\n2. có lãi phạt hả em bao nhiêu\n3. lãi phạt như nào em\n4. lãi phạt như nào em"
   },
   {
     "tc_id": "TC156",
@@ -2865,7 +2865,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. lãi phạt cao không\n3. có lãi phạt hả em bao nhiêu\n4. có lãi phạt hả em bao nhiêu"
+    "test_data": "1. ok\n2. lãi phạt cao không\n3. lãi phạt như nào em\n4. lãi phạt cao không"
   },
   {
     "tc_id": "TC157",
@@ -2881,7 +2881,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. hôm nay là ngày bao nhiêu"
+    "test_data": "1. ok em nói đi\n2. hôm nay là ngày bao nhiêu"
   },
   {
     "tc_id": "TC158",
@@ -2899,7 +2899,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. hôm nay là ngày bao nhiêu\n3. hôm nay ngày mấy em"
+    "test_data": "1. rồi nói nghe coi\n2. hôm nay là ngày bao nhiêu\n3. hôm nay là ngày bao nhiêu"
   },
   {
     "tc_id": "TC159",
@@ -2939,7 +2939,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. hôm nay ngày mấy em\n3. hôm nay ngày mấy em\n4. hôm nay ngày mấy em"
+    "test_data": "1. được rồi đang nghe đây\n2. hôm nay ngày mấy em\n3. hôm nay ngày mấy em\n4. hôm nay là ngày bao nhiêu"
   },
   {
     "tc_id": "TC161",
@@ -2959,7 +2959,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. hôm nay là ngày bao nhiêu\n3. hôm nay ngày mấy em\n4. hôm nay là ngày bao nhiêu"
+    "test_data": "1. ok em nói đi\n2. hôm nay là ngày bao nhiêu\n3. hôm nay ngày mấy em\n4. hôm nay ngày mấy em"
   },
   {
     "tc_id": "TC162",
@@ -2975,7 +2975,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. phí dùng thẻ như nào"
+    "test_data": "1. ừ ừ rồi\n2. phí dùng thẻ như nào em em"
   },
   {
     "tc_id": "TC163",
@@ -2993,7 +2993,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. phí dùng thẻ như nào\n3. dùng thẻ thì phí bao nhiêu em"
+    "test_data": "1. ừ\n2. phí dùng thẻ như nào\n3. dùng thẻ thì phí bao nhiêu em"
   },
   {
     "tc_id": "TC164",
@@ -3013,7 +3013,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. dùng thẻ thì phí bao nhiêu em\n3. dùng thẻ thì phí bao nhiêu em\n4. dùng thẻ thì phí bao nhiêu em"
+    "test_data": "1. ok em nói đi\n2. phí dùng thẻ như nào em em\n3. phí dùng thẻ như nào em em\n4. dùng thẻ thì phí bao nhiêu em"
   },
   {
     "tc_id": "TC165",
@@ -3033,7 +3033,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. phí dùng thẻ như nào em em\n3. phí dùng thẻ như nào\n4. phí dùng thẻ như nào"
+    "test_data": "1. ok\n2. phí dùng thẻ như nào\n3. dùng thẻ thì phí bao nhiêu em\n4. phí dùng thẻ như nào"
   },
   {
     "tc_id": "TC166",
@@ -3053,7 +3053,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. phí dùng thẻ như nào\n3. phí dùng thẻ như nào\n4. phí dùng thẻ như nào em em"
+    "test_data": "1. được\n2. phí dùng thẻ như nào\n3. dùng thẻ thì phí bao nhiêu em\n4. dùng thẻ thì phí bao nhiêu em"
   },
   {
     "tc_id": "TC167",
@@ -3069,7 +3069,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. tối thiểu cần thanh toán nhiêu em"
+    "test_data": "1. được\n2. cần trả it nhất bao nhiêu em"
   },
   {
     "tc_id": "TC168",
@@ -3087,7 +3087,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. cân thanh toán tối thiểu bao nhiêu tiền em\n3. giờ tối thiểu phải thanh toán bao tiền"
+    "test_data": "1. được rồi đang nghe đây\n2. tối thiểu cần thanh toán nhiêu em\n3. giờ tối thiểu phải thanh toán bao tiền"
   },
   {
     "tc_id": "TC169",
@@ -3107,7 +3107,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. tối thiểu cần thanh toán nhiêu em\n3. cần trả it nhất bao nhiêu em\n4. giờ tối thiểu phải thanh toán bao tiền"
+    "test_data": "1. nói đi\n2. giờ tối thiểu phải thanh toán bao tiền\n3. cần trả it nhất bao nhiêu em\n4. tối thiểu cần thanh toán nhiêu em"
   },
   {
     "tc_id": "TC170",
@@ -3127,7 +3127,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. giờ tối thiểu phải thanh toán bao tiền\n3. giờ tối thiểu phải thanh toán bao tiền\n4. giờ tối thiểu phải thanh toán bao tiền"
+    "test_data": "1. phải rồi\n2. giờ tối thiểu phải thanh toán bao tiền\n3. cân thanh toán tối thiểu bao nhiêu tiền em\n4. cần trả it nhất bao nhiêu em"
   },
   {
     "tc_id": "TC171",
@@ -3147,7 +3147,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. cần trả it nhất bao nhiêu em\n3. tối thiểu cần thanh toán nhiêu em\n4. giờ tối thiểu phải thanh toán bao tiền"
+    "test_data": "1. ok\n2. cần trả it nhất bao nhiêu em\n3. cân thanh toán tối thiểu bao nhiêu tiền em\n4. cần trả it nhất bao nhiêu em"
   },
   {
     "tc_id": "TC172",
@@ -3163,7 +3163,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. dư nợ nhiêu em"
+    "test_data": "1. ừ ừ rồi\n2. dư nợ nhiêu em"
   },
   {
     "tc_id": "TC173",
@@ -3181,7 +3181,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. dư nợ cuối kì nhu nào em\n3. dư nợ nhiêu em"
+    "test_data": "1. ok em nói đi\n2. dư nợ cuối kì nhu nào em\n3. dư nợ nhiêu em"
   },
   {
     "tc_id": "TC174",
@@ -3201,7 +3201,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. dư nợ cuối kì nhu nào em\n3. dư nợ nhiêu em\n4. dư nợ cuối kì nhu nào em"
+    "test_data": "1. nói nghe xem nào\n2. dư nợ nhiêu em\n3. dư nợ nhiêu em\n4. dư nợ cuối kì nhu nào em"
   },
   {
     "tc_id": "TC175",
@@ -3221,7 +3221,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. dư nợ cuối kì nhu nào em\n3. dư nợ cuối kì nhu nào em\n4. tông dư nợ là bao nhiêu em"
+    "test_data": "1. ok\n2. dư nợ cuối kì nhu nào em\n3. dư nợ cuối kì nhu nào em\n4. dư nợ cuối kì nhu nào em"
   },
   {
     "tc_id": "TC176",
@@ -3241,7 +3241,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. tông dư nợ là bao nhiêu em\n3. dư nợ cuối kì nhu nào em\n4. tông dư nợ là bao nhiêu em"
+    "test_data": "1. nói đi\n2. tông dư nợ là bao nhiêu em\n3. dư nợ cuối kì nhu nào em\n4. dư nợ nhiêu em"
   },
   {
     "tc_id": "TC177",
@@ -3257,7 +3257,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. _silence_"
+    "test_data": "1. ừ ừ rồi\n2. _silence_"
   },
   {
     "tc_id": "TC178",
@@ -3275,7 +3275,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. _silence_\n3. _silence_"
+    "test_data": "1. được rồi đang nghe đây\n2. _silence_\n3. _silence_"
   },
   {
     "tc_id": "TC179",
@@ -3293,7 +3293,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. _silence_\n3. _silence_"
+    "test_data": "1. ừ ừ rồi\n2. _silence_\n3. _silence_"
   },
   {
     "tc_id": "TC180",
@@ -3311,7 +3311,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. _silence_\n3. _silence_"
+    "test_data": "1. ok\n2. _silence_\n3. _silence_"
   },
   {
     "tc_id": "TC181",
@@ -3327,7 +3327,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. kẹt quá có bớt nợ cho anh được không"
+    "test_data": "1. nói nghe xem nào\n2. bớt nợ cho anh được không dạo này khó khắn quá em"
   },
   {
     "tc_id": "TC182",
@@ -3345,7 +3345,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. giảm nợ cho anh được không\n3. bớt nợ cho anh được không dạo này khó khắn quá em"
+    "test_data": "1. được rồi đang nghe đây\n2. kẹt quá có bớt nợ cho anh được không\n3. giảm nợ cho anh được không"
   },
   {
     "tc_id": "TC183",
@@ -3365,7 +3365,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. kẹt quá có bớt nợ cho anh được không\n3. kẹt quá có bớt nợ cho anh được không\n4. giảm nợ cho anh được không"
+    "test_data": "1. rồi nói nghe coi\n2. giảm nợ cho anh được không\n3. giảm nợ cho anh được không\n4. kẹt quá có bớt nợ cho anh được không"
   },
   {
     "tc_id": "TC184",
@@ -3385,7 +3385,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. kẹt quá có bớt nợ cho anh được không\n3. kẹt quá có bớt nợ cho anh được không\n4. bớt nợ cho anh được không dạo này khó khắn quá em"
+    "test_data": "1. ok em nói đi\n2. giảm nợ cho anh được không\n3. kẹt quá có bớt nợ cho anh được không\n4. kẹt quá có bớt nợ cho anh được không"
   },
   {
     "tc_id": "TC185",
@@ -3405,7 +3405,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. giảm nợ cho anh được không\n3. kẹt quá có bớt nợ cho anh được không\n4. bớt nợ cho anh được không dạo này khó khắn quá em"
+    "test_data": "1. ừ ừ rồi\n2. bớt nợ cho anh được không dạo này khó khắn quá em\n3. giảm nợ cho anh được không\n4. kẹt quá có bớt nợ cho anh được không"
   },
   {
     "tc_id": "TC186",
@@ -3421,7 +3421,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
+    "test_data": "1. phải rồi\n2. ừ tháng sau trả nhé"
   },
   {
     "tc_id": "TC187",
@@ -3439,7 +3439,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. ừ tháng sau trả nhé\n3. ừ biết rồi anh sẽ trả cho bọn em sau"
+    "test_data": "1. được rồi đang nghe đây\n2. ừ anh sẽ tất toán hết cho bên em sau nhé\n3. ừ tháng sau trả nhé"
   },
   {
     "tc_id": "TC188",
@@ -3457,7 +3457,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. ừ tháng sau trả nhé\n3. ừ tháng sau trả nhé"
+    "test_data": "1. được rồi đang nghe đây\n2. anh trả cho bên em sau không bùng đâu yên tâm\n3. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
   },
   {
     "tc_id": "TC189",
@@ -3475,7 +3475,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok em nói đi\n2. ừ tháng sau trả nhé\n3. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
+    "test_data": "1. nói đi\n2. mấy hôm nữa thanh toán nhé\n3. ừ anh sẽ tất toán hết cho bên em sau nhé"
   },
   {
     "tc_id": "TC190",
@@ -3491,7 +3491,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. gửi lại tin qua zalo hay gì cho anh nhé"
+    "test_data": "1. được\n2. gửi lại tin qua zalo hay gì cho anh nhé"
   },
   {
     "tc_id": "TC191",
@@ -3509,7 +3509,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. gửi lại tin qua zalo hay gì cho anh nhé\n3. em gửi cho anh tin nhắn nhé"
+    "test_data": "1. ừ ừ rồi\n2. gửi lại tin qua zalo hay gì cho anh nhé\n3. gửi tin nhắn giúp anh nhé"
   },
   {
     "tc_id": "TC192",
@@ -3529,7 +3529,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ ừ rồi\n2. gửi tin nhắn giúp anh nhé\n3. gửi lại tin qua zalo hay gì cho anh nhé\n4. gửi lại tin qua zalo hay gì cho anh nhé"
+    "test_data": "1. nói đi\n2. em gửi cho anh tin nhắn nhé\n3. em gửi cho anh tin nhắn nhé\n4. gửi tin nhắn giúp anh nhé"
   },
   {
     "tc_id": "TC193",
@@ -3549,7 +3549,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. gửi lại tin qua zalo hay gì cho anh nhé\n3. gửi tin nhắn giúp anh nhé\n4. em gửi cho anh tin nhắn nhé"
+    "test_data": "1. ừ ừ rồi\n2. gửi tin nhắn giúp anh nhé\n3. em gửi cho anh tin nhắn nhé\n4. em gửi cho anh tin nhắn nhé"
   },
   {
     "tc_id": "TC194",
@@ -3569,7 +3569,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. gửi tin nhắn giúp anh nhé\n3. gửi lại tin qua zalo hay gì cho anh nhé\n4. em gửi cho anh tin nhắn nhé"
+    "test_data": "1. được\n2. gửi tin nhắn giúp anh nhé\n3. gửi lại tin qua zalo hay gì cho anh nhé\n4. gửi lại tin qua zalo hay gì cho anh nhé"
   },
   {
     "tc_id": "TC195",
@@ -3585,7 +3585,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. em vừa nói gì cơ"
+    "test_data": "1. nói đi\n2. nhắc lại lần nữa đi"
   },
   {
     "tc_id": "TC196",
@@ -3603,7 +3603,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. phải rồi\n2. chả nghe thấy gì cả\n3. em vừa nói gì cơ"
+    "test_data": "1. được\n2. ồn lắm em ơi\n3. anh nghe không rõ"
   },
   {
     "tc_id": "TC197",
@@ -3621,7 +3621,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. em vừa nói gì cơ\n3. em nói lại đi"
+    "test_data": "1. ok em nói đi\n2. anh nghe không rõ\n3. ồn quá em ạ"
   },
   {
     "tc_id": "TC198",
@@ -3639,7 +3639,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. chả nghe thấy gì cả\n3. em nói lại đi"
+    "test_data": "1. rồi nói nghe coi\n2. em vừa nói gì cơ\n3. em nói lại đi"
   },
   {
     "tc_id": "TC199",
@@ -3655,7 +3655,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. số hợp đồng của anh là bao nhiêu"
+    "test_data": "1. ừ\n2. số hợp đồng của anh là bao nhiêu"
   },
   {
     "tc_id": "TC200",
@@ -3673,7 +3673,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. ok\n2. số hợp đồng của anh là bao nhiêu\n3. hợp đồng mã số là gì"
+    "test_data": "1. nói đi\n2. hợp đồng mã số là gì\n3. số hợp đồng là gì em"
   },
   {
     "tc_id": "TC201",
@@ -3693,7 +3693,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói nghe xem nào\n2. hợp đồng mã số là gì\n3. số hợp đồng là gì em\n4. số hợp đồng của anh là bao nhiêu"
+    "test_data": "1. rồi nói nghe coi\n2. số hợp đồng là gì em\n3. số hợp đồng của anh là bao nhiêu\n4. số hợp đồng là gì em"
   },
   {
     "tc_id": "TC202",
@@ -3713,7 +3713,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. hợp đồng mã số là gì\n3. số hợp đồng là gì em\n4. số hợp đồng của anh là bao nhiêu"
+    "test_data": "1. được rồi đang nghe đây\n2. số hợp đồng của anh là bao nhiêu\n3. số hợp đồng là gì em\n4. hợp đồng mã số là gì"
   },
   {
     "tc_id": "TC203",
@@ -3733,7 +3733,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. được rồi đang nghe đây\n2. số hợp đồng của anh là bao nhiêu\n3. số hợp đồng của anh là bao nhiêu\n4. số hợp đồng của anh là bao nhiêu"
+    "test_data": "1. ừ\n2. số hợp đồng của anh là bao nhiêu\n3. hợp đồng mã số là gì\n4. số hợp đồng của anh là bao nhiêu"
   },
   {
     "tc_id": "TC204",
@@ -3749,7 +3749,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. sao cứ gọi hoài vậy đừng gọi nữa"
+    "test_data": "1. nói nghe xem nào\n2. suốt ngày gọi"
   },
   {
     "tc_id": "TC205",
@@ -3767,7 +3767,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2",
     "highlight_last_step": false,
-    "test_data": "1. được\n2. suốt ngày gọi\n3. sao cứ gọi hoài vậy đừng gọi nữa"
+    "test_data": "1. được rồi đang nghe đây\n2. gọi hoài\n3. suốt ngày gọi"
   },
   {
     "tc_id": "TC206",
@@ -3787,7 +3787,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nói đi\n2. suốt ngày gọi\n3. gọi hoài\n4. sao cứ gọi hoài vậy đừng gọi nữa"
+    "test_data": "1. nói nghe xem nào\n2. suốt ngày gọi\n3. gọi nhiều mắc phiền\n4. suốt ngày gọi"
   },
   {
     "tc_id": "TC207",
@@ -3807,7 +3807,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ừ\n2. gọi hoài\n3. gọi nhiều mắc phiền\n4. suốt ngày gọi"
+    "test_data": "1. nói nghe xem nào\n2. gọi nhiều mắc phiền\n3. sao cứ gọi hoài vậy đừng gọi nữa\n4. suốt ngày gọi"
   },
   {
     "tc_id": "TC208",
@@ -3827,7 +3827,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A2 -> A2 -> A2 -> End",
     "highlight_last_step": false,
-    "test_data": "1. rồi nói nghe coi\n2. suốt ngày gọi\n3. sao cứ gọi hoài vậy đừng gọi nữa\n4. suốt ngày gọi"
+    "test_data": "1. ok\n2. sao cứ gọi hoài vậy đừng gọi nữa\n3. suốt ngày gọi\n4. suốt ngày gọi"
   },
   {
     "tc_id": "TC209",
@@ -3841,7 +3841,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. mới ốm mất trong viện tuần trước em ạ"
+    "test_data": "1. đột quỵ chết rồi em ạ"
   },
   {
     "tc_id": "TC210",
@@ -3855,7 +3855,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. cho gặp nhân viên tư vấn đi em"
+    "test_data": "1. kết nối tổng đài viên giúp mình"
   },
   {
     "tc_id": "TC211",
@@ -3869,7 +3869,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. mất rồi em"
+    "test_data": "1. mới ốm mất rồi em ạ"
   },
   {
     "tc_id": "TC212",
@@ -3883,7 +3883,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. chuyển máy cho tổng đài viên giúp anh"
+    "test_data": "1. kết nối tổng đài viên giúp mình"
   },
   {
     "tc_id": "TC213",
@@ -3897,7 +3897,7 @@
     "expected_action_code": "Message left (non RPC)",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi"
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu"
   },
   {
     "tc_id": "TC214",
@@ -3911,7 +3911,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ốm chết rồi"
+    "test_data": "1. mới ốm mất rồi em ạ"
   },
   {
     "tc_id": "TC215",
@@ -3925,7 +3925,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. cho anh gặp tồng đài viên"
+    "test_data": "1. chuyển máy cho tổng đài viên giúp anh"
   },
   {
     "tc_id": "TC216",
@@ -3939,7 +3939,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. chưa tiện để nói chuyện"
+    "test_data": "1. anh đang đi trên đường"
   },
   {
     "tc_id": "TC217",
@@ -3955,7 +3955,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. anh đang bận\n2. lúc khác rồi nói"
+    "test_data": "1. anh đang đi trên đường\n2. anh đang đi trên đường"
   },
   {
     "tc_id": "TC218",
@@ -3969,7 +3969,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. ai đấy alo ạ"
+    "test_data": "1. ai đấy nhỉ"
   },
   {
     "tc_id": "TC219",
@@ -3985,7 +3985,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. alo ai đang gọi vậy\n2. ai đấy alo ạ"
+    "test_data": "1. ai đấy nhỉ\n2. alo ai đang gọi vậy"
   },
   {
     "tc_id": "TC220",
@@ -4003,7 +4003,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. alo ai đang gọi vậy\n2. alo ai đấy ạ\n3. ai đấy"
+    "test_data": "1. ai đấy alo ạ\n2. alo ai đấy ạ\n3. ai đấy alo ạ"
   },
   {
     "tc_id": "TC221",
@@ -4021,7 +4021,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ai đấy alo ạ\n2. ai đấy nhỉ\n3. alo ai đang gọi vậy"
+    "test_data": "1. ai đấy alo ạ\n2. alo ai đấy ạ\n3. alo ai đang gọi vậy"
   },
   {
     "tc_id": "TC222",
@@ -4039,7 +4039,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. alo ai đấy ạ\n2. ai đấy alo ạ\n3. alo ai đấy ạ"
+    "test_data": "1. alo ai đang gọi vậy\n2. alo ai đấy ạ\n3. ai đấy alo ạ"
   },
   {
     "tc_id": "TC223",
@@ -4083,7 +4083,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. đồ ngu"
+    "test_data": "1. biến bà mày đi"
   },
   {
     "tc_id": "TC226",
@@ -4099,7 +4099,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. mày điếc à\n2. con điên kia"
+    "test_data": "1. mày có cút không\n2. mày có cút không"
   },
   {
     "tc_id": "TC227",
@@ -4113,7 +4113,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. anh nghe không rõ"
+    "test_data": "1. nói lại anh nghe"
   },
   {
     "tc_id": "TC228",
@@ -4129,7 +4129,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. ồn lắm em ơi\n2. ồn lắm em ơi"
+    "test_data": "1. chả nghe thấy gì cả\n2. em vừa nói gì cơ"
   },
   {
     "tc_id": "TC229",
@@ -4145,7 +4145,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. em vừa nói gì cơ\n2. em vừa nói gì cơ"
+    "test_data": "1. ồn lắm em ơi\n2. em nói lại đi"
   },
   {
     "tc_id": "TC230",
@@ -4161,7 +4161,7 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. chả nghe thấy gì cả\n2. anh nghe không rõ"
+    "test_data": "1. nói lại anh nghe\n2. nói lại anh nghe"
   },
   {
     "tc_id": "TC231",
@@ -4175,7 +4175,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1",
     "highlight_last_step": false,
-    "test_data": "1. có phải anh đâu"
+    "test_data": "1. anh không liên quan"
   },
   {
     "tc_id": "TC232",
@@ -4191,7 +4191,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. kiểm tra lại đi\n2. nó không còn dùng số này đâu"
+    "test_data": "1. anh không liên quan\n2. mình là đồng nghiệp của nó"
   },
   {
     "tc_id": "TC233",
@@ -4207,7 +4207,7 @@
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. nhầm số rồi\n2. anh không liên quan"
+    "test_data": "1. nhầm số rồi\n2. không phải rồi"
   },
   {
     "tc_id": "TC234",
@@ -4223,6 +4223,6 @@
     "expected_action_code": "Transferred to operator",
     "path": "A1 -> A1 -> End",
     "highlight_last_step": false,
-    "test_data": "1. anh không liên quan\n2. anh không liên quan"
+    "test_data": "1. kiểm tra lại đi\n2. nhầm rồi em ơi"
   }
 ]

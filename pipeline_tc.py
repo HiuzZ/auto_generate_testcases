@@ -14,9 +14,14 @@ from tc_to_excel import export_to_excel
 # Import test case generators
 import tcgen_e2e_human
 import tcgen_e2e_short
-import tcgen_e2e_short_v2
 import tcgen_multi_responses
 import tcgen_output_human
+import tcgen_output_short
+
+try:
+    import tcgen_e2e_short_v2
+except ImportError:
+    tcgen_e2e_short_v2 = None
 
 # Import hybrid test data generator (if available)
 try:
@@ -234,11 +239,15 @@ def run_pipeline(
     elif mode == "e2e_short":
         generator = tcgen_e2e_short
     elif mode == "e2e_short_v2":
+        if tcgen_e2e_short_v2 is None:
+            raise ValueError("Unsupported mode: e2e_short_v2 (tcgen_e2e_short_v2.py not found)")
         generator = tcgen_e2e_short_v2
     elif mode == "multi_responses":
         generator = tcgen_multi_responses
     elif mode == "output":
         generator = tcgen_output_human
+    elif mode == "output_short":
+        generator = tcgen_output_short
     else:
         raise ValueError(f"Unsupported mode: {mode}")
 
@@ -253,7 +262,7 @@ def run_pipeline(
 
     graph = generator.build_graph(rows)
     cases = generator.generate_test_cases(graph, root=effective_root, max_depth=max_depth)
-    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output"} else None
+    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output", "output_short"} else None
     serialized_cases = _serialize_cases(cases, response_count_map=response_count_map)
 
     if gen_data:
@@ -288,7 +297,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run Excel -> JSON -> testcase generation -> Excel export in one command."
     )
-    parser.add_argument("mode", choices=["e2e", "e2e_short", "e2e_short_v2", "output", "multi_responses"])
+    parser.add_argument("mode", choices=["e2e", "e2e_short", "e2e_short_v2", "output", "output_short", "multi_responses"])
     parser.add_argument(
         "--file",
         type=Path,

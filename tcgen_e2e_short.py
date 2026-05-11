@@ -189,6 +189,7 @@ def generate_test_cases(
     *,
     root: str = "A1",
     max_depth: int = 200,
+    emit_at_every_step: bool = False,
 ) -> list[dict[str, Any]]:
     cases: List[Dict[str, Any]] = []
     full_dfs_dst_owner: Dict[str, str] = {}
@@ -215,6 +216,21 @@ def generate_test_cases(
         if non_empty:
             return " \\ ".join(non_empty)
         return ""
+
+    def _append_case(
+        case_conditions: List[str],
+        steps: List[str],
+        bot_responses_list: List[List[str]],
+        action_code: str,
+        path_nodes: List[str],
+    ) -> None:
+        cases.append({
+            "conditions": _render_conditions(case_conditions),
+            "steps": steps,
+            "bot_responses": bot_responses_list,
+            "expected_action_code": action_code,
+            "path": " -> ".join(path_nodes),
+        })
 
     # ------------------------------------------------------------------ #
     # Main DFS traversal (with optional stop‑after‑first‑terminal flag)
@@ -309,16 +325,13 @@ def generate_test_cases(
             if _is_terminal_step(dst):
                 if is_duplicate_dst:
                     continue
-                cases.append({
-                    "conditions": _render_conditions(new_conditions),
-                    "steps": new_steps,
-                    "bot_responses": new_bot,
-                    "expected_action_code": action_code,
-                    "path": " -> ".join(new_path),
-                })
+                _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
                 if stop_after_first:
                     return True
                 continue
+
+            if emit_at_every_step:
+                _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
 
             if dst in graph:
                 cross_source_stop = effective_stop
@@ -420,16 +433,12 @@ def generate_test_cases(
 
             if is_last_in_chain:
                 if _is_terminal_step(dst):
-                    cases.append({
-                        "conditions": _render_conditions(new_conditions),
-                        "steps": new_steps,
-                        "bot_responses": new_bot,
-                        "expected_action_code": action_code,
-                        "path": " -> ".join(new_path),
-                    })
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
                     if stop_after_first:
                         return True
                     continue
+                if emit_at_every_step:
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
                 if dst in graph:
                     cross_source_stop = stop_after_first
                     if dst != origin_node:
@@ -447,6 +456,8 @@ def generate_test_cases(
                     if stop_after_first and found:
                         return True
             else:
+                if emit_at_every_step:
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
                 found = _dfs_repeat_chain(
                     origin_node=origin_node,
                     chain_ids=chain_ids,

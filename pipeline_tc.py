@@ -3,21 +3,28 @@ from __future__ import annotations
 import argparse
 import ast
 import json
+import random
 import re
 from pathlib import Path
 from typing import Any
 
 from excel_to_json import _pick_excel_file, convert_excel_rows_to_json
 from tc_to_excel import export_to_excel
+
+# Import test case generators
 import tcgen_e2e_human
 import tcgen_e2e_short
 import tcgen_e2e_short_v2
 import tcgen_multi_responses
 import tcgen_output_human
 
+# Import hybrid test data generator (if available)
+try:
+    from generate_test_data_hybrid import _generate_hybrid
+except ImportError:
+    _generate_hybrid = None
 
 GeneratorModule = Any
-
 
 _COND_SPLIT_RE = re.compile(r"\s*\\\s*|\n+")
 
@@ -139,6 +146,7 @@ def _serialize_cases(
             "expected_action_code": tc.get("expected_action_code", "N/A"),
             "path": tc.get("path", ""),
             "highlight_last_step": bool(tc.get("highlight_last_step", False)),
+            "test_data": "",  # filled later if --gen-data is used
         })
     return payload
 
@@ -182,6 +190,32 @@ def _build_step_name_map(rows: list[dict[str, str]]) -> dict[str, str]:
     return mapping
 
 
+def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]]) -> None:
+    """Fill in the 'test_data' field using the hybrid generator (TLS + Llama)."""
+    if _generate_hybrid is None:
+        print("⚠️  Warning: generate_test_data_hybrid not available. Test Data will remain empty.")
+        return
+
+    for case in serialized_cases:
+        steps = case["steps"]
+        if not steps:
+            # A0 or empty case – leave test_data blank
+            continue
+
+        # Convert "resp1 \\ resp2" strings into a randomly chosen single response per step
+        bot_responses_list: list[str] = []
+        for resp_str in case["bot_responses"]:
+            parts = [p.strip() for p in resp_str.split(" \\ ") if p.strip()]
+            bot_responses_list.append(random.choice(parts) if parts else "")
+        while len(bot_responses_list) < len(steps):
+            bot_responses_list.append("")
+
+        tc_id = case["tc_id"]
+        test_data = _generate_hybrid(steps, bot_responses_list, tc_id)
+        case["test_data"] = test_data
+        print(f"  Generated test data for {tc_id}")
+
+
 def run_pipeline(
     *,
     mode: str,
@@ -192,6 +226,7 @@ def run_pipeline(
     rows_out: Path,
     testcases_out: Path,
     excel_out: Path,
+    gen_data: bool = False,
 ) -> tuple[Path, Path, Path, int, str]:
     generator: GeneratorModule
     if mode == "e2e":
@@ -221,13 +256,31 @@ def run_pipeline(
     response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output"} else None
     serialized_cases = _serialize_cases(cases, response_count_map=response_count_map)
 
+    if gen_data:
+        print("\n--- Generating test data (hybrid) ---")
+        _generate_test_data_for_cases(serialized_cases)
+
     testcases_out.parent.mkdir(parents=True, exist_ok=True)
     testcases_out.write_text(
         json.dumps(serialized_cases, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
 
-    export_to_excel(serialized_cases, excel_out, step_name_map=_build_step_name_map(rows))
+    step_name_map = _build_step_name_map(rows)
+    # Grouping by step is enabled for all pipelines,
+    # but group fills and red highlighting are only for multi_responses.
+    group_by_step = True
+    use_group_fills = (mode == "multi_responses")
+    allow_highlight_last = (mode == "multi_responses")
+
+    export_to_excel(
+        serialized_cases,
+        excel_out,
+        step_name_map=step_name_map,
+        group_by_step=group_by_step,
+        use_group_fills=use_group_fills,
+        allow_highlight_last=allow_highlight_last,
+    )
     return rows_out, testcases_out, excel_out, len(serialized_cases), effective_root
 
 
@@ -272,6 +325,12 @@ def main() -> int:
         default=None,
         help="Output Excel path for generated test cases.",
     )
+    parser.add_argument(
+        "--gen-data",
+        action="store_true",
+        default=False,
+        help="Generate customer utterances (hybrid) and fill Test Data column.",
+    )
     args = parser.parse_args()
 
     sheet = int(args.sheet) if isinstance(args.sheet, str) and args.sheet.isdigit() else args.sheet
@@ -289,6 +348,7 @@ def main() -> int:
         rows_out=args.rows_out or default_rows_out,
         testcases_out=args.testcases_out or default_testcases_out,
         excel_out=args.excel_out or default_excel_out,
+        gen_data=args.gen_data,
     )
 
     print(f"Pipeline mode: {args.mode}")

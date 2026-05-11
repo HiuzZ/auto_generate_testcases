@@ -257,9 +257,8 @@ def generate_test_cases(
         # For non-self-repeat transitions sharing the same dst:
         # 1) first occurrence gets full DFS,
         # 2) subsequent occurrences each stop after one terminal case.
-        # Terminal transitions keep one case per condition because there is no
-        # deeper DFS where stop_after_first can choose a path. A1 preserves
-        # distinct terminal intents for direct root-level outcomes.
+        # Terminal transitions keep one case per (dst, condition, intent) because
+        # there is no deeper DFS where stop_after_first can choose a path.
         # Self-repeat transitions (dst == node) are exempt from this rule.
         normal_sorted = sorted(
             normal_transitions,
@@ -273,10 +272,7 @@ def generate_test_cases(
                 self_repeats.append(tr)
             else:
                 if _is_terminal_step(tr.dst):
-                    if node == "A1":
-                        group_key = (tr.dst, tr.condition, tr.intent)
-                    else:
-                        group_key = (tr.dst, tr.condition, "")
+                    group_key = (tr.dst, tr.condition, tr.intent)
                 else:
                     group_key = (tr.dst, "", "")
                 if group_key not in dst_first:

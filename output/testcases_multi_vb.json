@@ -8,7 +8,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A0",
-    "highlight_last_step": false
+    "highlight_last_step": false,
+    "test_data": ""
   },
   {
     "tc_id": "TC002",
@@ -19,7 +20,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A0",
-    "highlight_last_step": false
+    "highlight_last_step": false,
+    "test_data": ""
   },
   {
     "tc_id": "TC003",
@@ -30,7 +32,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A0",
-    "highlight_last_step": false
+    "highlight_last_step": false,
+    "test_data": ""
   },
   {
     "tc_id": "TC004",
@@ -43,7 +46,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh đang đi trên đường"
   },
   {
     "tc_id": "TC005",
@@ -56,7 +60,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. không nói chuyện được"
   },
   {
     "tc_id": "TC006",
@@ -69,7 +74,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ai đấy"
   },
   {
     "tc_id": "TC007",
@@ -82,7 +88,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ai đấy"
   },
   {
     "tc_id": "TC008",
@@ -95,7 +102,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ai đấy nhỉ"
   },
   {
     "tc_id": "TC009",
@@ -108,7 +116,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tín hiệu kém quá không nghe thấy gì"
   },
   {
     "tc_id": "TC010",
@@ -121,7 +130,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói lại giúm mình với nãy không nghe thấy"
   },
   {
     "tc_id": "TC011",
@@ -134,7 +144,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. chẳng nghe thấy gì"
   },
   {
     "tc_id": "TC012",
@@ -147,7 +158,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. _silence_"
   },
   {
     "tc_id": "TC013",
@@ -160,7 +172,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. _silence_"
   },
   {
     "tc_id": "TC014",
@@ -173,7 +186,8 @@
     ],
     "expected_action_code": "Unidentified person (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. _silence_"
   },
   {
     "tc_id": "TC015",
@@ -186,7 +200,8 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu"
   },
   {
     "tc_id": "TC016",
@@ -199,7 +214,8 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về"
   },
   {
     "tc_id": "TC017",
@@ -212,7 +228,8 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về"
   },
   {
     "tc_id": "TC018",
@@ -225,7 +242,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. phải rồi"
   },
   {
     "tc_id": "TC019",
@@ -238,7 +256,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được"
   },
   {
     "tc_id": "TC020",
@@ -251,7 +270,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi"
   },
   {
     "tc_id": "TC021",
@@ -266,7 +286,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. alo ai đang gọi vậy\n2. alo ai đấy ạ"
   },
   {
     "tc_id": "TC022",
@@ -281,7 +302,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. alo ai đang gọi vậy\n2. ai đấy"
   },
   {
     "tc_id": "TC023",
@@ -296,7 +318,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A1",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ai đấy alo ạ\n2. alo ai đang gọi vậy"
   },
   {
     "tc_id": "TC024",
@@ -311,7 +334,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. _silence_"
   },
   {
     "tc_id": "TC025",
@@ -326,7 +350,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. _silence_"
   },
   {
     "tc_id": "TC026",
@@ -341,7 +366,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. _silence_"
   },
   {
     "tc_id": "TC027",
@@ -356,7 +382,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. chẳng nghe thấy gì"
   },
   {
     "tc_id": "TC028",
@@ -371,7 +398,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. alo alo nghe không có rõ"
   },
   {
     "tc_id": "TC029",
@@ -386,7 +414,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A2",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. không nghe thấy gì hết trơn á"
   },
   {
     "tc_id": "TC030",
@@ -401,7 +430,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ tôi có biết"
   },
   {
     "tc_id": "TC031",
@@ -416,7 +446,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. anh biết bạn ấy có gì không"
   },
   {
     "tc_id": "TC032",
@@ -431,7 +462,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A2 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ tôi có biết"
   },
   {
     "tc_id": "TC033",
@@ -446,7 +478,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A10",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. anh đứng tên giùm thôi"
   },
   {
     "tc_id": "TC034",
@@ -461,7 +494,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A10",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. anh đứng tên giùm thôi"
   },
   {
     "tc_id": "TC035",
@@ -476,7 +510,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A10",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi\n2. anh vay hộ thôi"
   },
   {
     "tc_id": "TC036",
@@ -491,7 +526,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A11",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói đi\n2. anh không biết khoản vay nào"
   },
   {
     "tc_id": "TC037",
@@ -506,7 +542,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A11",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ ừ rồi\n2. khoản vay gì anh biết đâu"
   },
   {
     "tc_id": "TC038",
@@ -521,7 +558,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A11",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. anh không biết khoản vay nào"
   },
   {
     "tc_id": "TC039",
@@ -536,7 +574,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. _silence_"
   },
   {
     "tc_id": "TC040",
@@ -551,7 +590,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. _silence_"
   },
   {
     "tc_id": "TC041",
@@ -566,7 +606,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok\n2. nói bé quá nói lại đi em"
   },
   {
     "tc_id": "TC042",
@@ -581,7 +622,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói đi\n2. chẳng nghe thấy gì"
   },
   {
     "tc_id": "TC043",
@@ -596,7 +638,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được rồi đang nghe đây\n2. anh đang đi trên đường"
   },
   {
     "tc_id": "TC044",
@@ -611,7 +654,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok\n2. không nói chuyện được"
   },
   {
     "tc_id": "TC045",
@@ -626,7 +670,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A5",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. bận rồi"
   },
   {
     "tc_id": "TC046",
@@ -641,7 +686,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. rồi nói nghe coi\n2. rồi anh hứa sẽ trả cho bọn em"
   },
   {
     "tc_id": "TC047",
@@ -656,7 +702,8 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. phải rồi\n2. chắc chắn sẽ trả cho bên em"
   },
   {
     "tc_id": "TC048",
@@ -671,7 +718,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A7",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. thanh toán một phần trước nhé em"
   },
   {
     "tc_id": "TC049",
@@ -686,7 +734,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A7",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ ừ rồi\n2. trả trước một phần có được không em"
   },
   {
     "tc_id": "TC050",
@@ -701,7 +750,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A7",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. rồi nói nghe coi\n2. thanh toán một phần trước nhé em"
   },
   {
     "tc_id": "TC051",
@@ -716,7 +766,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A8",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. ừ tháng sau trả nhé"
   },
   {
     "tc_id": "TC052",
@@ -731,7 +782,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A8",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói đi\n2. ừ biết rồi anh sẽ trả cho bọn em sau"
   },
   {
     "tc_id": "TC053",
@@ -746,7 +798,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A8",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok\n2. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
   },
   {
     "tc_id": "TC054",
@@ -761,7 +814,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A9",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. rồi nói nghe coi\n2. bùng không thanh toán"
   },
   {
     "tc_id": "TC055",
@@ -776,7 +830,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A9",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok\n2. thanh toán cái gì không trả tiền đâu"
   },
   {
     "tc_id": "TC056",
@@ -791,7 +846,8 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A9",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ\n2. đang khó khăn tôi không trả"
   },
   {
     "tc_id": "TC057",
@@ -806,7 +862,8 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A5 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi\n2. ủa đã trả rồi mà em"
   },
   {
     "tc_id": "TC058",
@@ -821,7 +878,8 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A5 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ\n2. thanh toán rồi mà em ơi"
   },
   {
     "tc_id": "TC059",
@@ -838,7 +896,8 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. ừ ừ người quen\n3. lúc khác rồi nói"
   },
   {
     "tc_id": "TC060",
@@ -855,7 +914,8 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. ừ ừ người quen\n3. anh đang đi trên đường"
   },
   {
     "tc_id": "TC061",
@@ -863,16 +923,17 @@
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
-      "KH im lặng lần 1"
+      "KH hỏi Cách chuyển đổi trả góp lần 1"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
       "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. có trả góp được không"
   },
   {
     "tc_id": "TC062",
@@ -880,6 +941,510 @@
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
+      "KH hỏi Cách chuyển đổi trả góp lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ ừ người quen\n3. có trả góp được không"
+  },
+  {
+    "tc_id": "TC063",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Hạn mức thẻ lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ {{GENDER}} {{FIRSTNAME}} có thể truy cập vào ứng dụng Home Credit, vào mục thẻ tín dụng để xem hạn mức của mình nha. Để không mất đi ưu đãi và khả năng sử dụng thẻ, {{GENDER/Spouse/Anh chị}} nên thanh toán trong hôm nay nhé"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có quen sao em\n3. hạn mức thẻ là bao nhiêu em"
+  },
+  {
+    "tc_id": "TC064",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Hạn mức thẻ lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, hạn mức thẻ của {{GENDER}} {{FIRSTNAME}} chỉ được duy trì khi khoản thanh toán kỳ này hoàn tất. Nếu chưa thanh toán, hạn mức sẽ bị ảnh hưởng ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần thanh toán trong hôm nay để đảm bảo quyền lợi sử dụng thẻ.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. hạn mức thẻ có cao không máy chục thế em"
+  },
+  {
+    "tc_id": "TC065",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ tôi có biết\n3. lãi suất chuyển đổi trả góp có cao không"
+  },
+  {
+    "tc_id": "TC066",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. có có quen có việc gì không\n3. lãi suất suất chuyển đổi trả góp như nào thế"
+  },
+  {
+    "tc_id": "TC067",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. anh biết bạn ấy có gì không\n3. tính lãi như nào vậy em"
+  },
+  {
+    "tc_id": "TC068",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. có quen sao em\n3. lãi suất này đã bao gồm hết chi phí chưa em"
+  },
+  {
+    "tc_id": "TC069",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Phí thường niên lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. anh biết bạn ấy có gì không\n3. phí thường niên cao không em"
+  },
+  {
+    "tc_id": "TC070",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Phí thường niên lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. ừ ừ người quen\n3. ý là phí thường bên em lấy như nào"
+  },
+  {
+    "tc_id": "TC071",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Rút tiền mặt lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. có quen sao em\n3. rút tiền kiểu gì em nhỉ"
+  },
+  {
+    "tc_id": "TC072",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Rút tiền mặt lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. ừ tôi có biết\n3. giờ anh muốn rút tiền mặt âý"
+  },
+  {
+    "tc_id": "TC073",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thẻ tín dụng ghi nhận dư nợ theo từng chu kỳ sao kê, vì vậy số tiền cần thanh toán kỳ này sẽ khác kỳ trước.\nHiện tại, số tiền tối thiểu {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}}, và tổng dư nợ kỳ này là {{ENDINGBALANCE}}.\nĐể tránh phát sinh thêm phí phạt và ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse/Anh chị}} mình sắp xếp thanh toán trong hôm nay nhé?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. có quen sao em\n3. sao tiền kỳ này lại khác kỳ trước hả em"
+  },
+  {
+    "tc_id": "TC074",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Các khoản chi tiêu và phí phát sinh theo từng chu kỳ sẽ khiến số tiền kỳ này khác kỳ trước, {{GENDER}} {{FIRSTNAME}}.\nHiện tại, hệ thống ghi nhận {{GENDER/Spouse/Anh chị}} còn số tiền tối thiểu là {{OVERDUE_AMT}} và tổng dư nợ là {{ENDINGBALANCE}}.\nĐể đảm bảo không bị tính thêm lãi/phí và giữ điểm tín dụng tốt, em đề nghị {{GENDER/Spouse/Anh chị}} ưu tiên thanh toán sớm. Mình có thể thanh toán trong hôm nay hay ngày mai ạ"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. có quen sao em\n3. số tiền kỳ này lại khác đợt trước à em"
+  },
+  {
+    "tc_id": "TC075",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thẻ tín dụng sẽ tính dư nợ theo chu kì sao kê hàng tháng, Số tiền tối thiểu cần thanh toán cho kì này của {{GENDER}} {{FIRSTNAME}} là {{OVERDUE_AMT}} và tổng dư nợ phát sinh trong kì là  {{ENDINGBALANCE}} ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. ừ tôi có biết\n3. số tiền kỳ này lại khác đợt trước à em"
+  },
+  {
+    "tc_id": "TC076",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi ai gọi, bên nào gọi đến lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em là {{bot_name}} từ công ty Home Credit, gọi để nhắc về khoản thanh toán kỳ này. {{GENDER/Spouse/Anh chị}} sẽ sắp xếp thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. có có quen có việc gì không\n3. em bên nào nhở"
+  },
+  {
+    "tc_id": "TC077",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi ai gọi, bên nào gọi đến lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em là {{bot_name}} gọi từ Home Credit để hỗ trợ {{GENDER/Spouse/Anh chị}} về khoản thanh toán. Vậy {{GENDER/Spouse/Anh chị}} dự định thực hiện thanh toán trong hôm nay hay ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. ừ ừ người quen\n3. em bên ngân hàng nào đấy"
+  },
+  {
+    "tc_id": "TC078",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ phí phạt bằng 0,12% số tiền thanh toán tối thiểu chưa thanh toán trên ngày, với mức phí tối thiểu 150.000 đồng. Ngoài ra còn phát sinh lãi quá hạn tính theo từng ngày trễ. Vậy để tránh phát sinh thêm các các loại phí phạt, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trước ngày mai nhé?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có quen sao em\n3. lãi phạt như nào em"
+  },
+  {
+    "tc_id": "TC079",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, phí phạt sẽ phát sinh ngay từ hôm nay với mức 0,12% trên ngày (tối thiểu 150.000 đồng, tối đa 1.000.000 đồng). Để tránh mất thêm chi phí, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. anh biết bạn ấy có gì không\n3. có lãi phạt hả em bao nhiêu"
+  },
+  {
+    "tc_id": "TC080",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, nếu chưa thanh toán, phí phạt 0,12%/ngày sẽ cộng dồn, tối thiểu 150.000 đồng và có thể lên đến 1.000.000 đồng. Vậy {{GENDER/Spouse/Anh chị}} quyết định thanh toán ngay hôm nay hay để ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. anh biết bạn ấy có gì không\n3. lãi phạt cao không"
+  },
+  {
+    "tc_id": "TC081",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi phí sử dụng thẻ lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. dùng thẻ thì phí bao nhiêu em"
+  },
+  {
+    "tc_id": "TC082",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi phí sử dụng thẻ lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. có quen sao em\n3. phí dùng thẻ như nào"
+  },
+  {
+    "tc_id": "TC083",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Số tiền tối thiểu kì này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. ừ tôi có biết\n3. cân thanh toán tối thiểu bao nhiêu tiền em"
+  },
+  {
+    "tc_id": "TC084",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Số tiền tối thiểu kỳ này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. {{GENDER/Spouse/Anh chị}} dự định sẽ thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. anh biết bạn ấy có gì không\n3. cân thanh toán tối thiểu bao nhiêu tiền em"
+  },
+  {
+    "tc_id": "TC085",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Kỳ này {{GENDER}} {{FIRSTNAME}} cần thanh toán tối thiểu {{OVERDUE_AMT}} đồng. {{GENDER/Spouse/Anh chị}} có thể sắp xếp thanh toán ngay hôm nay hay để ngày mai tiện hơn ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. anh biết bạn ấy có gì không\n3. cân thanh toán tối thiểu bao nhiêu tiền em"
+  },
+  {
+    "tc_id": "TC086",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Tổng dư nợ kì này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. ừ tôi có biết\n3. dư nợ nhiêu em"
+  },
+  {
+    "tc_id": "TC087",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Tổng dư nợ kỳ này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. {{GENDER/Spouse/Anh chị}}dự kiến sẽ thanh toán trong hôm nay hay ngày mai ạ?\""
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. anh biết bạn ấy có gì không\n3. tông dư nợ là bao nhiêu em"
+  },
+  {
+    "tc_id": "TC088",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Hiện tại, số dư nợ kỳ này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng.{{GENDER/Spouse/Anh chị}} muốn sắp xếp thanh toán trong hôm nay hay ngày mai ạ?\""
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. dư nợ cuối kì nhu nào em"
+  },
+  {
+    "tc_id": "TC089",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH im lặng lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Anh chị có hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán số tiền tối thiểu {{OVERDUE_AMT}} cho bên em không ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ tôi có biết\n3. _silence_"
+  },
+  {
+    "tc_id": "TC090",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
       "KH im lặng lần 1"
     ],
     "bot_responses": [
@@ -889,10 +1454,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có quen sao em\n3. _silence_"
   },
   {
-    "tc_id": "TC063",
+    "tc_id": "TC091",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -906,10 +1472,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có quen sao em\n3. tín hiệu kém quá không nghe thấy gì"
   },
   {
-    "tc_id": "TC064",
+    "tc_id": "TC092",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -923,11 +1490,66 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. anh biết bạn ấy có gì không\n3. tín hiệu kém quá không nghe thấy gì"
   },
   {
-    "tc_id": "TC065",
-    "conditions": "Payment_date > {{PROMISEDATE}}",
+    "tc_id": "TC093",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em xin lỗi vì sự bất tiện này. Tuy nhiên khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đang quá hạn nên em liên hệ để thông báo ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ ừ người quen\n3. gọi nhiều mắc phiền"
+  },
+  {
+    "tc_id": "TC094",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ {{GENDER/Spouse/Anh chị}} hoàn tất thanh toán sẽ tránh nhận các cuộc gọi tương tự ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ tôi có biết\n3. gọi nhiều mắc phiền"
+  },
+  {
+    "tc_id": "TC095",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Bên em chỉ muốn liên hệ để nhắc khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã quá hạn, nên {{GENDER/Spouse/Anh chị}} vui lòng giữ máy để em tiếp tục hỗ trợ cho {{GENDER/Spouse/Anh chị}}. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. ừ tôi có biết\n3. gọi nhiều mắc phiền"
+  },
+  {
+    "tc_id": "TC096",
+    "conditions": "Payment_date > TODAY +2",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
@@ -940,11 +1562,12 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
   },
   {
-    "tc_id": "TC066",
-    "conditions": "Payment_date > {{PROMISEDATE}}",
+    "tc_id": "TC097",
+    "conditions": "Payment_date > TODAY +2",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
@@ -957,11 +1580,12 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. anh trả cho bên em sau không bùng đâu yên tâm"
   },
   {
-    "tc_id": "TC067",
-    "conditions": "Payment_date > {{PROMISEDATE}}",
+    "tc_id": "TC098",
+    "conditions": "Payment_date > TODAY +2",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
@@ -974,10 +1598,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A3",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. ừ tôi có biết\n3. mấy hôm nữa thanh toán nhé"
   },
   {
-    "tc_id": "TC068",
+    "tc_id": "TC099",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -991,10 +1616,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. có quen sao em\n3. giờ trả được một ít trước thôi em"
   },
   {
-    "tc_id": "TC069",
+    "tc_id": "TC100",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1008,10 +1634,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. ừ ừ người quen\n3. giờ trả được một ít trước thôi em"
   },
   {
-    "tc_id": "TC070",
+    "tc_id": "TC101",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1025,10 +1652,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. ủa đã trả rồi mà em"
   },
   {
-    "tc_id": "TC071",
+    "tc_id": "TC102",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1042,10 +1670,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. có có quen có việc gì không\n3. trả rồi"
   },
   {
-    "tc_id": "TC072",
+    "tc_id": "TC103",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1059,10 +1688,11 @@
     ],
     "expected_action_code": "Refuse to pay (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ tôi có biết\n3. dạo này kẹt anh không trả được"
   },
   {
-    "tc_id": "TC073",
+    "tc_id": "TC104",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1076,10 +1706,11 @@
     ],
     "expected_action_code": "Refuse to pay (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có quen sao em\n3. bùng không thanh toán"
   },
   {
-    "tc_id": "TC074",
+    "tc_id": "TC105",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1093,10 +1724,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A10 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. anh đứng tên giùm thôi\n3. thanh toán xong hết rồi nhá"
   },
   {
-    "tc_id": "TC075",
+    "tc_id": "TC106",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1110,10 +1742,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A10 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ\n2. anh vay hộ thôi\n3. tất toán hết rồi em"
   },
   {
-    "tc_id": "TC076",
+    "tc_id": "TC107",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1127,10 +1760,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A11 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được rồi đang nghe đây\n2. không biết khoản vay nào luôn\n3. trả hết rôi mà"
   },
   {
-    "tc_id": "TC077",
+    "tc_id": "TC108",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1144,10 +1778,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A11 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. phải rồi\n2. khoản vay gì anh biết đâu\n3. tất toán hết rồi em"
   },
   {
-    "tc_id": "TC078",
+    "tc_id": "TC109",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1161,10 +1796,11 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. rồi nói nghe coi\n2. hứa sẽ trả yên tâm\n3. _silence_"
   },
   {
-    "tc_id": "TC079",
+    "tc_id": "TC110",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1178,10 +1814,11 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. rồi anh hứa sẽ trả cho bọn em\n3. _silence_"
   },
   {
-    "tc_id": "TC080",
+    "tc_id": "TC111",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1195,10 +1832,11 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. rồi anh hứa sẽ trả cho bọn em\n3. alo alo nghe không có rõ"
   },
   {
-    "tc_id": "TC081",
+    "tc_id": "TC112",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1212,10 +1850,11 @@
     ],
     "expected_action_code": "Call disconnected (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi\n2. rồi anh hứa sẽ trả cho bọn em\n3. nói lại giúm mình với nãy không nghe thấy"
   },
   {
-    "tc_id": "TC082",
+    "tc_id": "TC113",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1229,10 +1868,11 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi\n2. chắc chắn sẽ trả cho bên em\n3. anh đang bận"
   },
   {
-    "tc_id": "TC083",
+    "tc_id": "TC114",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1246,10 +1886,11 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. hứa sẽ trả yên tâm\n3. đi học rồi"
   },
   {
-    "tc_id": "TC084",
+    "tc_id": "TC115",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1263,10 +1904,11 @@
     ],
     "expected_action_code": "Message left (RPC)",
     "path": "A1 -> A5 -> A6 -> A6",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được rồi đang nghe đây\n2. chắc chắn sẽ trả cho bên em\n3. bận rồi"
   },
   {
-    "tc_id": "TC085",
+    "tc_id": "TC116",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1280,10 +1922,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. phải rồi\n2. hứa sẽ trả yên tâm\n3. tất toán hết rồi em"
   },
   {
-    "tc_id": "TC086",
+    "tc_id": "TC117",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1297,10 +1940,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ ừ rồi\n2. hứa sẽ trả yên tâm\n3. ủa đã trả rồi mà em"
   },
   {
-    "tc_id": "TC087",
+    "tc_id": "TC118",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1314,10 +1958,11 @@
     ],
     "expected_action_code": "Payment promise",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ ừ rồi\n2. chắc chắn sẽ trả cho bên em\n3. rồi anh hứa sẽ trả cho bọn em"
   },
   {
-    "tc_id": "TC088",
+    "tc_id": "TC119",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1331,10 +1976,11 @@
     ],
     "expected_action_code": "Payment promise",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói đi\n2. rồi anh hứa sẽ trả cho bọn em\n3. chắc chắn sẽ trả cho bên em"
   },
   {
-    "tc_id": "TC089",
+    "tc_id": "TC120",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "KH nghe máy",
@@ -1348,10 +1994,11 @@
     ],
     "expected_action_code": "Payment promise",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ok em nói đi\n2. chắc chắn sẽ trả cho bên em\n3. rồi anh hứa sẽ trả cho bọn em"
   },
   {
-    "tc_id": "TC090",
+    "tc_id": "TC121",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "KH nghe máy",
@@ -1365,10 +2012,11 @@
     ],
     "expected_action_code": "Payment promise",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được rồi đang nghe đây\n2. rồi anh hứa sẽ trả cho bọn em\n3. hứa sẽ trả yên tâm"
   },
   {
-    "tc_id": "TC091",
+    "tc_id": "TC122",
     "conditions": "ayment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "KH nghe máy",
@@ -1382,10 +2030,11 @@
     ],
     "expected_action_code": "Payment promise",
     "path": "A1 -> A5 -> A6 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói đi\n2. hứa sẽ trả yên tâm\n3. chắc chắn sẽ trả cho bên em"
   },
   {
-    "tc_id": "TC092",
+    "tc_id": "TC123",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1399,10 +2048,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A7 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. giờ trả được một ít trước thôi em\n3. trả rồi"
   },
   {
-    "tc_id": "TC093",
+    "tc_id": "TC124",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1416,10 +2066,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A7 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. rồi nói nghe coi\n2. anh thanh toán cho bên em trước một phần có được không\n3. mới thanh toán đủ cho em rối"
   },
   {
-    "tc_id": "TC094",
+    "tc_id": "TC125",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1433,10 +2084,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A8 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. được\n2. anh trả cho bên em sau không bùng đâu yên tâm\n3. trả hết rôi mà"
   },
   {
-    "tc_id": "TC095",
+    "tc_id": "TC126",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1450,10 +2102,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A8 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. phải rồi\n2. ừ biết rồi anh sẽ trả cho bọn em sau\n3. thanh toán rồi mà em ơi"
   },
   {
-    "tc_id": "TC096",
+    "tc_id": "TC127",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1467,10 +2120,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A9 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. ừ ừ rồi\n2. không trả đâu\n3. trả hết rôi mà"
   },
   {
-    "tc_id": "TC097",
+    "tc_id": "TC128",
     "conditions": "",
     "steps": [
       "KH nghe máy",
@@ -1484,48 +2138,631 @@
     ],
     "expected_action_code": "AlreadyPaid VB (RPC)",
     "path": "A1 -> A5 -> A9 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nói nghe xem nào\n2. hết tiền rồi không trả được\n3. mới thanh toán đủ cho em rối"
   },
   {
-    "tc_id": "TC098",
-    "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nBusiness Hour",
+    "tc_id": "TC129",
+    "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
-      "KH trả sau lần 1",
-      "KH trả sau lần 2"
+      "KH hỏi Cách chuyển đổi trả góp lần 1",
+      "KH hỏi Cách chuyển đổi trả góp lần 2"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
       "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
-      "Anh chị vui lòng giữ máy để nhân viên tiếp tục hỗ trợ"
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
     ],
-    "expected_action_code": "*Nếu transfer không thành công: \n => Call disconnected (non RPC)\n * Nếu transfer thành công:\n => Transferred to operator",
-    "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. ừ tôi có biết\n3. có trả góp được không\n4. giờ trả góp có được không em"
   },
   {
-    "tc_id": "TC099",
-    "conditions": "Payment_date > {{PROMISEDATE}} \\ Payment_date > {{PROMISEDATE}}\n\nBusiness Hour",
+    "tc_id": "TC130",
+    "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
       "KH có quen biết",
-      "KH trả sau lần 1",
-      "KH trả sau lần 2"
+      "KH hỏi Cách chuyển đổi trả góp lần 1",
+      "KH hỏi Cách chuyển đổi trả góp lần 2"
     ],
     "bot_responses": [
       "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
       "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
-      "Để được hỗ trợ tốt hơn anh chị vui lòng giữ kết nối"
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
     ],
-    "expected_action_code": "*Nếu transfer không thành công: \n => Call disconnected (non RPC)\n * Nếu transfer thành công:\n => Transferred to operator",
-    "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. có quen sao em\n3. anh muốn chuyển sang trả góp được không\n4. giờ trả góp có được không em"
   },
   {
-    "tc_id": "TC100",
+    "tc_id": "TC131",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Hạn mức thẻ lần 1",
+      "KH hỏi Hạn mức thẻ lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ {{GENDER}} {{FIRSTNAME}} có thể truy cập vào ứng dụng Home Credit, vào mục thẻ tín dụng để xem hạn mức của mình nha. Để không mất đi ưu đãi và khả năng sử dụng thẻ, {{GENDER/Spouse/Anh chị}} nên thanh toán trong hôm nay nhé",
+      "Dạ {{GENDER}} {{FIRSTNAME}} có thể truy cập vào ứng dụng Home Credit, vào mục thẻ tín dụng để xem hạn mức của mình nha. Để không mất đi ưu đãi và khả năng sử dụng thẻ, {{GENDER/Spouse/Anh chị}} nên thanh toán trong hôm nay nhé"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. hạn mức thẻ là bao nhiêu em\n4. hạn mức thẻ có cao không máy chục thế em"
+  },
+  {
+    "tc_id": "TC132",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Hạn mức thẻ lần 1",
+      "KH hỏi Hạn mức thẻ lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ {{GENDER}} {{FIRSTNAME}} có thể truy cập vào ứng dụng Home Credit, vào mục thẻ tín dụng để xem hạn mức của mình nha. Để không mất đi ưu đãi và khả năng sử dụng thẻ, {{GENDER/Spouse/Anh chị}} nên thanh toán trong hôm nay nhé",
+      "Dạ, hạn mức thẻ của {{GENDER}} {{FIRSTNAME}} chỉ được duy trì khi khoản thanh toán kỳ này hoàn tất. Nếu chưa thanh toán, hạn mức sẽ bị ảnh hưởng ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần thanh toán trong hôm nay để đảm bảo quyền lợi sử dụng thẻ.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. hạn mức thẻ có cao không máy chục thế em\n4. hạn mức thẻ có cao không máy chục thế em"
+  },
+  {
+    "tc_id": "TC133",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 1",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ ừ người quen\n3. lãi suất chuyển đổi trả góp có cao không\n4. lãi suất chuyển đổi trả góp có cao không"
+  },
+  {
+    "tc_id": "TC134",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 1",
+      "KH hỏi Lãi suất chuyển đổi trả góp lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. lãi suất chuyển đổi trả góp nhiêu em\n4. lãi suất chuyển đổi trả góp nhiêu em"
+  },
+  {
+    "tc_id": "TC135",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất lần 1",
+      "KH hỏi Lãi suất lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. anh biết bạn ấy có gì không\n3. lãi suất bên mình như thế nào thế em\n4. lãi vay tính như nào vậy em"
+  },
+  {
+    "tc_id": "TC136",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Lãi suất lần 1",
+      "KH hỏi Lãi suất lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. lãi xuất có cố định không em\n4. lãi tính theo dư nợ gốc hay dư nợ giảm dần vậy"
+  },
+  {
+    "tc_id": "TC137",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Phí thường niên lần 1",
+      "KH hỏi Phí thường niên lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. anh biết bạn ấy có gì không\n3. ý là phí thường bên em lấy như nào\n4. phí thường niên cao không em"
+  },
+  {
+    "tc_id": "TC138",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Phí thường niên lần 1",
+      "KH hỏi Phí thường niên lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. phí thường niên là bao nhiêu\n4. phí thường niên là bao nhiêu"
+  },
+  {
+    "tc_id": "TC139",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Rút tiền mặt lần 1",
+      "KH hỏi Rút tiền mặt lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. anh biết bạn ấy có gì không\n3. rút tiền mặt như nào em\n4. rút tiền kiểu gì em nhỉ"
+  },
+  {
+    "tc_id": "TC140",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Rút tiền mặt lần 1",
+      "KH hỏi Rút tiền mặt lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ tôi có biết\n3. anh muốn rút tiền mặt ấy\n4. anh muốn rút tiền mặt ấy"
+  },
+  {
+    "tc_id": "TC141",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thẻ tín dụng ghi nhận dư nợ theo từng chu kỳ sao kê, vì vậy số tiền cần thanh toán kỳ này sẽ khác kỳ trước.\nHiện tại, số tiền tối thiểu {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}}, và tổng dư nợ kỳ này là {{ENDINGBALANCE}}.\nĐể tránh phát sinh thêm phí phạt và ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse/Anh chị}} mình sắp xếp thanh toán trong hôm nay nhé?",
+      "Thẻ tín dụng ghi nhận dư nợ theo từng chu kỳ sao kê, vì vậy số tiền cần thanh toán kỳ này sẽ khác kỳ trước.\nHiện tại, số tiền tối thiểu {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}}, và tổng dư nợ kỳ này là {{ENDINGBALANCE}}.\nĐể tránh phát sinh thêm phí phạt và ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse/Anh chị}} mình sắp xếp thanh toán trong hôm nay nhé?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ tôi có biết\n3. tiền đợt trước khác đợt này lại khác hả em\n4. số tiền kỳ này lại khác đợt trước à em"
+  },
+  {
+    "tc_id": "TC142",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thẻ tín dụng ghi nhận dư nợ theo từng chu kỳ sao kê, vì vậy số tiền cần thanh toán kỳ này sẽ khác kỳ trước.\nHiện tại, số tiền tối thiểu {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}}, và tổng dư nợ kỳ này là {{ENDINGBALANCE}}.\nĐể tránh phát sinh thêm phí phạt và ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse/Anh chị}} mình sắp xếp thanh toán trong hôm nay nhé?",
+      "Các khoản chi tiêu và phí phát sinh theo từng chu kỳ sẽ khiến số tiền kỳ này khác kỳ trước, {{GENDER}} {{FIRSTNAME}}.\nHiện tại, hệ thống ghi nhận {{GENDER/Spouse/Anh chị}} còn số tiền tối thiểu là {{OVERDUE_AMT}} và tổng dư nợ là {{ENDINGBALANCE}}.\nĐể đảm bảo không bị tính thêm lãi/phí và giữ điểm tín dụng tốt, em đề nghị {{GENDER/Spouse/Anh chị}} ưu tiên thanh toán sớm. Mình có thể thanh toán trong hôm nay hay ngày mai ạ"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. sao tiền kỳ này lại khác kỳ trước hả em\n4. tiền đợt trước khác đợt này lại khác hả em"
+  },
+  {
+    "tc_id": "TC143",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
+      "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thẻ tín dụng ghi nhận dư nợ theo từng chu kỳ sao kê, vì vậy số tiền cần thanh toán kỳ này sẽ khác kỳ trước.\nHiện tại, số tiền tối thiểu {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}}, và tổng dư nợ kỳ này là {{ENDINGBALANCE}}.\nĐể tránh phát sinh thêm phí phạt và ảnh hưởng đến lịch sử tín dụng, {{GENDER/Spouse/Anh chị}} mình sắp xếp thanh toán trong hôm nay nhé?",
+      "Thẻ tín dụng sẽ tính dư nợ theo chu kì sao kê hàng tháng, Số tiền tối thiểu cần thanh toán cho kì này của {{GENDER}} {{FIRSTNAME}} là {{OVERDUE_AMT}} và tổng dư nợ phát sinh trong kì là  {{ENDINGBALANCE}} ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ tôi có biết\n3. tiền đợt trước khác đợt này lại khác hả em\n4. tiền đợt trước khác đợt này lại khác hả em"
+  },
+  {
+    "tc_id": "TC144",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi ai gọi, bên nào gọi đến lần 1",
+      "KH hỏi ai gọi, bên nào gọi đến lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em là {{bot_name}} từ công ty Home Credit, gọi để nhắc về khoản thanh toán kỳ này. {{GENDER/Spouse/Anh chị}} sẽ sắp xếp thanh toán trong hôm nay hay để sang ngày mai ạ?”",
+      "Em là {{bot_name}} từ công ty Home Credit, gọi để nhắc về khoản thanh toán kỳ này. {{GENDER/Spouse/Anh chị}} sẽ sắp xếp thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có có quen có việc gì không\n3. em bên nào gọi đến vậy em\n4. em bên nào nhở"
+  },
+  {
+    "tc_id": "TC145",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi ai gọi, bên nào gọi đến lần 1",
+      "KH hỏi ai gọi, bên nào gọi đến lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em là {{bot_name}} từ công ty Home Credit, gọi để nhắc về khoản thanh toán kỳ này. {{GENDER/Spouse/Anh chị}} sẽ sắp xếp thanh toán trong hôm nay hay để sang ngày mai ạ?”",
+      "Em là {{bot_name}} gọi từ Home Credit để hỗ trợ {{GENDER/Spouse/Anh chị}} về khoản thanh toán. Vậy {{GENDER/Spouse/Anh chị}} dự định thực hiện thanh toán trong hôm nay hay ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. có quen sao em\n3. em bên nào gọi đến vậy em\n4. em bên ngân hàng nào đấy"
+  },
+  {
+    "tc_id": "TC146",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1",
+      "KH hỏi lãi phạt lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ phí phạt bằng 0,12% số tiền thanh toán tối thiểu chưa thanh toán trên ngày, với mức phí tối thiểu 150.000 đồng. Ngoài ra còn phát sinh lãi quá hạn tính theo từng ngày trễ. Vậy để tránh phát sinh thêm các các loại phí phạt, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trước ngày mai nhé?",
+      "Dạ phí phạt bằng 0,12% số tiền thanh toán tối thiểu chưa thanh toán trên ngày, với mức phí tối thiểu 150.000 đồng. Ngoài ra còn phát sinh lãi quá hạn tính theo từng ngày trễ. Vậy để tránh phát sinh thêm các các loại phí phạt, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trước ngày mai nhé?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ ừ người quen\n3. lãi phạt cao không\n4. lãi phạt như nào em"
+  },
+  {
+    "tc_id": "TC147",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1",
+      "KH hỏi lãi phạt lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ phí phạt bằng 0,12% số tiền thanh toán tối thiểu chưa thanh toán trên ngày, với mức phí tối thiểu 150.000 đồng. Ngoài ra còn phát sinh lãi quá hạn tính theo từng ngày trễ. Vậy để tránh phát sinh thêm các các loại phí phạt, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trước ngày mai nhé?",
+      "Dạ, phí phạt sẽ phát sinh ngay từ hôm nay với mức 0,12% trên ngày (tối thiểu 150.000 đồng, tối đa 1.000.000 đồng). Để tránh mất thêm chi phí, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ ừ người quen\n3. lãi phạt cao không\n4. lãi phạt như nào em"
+  },
+  {
+    "tc_id": "TC148",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi lãi phạt lần 1",
+      "KH hỏi lãi phạt lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ phí phạt bằng 0,12% số tiền thanh toán tối thiểu chưa thanh toán trên ngày, với mức phí tối thiểu 150.000 đồng. Ngoài ra còn phát sinh lãi quá hạn tính theo từng ngày trễ. Vậy để tránh phát sinh thêm các các loại phí phạt, {{GENDER/Spouse/Anh chị}} sẽ thanh toán trước ngày mai nhé?",
+      "Dạ, nếu chưa thanh toán, phí phạt 0,12%/ngày sẽ cộng dồn, tối thiểu 150.000 đồng và có thể lên đến 1.000.000 đồng. Vậy {{GENDER/Spouse/Anh chị}} quyết định thanh toán ngay hôm nay hay để ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. anh biết bạn ấy có gì không\n3. lãi phạt như nào em\n4. lãi phạt như nào em"
+  },
+  {
+    "tc_id": "TC149",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi phí sử dụng thẻ lần 1",
+      "KH hỏi phí sử dụng thẻ lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ ừ người quen\n3. phí dùng thẻ như nào\n4. phí dùng thẻ như nào"
+  },
+  {
+    "tc_id": "TC150",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi phí sử dụng thẻ lần 1",
+      "KH hỏi phí sử dụng thẻ lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Thông tin chi tiết {{GENDER/Spouse/Anh chị}} có thể tìm xem trên trang chủ của Home Credit nhé ạ, hoặc có thể liên hệ hotline 190063399 để được hỗ trợ giải đáp. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ, các dịch vụ thẻ như phí thường niên, lãi suất hay rút tiền mặt đều đã được quy định rõ. Tuy nhiên, nếu chưa thanh toán tối thiểu thì phí phạt sẽ phát sinh ngay. Vì vậy {{GENDER/Spouse/Anh chị}} cần sắp xếp thanh toán trong hôm nay để tránh chi phí không đáng có.”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có có quen có việc gì không\n3. phí dùng thẻ như nào em em\n4. dùng thẻ thì phí bao nhiêu em"
+  },
+  {
+    "tc_id": "TC151",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Số tiền tối thiểu kì này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Số tiền tối thiểu kì này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. ừ tôi có biết\n3. cần trả it nhất bao nhiêu em\n4. cân thanh toán tối thiểu bao nhiêu tiền em"
+  },
+  {
+    "tc_id": "TC152",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Số tiền tối thiểu kì này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Số tiền tối thiểu kỳ này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. {{GENDER/Spouse/Anh chị}} dự định sẽ thanh toán trong hôm nay hay để sang ngày mai ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ tôi có biết\n3. cân thanh toán tối thiểu bao nhiêu tiền em\n4. cần trả it nhất bao nhiêu em"
+  },
+  {
+    "tc_id": "TC153",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 1",
+      "KH hỏi số tiền tối thiểu cần thanh toán lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Số tiền tối thiểu kì này {{GENDER}} {{FIRSTNAME}} cần thanh toán là {{OVERDUE_AMT}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Kỳ này {{GENDER}} {{FIRSTNAME}} cần thanh toán tối thiểu {{OVERDUE_AMT}} đồng. {{GENDER/Spouse/Anh chị}} có thể sắp xếp thanh toán ngay hôm nay hay để ngày mai tiện hơn ạ?”"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi vắng rồi chưa về\n2. có có quen có việc gì không\n3. tối thiểu cần thanh toán nhiêu em\n4. cần trả it nhất bao nhiêu em"
+  },
+  {
+    "tc_id": "TC154",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1",
+      "KH hỏi tổng dư nợ cuối kì lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Tổng dư nợ kì này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Tổng dư nợ kì này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. dư nợ nhiêu em\n4. tông dư nợ là bao nhiêu em"
+  },
+  {
+    "tc_id": "TC155",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1",
+      "KH hỏi tổng dư nợ cuối kì lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Tổng dư nợ kì này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Tổng dư nợ kỳ này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. {{GENDER/Spouse/Anh chị}}dự kiến sẽ thanh toán trong hôm nay hay ngày mai ạ?\""
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. có có quen có việc gì không\n3. dư nợ nhiêu em\n4. dư nợ cuối kì nhu nào em"
+  },
+  {
+    "tc_id": "TC156",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH hỏi tổng dư nợ cuối kì lần 1",
+      "KH hỏi tổng dư nợ cuối kì lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Tổng dư nợ kì này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Hiện tại, số dư nợ kỳ này của {{GENDER}} {{FIRSTNAME}} là {{ENDINGBALANCE}} đồng.{{GENDER/Spouse/Anh chị}} muốn sắp xếp thanh toán trong hôm nay hay ngày mai ạ?\""
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ ừ người quen\n3. dư nợ cuối kì nhu nào em\n4. dư nợ nhiêu em"
+  },
+  {
+    "tc_id": "TC157",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1",
+      "Than phiền gọi nhiều lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em xin lỗi vì sự bất tiện này. Tuy nhiên khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đang quá hạn nên em liên hệ để thông báo ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Em xin lỗi vì sự bất tiện này. Tuy nhiên khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đang quá hạn nên em liên hệ để thông báo ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. suốt ngày gọi\n4. gọi hoài"
+  },
+  {
+    "tc_id": "TC158",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1",
+      "Than phiền gọi nhiều lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em xin lỗi vì sự bất tiện này. Tuy nhiên khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đang quá hạn nên em liên hệ để thông báo ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Dạ {{GENDER/Spouse/Anh chị}} hoàn tất thanh toán sẽ tránh nhận các cuộc gọi tương tự ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. sao cứ gọi hoài vậy đừng gọi nữa\n4. gọi nhiều mắc phiền"
+  },
+  {
+    "tc_id": "TC159",
+    "conditions": "",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "Than phiền gọi nhiều lần 1",
+      "Than phiền gọi nhiều lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Em xin lỗi vì sự bất tiện này. Tuy nhiên khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đang quá hạn nên em liên hệ để thông báo ạ. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?",
+      "Bên em chỉ muốn liên hệ để nhắc khoản thanh toán của {{GENDER}} {{FIRSTNAME}} đã quá hạn, nên {{GENDER/Spouse/Anh chị}} vui lòng giữ máy để em tiếp tục hỗ trợ cho {{GENDER/Spouse/Anh chị}}. Vậy {{GENDER/Spouse/Anh chị}} sẽ thanh toán trong hôm nay hay ngày mai ạ?"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A3",
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. có có quen có việc gì không\n3. gọi hoài\n4. suốt ngày gọi"
+  },
+  {
+    "tc_id": "TC160",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1541,10 +2778,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. ừ tôi có biết\n3. đang có việc\n4. lúc khác rồi nói"
   },
   {
-    "tc_id": "TC101",
+    "tc_id": "TC161",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1560,10 +2798,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. ừ tôi có biết\n3. lúc khác rồi nói\n4. anh đang đi trên đường"
   },
   {
-    "tc_id": "TC102",
+    "tc_id": "TC162",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1579,10 +2818,51 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. anh biết bạn ấy có gì không\n3. đi học rồi\n4. lúc khác rồi nói"
   },
   {
-    "tc_id": "TC103",
+    "tc_id": "TC163",
+    "conditions": "Payment_date > TODAY +2 \\ Transfer Unsuccessfully\n\nBusiness Hour",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH trả sau lần 1",
+      "KH trả sau lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
+      "Anh chị vui lòng giữ máy để nhân viên tiếp tục hỗ trợ"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. ừ biết rồi anh sẽ trả cho bọn em sau\n4. ừ biết rồi anh sẽ trả cho bọn em sau"
+  },
+  {
+    "tc_id": "TC164",
+    "conditions": "Payment_date > TODAY +2 \\ Transfer Unsuccessfully\n\nBusiness Hour",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH trả sau lần 1",
+      "KH trả sau lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
+      "Để được hỗ trợ tốt hơn anh chị vui lòng giữ kết nối"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> End",
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. ừ tôi có biết\n3. ừ anh sẽ tất toán hết cho bên em sau nhé\n4. ừ tháng sau trả nhé"
+  },
+  {
+    "tc_id": "TC165",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1598,10 +2878,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. ừ ừ người quen\n3. anh thanh toán một ít trước nhé\n4. bận rồi"
   },
   {
-    "tc_id": "TC104",
+    "tc_id": "TC166",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1617,10 +2898,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. ừ tôi có biết\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. lúc khác rồi nói"
   },
   {
-    "tc_id": "TC105",
+    "tc_id": "TC167",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1636,10 +2918,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. có có quen có việc gì không\n3. giờ trả được một ít trước thôi em\n4. _silence_"
   },
   {
-    "tc_id": "TC106",
+    "tc_id": "TC168",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1655,10 +2938,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. có có quen có việc gì không\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. _silence_"
   },
   {
-    "tc_id": "TC107",
+    "tc_id": "TC169",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1674,10 +2958,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tí anh nhắn lại cho nó nó ra ngoài rồi\n2. có quen sao em\n3. trả trước một phần có được không em\n4. anh trả cho bên em sau không bùng đâu yên tâm"
   },
   {
-    "tc_id": "TC108",
+    "tc_id": "TC170",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1693,10 +2978,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ tôi có biết\n3. thanh toán một phần trước nhé em\n4. được rồi anh sẽ thanh toán cho em sau nhé phải mấy"
   },
   {
-    "tc_id": "TC109",
+    "tc_id": "TC171",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1712,10 +2998,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ tôi có biết\n3. thanh toán một phần trước nhé em\n4. chẳng nghe thấy gì"
   },
   {
-    "tc_id": "TC110",
+    "tc_id": "TC172",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1731,10 +3018,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. anh biết bạn ấy có gì không\n3. thanh toán một phần trước nhé em\n4. alo alo nghe không có rõ"
   },
   {
-    "tc_id": "TC111",
+    "tc_id": "TC173",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1750,10 +3038,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. anh biết bạn ấy có gì không\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. anh thanh toán một ít trước nhé"
   },
   {
-    "tc_id": "TC112",
+    "tc_id": "TC174",
     "conditions": "Payment_amt < {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1769,10 +3058,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> A4",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. có quen sao em\n3. anh thanh toán cho bên em trước một phần có được không\n4. giờ trả được một ít trước thôi em"
   },
   {
-    "tc_id": "TC113",
+    "tc_id": "TC175",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1788,10 +3078,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. có quen sao em\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. mới thanh toán đủ cho em rối"
   },
   {
-    "tc_id": "TC114",
+    "tc_id": "TC176",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1807,10 +3098,11 @@
     ],
     "expected_action_code": "AlreadyPaid VB (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có quen sao em\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. ủa đã trả rồi mà em"
   },
   {
-    "tc_id": "TC115",
+    "tc_id": "TC177",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1826,10 +3118,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. anh biết bạn ấy có gì không\n3. giờ trả được một ít trước thôi em\n4. dạo này kẹt anh không trả được"
   },
   {
-    "tc_id": "TC116",
+    "tc_id": "TC178",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1845,10 +3138,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. có có quen có việc gì không\n3. thanh toán một phần trước nhé em\n4. đang khó khăn tôi không trả"
   },
   {
-    "tc_id": "TC117",
+    "tc_id": "TC179",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1864,10 +3158,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. ừ ừ người quen\n3. giờ trả được một ít trước thôi em\n4. rồi để anh trả"
   },
   {
-    "tc_id": "TC118",
+    "tc_id": "TC180",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1883,10 +3178,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ tôi có biết\n3. thanh toán một phần trước nhé em\n4. ừ anh thanh toán đủ cho nhá"
   },
   {
-    "tc_id": "TC119",
+    "tc_id": "TC181",
     "conditions": "Payment_amt = {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1902,10 +3198,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. có quen sao em\n3. anh thanh toán một ít trước nhé\n4. được để anh trả tiền"
   },
   {
-    "tc_id": "TC120",
+    "tc_id": "TC182",
     "conditions": "Payment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1921,10 +3218,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. có có quen có việc gì không\n3. thanh toán một phần trước nhé em\n4. ừ anh thanh toán đủ cho nhá"
   },
   {
-    "tc_id": "TC121",
+    "tc_id": "TC183",
     "conditions": "Payment_amt = {{OVERDUE_AMT}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1940,10 +3238,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. giờ trả được một ít trước thôi em\n4. ừ để anh thanh toán cho bên em nhé"
   },
   {
-    "tc_id": "TC122",
+    "tc_id": "TC184",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1959,10 +3258,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. bố cháu đang nghe\n2. có có quen có việc gì không\n3. thanh toán một phần trước nhé em\n4. ừ anh thanh toán đủ cho nhá"
   },
   {
-    "tc_id": "TC123",
+    "tc_id": "TC185",
     "conditions": "{{OVERDUE_AMT}} < Payment_amt < {{ENDINGBALANCE}}",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -1978,52 +3278,11 @@
     ],
     "expected_action_code": "Voluntary payment",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. tôi là anh nó\n2. có quen sao em\n3. anh thanh toán cho bên em trước một phần có được không\n4. ừ anh thanh toán đủ cho nhá"
   },
   {
-    "tc_id": "TC124",
-    "conditions": "Business Hour",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH có quen biết",
-      "KH trả một ít",
-      "KH trả sau lần 1",
-      "KH trả sau lần 2"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Dạ vậy anh chị hỗ trợ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
-      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
-      "Anh chị vui lòng giữ máy để nhân viên tiếp tục hỗ trợ"
-    ],
-    "expected_action_code": "*Nếu transfer không thành công: \n => Call disconnected (non RPC)\n * Nếu transfer thành công:\n => Transferred to operator",
-    "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC125",
-    "conditions": "Business Hour",
-    "steps": [
-      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
-      "KH có quen biết",
-      "KH trả một ít",
-      "KH trả sau lần 1",
-      "KH trả sau lần 2"
-    ],
-    "bot_responses": [
-      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
-      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
-      "Dạ vậy anh chị hỗ trợ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
-      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
-      "Để được hỗ trợ tốt hơn anh chị vui lòng giữ kết nối"
-    ],
-    "expected_action_code": "*Nếu transfer không thành công: \n => Call disconnected (non RPC)\n * Nếu transfer thành công:\n => Transferred to operator",
-    "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
-  },
-  {
-    "tc_id": "TC126",
+    "tc_id": "TC186",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -2041,10 +3300,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. nó ra ngoài rồi\n2. ừ tôi có biết\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. đang đi làm\n5. lúc khác rồi nói"
   },
   {
-    "tc_id": "TC127",
+    "tc_id": "TC187",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -2062,10 +3322,11 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. anh nghe hộ thôi\n2. anh biết bạn ấy có gì không\n3. anh thanh toán một ít trước nhé hơi kẹt em ạ\n4. chưa tiện để nói chuyện\n5. lát rồi gọi lại"
   },
   {
-    "tc_id": "TC128",
+    "tc_id": "TC188",
     "conditions": "",
     "steps": [
       "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
@@ -2083,6 +3344,51 @@
     ],
     "expected_action_code": "Call disconnected (non RPC)",
     "path": "A1 -> A2 -> A3 -> A4 -> End",
-    "highlight_last_step": true
+    "highlight_last_step": true,
+    "test_data": "1. đang nghe hộ không biết đâu\n2. có có quen có việc gì không\n3. giờ trả được một ít trước thôi em\n4. lúc khác rồi nói\n5. lát rồi gọi lại"
+  },
+  {
+    "tc_id": "TC189",
+    "conditions": "Transfer Unsuccessfully\n\nBusiness Hour",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH trả một ít",
+      "KH trả sau lần 1",
+      "KH trả sau lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ vậy anh chị hỗ trợ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
+      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
+      "Anh chị vui lòng giữ máy để nhân viên tiếp tục hỗ trợ"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A4 -> End",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi chơi rồi\n2. anh biết bạn ấy có gì không\n3. trả trước một phần có được không em\n4. ừ tháng sau trả nhé\n5. mấy hôm nữa thanh toán nhé"
+  },
+  {
+    "tc_id": "TC190",
+    "conditions": "Transfer Unsuccessfully\n\nBusiness Hour",
+    "steps": [
+      "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
+      "KH có quen biết",
+      "KH trả một ít",
+      "KH trả sau lần 1",
+      "KH trả sau lần 2"
+    ],
+    "bot_responses": [
+      "Dạ mình có biết {{GENDER}} {{Name}} không ạ?",
+      "Em gọi từ công ty tài chính Home Credit, do {{GENDER}} {{FIRSTNAME}} vẫn chưa thanh toán Thẻ tín dụng quá hạn bên em với số tiền tối thiểu là {{OVERDUE_AMT}} và dư nợ cuối kì là {{ENDINGBALANCE}}. Anh chị có muốn hỗ trợ {{GENDER}} {{FIRSTNAME}} hoàn tất nghĩa vụ tài chính không ạ?",
+      "Dạ vậy anh chị hỗ trợ thanh toán số tiền tối thiểu {{OVERDUE_AMT}} hay toàn bộ dư nợ cuối kỳ {{ENDINGBALANCE}} ạ?",
+      "Cảm ơn anh chị đã hỗ trợ, tuy nhiên hợp đồng của {{GENDER}} {{FIRSTNAME}} hiện tại đã quá hạn, càng chậm trễ sẽ phát sinh thêm lãi, phí phạt và nhận thêm các cuộc gọi hỗ trợ thanh toán. Vì vậy, anh chị cố gắng thu xếp hỗ trợ {{GENDER}} {{FIRSTNAME}} thanh toán trong hôm nay hoặc ngày mai nhé?",
+      "Để được hỗ trợ tốt hơn anh chị vui lòng giữ kết nối"
+    ],
+    "expected_action_code": "Call disconnected (non RPC)",
+    "path": "A1 -> A2 -> A3 -> A4 -> End",
+    "highlight_last_step": true,
+    "test_data": "1. nó đi ra ngoài rồi không có nhà đâu\n2. ừ ừ người quen\n3. thanh toán một phần trước nhé em\n4. mấy hôm nữa thanh toán nhé\n5. ừ tháng sau trả nhé"
   }
 ]

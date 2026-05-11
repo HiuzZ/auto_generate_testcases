@@ -21,7 +21,9 @@ from typing import Any
 import unicodedata
 
 import openpyxl
-from openpyxl.styles import Alignment
+from openpyxl.cell.rich_text import CellRichText, TextBlock
+from openpyxl.cell.text import InlineFont
+from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
 
@@ -48,6 +50,184 @@ _PATTERN_TO_TAG_FOLDED: dict[str, str] | None = None
 # Llama 3.1 model name for fallback
 LLAMA_MODEL = "llama3.1"
 
+# ---------------------------------------------------------------------------
+# Excel formatting helpers (shared with tc_to_excel.py)
+# ---------------------------------------------------------------------------
+
+_STEP_NO_RE = re.compile(r"\bA(\d+)\b", re.IGNORECASE)
+
+_SECTION_FONT = Font(bold=True, color="001F4E78")
+_SECTION_FILL = PatternFill(fill_type="solid", fgColor="00EEF3FB")
+_GROUP_FILLS = [
+    PatternFill(fill_type="solid", fgColor="00FDE2E2"),
+    PatternFill(fill_type="solid", fgColor="00E3F2FD"),
+    PatternFill(fill_type="solid", fgColor="00E8F5E9"),
+    PatternFill(fill_type="solid", fgColor="00E3F2FD"),
+]
+_RED_INLINE_FONT = InlineFont(color="00FF0000")
+
+
+def _extract_group_step(path_text: str) -> str | None:
+    """
+    Extract the grouping step from a path string (mirrors tc_to_excel.py logic).
+    - If path has "End", take the A<N> token immediately before "End".
+    - Otherwise take the last A<N> token.
+    """
+    if not path_text:
+        return None
+    tokens = re.split(r"\s*(?:->|→|,)\s*", path_text.strip())
+    tokens = [t.strip() for t in tokens if t.strip()]
+    end_idx = next((i for i, t in enumerate(tokens) if t.lower() == "end"), -1)
+    if end_idx != -1:
+        if end_idx > 0:
+            candidate = tokens[end_idx - 1]
+            if _STEP_NO_RE.fullmatch(candidate):
+                return candidate
+        return None
+    else:
+        last = tokens[-1] if tokens else ""
+        return last if _STEP_NO_RE.fullmatch(last) else None
+
+
+def _step_sort_key(step_no: str) -> tuple[int, str]:
+    m = _STEP_NO_RE.fullmatch(step_no.strip())
+    return (int(m.group(1)), step_no) if m else (10**9, step_no)
+
+
+def _auto_fit_column(ws: Worksheet, col_idx: int, extra: int = 2) -> None:
+    col_letter = get_column_letter(col_idx)
+    max_len = 0
+    for cell in ws[col_letter]:
+        if cell.value:
+            for part in str(cell.value).split("\n"):
+                max_len = max(max_len, len(part))
+    ws.column_dimensions[col_letter].width = max_len + extra
+
+
+def _write_formatted_excel(
+    ws,
+    rows_data: list[dict[str, Any]],
+    step_name_map: dict[str, str] | None = None,
+) -> None:
+    """
+    Write all test-case rows into *ws* using the same layout/style as tc_to_excel.py.
+    Each dict in rows_data must have keys:
+        tc_id (original, ignored – we re-number),
+        conditions, steps, bot_responses, path, expected_action,
+        test_data, highlight_last_step (optional bool)
+    """
+    step_name_map = step_name_map or {}
+
+    # Header row
+    headers = ["TC_ID", "Conditions", "Test Scenario", "Bot Responses",
+               "Path", "Expected Action Code", "Test Data"]
+    for col, h in enumerate(headers, 1):
+        ws.cell(row=1, column=col, value=h)
+
+    # Group cases by path step
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for case in rows_data:
+        group_step = _extract_group_step(str(case.get("path", ""))) or "UNKNOWN"
+        grouped.setdefault(group_step, []).append(case)
+
+    ordered_groups = sorted(grouped.keys(), key=_step_sort_key)
+
+    current_group_key: tuple[Any, ...] | None = None
+    group_index = -1
+    display_tc_index = 1
+    row = 2
+
+    for step_no in ordered_groups:
+        step_name = step_name_map.get(step_no, step_no)
+        section_label = f"{step_no} - {step_name}"
+
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
+        cell_sec = ws.cell(row=row, column=1, value=section_label)
+        cell_sec.font = _SECTION_FONT
+        cell_sec.fill = _SECTION_FILL
+        cell_sec.alignment = Alignment(wrap_text=True)
+        row += 1
+
+        for case in grouped[step_no]:
+            tc_id = f"TC{display_tc_index:03d}"
+            conditions = str(case.get("conditions", ""))
+            steps: list[str] = case.get("steps", [])
+            bot_responses: list[str] = case.get("bot_responses", [])
+            expected_action = str(case.get("expected_action", case.get("expected_action_code", "N/A")))
+            tc_path = str(case.get("path", ""))
+            highlight_last_step = bool(case.get("highlight_last_step", False))
+            test_data = str(case.get("test_data", ""))
+
+            numbered_steps = [f"{i}. {s}" for i, s in enumerate(steps, 1)]
+            scenario = "\n".join(numbered_steps)
+
+            numbered_responses: list[str] = []
+            for i, r in enumerate(bot_responses, 1):
+                numbered_responses.append(f"{i}. {r}" if r else f"{i}. ")
+            bot_responses_text = "\n".join(numbered_responses)
+
+            # Determine fill colour based on logical grouping
+            group_key = (conditions, tuple(steps), tc_path, expected_action)
+            if group_key != current_group_key:
+                group_index += 1
+                current_group_key = group_key
+            fill = _GROUP_FILLS[group_index % len(_GROUP_FILLS)]
+
+            # Column A – TC_ID
+            ws.cell(row=row, column=1, value=tc_id)
+
+            # Column B – Conditions
+            ws.cell(row=row, column=2, value=conditions)
+
+            # Column C – Test Scenario (rich text if highlight_last_step)
+            cell_scn = ws.cell(row=row, column=3)
+            if highlight_last_step and numbered_steps:
+                rt = CellRichText()
+                if len(numbered_steps) > 1:
+                    rt.append("\n".join(numbered_steps[:-1]) + "\n")
+                rt.append(TextBlock(_RED_INLINE_FONT, numbered_steps[-1]))
+                cell_scn.value = rt
+            else:
+                cell_scn.value = scenario
+            cell_scn.alignment = Alignment(wrap_text=True)
+
+            # Column D – Bot Responses (rich text if highlight_last_step)
+            cell_bot = ws.cell(row=row, column=4)
+            if highlight_last_step and numbered_responses:
+                rt_bot = CellRichText()
+                if len(numbered_responses) > 1:
+                    rt_bot.append("\n".join(numbered_responses[:-1]) + "\n")
+                rt_bot.append(TextBlock(_RED_INLINE_FONT, numbered_responses[-1]))
+                cell_bot.value = rt_bot
+            else:
+                cell_bot.value = bot_responses_text
+            cell_bot.alignment = Alignment(wrap_text=True)
+
+            # Column E – Path
+            ws.cell(row=row, column=5, value=tc_path)
+
+            # Column F – Expected Action Code
+            ws.cell(row=row, column=6, value=expected_action)
+
+            # Column G – Test Data
+            cell_g = ws.cell(row=row, column=7, value=test_data)
+            cell_g.alignment = Alignment(wrap_text=True)
+
+            # Apply fill to columns A-F (G stays default)
+            for col in range(1, 7):
+                ws.cell(row=row, column=col).fill = fill
+
+            row += 1
+            display_tc_index += 1
+
+    # Auto-fit all columns
+    for c in range(1, 8):
+        _auto_fit_column(ws, c, extra=4)
+
+
+# ---------------------------------------------------------------------------
+# TLS Client Bot helpers
+# ---------------------------------------------------------------------------
 
 @contextmanager
 def _temporary_chdir(path: Path):
@@ -93,14 +273,6 @@ def _load_tls_intents() -> dict[str, Any]:
 
 
 def _load_tls_get_response():
-    """
-    Lazily import `tls_client_bot/chat.py` and expose its `get_response()` function.
-
-    Note: tls_client_bot code uses non-package imports like `from chat import ...`,
-    and loads `intents.json`/`data.pth` via relative paths; we handle this by
-    temporarily adjusting sys.path + working directory.
-    """
-
     global _TLS_GET_RESPONSE
     if _TLS_GET_RESPONSE is not None:
         return _TLS_GET_RESPONSE
@@ -110,29 +282,21 @@ def _load_tls_get_response():
         return None
 
     try:
-        # Make `chat.py`, `model.py`, etc importable as top-level modules.
         tls_str = str(TLS_BOT_DIR)
         if tls_str not in sys.path:
             sys.path.insert(0, tls_str)
 
         with _temporary_chdir(TLS_BOT_DIR):
-            # Import as a top-level module name expected by tls_client_bot.
             from chat import get_response as tls_get_response  # type: ignore
 
         _TLS_GET_RESPONSE = tls_get_response
         return _TLS_GET_RESPONSE
     except Exception:
-        # Most commonly: missing torch/nltk deps, or NLTK data download failing.
         _TLS_GET_RESPONSE = None
         return None
 
 
 def _extract_latest_attempt(raw_step: str) -> tuple[str | None, str | None]:
-    """
-    Trích xuất attempt number cao nhất/cuối cùng từ step.
-    Returns: (full_attempt_text, attempt_number)
-    Ví dụ: "lần 1" -> ("lần 1", "1"), "lần 2" -> ("lần 2", "2")
-    """
     attempt_matches = re.finditer(r"\b(lần\s*(\d+))\b", raw_step, flags=re.IGNORECASE)
     attempts = []
     for match in attempt_matches:
@@ -141,9 +305,7 @@ def _extract_latest_attempt(raw_step: str) -> tuple[str | None, str | None]:
             'number': int(match.group(2)),
             'position': match.start()
         })
-    
     if attempts:
-        # Sắp xếp theo vị trí và lấy attempt cuối cùng (thường là số cao nhất)
         attempts.sort(key=lambda x: x['position'])
         latest = attempts[-1]
         return latest['full'], str(latest['number'])
@@ -151,11 +313,6 @@ def _extract_latest_attempt(raw_step: str) -> tuple[str | None, str | None]:
 
 
 def _normalize_step_to_bot_message(step: str) -> str:
-    """
-    Turn a tcgen step string into a message that `tls_client_bot` can classify.
-    Steps now use backslash as delimiter. We take the first intent and preserve
-    the highest attempt number.
-    """
     _load_tls_intents()
     tags_set = _TAGS_SET or set()
 
@@ -163,13 +320,11 @@ def _normalize_step_to_bot_message(step: str) -> str:
     if not raw:
         return raw
 
-    # Split on backslash (with optional spaces)
     parts = [p.strip() for p in re.split(r"\s*\\\s*", raw) if p.strip()]
     first_part = parts[0] if parts else raw
     is_multi_intent = len(parts) > 1
     first_folded = _fold_for_match(first_part)
 
-    # 1) Special cases: im lặng, không nghe rõ
     if "im lang" in first_folded:
         for tag in tags_set:
             if "im lang" in _fold_for_match(tag):
@@ -180,27 +335,22 @@ def _normalize_step_to_bot_message(step: str) -> str:
             if "khong nghe ro" in _fold_for_match(tag):
                 return tag
 
-    # 2) Multi-intent: take first intent, keep attempt number from the whole step
     if is_multi_intent:
         selected_intent = parts[0]
         attempt_full, _ = _extract_latest_attempt(raw)
         if attempt_full:
-            # Remove any existing attempt from selected_intent
             selected_intent = re.sub(r"\s*lần\s*\d+\s*", "", selected_intent, flags=re.IGNORECASE).strip()
             return f"{selected_intent} {attempt_full}".strip()
         return first_part
 
-    # 3) Single intent: try exact tag match
     for tag in tags_set:
         tag_folded = _fold_for_match(tag)
         if tag_folded == first_folded:
             return tag
-        # If tag is like "A / B", first part of tag might match
         tag_first = tag_folded.split("/")[0].strip()
         if tag_first == first_folded:
             return tag
 
-    # 4) Fallback
     return first_part
 
 
@@ -210,20 +360,11 @@ _MULTISPACE_RE = re.compile(r"\s+")
 
 
 def _sanitize_utterance(text: str) -> str:
-    """
-    Apply the same output constraints style as `generate_test_data.py`:
-    - all lowercase
-    - remove some special characters
-    - no trailing .?! characters
-    - no commas
-    - max word count per line
-    """
     if not text:
         return "(không sinh được)"
 
     t = str(text).strip()
 
-    # If model couldn't classify, keep a consistent placeholder.
     if "do not understand" in t.lower():
         return "(không sinh được)"
 
@@ -242,29 +383,26 @@ def _sanitize_utterance(text: str) -> str:
 
 
 def _fold_for_match(s: str) -> str:
-    """
-    Case-fold + accent-fold (Vietnamese) for robust comparisons.
-    """
     base = unicodedata.normalize("NFD", s.lower())
     return "".join(ch for ch in base if unicodedata.category(ch) != "Mn")
 
 
-def _build_llama_prompt_for_step(step: str, step_number: int, total_steps: int, context: list[str], expected_bot_response: str = "") -> str:
-    """
-    Build prompt for Llama 3.1 to generate a single utterance for a specific step.
-    Includes context from previous steps for better continuity.
-    """
+def _build_llama_prompt_for_step(
+    step: str,
+    step_number: int,
+    total_steps: int,
+    context: list[str],
+    expected_bot_response: str = "",
+) -> str:
     context_text = ""
     if context:
-        context_lines = []
-        for i, ctx in enumerate(context, 1):
-            context_lines.append(f"{i}. {ctx}")
+        context_lines = [f"{i}. {ctx}" for i, ctx in enumerate(context, 1)]
         context_text = "Các câu trước đó:\n" + "\n".join(context_lines) + "\n\n"
-    
+
     bot_response_text = ""
     if expected_bot_response:
         bot_response_text = f"\nBot sẽ đáp: \"{expected_bot_response}\""
-    
+
     return f"""Bạn là KHÁCH HÀNG (KH) đang nói chuyện TRỰC TIẾP qua điện thoại với tổng đài viên về KHOẢN VAY.
 
 NHIỆM VỤ: chỉ tạo 1 câu lời thoại KH cho bước số {step_number} dựa trên kịch bản.
@@ -296,14 +434,16 @@ Output: alo em nghe không rõ anh nói lại giúp em với
 Đầu ra:"""
 
 
-def _generate_single_with_llama(step: str, step_number: int, total_steps: int, context: list[str], expected_bot_response: str = "") -> str:
-    """Generate a single utterance using Llama 3.1 via Ollama."""
-    if not step:
+def _generate_single_with_llama(
+    step: str,
+    step_number: int,
+    total_steps: int,
+    context: list[str],
+    expected_bot_response: str = "",
+) -> str:
+    if not step or ollama_chat is None:
         return "(không sinh được)"
-    
-    if ollama_chat is None:
-        return "(không sinh được)"
-    
+
     prompt = _build_llama_prompt_for_step(step, step_number, total_steps, context, expected_bot_response)
     try:
         response = ollama_chat(
@@ -311,9 +451,7 @@ def _generate_single_with_llama(step: str, step_number: int, total_steps: int, c
             messages=[{"role": "user", "content": prompt}],
         )
         content = (response.get("message") or {}).get("content") or ""
-        # Clean up the response
         content = content.strip()
-        # Remove any numbering if present
         content = re.sub(r"^\s*\d+[.)]\s*", "", content)
         content = _sanitize_utterance(content)
         return content if content else "(không sinh được)"
@@ -323,7 +461,6 @@ def _generate_single_with_llama(step: str, step_number: int, total_steps: int, c
 
 
 def _fallback_response_for_message(msg: str) -> str:
-    """Fallback when TLS bot fails: use intents.json pattern matching."""
     _load_tls_intents()
     intents = _TLS_INTENTS_DATA.get("intents", []) if _TLS_INTENTS_DATA else []
     tags_set = _TAGS_SET or set()
@@ -336,8 +473,6 @@ def _fallback_response_for_message(msg: str) -> str:
 
     m_lower = m.lower()
     m_folded = _fold_for_match(m_lower)
-
-    # Remove attempt number for matching
     m_without_attempt = re.sub(r'\s*lần\s*\d+\s*', ' ', m_lower).strip()
     m_without_attempt_folded = _fold_for_match(m_without_attempt)
 
@@ -357,7 +492,6 @@ def _fallback_response_for_message(msg: str) -> str:
         tag = pattern_to_tag.get(m_lower) or pattern_to_tag.get(m_without_attempt)
     if not tag:
         tag = pattern_to_tag_folded.get(m_folded) or pattern_to_tag_folded.get(m_without_attempt_folded)
-
     if not tag:
         return "(không sinh được)"
 
@@ -371,37 +505,28 @@ def _fallback_response_for_message(msg: str) -> str:
 
 
 def _generate_step_with_tls_bot(step: str) -> str:
-    """Generate a single utterance using TLS Client Bot."""
     tls_get_response = _load_tls_get_response()
-    
     msg = _normalize_step_to_bot_message(step)
-    
+
     if tls_get_response is None:
         resp = _fallback_response_for_message(msg)
         return _sanitize_utterance(resp)
-    
+
     try:
         resp = tls_get_response(msg, context=None, token=None)
         if not resp or "do not understand" in str(resp).lower():
             resp = _fallback_response_for_message(msg)
     except Exception:
         resp = _fallback_response_for_message(msg)
-    
+
     return _sanitize_utterance(resp)
 
 
 def _pick_random_bot_response(bot_response_str: str) -> str:
-    """
-    If bot_response_str contains multiple responses separated by " \ ",
-    pick one at random. Otherwise return the string as is.
-    """
     if not bot_response_str:
         return ""
-    # Split on backslash with optional spaces
     parts = [p.strip() for p in re.split(r"\s*\\\s*", bot_response_str) if p.strip()]
-    if not parts:
-        return bot_response_str
-    return random.choice(parts)
+    return random.choice(parts) if parts else bot_response_str
 
 
 def _is_a0_path(path_value: Any) -> bool:
@@ -409,66 +534,48 @@ def _is_a0_path(path_value: Any) -> bool:
 
 
 def _generate_hybrid(steps: list[str], bot_responses: list[str], tc_id: str) -> str:
-    """
-    Hybrid generation for one test case.
-    For each step, if the bot_response string contains multiple variants (separated by " \ "),
-    we randomly pick one to use as expected bot response.
-    """
+    """Hybrid generation: TLS bot first, Llama fallback per failed step."""
     print(f"\n[DEBUG] Processing TC: {tc_id} with hybrid approach")
-    
+
     utterances: list[str] = []
     tls_failed_steps: list[int] = []
-    
-    # First pass: try TLS bot for all steps
+
     for i, step in enumerate(steps, 1):
         tls_result = _generate_step_with_tls_bot(step)
         utterances.append(tls_result)
-        
         if tls_result == "(không sinh được)":
-            tls_failed_steps.append(i - 1)  # Store 0-based index
+            tls_failed_steps.append(i - 1)
             print(f"  Step {i}: TLS bot failed -> will use Llama fallback")
         else:
             print(f"  Step {i}: TLS bot succeeded -> '{tls_result}'")
-    
-    # Second pass: for failed steps, use Llama with context from previous utterances
+
     for idx in tls_failed_steps:
         step_number = idx + 1
         step = steps[idx]
-        # Pick a random bot response variant if multiple exist
         raw_bot_resp = bot_responses[idx] if idx < len(bot_responses) else ""
         expected_bot_response = _pick_random_bot_response(raw_bot_resp)
-        
-        # Get context from previous utterances (excluding failed ones that are not yet generated)
-        context = []
-        for j in range(idx):
-            if j < len(utterances) and utterances[j] != "(không sinh được)":
-                context.append(utterances[j])
-        
+
+        context = [
+            utterances[j]
+            for j in range(idx)
+            if j < len(utterances) and utterances[j] != "(không sinh được)"
+        ]
+
         print(f"  Step {step_number}: Generating with Llama (context: {len(context)} previous utterances)")
-        
         llama_result = _generate_single_with_llama(step, step_number, len(steps), context, expected_bot_response)
         utterances[idx] = llama_result
         print(f"    Llama result: '{llama_result}'")
-    
-    # Format output
+
     result = "\n".join(f"{i+1}. {p}" for i, p in enumerate(utterances[:len(steps)]))
-    
+
     tls_success = len(steps) - len(tls_failed_steps)
-    llama_used = len(tls_failed_steps)
-    print(f"  Summary: {tls_success}/{len(steps)} steps from TLS, {llama_used} steps from Llama")
-    
+    print(f"  Summary: {tls_success}/{len(steps)} steps from TLS, {len(tls_failed_steps)} steps from Llama")
     return result
 
 
-def _auto_fit_column(ws: Worksheet, col_idx: int, extra: int = 2) -> None:
-    col_letter = get_column_letter(col_idx)
-    max_len = 0
-    for cell in ws[col_letter]:
-        if cell.value:
-            for part in str(cell.value).split("\n"):
-                max_len = max(max_len, len(part))
-    ws.column_dimensions[col_letter].width = max_len + extra
-
+# ---------------------------------------------------------------------------
+# Public entry-points
+# ---------------------------------------------------------------------------
 
 def fill_excel_from_json(
     json_path: Path,
@@ -476,18 +583,18 @@ def fill_excel_from_json(
     model: str = DEFAULT_MODEL,
     limit: int | None = None,
 ) -> None:
-    """
-    Load TC JSON, generate test data for each test case, producing one row per test case.
-    """
+    """Load TC JSON, generate test data, write formatted Excel (one row per TC)."""
     data = json.loads(json_path.read_text(encoding="utf-8"))
     if not isinstance(data, list):
         raise ValueError("Input JSON must be a list of test cases.")
 
-    cases: list[dict[str, Any]] = []
+    rows_data: list[dict[str, Any]] = []
     for i, item in enumerate(data):
         if not isinstance(item, dict):
             continue
         tc_id = str(item.get("tc_id", f"TC_{i+1:03d}"))
+        tc_path = str(item.get("path", ""))
+
         steps = item.get("steps", [])
         if not isinstance(steps, Iterable):
             steps = []
@@ -501,69 +608,34 @@ def fill_excel_from_json(
             if str(s).strip() and not str(s).strip().startswith("(cycle to")
         ]
         clean_bot_responses = [str(r).strip() for r in bot_responses]
-        
-        # Ensure bot_responses length matches steps length
         while len(clean_bot_responses) < len(clean_steps):
             clean_bot_responses.append("")
-        
-        tc_path = str(item.get("path", ""))
-        if _is_a0_path(tc_path):
-            continue
 
-        conditions = str(item.get("conditions", ""))
-        expected_action_code = str(item.get("expected_action_code", ""))
-
+        # A0 paths (or any case with zero steps) get blank test data
         if not clean_steps:
-            continue
+            test_data = ""
+        else:
+            test_data = _generate_hybrid(clean_steps, clean_bot_responses, tc_id)
+            print(f"  Generated: {tc_id} ({len(clean_steps)} steps)")
 
-        cases.append({
+        rows_data.append({
             "tc_id": tc_id,
-            "conditions": conditions,
+            "conditions": str(item.get("conditions", "")),
             "steps": clean_steps,
             "bot_responses": clean_bot_responses,
-            "expected_action_code": expected_action_code,
+            "expected_action": str(item.get("expected_action_code", "N/A")),
             "path": tc_path,
+            "highlight_last_step": bool(item.get("highlight_last_step", False)),
+            "test_data": test_data,
         })
 
     if limit is not None:
-        cases = cases[:limit]
+        rows_data = rows_data[:limit]
 
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = "TestCases"
-    ws["A1"] = "TC_ID"
-    ws["B1"] = "Conditions"
-    ws["C1"] = "Test Scenario"
-    ws["D1"] = "Bot Responses"
-    ws["E1"] = "Path"
-    ws["F1"] = "Expected Action Code"
-    ws["G1"] = "Test Data"
-
-    for row_idx, case in enumerate(cases, start=2):
-        tc_id = case["tc_id"]
-        steps = case["steps"]
-        bot_responses = case["bot_responses"]
-        expected_action_code = case["expected_action_code"]
-        tc_path = case["path"]
-        scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(steps))
-        bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
-        
-        test_data = _generate_hybrid(steps, bot_responses, tc_id)
-
-        ws.cell(row=row_idx, column=1, value=tc_id)
-        ws.cell(row=row_idx, column=2, value=case["conditions"])
-        cell_c = ws.cell(row=row_idx, column=3, value=scenario_text)
-        cell_c.alignment = Alignment(wrap_text=True)
-        cell_d = ws.cell(row=row_idx, column=4, value=bot_responses_text)
-        cell_d.alignment = Alignment(wrap_text=True)
-        ws.cell(row=row_idx, column=5, value=tc_path)
-        ws.cell(row=row_idx, column=6, value=expected_action_code)
-        cell_g = ws.cell(row=row_idx, column=7, value=test_data)
-        cell_g.alignment = Alignment(wrap_text=True)
-        print(f"  Generated: {tc_id} ({len(steps)} steps)")
-
-    for c in range(1, 8):
-        _auto_fit_column(ws, c, extra=4)
+    _write_formatted_excel(ws, rows_data)
 
     excel_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(excel_path)
@@ -575,17 +647,13 @@ def fill_excel_from_excel(
     model: str = DEFAULT_MODEL,
     limit: int | None = None,
 ) -> None:
-    """
-    Read existing Excel, fill Test Data column using hybrid approach, one row per test case.
-    Assumes the input Excel already has columns: TC_ID, Test Scenario, Bot Responses, Path, Expected Action Code.
-    """
+    """Read existing Excel, fill Test Data column, write new formatted Excel."""
     wb = openpyxl.load_workbook(excel_path)
     ws = wb.active
     max_row = ws.max_row
     if limit is not None:
         max_row = min(max_row, 1 + limit)
 
-    # Find columns by header names
     header_to_col: dict[str, int] = {}
     for col in range(1, ws.max_column + 1):
         header_val = ws.cell(row=1, column=col).value
@@ -600,100 +668,66 @@ def fill_excel_from_excel(
     path_col = header_to_col.get("Path", 4)
     expected_action_col = header_to_col.get("Expected Action Code", 5)
 
-    rows_data = []
+    numbered_re = re.compile(r"^\s*(\d+)[.)]\s*(.*)$")
+
+    def _parse_numbered_lines(cell_value: str) -> list[str]:
+        result: list[str] = []
+        for raw_line in str(cell_value).strip().split("\n"):
+            line = raw_line.strip()
+            if not line:
+                continue
+            m = numbered_re.match(raw_line)
+            if m:
+                cleaned = (m.group(2) or "").strip()
+                result.append(cleaned)
+            elif result:
+                result[-1] = f"{result[-1].rstrip()} {line}".strip()
+            else:
+                result.append(line)
+        return result
+
+    rows_data: list[dict[str, Any]] = []
     for row in range(2, max_row + 1):
         tc_id = ws.cell(row=row, column=tc_id_col).value or ""
+        path_val = str(ws.cell(row=row, column=path_col).value or "")
+
         scenario_cell = ws.cell(row=row, column=scenario_col).value or ""
-        bot_responses_cell = ws.cell(row=row, column=bot_responses_col).value or "" if bot_responses_col else ""
-        path_val = ws.cell(row=row, column=path_col).value or ""
+        bot_responses_cell = (
+            ws.cell(row=row, column=bot_responses_col).value or ""
+            if bot_responses_col else ""
+        )
         expected_action = ws.cell(row=row, column=expected_action_col).value or ""
-        conditions = ws.cell(row=row, column=conditions_col).value or "" if conditions_col else ""
-        if _is_a0_path(path_val):
-            continue
+        conditions = (
+            ws.cell(row=row, column=conditions_col).value or ""
+            if conditions_col else ""
+        )
 
-        # Parse steps from scenario (numbered lines)
-        steps: list[str] = []
-        numbered_re = re.compile(r"^\s*(\d+)[.)]\s*(.*)$")
-        for raw_line in str(scenario_cell).strip().split("\n"):
-            line = raw_line.strip()
-            if not line:
-                continue
-            m = numbered_re.match(raw_line)
-            if m:
-                cleaned = (m.group(2) or "").strip()
-                if cleaned:
-                    steps.append(cleaned)
-                else:
-                    steps.append("")
-            elif steps:
-                steps[-1] = f"{steps[-1].rstrip()} {line}".strip()
-            else:
-                steps.append(line)
-
-        # Parse bot responses similarly
-        bot_responses: list[str] = []
-        for raw_line in str(bot_responses_cell).strip().split("\n"):
-            line = raw_line.strip()
-            if not line:
-                continue
-            m = numbered_re.match(raw_line)
-            if m:
-                cleaned = (m.group(2) or "").strip()
-                if cleaned:
-                    bot_responses.append(cleaned)
-                else:
-                    bot_responses.append("")
-            elif bot_responses:
-                bot_responses[-1] = f"{bot_responses[-1].rstrip()} {line}".strip()
-
+        steps = _parse_numbered_lines(str(scenario_cell))
+        bot_responses = _parse_numbered_lines(str(bot_responses_cell))
         while len(bot_responses) < len(steps):
             bot_responses.append("")
+
         if not steps:
-            continue
+            test_data = ""
+        else:
+            test_data = _generate_hybrid(steps, bot_responses, str(tc_id))
+            print(f"  Generated: {tc_id} ({len(steps)} steps)")
 
         rows_data.append({
             "tc_id": tc_id,
-            "conditions": conditions,
+            "conditions": str(conditions),
             "steps": steps,
             "bot_responses": bot_responses,
+            "expected_action": str(expected_action),
             "path": path_val,
-            "expected_action": expected_action,
+            "highlight_last_step": False,
+            "test_data": test_data,
         })
 
-    # Build new workbook with consistent columns
     new_wb = openpyxl.Workbook()
     new_ws = new_wb.active
     new_ws.title = "TestCases"
-    new_ws["A1"] = "TC_ID"
-    new_ws["B1"] = "Conditions"
-    new_ws["C1"] = "Test Scenario"
-    new_ws["D1"] = "Bot Responses"
-    new_ws["E1"] = "Path"
-    new_ws["F1"] = "Expected Action Code"
-    new_ws["G1"] = "Test Data"
-
-    for row_idx, case in enumerate(rows_data, start=2):
-        tc_id = case["tc_id"]
-        steps = case["steps"]
-        bot_responses = case["bot_responses"]
-        scenario_text = "\n".join(f"{i+1}. {step}" for i, step in enumerate(steps))
-        bot_responses_text = "\n".join(f"{i+1}. {r}" for i, r in enumerate(bot_responses) if r)
-        test_data = _generate_hybrid(steps, bot_responses, str(tc_id))
-
-        new_ws.cell(row=row_idx, column=1, value=tc_id)
-        new_ws.cell(row=row_idx, column=2, value=case["conditions"])
-        cell_c = new_ws.cell(row=row_idx, column=3, value=scenario_text)
-        cell_c.alignment = Alignment(wrap_text=True)
-        cell_d = new_ws.cell(row=row_idx, column=4, value=bot_responses_text)
-        cell_d.alignment = Alignment(wrap_text=True)
-        new_ws.cell(row=row_idx, column=5, value=case["path"])
-        new_ws.cell(row=row_idx, column=6, value=case["expected_action"])
-        cell_g = new_ws.cell(row=row_idx, column=7, value=test_data)
-        cell_g.alignment = Alignment(wrap_text=True)
-        print(f"  Generated: {tc_id} ({len(steps)} steps)")
-
-    for c in range(1, 8):
-        _auto_fit_column(new_ws, c, extra=4)
+    _write_formatted_excel(new_ws, rows_data)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     new_wb.save(out_path)
@@ -738,14 +772,17 @@ def main() -> int:
 
     out_path = args.out_path
     if out_path is None:
-        out_path = in_path if in_path.suffix.lower() == ".xlsx" else Path("output/test_cases.xlsx")
+        out_path = (
+            in_path if in_path.suffix.lower() == ".xlsx"
+            else Path("output/test_cases.xlsx")
+        )
 
     print("=" * 60)
     print("HYBRID GENERATION MODE: TLS Client Bot + Llama 3.1 Fallback (per-step)")
     print("Bot responses may have multiple variants (separated by ' \\ ') -> random selection.")
-    print("Skipping test cases where Path == A0.")
+    print("Including A0 test cases with empty test data.")
     print("=" * 60)
-    
+
     if ollama_chat is None:
         print("⚠️  Warning: Ollama not installed. Llama fallback will not work.")
         print("   Install with: pip install ollama")

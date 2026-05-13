@@ -18,6 +18,7 @@ class Transition:
     intent: str
     action_code: str
     bot_response: str
+    source_row: dict[str, str]
 
 
 _REPEAT_RE = re.compile(r"(?i)\blần\s*(\d+)\b")
@@ -106,6 +107,10 @@ def load_transitions_json(path: Path) -> list[dict[str, str]]:
                 "conditions": _clean_str(obj.get("conditions", "")),
                 "customer_intent": _clean_str(obj.get("customer_intent", "")),
                 "bot_response": _clean_str(obj.get("bot_response", "")),
+                "bot_response_2": _clean_str(obj.get("bot_response_2", "")),
+                "bot_response_3": _clean_str(obj.get("bot_response_3", "")),
+                "bot_response_4": _clean_str(obj.get("bot_response_4", "")),
+                "bot_response_5": _clean_str(obj.get("bot_response_5", "")),
                 "next_step": _clean_str(obj.get("next_step", "")),
                 "action_code": _clean_str(obj.get("action_code", "")),
             }
@@ -132,6 +137,19 @@ def build_graph(
         bot_response = _clean_str(t.get("bot_response", ""))
         if not src:
             continue
+        source_row = {
+            "step_no": src,
+            "step_name": _clean_str(t.get("step_name", "")),
+            "conditions": condition,
+            "customer_intent": intent,
+            "bot_response": bot_response,
+            "bot_response_2": _clean_str(t.get("bot_response_2", "")),
+            "bot_response_3": _clean_str(t.get("bot_response_3", "")),
+            "bot_response_4": _clean_str(t.get("bot_response_4", "")),
+            "bot_response_5": _clean_str(t.get("bot_response_5", "")),
+            "next_step": dst,
+            "action_code": action_code,
+        }
         adjacency[src].append(
             Transition(
                 src=src,
@@ -140,6 +158,7 @@ def build_graph(
                 intent=intent,
                 action_code=action_code,
                 bot_response=bot_response,
+                source_row=source_row,
             )
         )
     for src in adjacency:
@@ -168,6 +187,7 @@ def _a0_greeting_case(
         "bot_responses": bot_responses,
         "expected_action_code": first.action_code,
         "path": "A0",
+        "source_rows": [first.source_row],
     }
 
 
@@ -223,6 +243,7 @@ def generate_test_cases(
         bot_responses_list: List[List[str]],
         action_code: str,
         path_nodes: List[str],
+        source_rows: List[dict[str, str]],
     ) -> None:
         cases.append({
             "conditions": _render_conditions(case_conditions),
@@ -230,6 +251,7 @@ def generate_test_cases(
             "bot_responses": bot_responses_list,
             "expected_action_code": action_code,
             "path": " -> ".join(path_nodes),
+            "source_rows": list(source_rows),
         })
 
     # ------------------------------------------------------------------ #
@@ -241,6 +263,7 @@ def generate_test_cases(
         bot_responses_list: List[List[str]],
         case_conditions: List[str],
         path_nodes: List[str],
+        source_rows: List[dict[str, str]],
         visited_edges: Set[Tuple[str, str, str, str]],
         consumed_chains: Set[Tuple[str, str]],
         *,
@@ -320,18 +343,19 @@ def generate_test_cases(
             new_bot = bot_responses_list + [bot_resp]
             new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
+            new_source_rows = source_rows + [tr.source_row]
             new_visited = visited_edges | {edge_key}
 
             if _is_terminal_step(dst):
                 if is_duplicate_dst:
                     continue
-                _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
+                _append_case(new_conditions, new_steps, new_bot, action_code, new_path, new_source_rows)
                 if stop_after_first:
                     return True
                 continue
 
             if emit_at_every_step:
-                _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
+                _append_case(new_conditions, new_steps, new_bot, action_code, new_path, new_source_rows)
 
             if dst in graph:
                 cross_source_stop = effective_stop
@@ -344,7 +368,7 @@ def generate_test_cases(
                         cross_source_stop = True
                 found = dfs(
                     dst, new_steps, new_bot, new_conditions, new_path,
-                    new_visited, consumed_chains,
+                    new_source_rows, new_visited, consumed_chains,
                     stop_after_first=cross_source_stop,
                 )
                 if stop_after_first and found:
@@ -379,6 +403,7 @@ def generate_test_cases(
                 bot_responses_list=bot_responses_list,
                 case_conditions=case_conditions,
                 path_nodes=path_nodes,
+                source_rows=source_rows,
                 visited_edges=visited_edges,
                 consumed_chains=consumed_chains,
                 stop_after_first=stop_after_first,
@@ -397,6 +422,7 @@ def generate_test_cases(
         bot_responses_list: List[List[str]],
         case_conditions: List[str],
         path_nodes: List[str],
+        source_rows: List[dict[str, str]],
         visited_edges: Set[Tuple[str, str, str, str]],
         consumed_chains: Set[Tuple[str, str]],
         *,
@@ -428,17 +454,18 @@ def generate_test_cases(
             new_steps = steps + [step_intent]
             new_bot = bot_responses_list + [bot_resp]
             new_conditions = _append_condition(case_conditions, step_condition)
+            new_source_rows = source_rows + [tr.source_row for tr in trans_list]
             new_visited = visited_edges | {edge_key}
             new_consumed = consumed_chains | chain_ids
 
             if is_last_in_chain:
                 if _is_terminal_step(dst):
-                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path, new_source_rows)
                     if stop_after_first:
                         return True
                     continue
                 if emit_at_every_step:
-                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path, new_source_rows)
                 if dst in graph:
                     cross_source_stop = stop_after_first
                     if dst != origin_node:
@@ -450,14 +477,14 @@ def generate_test_cases(
                             cross_source_stop = True
                     found = dfs(
                         dst, new_steps, new_bot, new_conditions, new_path,
-                        new_visited, new_consumed,
+                        new_source_rows, new_visited, new_consumed,
                         stop_after_first=cross_source_stop,
                     )
                     if stop_after_first and found:
                         return True
             else:
                 if emit_at_every_step:
-                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path)
+                    _append_case(new_conditions, new_steps, new_bot, action_code, new_path, new_source_rows)
                 found = _dfs_repeat_chain(
                     origin_node=origin_node,
                     chain_ids=chain_ids,
@@ -467,6 +494,7 @@ def generate_test_cases(
                     bot_responses_list=new_bot,
                     case_conditions=new_conditions,
                     path_nodes=new_path,
+                    source_rows=new_source_rows,
                     visited_edges=new_visited,
                     consumed_chains=new_consumed,
                     stop_after_first=stop_after_first,
@@ -481,7 +509,7 @@ def generate_test_cases(
     # A cross-source owner map also limits later non-terminal transitions from
     # different source steps to the same dst to stop_after_first=True.
     # Self-repeat nodes and A0 are exempt (A0 is prepended separately below).
-    dfs(root, [], [], [], [root], set(), set(), stop_after_first=False)
+    dfs(root, [], [], [], [root], [], set(), set(), stop_after_first=False)
 
     # Remove duplicates
     seen = set()

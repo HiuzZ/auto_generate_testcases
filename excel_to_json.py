@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -61,6 +62,10 @@ JSON_KEYS: dict[str, str] = {
     "Action code": "action_code",
 }
 
+FIXED_POSITIONAL_COLUMNS = list(JSON_KEYS.keys())
+
+_DYNAMIC_KEY_RE = re.compile(r"\W+")
+
 
 def _normalize_col(col: str) -> str:
     return " ".join(str(col).strip().split())
@@ -68,6 +73,22 @@ def _normalize_col(col: str) -> str:
 
 def _normalize_col_key(col: str) -> str:
     return _normalize_col(col).lower()
+
+
+def _json_key_from_header(header: str, existing: set[str]) -> str:
+    base = _DYNAMIC_KEY_RE.sub("_", _normalize_col(header).lower()).strip("_")
+    if not base:
+        base = "column"
+    if base[0].isdigit():
+        base = f"col_{base}"
+
+    key = base
+    suffix = 2
+    while key in existing:
+        key = f"{base}_{suffix}"
+        suffix += 1
+    existing.add(key)
+    return key
 
 
 def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
@@ -121,6 +142,121 @@ def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
     return resolved
 
 
+def _is_fixed_positional_header(values: list[object]) -> bool:
+    if len(values) < len(FIXED_POSITIONAL_COLUMNS):
+        return False
+
+    for value, canonical in zip(values[: len(FIXED_POSITIONAL_COLUMNS)], FIXED_POSITIONAL_COLUMNS):
+        value_key = _normalize_col_key(value)
+        aliases = COLUMN_ALIASES.get(canonical, [canonical.lower()])
+        if canonical == "Action code":
+            if not (value_key in aliases or value_key.startswith("action code")):
+                return False
+        elif canonical == "Next Step":
+            if value_key not in aliases:
+                return False
+        elif value_key != _normalize_col_key(canonical):
+            return False
+
+    return True
+
+
+def _detect_dynamic_columns(df: pd.DataFrame, start_idx: int = 11) -> dict[str, str]:
+    dynamic_columns: dict[str, str] = {}
+    existing = set(JSON_KEYS.values())
+
+    for col in list(df.columns)[start_idx:]:
+        header = _normalize_col(col)
+        if not header or header.lower().startswith("unnamed:"):
+            continue
+
+        series = df[col]
+        has_data = series.notna() & series.astype(str).str.strip().ne("") & series.astype(str).str.lower().ne("nan")
+        if not has_data.any():
+            continue
+
+        dynamic_columns[col] = _json_key_from_header(header, existing)
+
+    return dynamic_columns
+
+
+def _clean_rows_dataframe(df: pd.DataFrame, dynamic_columns: dict[str, str] | None = None) -> tuple[pd.DataFrame, dict[str, str]]:
+    dynamic_columns = dynamic_columns or {}
+
+    # Default for Action code is N/A.
+    if "Action code" in df.columns:
+        df["Action code"] = df["Action code"].where(df["Action code"].notna(), "N/A")
+        df["Action code"] = df["Action code"].astype(str).str.strip()
+        df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
+
+    # Convert all other fields to clean strings (empty if NaN).
+    for col in [
+        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
+        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
+    ]:
+        df[col] = df[col].where(df[col].notna(), "")
+        df[col] = df[col].astype(str).str.strip()
+        df.loc[df[col].eq("nan"), col] = ""
+
+    for col in dynamic_columns:
+        df[col] = df[col].where(df[col].notna(), "")
+        df[col] = df[col].astype(str).str.strip()
+        df.loc[df[col].eq("nan"), col] = ""
+
+    return df, dynamic_columns
+
+
+def _read_template_dataframe(
+    excel_path: Path,
+    sheet: str | int | None = None,
+) -> tuple[pd.DataFrame, dict[str, str]]:
+    if sheet is None:
+        detected_sheet, header_row = _detect_sheet_and_header_row(excel_path)
+        df = pd.read_excel(
+            excel_path, sheet_name=detected_sheet, header=header_row, dtype=object
+        )
+    else:
+        df = pd.read_excel(excel_path, sheet_name=sheet, dtype=object)
+
+    df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
+
+    if _is_fixed_positional_header(list(df.columns)):
+        fixed_actual_columns = list(df.columns[: len(FIXED_POSITIONAL_COLUMNS)])
+        rename_map = {
+            actual: canonical
+            for actual, canonical in zip(fixed_actual_columns, FIXED_POSITIONAL_COLUMNS)
+        }
+        dynamic_columns = _detect_dynamic_columns(df, start_idx=len(FIXED_POSITIONAL_COLUMNS))
+        selected_columns = [*fixed_actual_columns, *dynamic_columns.keys()]
+        df = df[selected_columns].copy()
+        df = df.rename(columns=rename_map)
+        return _clean_rows_dataframe(df, dynamic_columns)
+
+    mapping = _resolve_column_mapping(list(df.columns))
+    dynamic_columns = _detect_dynamic_columns(df, start_idx=len(FIXED_POSITIONAL_COLUMNS))
+
+    selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
+    if "Conditions" in mapping:
+        selected_columns.insert(2, mapping["Conditions"])
+    insert_idx = 5
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col in mapping:
+            selected_columns.insert(insert_idx, mapping[optional_response_col])
+        insert_idx += 1
+    selected_columns.extend(col for col in dynamic_columns if col not in selected_columns)
+
+    df = df[selected_columns].copy()
+    df = df.rename(columns={v: k for k, v in mapping.items()})
+    if "Conditions" not in df.columns:
+        df["Conditions"] = ""
+    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
+        if optional_response_col not in df.columns:
+            df[optional_response_col] = ""
+    df = df[[*CANONICAL_COLUMNS, *dynamic_columns.keys()]]
+
+    return _clean_rows_dataframe(df, dynamic_columns)
+
+
 def _pick_excel_file(input_dir: Path) -> Path:
     candidates = sorted(
         [
@@ -143,6 +279,18 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
     columns and returns (sheet_name, header_row_index).
     """
     xls = pd.ExcelFile(excel_path)
+    for sheet_name in xls.sheet_names:
+        preview = pd.read_excel(
+            excel_path,
+            sheet_name=sheet_name,
+            header=None,
+            nrows=50,
+            dtype=object,
+        )
+        for row_idx in range(len(preview)):
+            if _is_fixed_positional_header(preview.iloc[row_idx].tolist()):
+                return sheet_name, row_idx
+
     # We detect the header row by looking for the presence of at least one alias
     # for every canonical field.
     required_alias_sets = []
@@ -195,47 +343,7 @@ def convert_excel_rows_to_strings(
     Read the Excel template and convert each row into:
     "Step no: <...>; Step name: <...>; Customer intent: <...>; Bot response: <...>; Next Step: <...>; Action code: <...>"
     """
-    if sheet is None:
-        detected_sheet, header_row = _detect_sheet_and_header_row(excel_path)
-        df = pd.read_excel(
-            excel_path, sheet_name=detected_sheet, header=header_row, dtype=object
-        )
-    else:
-        df = pd.read_excel(excel_path, sheet_name=sheet, dtype=object)
-
-    df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
-    mapping = _resolve_column_mapping(list(df.columns))
-    selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
-    if "Conditions" in mapping:
-        selected_columns.insert(2, mapping["Conditions"])
-    insert_idx = 5
-    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
-        if optional_response_col in mapping:
-            selected_columns.insert(insert_idx, mapping[optional_response_col])
-        insert_idx += 1
-    df = df[selected_columns].copy()
-    df = df.rename(columns={v: k for k, v in mapping.items()})
-    if "Conditions" not in df.columns:
-        df["Conditions"] = ""
-    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
-        if optional_response_col not in df.columns:
-            df[optional_response_col] = ""
-    df = df[CANONICAL_COLUMNS]
-
-    # Default for Action code is N/A.
-    if "Action code" in df.columns:
-        df["Action code"] = df["Action code"].where(df["Action code"].notna(), "N/A")
-        df["Action code"] = df["Action code"].astype(str).str.strip()
-        df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
-
-    # Convert all other fields to clean strings (empty if NaN).
-    for col in [
-        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
-        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
-    ]:
-        df[col] = df[col].where(df[col].notna(), "")
-        df[col] = df[col].astype(str).str.strip()
-        df.loc[df[col].eq("nan"), col] = ""
+    df, _dynamic_columns = _read_template_dataframe(excel_path, sheet=sheet)
 
     output: list[str] = []
     for _, row in df.iterrows():
@@ -271,48 +379,7 @@ def convert_excel_rows_to_json(
       "action_code": "..."
     }
     """
-    if sheet is None:
-        detected_sheet, header_row = _detect_sheet_and_header_row(excel_path)
-        df = pd.read_excel(
-            excel_path, sheet_name=detected_sheet, header=header_row, dtype=object
-        )
-    else:
-        df = pd.read_excel(excel_path, sheet_name=sheet, dtype=object)
-
-    df = df.rename(columns={c: _normalize_col(c) for c in df.columns})
-    mapping = _resolve_column_mapping(list(df.columns))
-    
-    selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
-    if "Conditions" in mapping:
-        selected_columns.insert(2, mapping["Conditions"])
-    insert_idx = 5
-    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
-        if optional_response_col in mapping:
-            selected_columns.insert(insert_idx, mapping[optional_response_col])
-        insert_idx += 1
-    df = df[selected_columns].copy()
-    df = df.rename(columns={v: k for k, v in mapping.items()})
-    if "Conditions" not in df.columns:
-        df["Conditions"] = ""
-    for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
-        if optional_response_col not in df.columns:
-            df[optional_response_col] = ""
-    df = df[CANONICAL_COLUMNS]
-
-    # Default for Action code is N/A.
-    if "Action code" in df.columns:
-        df["Action code"] = df["Action code"].where(df["Action code"].notna(), "N/A")
-        df["Action code"] = df["Action code"].astype(str).str.strip()
-        df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
-
-    # Convert all other fields to clean strings (empty if NaN).
-    for col in [
-        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
-        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
-    ]:
-        df[col] = df[col].where(df[col].notna(), "")
-        df[col] = df[col].astype(str).str.strip()
-        df.loc[df[col].eq("nan"), col] = ""
+    df, dynamic_columns = _read_template_dataframe(excel_path, sheet=sheet)
 
     rows: list[dict[str, str]] = []
     for _, r in df.iterrows():
@@ -329,6 +396,8 @@ def convert_excel_rows_to_json(
             JSON_KEYS["Next Step"]: r["Next Step"],
             JSON_KEYS["Action code"]: r["Action code"],
         }
+        for col, key in dynamic_columns.items():
+            obj[key] = r[col]
         rows.append(obj)
 
     return rows

@@ -22,24 +22,25 @@ from openpyxl.worksheet.datavalidation import DataValidation
 HEADER_FILL = PatternFill(start_color="0016365C", end_color="0016365C", fill_type="solid")
 HEADER_FONT = Font(bold=True, color="00FFFFFF")
 
-# Main headers (first row, columns A–F)
+# Main headers (first row, columns A–G) – updated to match Book 5.xlsx
 MAIN_HEADERS = [
     "TC_ID \n (Mã TC)",
     "Conditions \n (Điều kiện kiểm tra)",
-    "Test Scenario \n (Tình huống kiểm tra)",
-    "Bot Responses \n (Câu trả lời của bot)",
-    "Path \n (Đường dẫn)",
+    "User Attributes \n (Bộ dữ liệu đầu vào)",
+    "Test Scenario \n (Các bước thực hiện kiểm tra)",
+    "Expected Bot Responses \n (Câu trả lời mong muốn của bot)",
+    "Flow \n (Bước theo kịch bản)",
     "Expected Action Code \n (Mã mong muốn)",
 ]
 
-# Sub‑headers for each round (columns G‑M and N‑T)
+# Sub‑headers for each round (columns H‑N and O‑U)
 ROUND_SUB_HEADERS = [
+    "Tester\n(Người kiểm thử)",
     "Test Data \n (Dữ liệu kiểm tra)",
-    "User Attributes \n (Thuộc tính người dùng)",
-    "Call Id \n (ID cuộc gọi)",
     "Test Results \n (Kết quả kiểm tra)",
     "Error Type \n (Loại lỗi)",
     "Error Description \n (Mô tả lỗi)",
+    "Call ID",
     "FPT Comment \n (Ghi chú FPT)",
 ]
 
@@ -47,7 +48,7 @@ ROUND_SUB_HEADERS = [
 SECTION_FONT = Font(bold=True, color="000000")
 SECTION_FILL = PatternFill(fill_type="solid", fgColor="ffff00")
 
-# Group fill colors – only used when use_group_fills=True, applied to columns A-F
+# Group fill colors – only used when use_group_fills=True, applied to columns A-G
 GROUP_FILLS = [
     PatternFill(fill_type="solid", fgColor="00FDE2E2"),
     PatternFill(fill_type="solid", fgColor="00E3F2FD"),
@@ -65,31 +66,57 @@ THIN_BORDER = Border(
     bottom=Side(style="thin"),
 )
 
-# Column widths for columns 1..20
+# Column widths for columns 1..21 (A–U)
 COL_WIDTHS = {
     1: 10,   # TC_ID
     2: 40,   # Conditions
-    3: 40,   # Test Scenario
-    4: 90,   # Bot Responses
-    5: 25,   # Path
-    6: 25,   # Expected Action Code
-    7: 40,   # Round 1 Test Data
-    8: 20,   # Round 1 User Attributes
-    9: 20,   # Round 1 Call Id
+    3: 30,   # User Attributes
+    4: 40,   # Test Scenario
+    5: 90,   # Expected Bot Responses
+    6: 25,   # Flow (Path)
+    7: 25,   # Expected Action Code
+    8: 15,   # Round 1 Tester
+    9: 40,   # Round 1 Test Data
     10: 20,  # Round 1 Test Results
     11: 20,  # Round 1 Error Type
     12: 20,  # Round 1 Error Description
-    13: 20,  # Round 1 FPT Comment
-    14: 40,  # Round 2 Test Data
-    15: 20,  # Round 2 User Attributes
-    16: 20,  # Round 2 Call Id
+    13: 20,  # Round 1 Call ID
+    14: 20,  # Round 1 FPT Comment
+    15: 15,  # Round 2 Tester
+    16: 40,  # Round 2 Test Data
     17: 20,  # Round 2 Test Results
     18: 20,  # Round 2 Error Type
     19: 20,  # Round 2 Error Description
-    20: 20,  # Round 2 FPT Comment
+    20: 20,  # Round 2 Call ID
+    21: 20,  # Round 2 FPT Comment
 }
 
-# Conditional formatting colors for Test Results columns (J and Q)
+INPUT_ROW_COLUMNS: list[tuple[str, str]] = [
+    ("Step no", "step_no"),
+    ("Step name", "step_name"),
+    ("Conditions", "conditions"),
+    ("Customer intent", "customer_intent"),
+    ("Bot response", "bot_response"),
+    ("Bot response 2", "bot_response_2"),
+    ("Bot response 3", "bot_response_3"),
+    ("Bot response 4", "bot_response_4"),
+    ("Bot response 5", "bot_response_5"),
+    ("Next Step", "next_step"),
+    ("Action code", "action_code"),
+]
+
+INPUT_ROW_KEYS = {key for _, key in INPUT_ROW_COLUMNS}
+
+SOURCE_START_COL = 8
+ROUND1_START_COL = SOURCE_START_COL + len(INPUT_ROW_COLUMNS)
+ROUND2_START_COL = ROUND1_START_COL + len(ROUND_SUB_HEADERS)
+TESTCASES_MAX_COL = ROUND2_START_COL + len(ROUND_SUB_HEADERS) - 1
+ROUND1_RESULT_COL = ROUND1_START_COL + 2
+ROUND1_ERROR_TYPE_COL = ROUND1_START_COL + 3
+ROUND2_RESULT_COL = ROUND2_START_COL + 2
+ROUND2_ERROR_TYPE_COL = ROUND2_START_COL + 3
+
+# Conditional formatting colors for Test Results columns.
 RESULT_COLORS = {
     "Pass": "00C6EFCE",        # light green
     "Fail": "00FFC7CE",        # light red
@@ -127,6 +154,7 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
         tc_path = str(item.get("path", ""))
         highlight_last_step = bool(item.get("highlight_last_step", False))
         test_data = str(item.get("test_data", ""))
+        test_data_round2 = str(item.get("test_data_round2", ""))
 
         if not isinstance(steps, Iterable):
             raise ValueError(f"'steps' for {tc_id} must be a list.")
@@ -154,6 +182,7 @@ def _load_testcases(path: Path) -> list[dict[str, Any]]:
             "path": tc_path,
             "highlight_last_step": highlight_last_step,
             "test_data": test_data,
+            "test_data_round2": test_data_round2,
         })
     return cases
 
@@ -242,6 +271,22 @@ def _load_step_name_map(testcases_path: Path, rows_path: Path | None = None) -> 
     return {}
 
 
+def _load_source_rows(rows_path: Path | None) -> list[dict[str, Any]] | None:
+    if rows_path is None or not rows_path.exists():
+        return None
+
+    data = json.loads(rows_path.read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"Rows JSON must be a list: {rows_path}")
+
+    rows: list[dict[str, Any]] = []
+    for idx, item in enumerate(data):
+        if not isinstance(item, dict):
+            raise ValueError(f"Rows JSON item at index {idx} is not an object: {rows_path}")
+        rows.append(item)
+    return rows
+
+
 def _apply_borders(ws: Worksheet) -> None:
     """Apply thin borders to all used cells."""
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row, max_col=ws.max_column):
@@ -283,8 +328,8 @@ def _add_data_validations(ws: Worksheet, max_row: int) -> None:
     dv_results.error = "Please select a value from the list."
     dv_results.errorTitle = "Invalid Result"
     ws.add_data_validation(dv_results)
-    dv_results.add(f"J2:J{max_row}")   # Round 1 Test Results
-    dv_results.add(f"Q2:Q{max_row}")   # Round 2 Test Results
+    dv_results.add(f"J2:J{max_row}")   # Round 1 Test Results (column J)
+    dv_results.add(f"Q2:Q{max_row}")   # Round 2 Test Results (column Q)
 
     # Error Type list
     dv_error = DataValidation(
@@ -295,8 +340,8 @@ def _add_data_validations(ws: Worksheet, max_row: int) -> None:
     dv_error.error = "Please select a value from the list."
     dv_error.errorTitle = "Invalid Error Type"
     ws.add_data_validation(dv_error)
-    dv_error.add(f"K2:K{max_row}")   # Round 1 Error Type
-    dv_error.add(f"R2:R{max_row}")   # Round 2 Error Type
+    dv_error.add(f"K2:K{max_row}")   # Round 1 Error Type (column K)
+    dv_error.add(f"R2:R{max_row}")   # Round 2 Error Type (column R)
 
 
 def _add_conditional_formatting(ws: Worksheet, max_row: int) -> None:
@@ -328,6 +373,51 @@ def _add_conditional_formatting(ws: Worksheet, max_row: int) -> None:
         ws.conditional_formatting.add(f"R2:R{max_row}", rule)
 
 
+def _title_from_key(key: str) -> str:
+    return " ".join(part for part in key.split("_") if part).title()
+
+
+def _add_input_rows_sheet(wb: openpyxl.Workbook, source_rows: list[dict[str, Any]]) -> None:
+    if not source_rows:
+        return
+
+    ws = wb.create_sheet("InputRows")
+    dynamic_keys: list[str] = []
+    for row in source_rows:
+        for key in row:
+            if key in INPUT_ROW_KEYS or key in dynamic_keys:
+                continue
+            dynamic_keys.append(key)
+
+    headers = [header for header, _ in INPUT_ROW_COLUMNS] + [_title_from_key(key) for key in dynamic_keys]
+    keys = [key for _, key in INPUT_ROW_COLUMNS] + dynamic_keys
+
+    for col_idx, header in enumerate(headers, start=1):
+        cell = ws.cell(row=1, column=col_idx, value=header)
+        cell.fill = HEADER_FILL
+        cell.font = HEADER_FONT
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+    for row_idx, row_data in enumerate(source_rows, start=2):
+        for col_idx, key in enumerate(keys, start=1):
+            ws.cell(row=row_idx, column=col_idx, value=str(row_data.get(key, "")))
+
+    _apply_borders(ws)
+    for col_idx, key in enumerate(keys, start=1):
+        width = 18
+        if key in {"conditions", "customer_intent", "bot_response", "bot_response_2", "bot_response_3", "bot_response_4", "bot_response_5"}:
+            width = 45
+        elif key in {"step_name", "action_code"}:
+            width = 28
+        ws.column_dimensions[get_column_letter(col_idx)].width = width
+
+    for row in ws.iter_rows(min_row=1, max_row=ws.max_row, max_col=ws.max_column):
+        for cell in row:
+            cell.alignment = Alignment(vertical="center", wrap_text=True)
+
+    ws.freeze_panes = "A2"
+
+
 def export_to_excel(
     cases: list[dict[str, Any]],
     out_path: Path,
@@ -336,6 +426,7 @@ def export_to_excel(
     group_by_step: bool = False,
     use_group_fills: bool = False,
     allow_highlight_last: bool = False,
+    source_rows: list[dict[str, Any]] | None = None,
 ) -> None:
     """Write test cases to an Excel file with full formatting."""
     step_name_map = step_name_map or {}
@@ -344,48 +435,48 @@ def export_to_excel(
     ws.title = "TestCases"
 
     # ---------- Write two‑row header ----------
-    # Row 1: main headers + Round labels
+    # Row 1: main headers A–G + Round 1 label (H‑N) + Round 2 label (O‑U)
     for col_idx, header_text in enumerate(MAIN_HEADERS, start=1):
         cell = ws.cell(row=1, column=col_idx, value=header_text)
         cell.fill = HEADER_FILL
         cell.font = HEADER_FONT
         cell.alignment = Alignment(wrap_text=True, vertical="center")
 
-    # Merge and write "Round 1" over columns G‑M (7 columns)
-    ws.merge_cells(start_row=1, start_column=7, end_row=1, end_column=13)
-    cell_r1 = ws.cell(row=1, column=7, value="Round 1 (Vòng 1)")
+    # Round 1 merged header
+    ws.merge_cells(start_row=1, start_column=8, end_row=1, end_column=14)  # H-N
+    cell_r1 = ws.cell(row=1, column=8, value="Round 1 (Vòng 1)")
     cell_r1.fill = HEADER_FILL
     cell_r1.font = HEADER_FONT
     cell_r1.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
-    # Merge and write "Round 2" over columns N‑T (7 columns)
-    ws.merge_cells(start_row=1, start_column=14, end_row=1, end_column=20)
-    cell_r2 = ws.cell(row=1, column=14, value="Round 2 (Vòng 2)")
+    # Round 2 merged header
+    ws.merge_cells(start_row=1, start_column=15, end_row=1, end_column=21)  # O-U
+    cell_r2 = ws.cell(row=1, column=15, value="Round 2 (Vòng 2)")
     cell_r2.fill = HEADER_FILL
     cell_r2.font = HEADER_FONT
     cell_r2.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
     # Row 2: sub‑headers for each round
-    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=7):
+    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=8):
         cell = ws.cell(row=2, column=col_idx, value=sub_header)
         cell.fill = HEADER_FILL
         cell.font = HEADER_FONT
         cell.alignment = Alignment(wrap_text=True, vertical="center")
-    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=14):
+    for col_idx, sub_header in enumerate(ROUND_SUB_HEADERS, start=15):
         cell = ws.cell(row=2, column=col_idx, value=sub_header)
         cell.fill = HEADER_FILL
         cell.font = HEADER_FONT
         cell.alignment = Alignment(wrap_text=True, vertical="center")
 
-    # Merge columns A–F vertically (row 1 and 2) to match the example
-    for col_idx in range(1, 7):
+    # Merge columns A–G vertically (row 1 and 2) to match the example
+    for col_idx in range(1, 8):
         ws.merge_cells(start_row=1, start_column=col_idx, end_row=2, end_column=col_idx)
 
     # ---------- Common helper for writing a data row ----------
     def _write_data_row(
         row: int, case: dict[str, Any], display_tc_index: int, fill: PatternFill | None = None
     ) -> int:
-        """Write a single data row (columns A–T) and return the next row index."""
+        """Write a single data row (columns A–U) and return the next row index."""
         tc_id = f"TC{display_tc_index:03d}"
         conditions = str(case.get("conditions", ""))
         steps: list[str] = case.get("steps", [])
@@ -394,6 +485,7 @@ def export_to_excel(
         tc_path = str(case.get("path", ""))
         highlight_last = bool(case.get("highlight_last_step", False))
         test_data = str(case.get("test_data", ""))
+        test_data_round2 = str(case.get("test_data_round2", ""))
 
         numbered_steps = [f"{i}. {s}" for i, s in enumerate(steps, 1)]
         scenario = "\n".join(numbered_steps)
@@ -403,11 +495,13 @@ def export_to_excel(
             numbered_responses.append(f"{i}. {r}" if r else f"{i}. ")
         bot_responses_text = "\n".join(numbered_responses)
 
-        # Columns A – F
+        # Column A – TC_ID
         ws.cell(row=row, column=1, value=tc_id)
+        # Column B – Conditions
         ws.cell(row=row, column=2, value=conditions)
-
-        cell_scn = ws.cell(row=row, column=3)
+        # Column C – User Attributes (leave empty)
+        # Column D – Test Scenario
+        cell_scn = ws.cell(row=row, column=4)
         if allow_highlight_last and highlight_last and numbered_steps:
             rt = CellRichText()
             if len(numbered_steps) > 1:
@@ -416,8 +510,8 @@ def export_to_excel(
             cell_scn.value = rt
         else:
             cell_scn.value = scenario
-
-        cell_bot = ws.cell(row=row, column=4)
+        # Column E – Expected Bot Responses
+        cell_bot = ws.cell(row=row, column=5)
         if allow_highlight_last and highlight_last and numbered_responses:
             rt_bot = CellRichText()
             if len(numbered_responses) > 1:
@@ -426,20 +520,36 @@ def export_to_excel(
             cell_bot.value = rt_bot
         else:
             cell_bot.value = bot_responses_text
+        # Column F – Flow (Path)
+        ws.cell(row=row, column=6, value=tc_path)
+        # Column G – Expected Action Code
+        ws.cell(row=row, column=7, value=expected_action)
 
-        ws.cell(row=row, column=5, value=tc_path)
-        ws.cell(row=row, column=6, value=expected_action)
+        # Round 1 sub‑columns (H–N)
+        # H – Tester (empty)
+        # I – Test Data
+        ws.cell(row=row, column=9, value=test_data)
+        # J – Test Results (default "Todo")
+        ws.cell(row=row, column=10, value="Todo")
+        # K – Error Type (empty)
+        # L – Error Description (empty)
+        # M – Call ID (empty)
+        # N – FPT Comment (empty)
 
-        # Round 1 Test Data (column G)
-        ws.cell(row=row, column=7, value=test_data)
+        # Round 2 sub‑columns (O–U)
+        # O – Tester (empty)
+        # P – Test Data
+        ws.cell(row=row, column=16, value=test_data_round2)
+        # Q – Test Results (default "Todo")
+        ws.cell(row=row, column=17, value="Todo")
+        # R – Error Type (empty)
+        # S – Error Description (empty)
+        # T – Call ID (empty)
+        # U – FPT Comment (empty)
 
-        # Default values for Test Results (both rounds) = "Todo"
-        ws.cell(row=row, column=10, value="Todo")   # Round 1 Test Results
-        ws.cell(row=row, column=17, value="Todo")   # Round 2 Test Results
-
-        # Apply group fill **only to columns A-F**
+        # Apply group fill **only to columns A-G**
         if fill is not None:
-            for c in range(1, 7):
+            for c in range(1, 8):
                 ws.cell(row=row, column=c).fill = fill
 
         return row + 1
@@ -467,8 +577,8 @@ def export_to_excel(
             step_name = step_name_map.get(step_no, step_no)
             section_label = f"{step_no} - {step_name}"
 
-            # Section header row – merge across all 20 columns
-            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=20)
+            # Section header row – merge across all 21 columns (A-U)
+            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=21)
             cell_sec = ws.cell(row=row, column=1, value=section_label)
             cell_sec.font = SECTION_FONT
             cell_sec.fill = SECTION_FILL
@@ -500,6 +610,7 @@ def export_to_excel(
     _auto_fit_row_heights(ws)
     _add_data_validations(ws, ws.max_row)
     _add_conditional_formatting(ws, ws.max_row)
+    _add_input_rows_sheet(wb, source_rows or [])
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out_path)
@@ -552,6 +663,7 @@ def main() -> int:
 
     cases = _load_testcases(args.in_path)
     step_name_map = _load_step_name_map(args.in_path, rows_path=args.rows_path)
+    source_rows = _load_source_rows(args.rows_path)
     export_to_excel(
         cases,
         args.out_path,
@@ -559,6 +671,7 @@ def main() -> int:
         group_by_step=args.group_by_step,
         use_group_fills=args.use_group_fills,
         allow_highlight_last=args.allow_highlight_last,
+        source_rows=source_rows,
     )
     print(f"Wrote {len(cases)} test cases to Excel: {args.out_path}")
     return 0

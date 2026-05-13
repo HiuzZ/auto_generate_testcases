@@ -4,8 +4,6 @@
       "tag": "KH đồng ý",
       "patterns": [
         "KH đồng ý",
-        "KH nghe máy",
-        "EC nghe máy",
         "EC xác nhận đúng, xác nhận chung chung"
       ],
       "responses": [
@@ -13,12 +11,30 @@
         "ok",
         "được",
         "nói đi",
-        "phải rồi",
-        "nói nghe xem nào",
+        "ừ ừ",
+        "ok em nhé",
+        "đúng rồi",
+        "phải",
+        "có gì không",
         "ừ ừ rồi",
-        "rồi nói nghe coi",
-        "ok em nói đi",
-        "được rồi đang nghe đây"
+        "vâng"
+      ]
+    },
+    {
+      "tag": "KH nghe máy",
+      "patterns": [
+        "KH nghe máy"
+      ],
+      "responses": [
+        "ừ anh đang nghe đây",
+        "ok anh đây em",
+        "anh nè",
+        "ừ ừ anh nè em",
+        "phải anh đây em có việc gì",
+        "ừ anh đây có gì không",
+        "ừ ừ đúng anh rồi sao em",
+        "ừ anh nghe nè",
+        "vâng anh đây"
       ]
     },
     {

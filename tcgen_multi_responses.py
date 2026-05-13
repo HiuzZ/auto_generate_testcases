@@ -18,6 +18,7 @@ class Transition:
     intent: str
     action_code: str
     responses: Tuple[str, ...]
+    source_row: dict[str, str]
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,7 @@ class GroupedTransition:
     intents: Tuple[str, ...]
     action_code: str
     responses: Tuple[str, ...]
+    source_rows: Tuple[dict[str, str], ...]
 
 
 def _clean_str(v: Any) -> str:
@@ -121,6 +123,19 @@ def build_graph(
             ]
             if resp
         )
+        source_row = {
+            "step_no": src,
+            "step_name": _clean_str(t.get("step_name", "")),
+            "conditions": condition,
+            "customer_intent": intent,
+            "bot_response": _clean_str(t.get("bot_response", "")),
+            "bot_response_2": _clean_str(t.get("bot_response_2", "")),
+            "bot_response_3": _clean_str(t.get("bot_response_3", "")),
+            "bot_response_4": _clean_str(t.get("bot_response_4", "")),
+            "bot_response_5": _clean_str(t.get("bot_response_5", "")),
+            "next_step": dst,
+            "action_code": action_code,
+        }
         adjacency[src].append(
             Transition(
                 src=src,
@@ -129,6 +144,7 @@ def build_graph(
                 intent=intent,
                 action_code=action_code,
                 responses=responses,
+                source_row=source_row,
             )
         )
 
@@ -144,6 +160,7 @@ def build_graph(
                     intents=(tr.intent,),
                     action_code=tr.action_code,
                     responses=tr.responses,
+                    source_rows=(tr.source_row,),
                 )
                 for tr in src_transitions
             ],
@@ -175,6 +192,7 @@ def _a0_greeting_cases(
             "bot_responses": [response],
             "expected_action_code": first.action_code,
             "path": "A0",
+            "source_rows": list(first.source_rows),
         }
         for response in deduped
     ]
@@ -238,6 +256,7 @@ def generate_test_cases(
             "visited_nodes": {root},
             "visited_edges": set(),
             "seen_repeat_intents": set(),
+            "source_rows": [],
         }
     ]
 
@@ -260,6 +279,7 @@ def generate_test_cases(
             chain_conditions = list(state["conditions"])
             chain_path_nodes = list(state["path_nodes"])
             chain_visited_edges = set(state["visited_edges"])
+            chain_source_rows: list[dict[str, str]] = []
 
             for intent in tr.intents:
                 repeat_info = _repeat_prerequisite(intent)
@@ -276,6 +296,7 @@ def generate_test_cases(
                     chain_steps.append(pre_step_text)
                     chain_bot_responses.append(pre_tr.responses[0] if pre_tr.responses else "")
                     chain_conditions = _append_condition(chain_conditions, pre_tr.condition)
+                    chain_source_rows.extend(pre_tr.source_rows)
                     curr_seen_repeat_intents.add((base, k))
 
             if not _can_use_transition(tr.intents, curr_seen_repeat_intents):
@@ -288,6 +309,7 @@ def generate_test_cases(
             new_conditions = _append_condition(chain_conditions, tr.condition)
             new_steps = state["steps"] + chain_steps + [step_text]
             new_path = chain_path_nodes + [tr.dst]
+            new_source_rows = state["source_rows"] + chain_source_rows + list(tr.source_rows)
             is_multi = len(tr.responses) > 1
             new_visited_edges = chain_visited_edges | {edge_key}
             new_seen_repeat_intents = set(curr_seen_repeat_intents)
@@ -312,6 +334,7 @@ def generate_test_cases(
                                 "expected_action_code": tr.action_code,
                                 "path": " -> ".join(new_path),
                                 "highlight_last_step": True,
+                                "source_rows": new_source_rows,
                             }
                         )
 
@@ -327,6 +350,7 @@ def generate_test_cases(
                         "visited_nodes": state["visited_nodes"] | ({tr.dst} if tr.dst != state["node"] else set()),
                         "visited_edges": new_visited_edges,
                         "seen_repeat_intents": new_seen_repeat_intents,
+                        "source_rows": new_source_rows,
                     }
                 )
 

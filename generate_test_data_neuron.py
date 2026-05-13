@@ -177,6 +177,8 @@ def _sanitize_utterance(text: str) -> str:
     if not text:
         return "(không sinh được)"
     t = str(text).strip()
+    if t.upper() == "_SILENCE_":
+        return "_SILENCE_"
     if "do not understand" in t.lower():
         return "(không sinh được)"
     t = t.replace(",", " ")

@@ -29,9 +29,31 @@ try:
 except ImportError:
     _generate_hybrid = None
 
+# Paraphrasing is no longer used – Round 2 will be generated independently.
+# (The import is commented out to avoid loading T5 model.)
+# try:
+#     from paraphrase_utils import paraphrase_test_data
+# except ImportError:
+#     paraphrase_test_data = None
+paraphrase_test_data = None   # no paraphrasing
+
 GeneratorModule = Any
 
 _COND_SPLIT_RE = re.compile(r"\s*\\\s*|\n+")
+
+PERMANENT_ROW_KEYS = [
+    "step_no",
+    "step_name",
+    "conditions",
+    "customer_intent",
+    "bot_response",
+    "bot_response_2",
+    "bot_response_3",
+    "bot_response_4",
+    "bot_response_5",
+    "next_step",
+    "action_code",
+]
 
 
 def _normalize_conditions_text(text: str) -> str:
@@ -76,9 +98,69 @@ def _serialize_cases(
     cases: list[dict[str, Any]],
     *,
     response_count_map: dict[tuple[str, str, str], int] | None = None,
+    source_rows: list[dict[str, str]] | None = None,
 ) -> list[dict[str, Any]]:
     payload: list[dict[str, Any]] = []
     seen_signatures: set[tuple[Any, ...]] = set()
+    row_index: dict[str, list[dict[str, str]]] = {}
+    for row in source_rows or []:
+        row_index.setdefault(str(row.get("step_no", "")).strip(), []).append(row)
+
+    def _match_source_rows(
+        path_nodes: list[str],
+        steps: list[Any],
+        normalized_conditions: str,
+    ) -> list[dict[str, str]]:
+        matched: list[dict[str, str]] = []
+        seen_ids: set[int] = set()
+        case_condition_parts = {
+            part.strip()
+            for part in _COND_SPLIT_RE.split(normalized_conditions)
+            if part.strip()
+        }
+
+        if not steps and path_nodes:
+            for row in row_index.get(path_nodes[0], []):
+                if id(row) not in seen_ids:
+                    matched.append(row)
+                    seen_ids.add(id(row))
+            return matched
+
+        for idx, step_text in enumerate(steps):
+            if idx >= len(path_nodes):
+                continue
+            src = path_nodes[idx]
+            intents = {
+                part.strip()
+                for part in str(step_text).split(" \\ ")
+                if part.strip()
+            }
+            for row in row_index.get(src, []):
+                row_intent = str(row.get("customer_intent", "")).strip()
+                row_condition = _normalize_conditions_text(str(row.get("conditions", "")))
+                if row_intent and intents and row_intent not in intents:
+                    continue
+                if row_condition and row_condition not in case_condition_parts:
+                    continue
+                if id(row) not in seen_ids:
+                    matched.append(row)
+                    seen_ids.add(id(row))
+        return matched
+
+    def _summarize_source_columns(matched_rows: list[dict[str, str]]) -> dict[str, str]:
+        summary: dict[str, str] = {}
+        for key in PERMANENT_ROW_KEYS:
+            values: list[str] = []
+            seen_values: set[str] = set()
+            for row in matched_rows:
+                value = str(row.get(key, "")).strip()
+                if not value or value in seen_values:
+                    continue
+                values.append(value)
+                seen_values.add(value)
+            summary[key] = "\n".join(values)
+        return summary
+
     for i, tc in enumerate(cases):
         path_nodes = [part.strip() for part in str(tc.get("path", "")).split("->") if part.strip()]
         steps = list(tc.get("steps", []))
@@ -143,6 +225,9 @@ def _serialize_cases(
         if signature in seen_signatures:
             continue
         seen_signatures.add(signature)
+        source_columns = _summarize_source_columns(
+            _match_source_rows(path_nodes, steps, normalized_conditions)
+        )
         payload.append({
             "tc_id": f"TC{len(payload)+1:03d}",
             "conditions": normalized_conditions,
@@ -151,7 +236,9 @@ def _serialize_cases(
             "expected_action_code": tc.get("expected_action_code", "N/A"),
             "path": tc.get("path", ""),
             "highlight_last_step": bool(tc.get("highlight_last_step", False)),
-            "test_data": "",  # filled later if --gen-data is used
+            "test_data": "",             # Round 1 test data
+            "test_data_round2": "",      # Round 2 test data (separate generation)
+            "source_columns": source_columns,
         })
     return payload
 
@@ -195,8 +282,9 @@ def _build_step_name_map(rows: list[dict[str, str]]) -> dict[str, str]:
     return mapping
 
 
-def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]]) -> None:
-    """Fill in the 'test_data' field using the hybrid generator (TLS + Llama)."""
+def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]], mode: str) -> None:
+    """Fill in 'test_data' (Round 1) and, for e2e modes, 'test_data_round2' using
+    two independent calls to the hybrid generator (each with fresh random bot responses)."""
     if _generate_hybrid is None:
         print("⚠️  Warning: generate_test_data_hybrid not available. Test Data will remain empty.")
         return
@@ -204,22 +292,34 @@ def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]]) -> Non
     for case in serialized_cases:
         steps = case["steps"]
         if not steps:
-            # A0 or empty case – leave test_data blank
             continue
 
-        # Convert "resp1 \\ resp2" strings into a randomly chosen single response per step
-        bot_responses_list: list[str] = []
-        for resp_str in case["bot_responses"]:
-            parts = [p.strip() for p in resp_str.split(" \\ ") if p.strip()]
-            bot_responses_list.append(random.choice(parts) if parts else "")
-        while len(bot_responses_list) < len(steps):
-            bot_responses_list.append("")
-
         tc_id = case["tc_id"]
-        test_data = _generate_hybrid(steps, bot_responses_list, tc_id)
-        case["test_data"] = test_data
-        print(f"  Generated test data for {tc_id}")
 
+        # Helper to pick one random bot response per step
+        def _pick_bot_responses() -> list[str]:
+            lst = []
+            for resp_str in case["bot_responses"]:
+                parts = [p.strip() for p in resp_str.split(" \\ ") if p.strip()]
+                lst.append(random.choice(parts) if parts else "")
+            while len(lst) < len(steps):
+                lst.append("")
+            return lst
+
+        # Round 1 – first randomised bot responses
+        bot_list_r1 = _pick_bot_responses()
+        test_data_r1 = _generate_hybrid(steps, bot_list_r1, tc_id)
+        case["test_data"] = test_data_r1
+        print(f"  Generated test data (Round 1) for {tc_id}")
+
+        # Round 2 – second independent randomised bot responses
+        if mode in ("e2e", "e2e_short", "e2e_short_v2"):
+            bot_list_r2 = _pick_bot_responses()
+            test_data_r2 = _generate_hybrid(steps, bot_list_r2, tc_id)
+            case["test_data_round2"] = test_data_r2
+            print(f"    Generated test data (Round 2) for {tc_id}")
+        else:
+            case["test_data_round2"] = ""
 
 def run_pipeline(
     *,
@@ -267,7 +367,7 @@ def run_pipeline(
 
     if gen_data:
         print("\n--- Generating test data (hybrid) ---")
-        _generate_test_data_for_cases(serialized_cases)
+        _generate_test_data_for_cases(serialized_cases, mode)
 
     testcases_out.parent.mkdir(parents=True, exist_ok=True)
     testcases_out.write_text(
@@ -276,8 +376,6 @@ def run_pipeline(
     )
 
     step_name_map = _build_step_name_map(rows)
-    # Grouping by step is enabled for all pipelines,
-    # but group fills and red highlighting are only for multi_responses.
     group_by_step = True
     use_group_fills = (mode == "multi_responses")
     allow_highlight_last = (mode == "multi_responses")
@@ -289,6 +387,7 @@ def run_pipeline(
         group_by_step=group_by_step,
         use_group_fills=use_group_fills,
         allow_highlight_last=allow_highlight_last,
+        source_rows=rows,
     )
     return rows_out, testcases_out, excel_out, len(serialized_cases), effective_root
 

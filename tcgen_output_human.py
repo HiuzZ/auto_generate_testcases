@@ -23,7 +23,6 @@ class Transition:
 
 
 _REPEAT_RE = re.compile(r"(?i)\blần\s*(\d+)\b")
-_SPECIAL_STEP_COND_RE = re.compile(r"\b(YES|NO)_([A-Za-z0-9_]+)\b")
 
 
 def _clean_str(v: Any) -> str:
@@ -46,24 +45,6 @@ def _parse_repeat(intent: str) -> tuple[str, int] | None:
     base = _REPEAT_RE.sub("", intent)
     base = " ".join(base.strip().split())
     return base, n
-
-
-def _evaluate_step_condition(raw_condition: str, traversed_nodes: set[str]) -> tuple[bool, str]:
-    text = str(raw_condition or "")
-    for match in _SPECIAL_STEP_COND_RE.finditer(text):
-        mode = match.group(1).upper()
-        nodes = [token.strip() for token in match.group(2).split("_") if token.strip()]
-        if not nodes:
-            continue
-        passed_any = any(node in traversed_nodes for node in nodes)
-        if mode == "YES" and not passed_any:
-            return False, ""
-        if mode == "NO" and passed_any:
-            return False, ""
-
-    cleaned = _SPECIAL_STEP_COND_RE.sub("", text)
-    parts = [part.strip() for part in re.split(r"\s*\\\s*|\n+", cleaned) if part.strip()]
-    return True, " \\ ".join(parts)
 
 
 def load_transitions_json(path: Path) -> list[dict[str, str]]:
@@ -204,9 +185,6 @@ def generate_test_cases(
             dst = tr.dst
             action_code = tr.action_code
             step_intent, bot_resp, step_condition = _make_single_step(tr)
-            allowed, step_condition = _evaluate_step_condition(step_condition, {node.strip() for node in path_nodes})
-            if not allowed:
-                continue
             edge_key = (node, dst, step_intent, step_condition)
 
             if edge_key in visited_edges:
@@ -279,9 +257,6 @@ def generate_test_cases(
 
         for dst, action_code, step_condition, trans_list in grouped_transitions:
             step_intent, bot_resp, step_condition = _make_step(trans_list)
-            allowed, step_condition = _evaluate_step_condition(step_condition, {node.strip() for node in path_nodes})
-            if not allowed:
-                continue
             edge_key = (origin_node, dst, step_intent, step_condition)
 
             if edge_key in visited_edges:
@@ -330,7 +305,9 @@ def generate_test_cases(
             unique.append(case)
 
     if root != "A0":
-        return tcgen_e2e_human._prepend_single_a0_case(unique, graph, multi_response=False)
+        a0_case = tcgen_e2e_human._a0_greeting_case(graph)
+        if a0_case is not None:
+            unique = [a0_case] + unique
     return unique
 
 

@@ -10,6 +10,21 @@ from pathlib import Path
 from typing import Any, DefaultDict, Iterable, Dict, List, Tuple, Set, Optional
 
 
+PERMANENT_ROW_KEYS = [
+    "step_no",
+    "step_name",
+    "conditions",
+    "customer_intent",
+    "bot_response",
+    "bot_response_2",
+    "bot_response_3",
+    "bot_response_4",
+    "bot_response_5",
+    "next_step",
+    "action_code",
+]
+
+
 @dataclass(frozen=True)
 class Transition:
     src: str
@@ -37,6 +52,39 @@ def _clean_str(v: Any) -> str:
         return ""
     s = str(v).strip()
     return "" if s.lower() == "nan" else s
+
+
+def _clean_row(obj: dict[str, Any]) -> dict[str, str]:
+    return {str(k): _clean_str(v) for k, v in obj.items()}
+
+
+def _source_columns(source_rows: list[dict[str, str]]) -> dict[str, str]:
+    keys = list(PERMANENT_ROW_KEYS)
+    for row in source_rows:
+        for key in row:
+            if key not in keys:
+                keys.append(key)
+
+    summary: dict[str, str] = {}
+    for key in keys:
+        values: list[str] = []
+        seen_values: set[str] = set()
+        for row in source_rows:
+            value = _clean_str(row.get(key, ""))
+            if not value or value in seen_values:
+                continue
+            values.append(value)
+            seen_values.add(value)
+        summary[key] = "\n".join(values)
+    return summary
+
+
+def _render_bot_response_item(resp_item: Any) -> str:
+    if isinstance(resp_item, str):
+        return resp_item
+    if resp_item:
+        return " \\ ".join(str(resp) for resp in resp_item if str(resp))
+    return ""
 
 
 def _is_terminal_step(step_no: str) -> bool:
@@ -100,21 +148,10 @@ def load_transitions_json(path: Path) -> list[dict[str, str]]:
     for i, obj in enumerate(data):
         if not isinstance(obj, dict):
             raise ValueError(f"Item at index {i} is not an object.")
-        rows.append(
-            {
-                "step_no": _clean_str(obj.get("step_no", "")),
-                "step_name": _clean_str(obj.get("step_name", "")),
-                "conditions": _clean_str(obj.get("conditions", "")),
-                "customer_intent": _clean_str(obj.get("customer_intent", "")),
-                "bot_response": _clean_str(obj.get("bot_response", "")),
-                "bot_response_2": _clean_str(obj.get("bot_response_2", "")),
-                "bot_response_3": _clean_str(obj.get("bot_response_3", "")),
-                "bot_response_4": _clean_str(obj.get("bot_response_4", "")),
-                "bot_response_5": _clean_str(obj.get("bot_response_5", "")),
-                "next_step": _clean_str(obj.get("next_step", "")),
-                "action_code": _clean_str(obj.get("action_code", "")),
-            }
-        )
+        row = _clean_row(obj)
+        for key in PERMANENT_ROW_KEYS:
+            row.setdefault(key, "")
+        rows.append(row)
     return rows
 
 
@@ -137,7 +174,8 @@ def build_graph(
         bot_response = _clean_str(t.get("bot_response", ""))
         if not src:
             continue
-        source_row = {
+        source_row = dict(t)
+        source_row.update({
             "step_no": src,
             "step_name": _clean_str(t.get("step_name", "")),
             "conditions": condition,
@@ -149,7 +187,7 @@ def build_graph(
             "bot_response_5": _clean_str(t.get("bot_response_5", "")),
             "next_step": dst,
             "action_code": action_code,
-        }
+        })
         adjacency[src].append(
             Transition(
                 src=src,
@@ -529,10 +567,8 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = []
     for i, tc in enumerate(cases):
-        bot_responses_str = [
-            " \\ ".join(resp_list) if resp_list else ""
-            for resp_list in tc.get("bot_responses", [])
-        ]
+        bot_responses_str = [_render_bot_response_item(resp) for resp in tc.get("bot_responses", [])]
+        source_rows = list(tc.get("source_rows", []))
         payload.append({
             "tc_id": f"TC{i+1:03d}",
             "conditions": tc.get("conditions", ""),
@@ -540,6 +576,7 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
             "bot_responses": bot_responses_str,
             "expected_action_code": tc.get("expected_action_code", "N/A"),
             "path": tc.get("path", ""),
+            "source_columns": _source_columns(source_rows),
         })
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -588,10 +625,8 @@ def main() -> int:
     if args.out_path is None:
         payload = []
         for i, tc in enumerate(cases):
-            bot_responses_str = [
-                " \\ ".join(resp_list) if resp_list else ""
-                for resp_list in tc.get("bot_responses", [])
-            ]
+            bot_responses_str = [_render_bot_response_item(resp) for resp in tc.get("bot_responses", [])]
+            source_rows = list(tc.get("source_rows", []))
             payload.append({
                 "tc_id": f"TC{i+1:03d}",
                 "conditions": tc.get("conditions", ""),
@@ -599,6 +634,7 @@ def main() -> int:
                 "bot_responses": bot_responses_str,
                 "expected_action_code": tc.get("expected_action_code", "N/A"),
                 "path": tc.get("path", ""),
+                "source_columns": _source_columns(source_rows),
             })
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0

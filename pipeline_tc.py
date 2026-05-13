@@ -148,8 +148,14 @@ def _serialize_cases(
         return matched
 
     def _summarize_source_columns(matched_rows: list[dict[str, str]]) -> dict[str, str]:
+        keys = list(PERMANENT_ROW_KEYS)
+        for row in matched_rows:
+            for key in row:
+                if key not in keys:
+                    keys.append(key)
+
         summary: dict[str, str] = {}
-        for key in PERMANENT_ROW_KEYS:
+        for key in keys:
             values: list[str] = []
             seen_values: set[str] = set()
             for row in matched_rows:
@@ -225,9 +231,10 @@ def _serialize_cases(
         if signature in seen_signatures:
             continue
         seen_signatures.add(signature)
-        source_columns = _summarize_source_columns(
-            _match_source_rows(path_nodes, steps, normalized_conditions)
-        )
+        matched_source_rows = list(tc.get("source_rows", []))
+        if not matched_source_rows:
+            matched_source_rows = _match_source_rows(path_nodes, steps, normalized_conditions)
+        source_columns = _summarize_source_columns(matched_source_rows)
         payload.append({
             "tc_id": f"TC{len(payload)+1:03d}",
             "conditions": normalized_conditions,
@@ -363,7 +370,7 @@ def run_pipeline(
     graph = generator.build_graph(rows)
     cases = generator.generate_test_cases(graph, root=effective_root, max_depth=max_depth)
     response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output", "output_short"} else None
-    serialized_cases = _serialize_cases(cases, response_count_map=response_count_map)
+    serialized_cases = _serialize_cases(cases, response_count_map=response_count_map, source_rows=rows)
 
     if gen_data:
         print("\n--- Generating test data (hybrid) ---")

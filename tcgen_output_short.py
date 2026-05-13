@@ -12,6 +12,8 @@ load_transitions_json = tcgen_e2e_short.load_transitions_json
 build_graph = tcgen_e2e_short.build_graph
 write_cases_json = tcgen_e2e_short.write_cases_json
 write_cases_csv = tcgen_e2e_short.write_cases_csv
+_source_columns = tcgen_e2e_short._source_columns
+_render_bot_response_item = tcgen_e2e_short._render_bot_response_item
 
 
 def generate_test_cases(
@@ -46,10 +48,8 @@ def main() -> int:
     if args.out_path is None:
         payload = []
         for i, tc in enumerate(cases):
-            bot_responses_str = [
-                " \\ ".join(resp_list) if resp_list else ""
-                for resp_list in tc.get("bot_responses", [])
-            ]
+            bot_responses_str = [_render_bot_response_item(resp) for resp in tc.get("bot_responses", [])]
+            source_rows = list(tc.get("source_rows", []))
             payload.append({
                 "tc_id": f"TC{i+1:03d}",
                 "conditions": tc.get("conditions", ""),
@@ -57,6 +57,7 @@ def main() -> int:
                 "bot_responses": bot_responses_str,
                 "expected_action_code": tc.get("expected_action_code", "N/A"),
                 "path": tc.get("path", ""),
+                "source_columns": _source_columns(source_rows),
             })
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0

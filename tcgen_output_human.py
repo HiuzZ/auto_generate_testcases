@@ -20,6 +20,7 @@ class Transition:
     intent: str
     action_code: str
     bot_response: str
+    source_row: dict[str, str]
 
 
 _REPEAT_RE = re.compile(r"(?i)\blần\s*(\d+)\b")
@@ -30,6 +31,12 @@ def _clean_str(v: Any) -> str:
         return ""
     s = str(v).strip()
     return "" if s.lower() == "nan" else s
+
+
+PERMANENT_ROW_KEYS = tcgen_e2e_human.PERMANENT_ROW_KEYS
+_clean_row = tcgen_e2e_human._clean_row
+_source_columns = tcgen_e2e_human._source_columns
+_render_bot_response_item = tcgen_e2e_human._render_bot_response_item
 
 
 def _is_terminal_step(step_no: str) -> bool:
@@ -55,17 +62,10 @@ def load_transitions_json(path: Path) -> list[dict[str, str]]:
     for i, obj in enumerate(data):
         if not isinstance(obj, dict):
             raise ValueError(f"Item at index {i} is not an object.")
-        rows.append(
-            {
-                "step_no": _clean_str(obj.get("step_no", "")),
-                "step_name": _clean_str(obj.get("step_name", "")),
-                "conditions": _clean_str(obj.get("conditions", "")),
-                "customer_intent": _clean_str(obj.get("customer_intent", "")),
-                "bot_response": _clean_str(obj.get("bot_response", "")),
-                "next_step": _clean_str(obj.get("next_step", "")),
-                "action_code": _clean_str(obj.get("action_code", "")),
-            }
-        )
+        row = _clean_row(obj)
+        for key in PERMANENT_ROW_KEYS:
+            row.setdefault(key, "")
+        rows.append(row)
     return rows
 
 
@@ -88,6 +88,16 @@ def build_graph(
         bot_response = _clean_str(t.get("bot_response", ""))
         if not src:
             continue
+        source_row = dict(t)
+        source_row.update({
+            "step_no": src,
+            "step_name": _clean_str(t.get("step_name", "")),
+            "conditions": condition,
+            "customer_intent": intent,
+            "bot_response": bot_response,
+            "next_step": dst,
+            "action_code": action_code,
+        })
         adjacency[src].append(
             Transition(
                 src=src,
@@ -96,6 +106,7 @@ def build_graph(
                 intent=intent,
                 action_code=action_code,
                 bot_response=bot_response,
+                source_row=source_row,
             )
         )
     for src in adjacency:
@@ -120,12 +131,13 @@ def generate_test_cases(
     """
     cases: List[Dict[str, Any]] = []
 
-    def _emit(steps, bot_responses_list, action_code, path_nodes):
+    def _emit(steps, bot_responses_list, action_code, path_nodes, source_rows):
         cases.append({
             "steps": list(steps),
             "bot_responses": [list(r) for r in bot_responses_list],
             "expected_action_code": action_code,
             "path": " -> ".join(path_nodes),
+            "source_rows": list(source_rows),
         })
 
     def _make_step(trans_list: List[Transition]) -> tuple[str, List[str], str]:
@@ -157,6 +169,7 @@ def generate_test_cases(
         bot_responses_list: List[List[str]],
         case_conditions: List[str],
         path_nodes: List[str],
+        source_rows: List[dict[str, str]],
         visited_edges: Set[Tuple[str, str, str, str]],  # (src, dst, intent, condition)
         consumed_chains: Set[Tuple[str, str]],
     ) -> None:
@@ -194,13 +207,14 @@ def generate_test_cases(
             new_bot = bot_responses_list + [bot_resp]
             new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
+            new_source_rows = source_rows + [tr.source_row]
             new_visited = visited_edges | {edge_key}
 
-            _emit(new_steps, new_bot, action_code, new_path)
+            _emit(new_steps, new_bot, action_code, new_path, new_source_rows)
             cases[-1]["conditions"] = _render_conditions(new_conditions)
 
             if not _is_terminal_step(dst) and dst in graph:
-                dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, consumed_chains)
+                dfs(dst, new_steps, new_bot, new_conditions, new_path, new_source_rows, new_visited, consumed_chains)
 
         # ── 2. Process ordered repeat chains per base ──────────────────────
         for base in sorted(repeat_map.keys()):
@@ -231,6 +245,7 @@ def generate_test_cases(
                 bot_responses_list=bot_responses_list,
                 case_conditions=case_conditions,
                 path_nodes=path_nodes,
+                source_rows=source_rows,
                 visited_edges=visited_edges,
                 consumed_chains=consumed_chains,
             )
@@ -244,6 +259,7 @@ def generate_test_cases(
         bot_responses_list: List[List[str]],
         case_conditions: List[str],
         path_nodes: List[str],
+        source_rows: List[dict[str, str]],
         visited_edges: Set[Tuple[str, str, str, str]],
         consumed_chains: Set[Tuple[str, str]],
     ) -> None:
@@ -267,18 +283,19 @@ def generate_test_cases(
             new_conditions = _append_condition(case_conditions, step_condition)
             new_path = path_nodes + [dst]
             new_visited = visited_edges | {edge_key}
+            new_source_rows = source_rows + [tr.source_row for tr in trans_list]
             new_consumed = consumed_chains | chain_ids
 
             if _is_terminal_step(dst):
-                _emit(new_steps, new_bot, action_code, new_path)
+                _emit(new_steps, new_bot, action_code, new_path, new_source_rows)
                 cases[-1]["conditions"] = _render_conditions(new_conditions)
                 continue
 
             if is_last:
-                _emit(new_steps, new_bot, action_code, new_path)
+                _emit(new_steps, new_bot, action_code, new_path, new_source_rows)
                 cases[-1]["conditions"] = _render_conditions(new_conditions)
                 if dst in graph:
-                    dfs(dst, new_steps, new_bot, new_conditions, new_path, new_visited, new_consumed)
+                    dfs(dst, new_steps, new_bot, new_conditions, new_path, new_source_rows, new_visited, new_consumed)
             else:
                 _walk_repeat_chain(
                     origin_node=origin_node,
@@ -289,11 +306,12 @@ def generate_test_cases(
                     bot_responses_list=new_bot,
                     case_conditions=new_conditions,
                     path_nodes=new_path,
+                    source_rows=new_source_rows,
                     visited_edges=new_visited,
                     consumed_chains=new_consumed,
                 )
 
-    dfs(root, [], [], [], [root], set(), set())
+    dfs(root, [], [], [], [root], [], set(), set())
 
     # Deduplicate
     seen: Set[Tuple] = set()
@@ -315,10 +333,8 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = []
     for i, tc in enumerate(cases):
-        bot_responses_str = [
-            " \\ ".join(resp_list) if resp_list else ""
-            for resp_list in tc.get("bot_responses", [])
-        ]
+        bot_responses_str = [_render_bot_response_item(resp) for resp in tc.get("bot_responses", [])]
+        source_rows = list(tc.get("source_rows", []))
         payload.append({
             "tc_id": f"TC{i+1:03d}",
             "conditions": tc.get("conditions", ""),
@@ -326,6 +342,7 @@ def write_cases_json(cases: list[dict[str, Any]], out_path: Path) -> None:
             "bot_responses": bot_responses_str,
             "expected_action_code": tc.get("expected_action_code", "N/A"),
             "path": tc.get("path", ""),
+            "source_columns": _source_columns(source_rows),
         })
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -374,10 +391,8 @@ def main() -> int:
     if args.out_path is None:
         payload = []
         for i, tc in enumerate(cases):
-            bot_responses_str = [
-                " \\ ".join(r) if r else ""
-                for r in tc.get("bot_responses", [])
-            ]
+            bot_responses_str = [_render_bot_response_item(resp) for resp in tc.get("bot_responses", [])]
+            source_rows = list(tc.get("source_rows", []))
             payload.append({
                 "tc_id": f"TC{i+1:03d}",
                 "conditions": tc.get("conditions", ""),
@@ -385,6 +400,7 @@ def main() -> int:
                 "bot_responses": bot_responses_str,
                 "expected_action_code": tc.get("expected_action_code", "N/A"),
                 "path": tc.get("path", ""),
+                "source_columns": _source_columns(source_rows),
             })
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0

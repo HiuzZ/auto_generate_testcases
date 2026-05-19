@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from excel_to_json import _pick_excel_file, convert_excel_rows_to_json
+from excel_to_json import _pick_excel_file, convert_excel_rows_to_json, read_data_schema_sheet
 from tc_to_excel import export_to_excel
 
 # Import test case generators
@@ -290,8 +290,7 @@ def _build_step_name_map(rows: list[dict[str, str]]) -> dict[str, str]:
 
 
 def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]], mode: str) -> None:
-    """Fill in 'test_data' (Round 1) and, for e2e modes, 'test_data_round2' using
-    two independent calls to the hybrid generator (each with fresh random bot responses)."""
+    """Fill 'test_data' for every case using the hybrid generator (TLS bot + Llama fallback)."""
     if _generate_hybrid is None:
         print("⚠️  Warning: generate_test_data_hybrid not available. Test Data will remain empty.")
         return
@@ -303,30 +302,15 @@ def _generate_test_data_for_cases(serialized_cases: list[dict[str, Any]], mode: 
 
         tc_id = case["tc_id"]
 
-        # Helper to pick one random bot response per step
-        def _pick_bot_responses() -> list[str]:
-            lst = []
-            for resp_str in case["bot_responses"]:
-                parts = [p.strip() for p in resp_str.split(" \\ ") if p.strip()]
-                lst.append(random.choice(parts) if parts else "")
-            while len(lst) < len(steps):
-                lst.append("")
-            return lst
+        bot_list = []
+        for resp_str in case["bot_responses"]:
+            parts = [p.strip() for p in resp_str.split(" \\ ") if p.strip()]
+            bot_list.append(random.choice(parts) if parts else "")
+        while len(bot_list) < len(steps):
+            bot_list.append("")
 
-        # Round 1 – first randomised bot responses
-        bot_list_r1 = _pick_bot_responses()
-        test_data_r1 = _generate_hybrid(steps, bot_list_r1, tc_id)
-        case["test_data"] = test_data_r1
-        print(f"  Generated test data (Round 1) for {tc_id}")
-
-        # Round 2 – second independent randomised bot responses
-        if mode in ("e2e", "e2e_short", "e2e_short_v2"):
-            bot_list_r2 = _pick_bot_responses()
-            test_data_r2 = _generate_hybrid(steps, bot_list_r2, tc_id)
-            case["test_data_round2"] = test_data_r2
-            print(f"    Generated test data (Round 2) for {tc_id}")
-        else:
-            case["test_data_round2"] = ""
+        case["test_data"] = _generate_hybrid(steps, bot_list, tc_id)
+        print(f"  Generated test data for {tc_id}")
 
 def run_pipeline(
     *,
@@ -339,6 +323,8 @@ def run_pipeline(
     testcases_out: Path,
     excel_out: Path,
     gen_data: bool = False,
+    combined_wb: Any = None,
+    tc_sheet_name: str = "TestCases",
 ) -> tuple[Path, Path, Path, int, str]:
     generator: GeneratorModule
     if mode == "e2e":
@@ -361,6 +347,7 @@ def run_pipeline(
     if excel_path is None:
         excel_path = _pick_excel_file(Path(__file__).resolve().parent / "input")
 
+    schema_keys, schema_value_rows, schema_all_rows = read_data_schema_sheet(excel_path)
     rows = convert_excel_rows_to_json(excel_path, sheet=sheet)
     rows_out.parent.mkdir(parents=True, exist_ok=True)
     rows_out.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -384,8 +371,9 @@ def run_pipeline(
 
     step_name_map = _build_step_name_map(rows)
     group_by_step = True
-    use_group_fills = (mode == "multi_responses")
-    allow_highlight_last = (mode == "multi_responses")
+    is_multi = (mode == "multi_responses")
+    use_group_fills = is_multi
+    allow_highlight_last = is_multi
 
     export_to_excel(
         serialized_cases,
@@ -394,7 +382,13 @@ def run_pipeline(
         group_by_step=group_by_step,
         use_group_fills=use_group_fills,
         allow_highlight_last=allow_highlight_last,
+        is_multi_responses=is_multi,
         source_rows=rows,
+        wb=combined_wb,
+        sheet_name=tc_sheet_name,
+        schema_keys=schema_keys if schema_keys else None,
+        schema_value_rows=schema_value_rows if schema_value_rows else None,
+        schema_all_rows=schema_all_rows if schema_all_rows else None,
     )
     return rows_out, testcases_out, excel_out, len(serialized_cases), effective_root
 

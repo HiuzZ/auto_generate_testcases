@@ -4,13 +4,13 @@
       "tag": "KH đồng ý",
       "patterns": [
         "KH đồng ý",
-        "EC xác nhận đúng, xác nhận chung chung"
+        "EC xác nhận đúng, xác nhận chung chung",
+        "KH xác nhận lại đúng tên/ đúng thông tin hay trả lời chung chung",
+        "EC xác nhận lại đúng tên/ đúng thông tin hay trả lời chung chung"
       ],
       "responses": [
         "ừ",
         "ok",
-        "được",
-        "nói đi",
         "ừ ừ",
         "ok em nhé",
         "đúng rồi",
@@ -34,7 +34,8 @@
         "ừ anh đây có gì không",
         "ừ ừ đúng anh rồi sao em",
         "ừ anh nghe nè",
-        "vâng anh đây"
+        "vâng anh đây",
+        "anh đây"
       ]
     },
     {
@@ -69,14 +70,11 @@
       "responses": [
         "nhầm số rồi",
         "nó không còn dùng số này đâu",
-        "mình là đồng nghiệp của nó",
         "không phải số này",
-        "nhầm rồi em ơi",
-        "anh không liên quan",
+        "nhầm người rồi em ơi",
         "gọi sai người rồi",
-        "có phải anh đâu",
-        "kiểm tra lại đi",
-        "không phải rồi"
+        "có phải anh đâu em gọi nhầm rồi",
+        "không phải nhầm số rồi"
       ]
     },
     {
@@ -96,16 +94,15 @@
         "EC báo bận lần 3"
       ],
       "responses": [
-        "đang đi làm",
-        "đi học rồi",
-        "anh đang đi trên đường",
-        "chưa tiện để nói chuyện",
-        "lát rồi gọi lại",
-        "anh đang bận",
-        "không nói chuyện được",
-        "đang có việc",
+        "anh đang đi làm",
+        "anh đang đi trên đường bận lắm",
+        "giờ anh bận chưa tiện để nói chuyện",
+        "lát rồi gọi lại nhé anh đang bận",
+        "anh bận rồi khi khác nhé",
+        "giờ không nói chuyện được anh bận họp rồi",
+        "anh đang bận việc khác rồi em",
         "bận rồi",
-        "lúc khác rồi nói"
+        "lúc khác nói nhé anh bận rồi"
       ]
     },
     {
@@ -161,13 +158,11 @@
       ],
       "responses": [
         "đã bảo không cần rồi mà mày cứ gọi",
-        "tao không cần",
         "mày đang làm phiền tao đấy",
         "mày làm tao khó anhu",
-        "tao không quam tâm",
         "mày gọi thêm lần nữa tin tao đấm mày không",
         "mày có im đi không",
-        "tao đã bảo tao không quan tâm",
+        "tao đã bảo tao không quan tâm cút",
         "mày làm ăn kiểu gì đấy",
         "tao nhắc mày lần cuối nhá"
       ]
@@ -198,7 +193,9 @@
         "KH yêu cầu nhắc lại lần 1",
         "KH yêu cầu nhắc lại lần 2",
         "EC yêu cầu nhắc lại lần 1",
-        "EC yêu cầu nhắc lại lần 2"
+        "EC yêu cầu nhắc lại lần 2",
+        "Không nghe rõ lần 1",
+        "Không nghe rõ lần 2"
       ],
       "responses": [
         "nói lại anh nghe",
@@ -233,6 +230,8 @@
       "tag": "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ",
       "patterns": [
         "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ",
+        "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ lần 1",
+        "KH cung cấp số tiền trên 100 triệu - dưới 1 tỷ lần 2",
         "EC cung cấp số tiền trên 100 triệu - dưới 1 tỷ"
       ],
       "responses": [
@@ -312,6 +311,8 @@
       "tag": "KH cung cấp số tiền từ 1 tỷ trở lên",
       "patterns": [
         "KH cung cấp số tiền từ 1 tỷ trở lên",
+        "KH cung cấp số tiền từ 1 tỷ trở lên lần 1",
+        "KH cung cấp số tiền từ 1 tỷ trở lên lần 2",
         "EC cung cấp số tiền từ 1 tỷ trở lên"
       ],
       "responses": [
@@ -320,6 +321,19 @@
         "tôi cần vay một tỷ hai trăm triệu",
         "cho mình vay ba tỷ được không",
         "anh cần vay một tỷ tám trăm triệu để mở rộng kinh doanh"
+      ]
+    },
+    {
+      "tag": "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa",
+      "patterns": [
+        "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 1",
+        "KH không nói rõ số tiền / KH báo bao nhiêu cũng được/ KH báo vay tối đa lần 2"
+      ],
+      "responses": [
+        "anh vay ít ít thôi",
+        "anh vay bao nhiêu cũng được",
+        "anh vay tối đa",
+        "anh vay nhiều một chút"
       ]
     },
     {
@@ -374,6 +388,9 @@
       "tag": "KH hỏi thông tin thắc mắc về khoản vay",
       "patterns": [
         "KH hỏi thông tin thắc mắc về khoản vay",
+        "KH hỏi thông tin thắc mắc về khoản vay lần 1",
+        "KH hỏi thông tin thắc mắc về khoản vay lần 2",
+        "KH hỏi thông tin thắc mắc về khoản vay lần 3",
         "EC hỏi thông tin thắc mắc về khoản vay"
       ],
       "responses": [
@@ -542,7 +559,7 @@
         "tính tiền thanh lý sao em",
         "em báo giúp anh/anh tổng tiền trả trước đi",
         "trễ thì bị phạt sao",
-        "chậm có mất phí không em",
+        "trả chậm có mất phí không em",
         "phí phạt trễ là bao nhiêu",
         "phí phạt nếu không đóng kịp",
         "có mất phí gì không",

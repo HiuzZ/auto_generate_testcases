@@ -279,7 +279,12 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
     columns and returns (sheet_name, header_row_index).
     """
     xls = pd.ExcelFile(excel_path)
-    for sheet_name in xls.sheet_names:
+    # Prioritise the sheet named "Input" so two-sheet workbooks are handled correctly.
+    _sheet_names = xls.sheet_names
+    if "Input" in _sheet_names:
+        _sheet_names = ["Input"] + [s for s in _sheet_names if s != "Input"]
+
+    for sheet_name in _sheet_names:
         preview = pd.read_excel(
             excel_path,
             sheet_name=sheet_name,
@@ -301,7 +306,7 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
             aliases.add("action code")
         required_alias_sets.append((canonical, aliases))
 
-    for sheet_name in xls.sheet_names:
+    for sheet_name in _sheet_names:
         preview = pd.read_excel(
             excel_path,
             sheet_name=sheet_name,
@@ -331,6 +336,63 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
         "Could not find a sheet/header row that matches the expected template columns. "
         f"Expected canonical fields: {CANONICAL_COLUMNS}"
     )
+
+
+def read_data_schema_sheet(
+    excel_path: Path,
+) -> tuple[list[str], list[list[str]], list[list[str]]]:
+    """Read the 'Data Schema' sheet from an input Excel file.
+
+    Layout expected (row 1 = header, row 2+ = data):
+        A       B           C       D               E
+        ID      Field       Type    Description     Note
+        1       CALL_SCRIPT string  Loại kịch bản   ...
+        2       CONTRACTID  string  Mã hợp đồng
+        ...
+
+    Returns (keys, value_rows, all_rows):
+    - keys: non-empty values from column B rows 2+ (the Field names) — used as extra
+            column headers in the Data input output sheet
+    - value_rows: always [] — Data input rows are left empty for testers to fill in
+    - all_rows: complete raw cell content for copying to the output Data Schema sheet
+    """
+    try:
+        xls = pd.ExcelFile(str(excel_path))
+    except Exception:
+        return [], [], []
+
+    schema_sheet: str | None = None
+    for candidate in ("Data Schema", "Data schema"):
+        if candidate in xls.sheet_names:
+            schema_sheet = candidate
+            break
+    if schema_sheet is None:
+        return [], [], []
+
+    df = pd.read_excel(str(excel_path), sheet_name=schema_sheet, header=None, dtype=object)
+
+    def _v(val: object) -> str:
+        if val is None:
+            return ""
+        try:
+            if pd.isna(val):  # type: ignore[arg-type]
+                return ""
+        except Exception:
+            pass
+        return str(val).strip()
+
+    all_rows = [[_v(v) for v in df.iloc[row_idx].tolist()] for row_idx in range(len(df))]
+
+    if len(df) < 2 or len(df.columns) < 2:
+        return [], [], all_rows
+
+    # Keys = non-empty values in column B (index 1), starting from row 2 (index 1, skipping header)
+    keys: list[str] = [
+        _v(df.iloc[row_idx, 1])
+        for row_idx in range(1, len(df))
+        if _v(df.iloc[row_idx, 1])
+    ]
+    return keys, [], all_rows
 
 
 def convert_excel_rows_to_strings(

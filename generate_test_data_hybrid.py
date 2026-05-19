@@ -35,7 +35,7 @@ except ImportError:
 
 # TLS Client Bot imports
 DEFAULT_MODEL = "tls_client_bot"
-MAX_WORDS_PER_RESPONSE = 12
+MAX_WORDS_PER_RESPONSE = 50
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 TLS_BOT_DIR = PROJECT_ROOT / "tls_client_bot"

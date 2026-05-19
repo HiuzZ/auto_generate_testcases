@@ -14,7 +14,6 @@
         "ừ ừ",
         "ok em nhé",
         "đúng rồi",
-        "phải",
         "có gì không",
         "ừ ừ rồi",
         "vâng"
@@ -35,7 +34,16 @@
         "ừ ừ đúng anh rồi sao em",
         "ừ anh nghe nè",
         "vâng anh đây",
-        "anh đây"
+        "ừ anh đây em",
+        "alo anh nghe đây",
+        "ừ anh đây em nói đi",
+        "anh đây có chuyện gì không em",
+        "alo anh đang nghe",
+        "anh nghe nè em",
+        "ừ ừ mình nghe đây",
+        "phải anh nè sao thế em",
+        "ừ anh đây em hỏi gì",
+        "alo anh nghe có gì không em"
       ]
     },
     {
@@ -44,18 +52,25 @@
         "KH đi vắng/ Người thân nghe hộ",
         "Người thân nghe máy/ KH đi vắng/ Không đúng KH",
         "EC đi vắng / Người thân EC nghe máy",
-        "Người thân EC nghe máy/ EC đi vắng"
+        "Người thân EC nghe máy/ EC đi vắng",
+        "Người thân nghe máy/ KH đi vắng/WP"
       ],
       "responses": [
-        "nó đi ra ngoài rồi không có nhà đâu",
-        "tôi là anh nó",
-        "đang nghe hộ không biết đâu",
-        "nó đi vắng rồi chưa về",
-        "bố cháu đang nghe",
-        "tí anh nhắn lại cho nó nó ra ngoài rồi",
-        "nó ra ngoài rồi",
-        "nó đi chơi rồi",
-        "anh nghe hộ thôi"
+        "bạn đi vắng rồi em giờ chưa về",
+        "tôi là bố cháu đang nghe máy hộ ạ",
+        "tôi là người nhà của cháu nghe máy giùm có việc gì không ạ",
+        "bố cháu đang nghe máy ạ",
+        "cháu đi vắng rồi ạ",
+        "bạn ấy đi ra ngoài rồi anh là bố bạn ấy có việc gì không em",
+        "mình là người nhà bạn ấy đi vắng rồi",
+        "anh là anh trai nghe máy hộ em",
+        "anh là người thân nghe hộ em cần gì",
+        "mình nghe máy hộ bạn ấy đi ra ngoài rồi",
+        "anh là người nhà em nói anh nhắn lại cho",
+        "mình là anh trai bạn ấy chưa về em ạ",
+        "anh là người thân nghe máy có chuyện gì vậy em",
+        "bạn ấy ra ngoài rồi anh nghe hộ em nhé",
+        "anh đây nghe hộ bạn ấy đi vắng rồi em"
       ]
     },
     {
@@ -65,16 +80,22 @@
         "Không đúng KH lần 1",
         "Không đúng KH lần 2",
         "Không đúng EC lần 1",
-        "Không đúng EC lần 2"
+        "Không đúng EC lần 2",
+        "WP (Sai người)"
       ],
       "responses": [
-        "nhầm số rồi",
-        "nó không còn dùng số này đâu",
-        "không phải số này",
-        "nhầm người rồi em ơi",
+        "em gọi nhầm số rồi",
+        "không phải số này em ơi",
+        "gọi nhầm người rồi em ơi",
         "gọi sai người rồi",
         "có phải anh đâu em gọi nhầm rồi",
-        "không phải nhầm số rồi"
+        "không phải nhầm số rồi",
+        "em ơi nhầm máy rồi",
+        "em gọi nhầm máy anh không phải",
+        "em nhầm số rồi anh không phải",
+        "anh không phải bạn ấy em gọi sai số rồi",
+        "gọi lộn số rồi em",
+        "em gọi lộn người rồi"
       ]
     },
     {
@@ -94,15 +115,22 @@
         "EC báo bận lần 3"
       ],
       "responses": [
-        "anh đang đi làm",
-        "anh đang đi trên đường bận lắm",
-        "giờ anh bận chưa tiện để nói chuyện",
+        "anh đang bận anh đang họp",
+        "giờ anh đang hơi bận ấy chưa tiện để nói chuyện lắm",
         "lát rồi gọi lại nhé anh đang bận",
         "anh bận rồi khi khác nhé",
         "giờ không nói chuyện được anh bận họp rồi",
         "anh đang bận việc khác rồi em",
-        "bận rồi",
-        "lúc khác nói nhé anh bận rồi"
+        "anh đang bận rồi cảm ơn em",
+        "lúc khác nói nhé anh lại bận mất rồi",
+        "anh bận quá em gọi lại lúc khác",
+        "giờ anh không tiện nói chuyện em ơi",
+        "anh đang trong cuộc họp gọi sau nhé",
+        "mình đang bận rồi để hôm khác em",
+        "anh đang dở việc gọi lại sau giúp anh",
+        "anh kẹt việc rồi em thông cảm gọi sau",
+        "mình bận quá em gọi sau giúp mình",
+        "mình đang bận chút em gọi lại sau nhé"
       ]
     },
     {
@@ -112,16 +140,20 @@
         "EC báo KH mất"
       ],
       "responses": [
-        "mất rồi em",
-        "mới ốm mất trong viện tuần trước em ạ",
-        "chết rồi",
-        "ừ mất rôi em thông cảm",
-        "đột quỵ chết rồi em ạ",
-        "ốm chết rồi",
-        "mới bị tai nạn chết hôm qua đau sót quá em ạ",
+        "bạn ấy mới mất rồi em",
+        "em nó mới ốm mất trong viện tuần trước em ạ",
+        "ừ em nó mất rôi em thông cảm",
+        "em nó đột quỵ mất rồi em ạ",
         "mới ốm mất rồi em ạ",
-        "tại nạn chết rồi em",
-        "mới ung thư mất rồi"
+        "bạn bị tại nạn không qua khỏi em",
+        "em nó mới ung thư mới mất rồi",
+        "em nó bị bệnh nặng mất rồi em ạ",
+        "bạn ấy qua đời rồi em thông cảm nhé",
+        "em nó bị tai biến mất bất ngờ lắm",
+        "bạn ấy mất hồi đầu năm rồi em",
+        "em nó tai nạn giao thông mất rồi em ạ",
+        "bạn ấy ốm lâu rồi mới mất tuần trước",
+        "em nó nằm viện rồi mất em ạ"
       ]
     },
     {
@@ -144,10 +176,12 @@
         "đồ ngu",
         "óc lợn à",
         "sao mày ngu thế",
-        "mày điếc à",
         "mày bị ngu à",
-        "con điên kia",
-        "con thần kinh"
+        "con điên",
+        "con thần kinh",
+        "địt mẹ mày",
+        "lồn mẹ mày",
+        "bố tổ cái bọn mất dạy"
       ]
     },
     {
@@ -198,16 +232,27 @@
         "Không nghe rõ lần 2"
       ],
       "responses": [
-        "nói lại anh nghe",
-        "nhắc lại đi",
-        "chả nghe thấy gì cả",
-        "nhắc lại lần nữa đi",
-        "ồn lắm em ơi",
-        "em nói gì cơ",
-        "em vừa nói gì cơ",
-        "anh nghe không rõ",
-        "ồn quá em ạ",
-        "em nói lại đi"
+        "em nói lại được không anh nghe không rõ",
+        "em nhắc lại giúp anh với",
+        "anh không nghe thấy gì cả em nói lại được không",
+        "ồn lắm em ơi nói lại giùm anh",
+        "em nói gì cơ nhắc lại giúp anh với",
+        "anh nghe chưa rõ nói lại đi em",
+        "alo em nói to lên anh không nghe rõ",
+        "em nói lại lần nữa giúp anh",
+        "anh không nghe được em nói gì cả",
+        "em nói chậm lại giúp anh nghe với",
+        "tín hiệu kém quá em nói lại đi",
+        "em nhắc lại từ đầu giúp anh nhé",
+        "alo anh không rõ em nói lại đi",
+        "em nói gì anh nghe không hiểu",
+        "ồn quá em ơi nói lại lần nữa",
+        "anh nghe tiếng được tiếng mất em nói lại giúp anh với",
+        "em nói lại giúp anh được không",
+        "anh chưa nghe rõ em nói lại đi nhé",
+        "em ơi nói lại đi anh không nắm được",
+        "em nói lại lần nữa anh nghe chưa rõ",
+        "em nhắc lại giùm anh không nghe rõ"
       ]
     },
     {
@@ -247,48 +292,115 @@
       "tag": "KH vay hộ/đứng tên giùm",
       "patterns": [
         "KH vay hộ/đứng tên giùm",
-        "EC vay hộ/đứng tên giùm"
+        "EC vay hộ/đứng tên giùm",
+        "Vay hộ/Đứng tên giùm"
       ],
       "responses": [
         "anh vay hộ thôi",
-        "anh đứng tên giùm thôi"
+        "anh đứng tên giùm thôi",
+        "anh chỉ đứng tên giúp người khác thôi",
+        "anh vay hộ bạn chứ không xài",
+        "anh vay hộ người ta thôi",
+        "anh đứng tên hộ khoản vay thôi em",
+        "anh đứng tên giùm thôi á em"
       ]
     },
     {
       "tag": "KH hứa trả",
       "patterns": [
         "KH hứa trả",
-        "EC hứa trả"
+        "EC hứa trả",
+        "Promise to pay"
       ],
       "responses": [
-        "rồi anh hứa sẽ trả cho bọn em",
-        "chắc chắn sẽ trả cho bên em",
-        "hứa sẽ trả yên tâm"
+        "để anh đóng",
+        "lát anh đóng cho",
+        "mai anh trả cho",
+        "rồi rồi anh hứa sẽ trả",
+        "biết rồi anh hứa anh sẽ trả"
+      ]
+    },
+    {
+      "tag": "KH hứa trả số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH hứa trả số tiền tối thiểu cần thanh toán",
+        "EC hứa trả số tiền tối thiểu cần thanh toán"
+      ],
+      "responses": [
+        "anh trả tối thiểu nhé",
+        "anh thanh toán mức thấp nhất thôi",
+        "anh gửi phần nhỏ hai triệu nha",
+        "anh hứa gửi hai triệu",
+        "anh thanh toán mức thấp nhất hai triệu thôi"
+      ]
+    },
+    {
+      "tag": "KH hứa trả số tiền lớn hơn số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH hứa trả số tiền lớn hơn số tiền tối thiểu cần thanh toán",
+        "EC hứa trả số tiền lớn hơn số tiền tối thiểu cần thanh toán"
+      ],
+      "responses": [
+        "anh trả một nửa luôn",
+        "anh thanh toán tầm ba triệu",
+        "anh gửi tầm ba triệu nha",
+        "anh trả tầm ba triệu",
+        "anh thanh toán một nửa là ba triệu thôi"
+      ]
+    },
+    {
+      "tag": "KH hứa trả số tiền bằng dư nợ cuối kì",
+      "patterns": [
+        "KH hứa trả số tiền bằng dư nợ cuối kì",
+        "EC hứa trả số tiền bằng dư nợ cuối kì"
+      ],
+      "responses": [
+        "anh trả tối đa nhé",
+        "để anh thanh toán hết",
+        "để anh trả hết nha",
+        "anh thanh toán toàn bộ luôn",
+        "anh thanh toán hết năm triệu",
+        "anh trả hết năm triệu"
       ]
     },
     {
       "tag": "KH đóng nhầm hợp đồng",
       "patterns": [
         "KH đóng nhầm hợp đồng",
-        "EC đóng nhầm hợp đồng"
+        "EC đóng nhầm hợp đồng",
+        "Đóng nhầm hợp đồng"
       ],
       "responses": [
-        "anh đóng nhầm hợp đồng",
-        "đóng nhầm hợp đồng em ạ",
-        "trả lộn hợp đồng rồi"
+        "anh đóng nhầm hợp đồng mất rồi",
+        "anh đóng nhầm hợp đồng em ạ",
+        "anh trả lộn hợp đồng rồi",
+        "anh đóng nhầm hợp đồng chuyển nhầm tiền qua hợp đồng kia rồi",
+        "anh đóng lộn qua hợp đồng kia mất rồi",
+        "anh nộp nhầm vào hợp đồng khác mất rồi",
+        "anh chuyển khoản nhầm hợp đồng em ơi",
+        "anh thanh toán sai hợp đồng rồi",
+        "anh trả tiền nhầm hợp đồng cũ rồi",
+        "anh trả qua hợp đồng khác mất rồi em",
+        "anh trả lộn sang hợp đồng khác rồi em ơi",
+        "anh đóng lộn hợp đồng rồi em ơi giúp anh với",
+        "anh trả nhầm hợp đồng em xử lý giúp anh"
       ]
     },
     {
       "tag": "KH không biết khoản vay",
       "patterns": [
         "KH không biết khoản vay",
-        "EC không biết khoản vay"
+        "EC không biết khoản vay",
+        "Không biết khoản vay"
       ],
       "responses": [
         "khoản nào em anh biết gì đâu",
         "anh không biết khoản vay nào",
         "khoản vay gì anh biết đâu",
-        "không biết khoản vay nào luôn"
+        "không biết khoản vay nào luôn",
+        "khoản vay nào anh chưa nghe bao giờ",
+        "anh không biết em đang nói khoản gì",
+        "anh không có khoản vay nào cả em ơi"
       ]
     },
     {
@@ -340,13 +452,29 @@
       "tag": "KH muốn gặp TĐV",
       "patterns": [
         "KH muốn gặp TĐV",
-        "EC muốn gặp TĐV"
+        "EC muốn gặp TĐV",
+        "KH muốn gặp TVV",
+        "EC muốn gặp TVV",
+        "KH muốn gặp TVV lần 1",
+        "KH muốn gặp TVV lần 2",
+        "KH muốn gặp TVV lần 3",
+        "EC muốn gặp TVV lần 1",
+        "EC muốn gặp TVV lần 2",
+        "EC muốn gặp TVV lần 3",
+        "FAQ_request_agent"
       ],
       "responses": [
         "cho anh gặp tồng đài viên",
         "cho gặp nhân viên tư vấn đi em",
         "chuyển máy cho tổng đài viên giúp anh",
-        "kết nối tổng đài viên giúp mình"
+        "kết nối tổng đài viên giúp mình",
+        "cho anh nói chuyện với nhân viên",
+        "chuyển cho anh gặp tổng đài viên đi em",
+        "anh cần gặp tư vấn viên",
+        "nối máy cho anh gặp tổng đài viên",
+        "chuyển cho anh gặp tổng đài viên đi",
+        "kết nối anh với tổng đài viên nhé",
+        "mình muốn gặp nhân viên trực tổng đài"
       ]
     },
     {
@@ -374,14 +502,30 @@
           "KH hỏi là ai lần 3",
           "EC hỏi là ai lần 1",
           "EC hỏi là ai lần 2",
-          "EC hỏi là ai lần 3"
+          "EC hỏi là ai lần 3",
+          "Hỏi ai gọi, bên nào gọi đến",
+          "FAQ_whoareyou"
       ],
       "responses": [
         "alo ai đấy ạ",
         "ai đấy",
         "alo ai đang gọi vậy",
         "ai đấy nhỉ",
-        "ai đấy alo ạ"
+        "ai gọi đấy ạ",
+        "em là ai",
+        "ai vậy",
+        "em bên nào",
+        "em gọi từ đâu vậy",
+        "alo em là ai vậy",
+        "em ở đâu gọi đến anh",
+        "ai gọi anh đấy",
+        "alo bên nào gọi vậy em",
+        "em là ai gọi anh có chuyện gì",
+        "em ở công ty nào gọi anh",
+        "alo ai gọi đến vậy",
+        "em là ai ở đâu gọi anh có việc gì không",
+        "em là ai gọi anh từ đâu vậy",
+        "em bên nào gọi anh thế"
       ]
     },
     {
@@ -659,40 +803,71 @@
         "Vợ /chồng EC nghe máy"
       ],
       "responses": [
-        "anh là chông đang nghe",
-        "ông xã đang nghe ạ",
-        "anh là chồng có việc gì thế em",
-        "chồng đang nghe sao thế"
+        "anh là chồng đang nghe",
+        "anh là ông xã đang nghe máy ạ",
+        "anh là chồng có việc gì không em",
+        "mình là chồng đang nghe máy sao thế ạ",
+        "anh là chồng đây em cần gì không",
+        "mình là chồng đang nghe đây",
+        "anh là chồng có chuyện gì vậy em",
+        "mình là ông xã nghe máy đây",
+        "anh là chồng em cứ nói",
+        "anh là chồng đang nghe máy đây",
+        "anh chồng nghe đây em cần hỗ trợ gì",
+        "mình là chồng có việc gì vậy"
       ]
     },
     {
       "tag": "KH có quen biết",
       "patterns": [
         "KH có quen biết",
-        "EC có quen biết"
+        "EC có quen biết",
+        "EC (Có quen biết)"
       ],
       "responses": [
-        "ừ tôi có biết",
-        "ừ ừ người quen",
-        "có quen sao em",
+        "ừ anh có quen biết",
+        "ừ ừ anh có quen",
+        "anh có quen sao em",
         "anh biết bạn ấy có gì không",
-        "có có quen có việc gì không"
+        "có anh có quen",
+        "ừ anh quen bạn ấy đấy",
+        "anh có biết người đó em",
+        "ừ anh quen mà có chuyện gì không",
+        "đúng rồi anh có quen biết",
+        "anh quen bạn đó sao thế em",
+        "ừ anh biết bạn ấy",
+        "có anh quen bạn ấy lâu rồi",
+        "ừ ừ anh biết bạn đó",
+        "có anh và bạn ấy quen nhau",
+        "có anh và bạn ấy biết nhau"
       ]
     },
     {
       "tag": "KH đã trả",
       "patterns": [
         "KH đã trả",
-        "EC đã trả"
+        "EC đã trả",
+        "Paid"
       ],
       "responses": [
-        "thanh toán rồi mà em ơi",
-        "trả hết rôi mà",
-        "mới thanh toán đủ cho em rối",
-        "tất toán hết rồi em",
-        "thanh toán xong hết rồi nhá",
-        "ủa đã trả rồi mà em",
-        "trả rồi"
+        "anh thanh toán hết rồi mà em ơi",
+        "anh đã trả hết nợ rôi mà",
+        "anh mới thanh toán đủ cho em rối",
+        "anh tất toán hết nợ rồi em",
+        "anh đã thanh toán xong hết rồi nhá",
+        "ủa anh đã trả hết nợ rồi mà em",
+        "anh trả tiền rồi",
+        "anh đã đóng hết tiền tuần trước rồi",
+        "anh thanh toán xong từ lâu rồi em",
+        "anh trả hết từ hôm trước rồi",
+        "anh đóng đủ rồi em kiểm tra lại đi",
+        "anh thanh toán xong rồi nhé em",
+        "anh đã trả nợ hết rồi mà em",
+        "anh đã tất toán rồi em xem lại giúp",
+        "anh thanh toán đầy đủ rồi em ơi",
+        "anh đóng tiền rồi em kiểm tra lại nhé",
+        "anh thanh toán đủ từ tuần trước rồi",
+        "anh thanh toán hết rồi em kiểm tra giúp anh"
       ]
     },
     {
@@ -705,7 +880,51 @@
         "rồi để anh trả",
         "ừ để anh thanh toán cho bên em nhé",
         "được để anh trả tiền",
-        "ừ anh thanh toán đủ cho nhá"
+        "ừ anh thanh toán đủ cho nhá",
+        "lát anh đóng tiền cho",
+        "mai anh trả nợ cho"
+      ]
+    },
+    {
+      "tag": "KH tự nguyện trả số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH tự nguyện trả số tiền tối thiểu cần thanh toán",
+        "EC tự nguyện trả số tiền tối thiểu cần thanh toán"
+      ],
+      "responses": [
+        "anh sẽ trả số tiền tối thiểu là hai triệu nhé",
+        "ok anh sẽ thanh toán hai triệu",
+        "ừ vậy anh thánh toán số tiền tối thiểu là hai triệu nhé",
+        "ừ ok anh sẽ thanh toán hai triệu nha",
+        "vâng thế anh thanh toán số tiền tối thiểu là hai triệu nhá"
+      ]
+    },
+    {
+      "tag": "KH tự nguyện trả số tiền lớn hơn số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH tự nguyện trả số tiền lớn hơn số tiền tối thiểu cần thanh toán",
+        "EC tự nguyện trả số tiền lớn hơn số tiền tối thiểu cần thanh toán"
+      ],
+      "responses": [
+        "anh sẽ trả ba triệu nhé",
+        "ok anh sẽ thanh toán ba triệu",
+        "ừ vậy anh thánh toán số tiền là ba triệu nhé",
+        "ừ ok anh sẽ thanh toán ba triệu nha",
+        "vâng thế anh thanh toán số ba triệu nhá"
+      ]
+    },
+    {
+      "tag": "KH tự nguyện trả số tiền bằng dư nợ cuối kì",
+      "patterns": [
+        "KH tự nguyện trả số tiền bằng dư nợ cuối kì",
+        "EC tự nguyện trả số tiền bằng dư nợ cuối kì"
+      ],
+      "responses": [
+        "anh sẽ trả năm triệu nhé",
+        "ok anh sẽ thanh toán năm triệu",
+        "ừ vậy anh thánh toán số tiền là năm triệu nhé",
+        "ừ ok anh sẽ thanh toán năm triệu nha",
+        "vâng thế anh thanh toán số năm triệu nhá"
       ]
     },
     {
@@ -714,15 +933,18 @@
         "KH trả sau lần 1",
         "KH trả sau lần 2",
         "EC trả sau lần 1",
-        "EC trả sau lần 2"
+        "EC trả sau lần 2",
+        "Pay later"
       ],
       "responses": [
-        "ừ tháng sau trả nhé",
-        "mấy hôm nữa thanh toán nhé",
-        "ừ biết rồi anh sẽ trả cho bọn em sau",
-        "được rồi anh sẽ thanh toán cho em sau nhé phải mấy hôm nữa",
-        "ừ anh sẽ tất toán hết cho bên em sau nhé",
-        "anh trả cho bên em sau không bùng đâu yên tâm"
+        "ba hôm nữa anh thanh toán nhé",
+        "rồi rồi ba bốn ngày nữa anh thanh toán",
+        "anh xin trả chậm năm hôm em nhé",
+        "ba ngày nữa anh đóng tiền",
+        "anh đang xoay tiền ba bốn hôm anh trả",
+        "ba hôm nữa anh thanh toán cho em",
+        "anh xin thanh toán sau bốn ngày em ơi",
+        "đợi anh thu xếp sau ba bốn hôm anh trả"
       ]
     },
     {
@@ -733,32 +955,77 @@
         "KH trả một ít lần 1",
         "KH trả một ít lần 2",
         "EC trả một ít lần 1",
-        "EC trả một ít lần 2"
+        "EC trả một ít lần 2",
+        "Pay less"
       ],
       "responses": [
         "anh thanh toán một ít trước nhé",
         "trả trước một phần có được không em",
         "anh thanh toán một ít trước nhé hơi kẹt em ạ",
         "anh thanh toán cho bên em trước một phần có được không",
-        "giờ trả được một ít trước thôi em",
-        "thanh toán một phần trước nhé em"
+        "giờ anh trả được một ít trước thôi em",
+        "anh thanh toán một phần trước nhé em",
+        "anh chỉ có một ít thôi trả trước nhé",
+        "anh đóng tạm một phần đợt này em",
+        "giờ anh kẹt anh đóng một ít trước",
+        "anh xin trả một phần được không em",
+        "cho anh đóng trước một ít em nhé",
+        "anh chỉ xoay được ít tiền trả trước",
+        "đợt này anh chỉ trả được ít thôi",
+        "anh thanh toán một ít cho đỡ nợ trước",
+        "mình đóng một phần trước được không em",
+        "anh có ít tiền trả trước em nhé"
+
+      ]
+    },
+    {
+      "tag": "KH trả hơn số tiền tối thiểu cần thanh toán",
+      "patterns": [
+        "KH trả ít hơn số tiền tối thiểu cần thanh toán",
+        "EC trả ít hơn số tiền tối thiểu cần thanh toán",
+        "KH trả ít hơn số tiền tối thiểu cần thanh toán lần 1",
+        "KH trả ít hơn số tiền tối thiểu cần thanh toán lần 2",
+        "EC trả ít hơn số tiền tối thiểu cần thanh toán lần 1",
+        "EC trả ít hơn số tiền tối thiểu cần thanh toán lần 2",
+        "Pay less"
+      ],
+      "responses": [
+        "anh thanh toán một ít trước anh thanh trả trước một trước nhé",
+        "trả trước một triệu có được không em",
+        "anh thanh toán một triệu trước nhé hơi kẹt em ạ",
+        "anh thanh toán cho bên em trước một triệu có được không",
+        "giờ anh trả được một triệu trước thôi em",
+        "anh thanh toán một triệu trước nhé em",
+        "anh chỉ có một triệu thôi trả trước nhé",
+        "anh đóng tạm một triệu đợt này em",
+        "giờ anh kẹt anh đóng một triệu trước",
+        "anh xin trả một triệu được không em",
+        "cho anh đóng trước một triệu em nhé",
+        "anh chỉ xoay được triệu tiền trả trước",
+        "đợt này anh chỉ trả được triệu thôi",
+        "anh thanh toán một triệu cho đỡ nợ trước",
+        "mình đóng một triệu trước được không em",
+        "anh có một triệu trả trước em nhé"
       ]
     },
     {
       "tag": "KH từ chối trả",
       "patterns": [
         "KH từ chối trả",
-        "EC từ chối trả"
+        "EC từ chối trả",
+        "Refuse to pay"
       ],
       "responses": [
-        "không trả đâu",
-        "bùng không thanh toán",
-        "không trả không có tiền",
-        "hết tiền rồi không trả được",
+        "anh không trả đâu",
+        "anh bùng không thanh toán",
+        "anh không trả không có tiền",
+        "anh hết tiền rồi không trả được",
         "dạo này kẹt anh không trả được",
-        "đang khó khăn tôi không trả",
-        "tôi không trả đấy",
-        "thanh toán cái gì không trả tiền đâu"
+        "đang khó khăn anh không trả",
+        "anh không trả nợ được đang kẹt tiền",
+        "thanh toán cái gì không trả tiền đâu",
+        "anh không có khả năng chi trả",
+        "anh đang nợ ngập đầu không trả nợ được"
       ]
     },
     {
@@ -769,12 +1036,24 @@
         "KH hỏi tổng dư nợ cuối kì lần 3",
         "EC hỏi tổng dư nợ cuối kì lần 1",
         "EC hỏi tổng dư nợ cuối kì lần 2",
-        "EC hỏi tổng dư nợ cuối kì lần 3"
+        "EC hỏi tổng dư nợ cuối kì lần 3",
+        "FAQ_ending_balance",
+        "Tổng dư nợ cuối kì"
       ],
       "responses": [
-        "dư nợ nhiêu em",
-        "tông dư nợ là bao nhiêu em",
-        "dư nợ cuối kì nhu nào em"
+        "anh muốn hỏi tổng dư nợ nhiêu em",
+        "thế tổng dư nợ là bao nhiêu hả em",
+        "tổng dư nợ cuối kì như nào em",
+        "tổng dư nợ của anh giờ bao nhiêu vậy em",
+        "em cho anh biết tổng dư nợ cuối kì với",
+        "tổng dư nợ của anh là nhiêu em ơi",
+        "cho anh hỏi số dư nợ cuối kì với",
+        "em kiểm tra giúp anh tổng dư nợ nhé",
+        "em xem giúp anh tổng nợ là bao nhiêu",
+        "anh muốn biết tổng dư nợ cuối kì",
+        "tổng dư nợ kì này của anh là nhiêu",
+        "anh cần biết tổng dư nợ cuối kì",
+        "em check giúp anh tổng nợ cuối kì với"
       ]
     },
     {
@@ -785,13 +1064,20 @@
         "KH hỏi số tiền tối thiểu cần thanh toán lần 3",
         "EC hỏi số tiền tối thiểu cần thanh toán lần 1",
         "EC hỏi số tiền tối thiểu cần thanh toán lần 2",
-        "EC hỏi số tiền tối thiểu cần thanh toán lần 3"
+        "EC hỏi số tiền tối thiểu cần thanh toán lần 3",
+        "FAQ_min_amount",
+        "Số tiền tối thiểu cần thanh toán"
       ],
       "responses": [
-        "cần trả it nhất bao nhiêu em",
-        "tối thiểu cần thanh toán nhiêu em",
-        "cân thanh toán tối thiểu bao nhiêu tiền em",
-        "giờ tối thiểu phải thanh toán bao tiền"
+        "số tiền tối thiểu anh cần thanh toán là bao nhiêu hả em",
+        "tối thiểu anh cần thanh toán nhiêu vậy em",
+        "anh cân thanh toán tối thiểu bao nhiêu tiền hả em",
+        "bây giờ tối thiểu anh phải thanh toán bao tiền",
+        "anh trả tối thiểu bao nhiêu là được em",
+        "mức tối thiểu phải đóng là bao nhiêu em",
+        "em cho anh biết mức tối thiểu phải trả",
+        "tối thiểu anh phải nộp nhiêu em",
+        "anh đóng ít nhất bao nhiêu vậy em"
       ]
     },
     {
@@ -802,12 +1088,19 @@
         "KH hỏi lãi phạt lần 3",
         "EC hỏi lãi phạt lần 1",
         "EC hỏi lãi phạt lần 2",
-        "EC hỏi lãi phạt lần 3"
+        "EC hỏi lãi phạt lần 3",
+        "FAQ_Penalty",
+        "Lãi Phạt"
       ],
       "responses": [
-        "có lãi phạt hả em bao nhiêu",
-        "lãi phạt như nào em",
-        "lãi phạt cao không"
+        "anh muốn hỏi là lãi phạt bao nhiêu hả em",
+        "em ơi lãi phạt bao nhiêu",
+        "em cho anh biết phí phạt là bao nhiêu",
+        "em xem giúp anh tiền phạt là bao nhiêu",
+        "lãi phạt cụ thể là nhiêu em nói anh nghe",
+        "anh muốn biết khoản lãi phạt là bao nhiêu",
+        "lãi phạt chậm trả là bao nhiêu em",
+        "anh hỏi lãi phạt tính kiểu nào em"
       ]
     },
     {
@@ -818,12 +1111,24 @@
         "KH hỏi phí sử dụng thẻ lần 3",
         "EC hỏi phí sử dụng thẻ lần 1",
         "EC hỏi phí sử dụng thẻ lần 2",
-        "EC hỏi phí sử dụng thẻ lần 3"
+        "EC hỏi phí sử dụng thẻ lần 3",
+        "FAQ_fee",
+        "Phí sử dụng thẻ"
       ],
       "responses": [
         "phí dùng thẻ như nào em em",
         "dùng thẻ thì phí bao nhiêu em",
-        "phí dùng thẻ như nào"
+        "em ơi phí dùng thẻ bao nhiêu hả em",
+        "phí sử dụng thẻ của anh là bao nhiêu",
+        "anh hỏi phí thẻ tháng này nhiêu em",
+        "em cho anh biết phí dùng thẻ với",
+        "phí thẻ bao nhiêu vậy em",
+        "em báo anh phí sử dụng thẻ giúp",
+        "phí duy trì thẻ là bao nhiêu em ơi",
+        "anh muốn biết phí thẻ là bao nhiêu",
+        "em nói anh nghe phí thẻ là nhiêu",
+        "em báo cụ thể phí thẻ giúp anh nhé",
+        "tiền phí thẻ là bao nhiêu vậy em"
       ]
     },
     {
@@ -834,52 +1139,74 @@
         "KH hỏi Lãi suất lần 3",
         "EC hỏi Lãi suất lần 1",
         "EC hỏi Lãi suất lần 2",
-        "EC hỏi Lãi suất lần 3"
+        "EC hỏi Lãi suất lần 3",
+        "FAQ_interest",
+        "Lãi suất"
       ],
       "responses": [
-        "lãi suất bên mình  như thế nào thế em",
+        "lãi suất bên mình như thế nào thế em",
         "lãi vay tính như nào vậy em",
-        "mỗi tháng phải trả bao nhiêu em",
-        "tổng lãi chị phải trả là bao nhiêu",
-        "lãi xuất có cố định không em",
-        "lãi tính theo dư nợ gốc hay dư nợ giảm dần vậy em",
-        "vay nhiều lãi có cao hơn không em",
-        "có phát sinh thêm phí ngoài lãi không",
-        "lãi suất này đã bao gồm hết chi phí chưa em",
-        "tính lãi như nào vậy em"
+        "mỗi tháng phải trả lãi bao nhiêu tiền hả em",
+        "tính lãi như nào vậy em",
+        "lãi suất của anh là bao nhiêu phần trăm",
+        "em cho anh biết lãi suất hiện tại",
+        "anh hỏi lãi suất bên em tính kiểu gì",
+        "lãi suất một tháng là bao nhiêu vậy em",
+        "anh đóng lãi mỗi tháng nhiêu em",
+        "em báo anh mức lãi suất chính xác",
+        "lãi suất khoản vay của anh là nhiêu",
+        "anh muốn biết lãi suất hàng tháng",
+        "anh phải trả lãi bao nhiêu phần trăm",
+        "em nói anh nghe lãi suất bao nhiêu",
+        "anh trả lãi mỗi tháng hết bao nhiêu vậy em",
+        "em xem giúp anh lãi suất khoản vay này"
       ]
     },
     {
-      "tag": "KH hỏi Rút tiền mặt",
+      "tag": "KH hỏi rút tiền mặt",
       "patterns": [
-        "KH hỏi Rút tiền mặt lần 1",
-        "KH hỏi Rút tiền mặt lần 2",
-        "KH hỏi Rút tiền mặt lần 3",
-        "EC hỏi Rút tiền mặt lần 1",
-        "EC hỏi Rút tiền mặt lần 2",
-        "EC hỏi Rút tiền mặt lần 3"
+        "KH hỏi rút tiền mặt lần 1",
+        "KH hỏi rút tiền mặt lần 2",
+        "KH hỏi rút tiền mặt lần 3",
+        "EC hỏi rút tiền mặt lần 1",
+        "EC hỏi rút tiền mặt lần 2",
+        "EC hỏi rút tiền mặt lần 3",
+        "FAQ_cash_withdraw",
+        "Rút tiền mặt"
       ],
       "responses": [
         "rút tiền mặt như nào em",
-        "giờ anh muốn rút tiền mặt âý",
+        "giờ anh muốn rút tiền mặt thì làm như nào hả em",
         "rút tiền kiểu gì em nhỉ",
-        "anh muốn rút tiền mặt ấy"
+        "anh muốn rút tiền mặt ấy",
+        "em hướng dẫn anh cách rút tiền mặt với",
+        "em chỉ anh cách rút tiền mặt nhé",
+        "anh cần rút ít tiền mặt làm sao em"
       ]
     },
     {
-      "tag": "KH hỏi Phí thường niên",
+      "tag": "KH hỏi phí thường niên",
       "patterns": [
-        "KH hỏi Phí thường niên lần 1",
-        "KH hỏi Phí thường niên lần 2",
-        "KH hỏi Phí thường niên lần 3",
-        "EC hỏi Phí thường niên lần 1",
-        "EC hỏi Phí thường niên lần 2",
-        "EC hỏi Phí thường niên lần 3"
+        "KH hỏi phí thường niên lần 1",
+        "KH hỏi phí thường niên lần 2",
+        "KH hỏi phí thường niên lần 3",
+        "EC hỏi phí thường niên lần 1",
+        "EC hỏi phí thường niên lần 2",
+        "EC hỏi phí thường niên lần 3",
+        "FAQ_annual_fee",
+        "Phí thường niên"
       ],
       "responses": [
         "phí thường niên là bao nhiêu",
         "phí thường niên cao không em",
-        "ý là phí thường bên em lấy như nào"
+        "anh muốn hỏi phí thường niên bên em là bao nhiêu",
+        "phí thường niên mỗi năm bao nhiêu vậy em",
+        "anh đóng phí thường niên nhiêu em",
+        "em báo anh phí thường niên với",
+        "em cho anh biết phí thường niên cụ thể",
+        "anh phải đóng phí thường niên bao nhiêu",
+        "anh muốn biết phí thường niên là nhiêu",
+        "em xem giúp anh phí thường niên nhé"
       ]
     },
     {
@@ -890,12 +1217,20 @@
         "KH hỏi Cách chuyển đổi trả góp lần 3",
         "EC hỏi Cách chuyển đổi trả góp lần 1",
         "EC hỏi Cách chuyển đổi trả góp lần 2",
-        "EC hỏi Cách chuyển đổi trả góp lần 3"
+        "EC hỏi Cách chuyển đổi trả góp lần 3",
+        "Cách chuyển đổi trả góp",
+        "FAQ_how_EPP"
       ],
       "responses": [
         "anh muốn chuyển sang trả góp được không",
-        "có trả góp được không",
-        "giờ trả góp có được không em"
+        "anh có trả góp không em",
+        "anh trả góp có được không em",
+        "anh muốn chuyển đổi sang trả góp em hướng dẫn với",
+        "cho anh hỏi cách chuyển trả góp",
+        "anh muốn trả góp khoản này làm sao em",
+        "anh chuyển sang trả góp cần làm gì em",
+        "em ơi anh muốn đổi sang trả góp",
+        "em xem giúp anh có trả góp được không"
       ]
     },
     {
@@ -906,12 +1241,24 @@
         "KH hỏi Lãi suất chuyển đổi trả góp lần 3",
         "EC hỏi Lãi suất chuyển đổi trả góp lần 1",
         "EC hỏi Lãi suất chuyển đổi trả góp lần 2",
-        "EC hỏi Lãi suất chuyển đổi trả góp lần 3"
+        "EC hỏi Lãi suất chuyển đổi trả góp lần 3",
+        "Lãi suất chuyển đổi trả góp",
+        "FAQ_EPP_interest"
       ],
       "responses": [
         "lãi suất chuyển đổi trả góp nhiêu em",
-        "lãi suất  suất chuyển đổi trả góp như nào thế",
-        "lãi  suất chuyển đổi trả góp có cao không"
+        "lãi suất suất chuyển đổi trả góp như nào thế",
+        "lãi suất chuyển đổi trả góp có cao không",
+        "trả góp lãi suất bao nhiêu vậy em",
+        "anh hỏi lãi suất trả góp là nhiêu",
+        "em cho anh biết lãi trả góp với",
+        "lãi suất trả góp một tháng bao nhiêu em",
+        "anh chuyển trả góp thì lãi nhiêu vậy",
+        "em báo anh lãi suất chuyển đổi trả góp",
+        "trả góp tính lãi sao em",
+        "anh muốn biết lãi suất trả góp cụ thể",
+        "anh hỏi mức lãi khi trả góp với",
+        "em nói anh nghe lãi suất trả góp"
       ]
     },
     {
@@ -922,12 +1269,25 @@
         "KH hỏi Hạn mức thẻ lần 3",
         "EC hỏi Hạn mức thẻ lần 1",
         "EC hỏi Hạn mức thẻ lần 2",
-        "EC hỏi Hạn mức thẻ lần 3"
+        "EC hỏi Hạn mức thẻ lần 3",
+        "Hạn mức thẻ",
+        "FAQ_credit_limit"
       ],
       "responses": [
-        "hạn mức thẻ là bao nhiêu em",
-        "hạn mức thẻ có cao không máy chục thế em",
-        "thẻ có những hạn mức nào em"
+        "hạn mức thẻ là bao nhiêu hả em",
+        "thẻ có những hạn mức nào em",
+        "hạn mức thẻ của anh bao nhiêu vậy em",
+        "anh hỏi hạn mức thẻ hiện tại nhiêu",
+        "em cho anh biết hạn mức thẻ với",
+        "thẻ anh hạn mức tối đa là nhiêu em",
+        "em báo anh hạn mức còn lại nhé",
+        "hạn mức thẻ tín dụng của anh là nhiêu",
+        "anh muốn biết hạn mức thẻ của mình",
+        "em xem giúp anh hạn mức thẻ với",
+        "em báo cụ thể hạn mức thẻ cho anh",
+        "anh hỏi hạn mức tối đa của thẻ",
+        "thẻ này hạn mức cao nhất là nhiêu em",
+        "em cho anh con số hạn mức chính xác"
       ]
     },
     {
@@ -970,13 +1330,21 @@
         "KH hỏi Kênh thanh toán lần 3",
         "EC hỏi Kênh thanh toán lần 1",
         "EC hỏi Kênh thanh toán lần 2",
-        "EC hỏi Kênh thanh toán lần 3"
+        "EC hỏi Kênh thanh toán lần 3",
+        "Kênh thanh toán",
+        "FAQ_channel"
       ],
       "responses": [
-        "thanh toán online được không em",
-        "chuyển khoản được không em",
-        "thanh toán bằng Mo Mo được không",
-        "anh trả qua zalo pay có được không"
+        "anh thanh toán online được không em",
+        "anh chuyển khoản để thanh toán có được không em",
+        "anh thanh toán bằng Mo Mo được không",
+        "anh trả qua zalo pay có được không",
+        "thanh toán khoản này như thế nào hả em",
+        "anh đóng tiền ở đâu vậy em",
+        "anh thanh toán qua ngân hàng nào em",
+        "em chỉ anh cách thanh toán với",
+        "anh trả tiền qua app được không em",
+        "anh có thể đóng tại cửa hàng tiện lợi không"
       ]
     },
     {
@@ -987,12 +1355,20 @@
         "KH hỏi Sản phẩm vay lần 3",
         "EC hỏi Sản phẩm vay lần 1",
         "EC hỏi Sản phẩm vay lần 2",
-        "EC hỏi Sản phẩm vay lần 3"
+        "EC hỏi Sản phẩm vay lần 3",
+        "Sản phẩm vay",
+        "FAQ_ask_product"
       ],
       "responses": [
         "sản phẩm vay gì đây",
-        "em gọi giới thiệu sản phẩm gì",
-        "sản phẩm gì em"
+        "sản phẩm vay gì hả em",
+        "anh vay sản phẩm nào vậy em",
+        "khoản vay này là sản phẩm gì em",
+        "sản phẩm vay của anh là loại gì hả em",
+        "em báo anh thông tin sản phẩm vay",
+        "anh không biết mình vay sản phẩm gì",
+        "em xem giúp anh tên sản phẩm vay nhé",
+        "em báo cụ thể sản phẩm vay cho anh"
       ]
     },
     {
@@ -1003,15 +1379,19 @@
         "KH hỏi Ngày đến hạn đóng tiền lần 3",
         "EC hỏi Ngày đến hạn đóng tiền lần 1",
         "EC hỏi Ngày đến hạn đóng tiền lần 2",
-        "EC hỏi Ngày đến hạn đóng tiền lần 3"
+        "EC hỏi Ngày đến hạn đóng tiền lần 3",
+        "Ngày đến hạn đóng tiền",
+        "FAQ_ask_duedate"
       ],
       "responses": [
-        "hạn đóng tiền là hôm nào",
-        "hôm nào đến hạn thanh toán em",
-        "hạn trả là ngày mấy",
+        "em ơi hạn đóng tiền là hôm nào thế",
+        "hôm nào đến hạn thanh toán hả em",
+        "em ơi hạn thanh là ngày mấy",
         "hạn cuối để trả là hôm nào em ha",
-        "hạn chót thanh toán là hôm nào",
-        "hạn chót để trà là ngày mấy"
+        "hạn chót thanh toán là hôm nào em nhỉ",
+        "hạn chót để trà là ngày mấy vậy em",
+        "ngày cuối cùng để đóng tiền là hôm nào em",
+        "anh muốn biết ngày đến hạn cụ thể để đóng tiền"
       ]
     },
     {
@@ -1022,13 +1402,24 @@
         "KH hỏi Số ngày trễ hạn lần 3",
         "EC hỏi Số ngày trễ hạn lần 1",
         "EC hỏi Số ngày trễ hạn lần 2",
-        "EC hỏi Số ngày trễ hạn lần 3"
+        "EC hỏi Số ngày trễ hạn lần 3",
+        "Số ngày trễ hạn",
+        "FAQ_DPD"
+
       ],
       "responses": [
-        "anh trả trễ mấy hôm rồi",
-        "khoản này trễ mấy hôm rồi",
-        "khoản này trễ mấy hôm rồi em nhỉ",
-        "nợ trễ lâu chưa em"
+        "anh trả trễ mấy hôm rồi hả em",
+        "khoản này của anh trễ mấy hôm rồi",
+        "anh trễ hạn thanh toán mấy hôm rồi em nhỉ",
+        "anh trễ thanh toán mấy ngày vậy em báo anh với",
+        "em cho anh biết số ngày thanh toán trễ hạn với",
+        "anh chậm trả bao lâu rồi em",
+        "anh đã thanh toán trễ hạn bao nhiêu ngày hả em",
+        "em xem giúp anh thanh toán trễ mấy hôm rồi",
+        "anh muốn biết trễ hạn thanh toán mấy ngày rồi",
+        "khoản này anh trễ tổng cộng mấy ngày em",
+        "em xem hộ anh trễ hạn thanh toán bao nhiêu hôm",
+        "anh chậm thanh toán mấy ngày rồi em ơi"
       ]
     },
     {
@@ -1039,13 +1430,23 @@
         "KH hỏi Ngày chốt sao kê lần 3",
         "EC hỏi Ngày chốt sao kê lần 1",
         "EC hỏi Ngày chốt sao kê lần 2",
-        "EC hỏi Ngày chốt sao kê lần 3"
+        "EC hỏi Ngày chốt sao kê lần 3",
+        "Ngày chốt sao kê",
+        "FAQ_ask_statement_date"
       ],
       "responses": [
-        "ngày chốt sao kê là ngày mấy",
+        "ngày chốt sao kê là ngày mấy hả em",
         "hôm nào chốt sao kê em nhỉ",
-        "ngày mấy chốt sao kê em",
-        "chốt sao kê ngày nào"
+        "ngày mấy chốt sao kê vậy em",
+        "chốt sao kê ngày nào em ha",
+        "em báo anh ngày chốt sao kê với",
+        "anh muốn biết ngày chốt sao kê cụ thể",
+        "sao kê chốt vào hôm nào vậy em",
+        "ngày chốt sao kê là hôm nào",
+        "em xem giúp anh ngày chốt sao kê với",
+        "em nói anh nghe ngày chốt sao kê với",
+        "anh cần biết ngày chốt sao kê chính xác",
+        "em check giúp anh ngày chốt sao kê nhé"
       ]
     },
     {
@@ -1056,12 +1457,19 @@
         "KH hỏi Hủy thẻ lần 3",
         "EC hỏi Hủy thẻ lần 1",
         "EC hỏi Hủy thẻ lần 2",
-        "EC hỏi Hủy thẻ lần 3"
+        "EC hỏi Hủy thẻ lần 3",
+        "Hủy thẻ",
+        "FAQ_cancel_card"
       ],
       "responses": [
         "huỷ thẻ giúp anh",
         "anh không có dùng huỷ thẻ giúp anh",
-        "anh không dùng thẻ huỷ cho anh nhé"
+        "anh không dùng thẻ huỷ cho anh nhé",
+        "anh muốn hủy thẻ làm sao em",
+        "anh không xài nữa hủy thẻ giúp anh",
+        "anh không cần thẻ nữa hủy đi em",
+        "anh hủy thẻ thì phải làm gì hả em",
+        "anh không dùng nữa em hủy giùm anh"
       ]
     },
     {
@@ -1072,13 +1480,25 @@
         "KH hỏi Mất thẻ lần 3",
         "EC hỏi Mất thẻ lần 1",
         "EC hỏi Mất thẻ lần 2",
-        "EC hỏi Mất thẻ lần 3"
+        "EC hỏi Mất thẻ lần 3",
+        "Mất thẻ",
+        "FAQ_lost_card"
       ],
       "responses": [
-        "anh mất thẻ rồi",
+        "anh lỡ làm mất thẻ rồi",
         "anh làm mất thẻ rồi em ạ",
-        "mất thẻ thì giờ như nào",
-        "anh làm rơi mất thẻ lâu rồi"
+        "anh đánh mất thẻ thì giờ như nào hả em",
+        "anh làm rơi mất thẻ mất tiêu rồi",
+        "anh để quên thẻ ở đâu mất rồi",
+        "em ơi anh mất thẻ rồi làm sao",
+        "anh không tìm thấy thẻ ở đâu cả",
+        "anh bị móc mất thẻ rồi em ạ",
+        "thẻ anh rơi đâu mất rồi em",
+        "anh mất thẻ giờ phải làm gì em",
+        "thẻ anh thất lạc rồi em ơi",
+        "anh tìm hoài không thấy thẻ đâu cả",
+        "anh mất thẻ phải xử lý sao đây em",
+        "anh đánh rơi thẻ ở ngoài đường rồi em"
       ]
     },
     {
@@ -1089,12 +1509,18 @@
         "KH hỏi Tra soát giao dịch lần 3",
         "EC hỏi Tra soát giao dịch lần 1",
         "EC hỏi Tra soát giao dịch lần 2",
-        "EC hỏi Tra soát giao dịch lần 3"
+        "EC hỏi Tra soát giao dịch lần 3",
+        "Tra soát giao dịch",
+        "FAQ_check_transaction"
       ],
       "responses": [
-        "ừ kiểm tra lại giao dịch giúp anh với",
-        "em tra lại giao dịch giúp anh nhé",
-        "tra lại giao dịch hộ anh với"
+        "em tra soát lại giao dịch giúp anh với",
+        "tra soát lại giao dịch giúp anh nhé",
+        "anh muốn tra soát giao dịch em ơi",
+        "em kiểm tra lại giao dịch cho anh với",
+        "em rà soát giao dịch tháng giúp anh",
+        "em hỗ trợ anh tra soát giao dịch với",
+        "em tra soát giao dịch giúp anh với nha"
       ]
     },
     {
@@ -1105,13 +1531,17 @@
         "Hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 3",
         "EC hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 1",
         "EC hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 2",
-        "EC hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 3"
+        "EC hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 3",
+        "KH hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 1",
+        "KH hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 2",
+        "KH hỏi Mua cái gì/Quẹt cái gì/Giao dịch cái gì/Tiền gì lần 3",
+        "FAQ_last_transaction"
       ],
       "responses": [
-        "mua gì",
-        "quẹt gì",
-        "giao dịch cái gì",
-        "tiền gì"
+        "mua cái gì em",
+        "quẹt cái gì hả em",
+        "giao dịch cái gì vậy em",
+        "tiền gì hả"
       ]
     },
     {
@@ -1122,12 +1552,25 @@
         "Hỏi Số ngày miễn lãi lần 3",
         "EC hỏi Số ngày miễn lãi lần 1",
         "EC hỏi Số ngày miễn lãi lần 2",
-        "EC hỏi Số ngày miễn lãi lần 3"
+        "EC hỏi Số ngày miễn lãi lần 3",
+        "KH hỏi Số ngày miễn lãi lần 1",
+        "KH hỏi Số ngày miễn lãi lần 2",
+        "KH hỏi Số ngày miễn lãi lần 3",
+        "Số ngày miễn lãi",
+        "FAQ_day_free_interest"
       ],
       "responses": [
-        "miễn lãi mấy hôm",
         "miễn lãi nhiều ngày không em",
-        "được miễn lãi mấy hôm em"
+        "được miễn lãi mấy hôm hả em",
+        "em check giúp anh số ngày miễn lãi",
+        "em nói anh nghe số ngày miễn lãi",
+        "miễn lãi áp dụng được mấy ngày em",
+        "anh muốn biết miễn lãi đến khi nào",
+        "em báo cụ thể số ngày miễn lãi nhé",
+        "anh được hưởng miễn lãi mấy hôm vậy",
+        "anh muốn rõ số ngày miễn lãi",
+        "em ơi miễn lãi tối đa là bao lâu",
+        "anh hỏi thời hạn miễn lãi với em"
       ]
     },
     {
@@ -1138,12 +1581,30 @@
         "Hỏi Mở lại thẻ lần 3",
         "EC hỏi Mở lại thẻ lần 1",
         "EC hỏi Mở lại thẻ lần 2",
-        "EC hỏi Mở lại thẻ lần 3"
+        "EC hỏi Mở lại thẻ lần 3",
+        "KH hỏi Mở lại thẻ lần 1",
+        "KH hỏi Mở lại thẻ lần 2",
+        "KH hỏi Mở lại thẻ lần 3",
+        "Mở lại thẻ",
+        "FAQ_reopen_card"
       ],
       "responses": [
         "mở lại thẻ giúp anh",
         "anh muốn mở lại thẻ ấy em",
-        "thẻ anh bị khoá em mở ra giúp anh với"
+        "thẻ anh bị khoá em mở ra giúp anh với",
+        "anh cần mở lại thẻ em hỗ trợ giúp",
+        "em mở thẻ trở lại cho anh nhé",
+        "thẻ anh đang khóa em mở lại với",
+        "anh muốn kích hoạt lại thẻ em ơi",
+        "em hướng dẫn anh mở lại thẻ với",
+        "anh muốn dùng lại thẻ em mở giúp anh",
+        "anh xin mở lại thẻ tín dụng",
+        "em xử lý giúp anh mở lại thẻ nhé",
+        "anh muốn tái kích hoạt thẻ em ạ",
+        "em mở thẻ cho anh dùng lại nhé",
+        "anh cần kích hoạt thẻ lại em hỗ trợ nhé",
+        "em mở lại thẻ giùm anh đi",
+        "anh cần mở lại thẻ em hỗ trợ anh nhé"
       ]
     },
     {
@@ -1154,12 +1615,27 @@
         "Hỏi Số hợp đồng lần 3",
         "EC hỏi Số hợp đồng lần 1",
         "EC hỏi Số hợp đồng lần 2",
-        "EC hỏi Số hợp đồng lần 3"
+        "EC hỏi Số hợp đồng lần 3",
+        "Số hợp đồng",
+        "FAQ_ask_contractID"
+
       ],
       "responses": [
-        "số hợp đồng của anh là bao nhiêu",
-        "số hợp đồng là gì em",
-        "hợp đồng mã số là gì"
+        "số hợp đồng của anh là bao nhiêu hả em",
+        "số hợp đồng của anh là gì em nhỉ",
+        "em cho anh biết số hợp đồng với",
+        "anh muốn biết mã hợp đồng của mình",
+        "số hợp đồng anh là số nào vậy em",
+        "em báo anh số hợp đồng giúp",
+        "anh hỏi số hợp đồng đang vay",
+        "em check giúp anh số hợp đồng nhé",
+        "em xem giúp anh số hợp đồng với",
+        "anh muốn xin lại số hợp đồng em ơi",
+        "mã hợp đồng của anh là gì hả em",
+        "em cho anh số hợp đồng để tra cứu",
+        "anh muốn biết số hợp đồng chính xác",
+        "em cho anh xin lại mã hợp đồng",
+        "anh hỏi số hợp đồng vay của mình"
       ]
     },
     {
@@ -1187,23 +1663,51 @@
         "Hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 3",
         "EC hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 1",
         "EC hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 2",
-        "EC hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 3"
+        "EC hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 3",
+        "KH hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 1",
+        "KH hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 2",
+        "KH hỏi Tổng số tiền thanh lý, tổng số tiền còn lại lần 3",
+        "Tổng số tiền thanh lý, tổng số tiền còn lại",
+        "FAQ_remaining_balance"
       ],
       "responses": [
-        "anh trả được nhiêu còn nợ nhiêu em",
-        "anh còn nợ nhiều không trả được bao nhiêu rồi",
-        "anh còn nợ bao tiền đã trả được nhiều chưa"
+        "anh thanh lý được nhiêu còn còn nợ bao nhiêu tiền hả em",
+        "tổng tiền thanh lý của anh là nhiêu vậy em tổng số tiền còn lại là bao nhiêu"
       ]
     },
     {
       "tag": "Hỏi về app Home (cách tải , cách thanh toán qua app)",
       "patterns": [
-        "Hỏi về app Home (cách tải , cách thanh toán qua app)"
+        "Hỏi về app Home (cách tải , cách thanh toán qua app)",
+        "Hỏi về app Home (cách tải , cách thanh toán qua app) lần 1",
+        "Hỏi về app Home (cách tải , cách thanh toán qua app) lần 2",
+        "EC Hỏi về app Home (cách tải , cách thanh toán qua app)",
+        "EC Hỏi về app Home (cách tải , cách thanh toán qua app) lần 1",
+        "EC Hỏi về app Home (cách tải , cách thanh toán qua app) lần 2",
+        "KH Hỏi về app Home (cách tải , cách thanh toán qua app)",
+        "KH Hỏi về app Home (cách tải , cách thanh toán qua app) lần 1",
+        "KH Hỏi về app Home (cách tải , cách thanh toán qua app) lần 2",
+        "FAQ_where_app"
       ],
       "responses": [
         "cách tải app như nào",
         "thanh toán qua app như nào",
-        "tải app Home như nào"
+        "tải app Home như nào",
+        "em chỉ anh cách tải app Home với",
+        "anh muốn dùng app Home làm sao em",
+        "em hướng dẫn anh thanh toán qua app",
+        "anh tải app ở đâu vậy em",
+        "app Home tải trên Play Store được không em",
+        "em chỉ anh cách đăng nhập app Home",
+        "anh muốn trả tiền qua app Home",
+        "em báo anh cách thanh toán trên app với",
+        "anh tải app Home về máy như thế nào",
+        "anh dùng app Home để đóng tiền được không",
+        "em hướng dẫn anh cài app Home nhé",
+        "app Home dùng sao vậy em chỉ anh với",
+        "anh thanh toán trong app Home thế nào",
+        "em chỉ anh các bước trả qua app",
+        "anh muốn cài app Home trên điện thoại"
       ]
     },
     {
@@ -1214,11 +1718,24 @@
         "KH hỏi ngày hôm nay lần 3",
         "EC hỏi ngày hôm nay lần 1",
         "EC hỏi ngày hôm nay lần 2",
-        "EC hỏi ngày hôm nay lần 3"
+        "EC hỏi ngày hôm nay lần 3",
+        "KH hỏi ngày hôm nay",
+        "FAQ_ask_today"
       ],
       "responses": [
-        "hôm nay ngày mấy em",
-        "hôm nay là ngày bao nhiêu"
+        "hôm nay ngày mấy hả em",
+        "hôm nay là ngày bao nhiêu em nhỉ",
+        "em ơi hôm nay là ngày mấy",
+        "hôm nay thứ mấy ngày mấy vậy em",
+        "anh hỏi ngày hôm nay là ngày bao nhiêu",
+        "em cho anh biết hôm nay ngày mấy với",
+        "ngày hôm nay là ngày nào em",
+        "hôm nay là ngày bao nhiêu tháng mấy em",
+        "hôm nay ngày bao nhiêu vậy em ơi",
+        "anh muốn biết hôm nay là ngày mấy",
+        "hôm nay là ngày mấy em báo anh",
+        "anh hỏi nay là ngày mấy hả em",
+        "em ơi nay ngày bao nhiêu rồi"
       ]
     },
     {
@@ -1229,12 +1746,26 @@
         "KH yêu cầu gửi tin nhắn lần 3",
         "EC yêu cầu gửi tin nhắn lần 1",
         "EC yêu cầu gửi tin nhắn lần 2",
-        "EC yêu cầu gửi tin nhắn lần 3"
+        "EC yêu cầu gửi tin nhắn lần 3",
+        "KH yêu cầu gửi tin nhắn",
+        "FAQ_messenger"
       ],
       "responses": [
         "gửi tin nhắn giúp anh nhé",
         "gửi lại tin qua zalo hay gì cho anh nhé",
-        "em gửi cho anh tin nhắn nhé"
+        "em gửi cho anh tin nhắn nhé",
+        "em nhắn tin cho anh đi anh xem sau",
+        "em gửi sms cho anh với",
+        "em gửi qua zalo cho anh đi",
+        "em soạn tin nhắn gửi anh nha",
+        "em nhắn nội dung qua tin nhắn cho anh",
+        "em gửi tin cho anh nhé anh xem sau",
+        "anh muốn nhận thông tin qua tin nhắn",
+        "em gửi sms thông tin cho anh với",
+        "em nhắn qua tin nhắn giúp anh đi",
+        "em gửi nội dung vào zalo cho anh",
+        "anh xem qua tin nhắn được em gửi nhé",
+        "em gửi thông tin qua sms anh xem"
       ]
     },
     {
@@ -1245,29 +1776,28 @@
         "Kh hỏi hotline lần 3",
         "EC hỏi hotline lần 1",
         "EC hỏi hotline lần 2",
-        "EC hỏi hotline lần 3"
+        "EC hỏi hotline lần 3",
+        "Kh hỏi hotline",
+        "FAQ_hotline"
       ],
       "responses": [
         "số hotline là gì em nhỉ",
-        "anh điện bên em bằng số nào",
-        "hotline bên em là số nào"
-      ]
-    },
-    {
-      "tag": "KH muốn gặp TVV",
-      "patterns": [
-        "KH muốn gặp TVV",
-        "EC muốn gặp TVV",
-        "KH muốn gặp TVV lần 1",
-        "KH muốn gặp TVV lần 2",
-        "KH muốn gặp TVV lần 3",
-        "EC muốn gặp TVV lần 1",
-        "EC muốn gặp TVV lần 2",
-        "EC muốn gặp TVV lần 3"
-      ],
-      "responses": [
-        "cho mình gặp tư vấn viên",
-        "chuyển máy cho tư vấn viên"
+        "hotline bên em là số nào",
+        "em cho anh xin số hotline với",
+        "anh muốn biết số hotline tổng đài",
+        "hotline tổng đài là số mấy vậy em",
+        "em báo anh số hotline để gọi lại",
+        "anh hỏi số điện thoại hotline bên em",
+        "hotline bên mình số bao nhiêu em",
+        "em cho anh số tổng đài hỗ trợ",
+        "anh cần số hotline em báo với",
+        "em ơi cho anh xin số tổng đài",
+        "anh muốn gọi lại tổng đài số nào em",
+        "em báo anh hotline chăm sóc khách hàng",
+        "số hotline của bên em là bao nhiêu",
+        "anh hỏi đường dây nóng số nào",
+        "em cho anh hotline để liên hệ với",
+        "số gọi đến tổng đài là bao nhiêu em"
       ]
     },
     {
@@ -1278,12 +1808,23 @@
         "KH muốn miễn giảm nợ lần 3",
         "EC muốn miễn giảm nợ lần 1",
         "EC muốn miễn giảm nợ lần 2",
-        "EC muốn miễn giảm nợ lần 3"
+        "EC muốn miễn giảm nợ lần 3",
+        "KH muốn miễn giảm nợ",
+        "FAQ_howmuch"
       ],
       "responses": [
         "giảm nợ cho anh được không",
         "kẹt quá có bớt nợ cho anh được không",
-        "bớt nợ cho anh được không dạo này khó khắn quá em ạ"
+        "bớt nợ cho anh được không dạo này khó khắn quá em ạ",
+        "em xem có giảm nợ cho anh được không",
+        "anh khó khăn quá em miễn giảm nợ giúp anh",
+        "em giảm bớt nợ cho anh với",
+        "anh xin giảm một phần nợ được không",
+        "em hỗ trợ anh miễn giảm nợ với",
+        "anh đang khó khăn em giảm nợ giúp anh",
+        "em xét miễn giảm nợ cho anh được không",
+        "có cách nào bớt nợ cho anh không em",
+        "anh xin được hỗ trợ giảm nợ em ạ"
       ]
     },
     {
@@ -1564,23 +2105,6 @@
         "có phải anh đâu",
         "kiểm tra lại đi",
         "không phải rồi"
-      ]
-    },
-    {
-      "tag": "BT3 bận",
-      "patterns": [
-        "BT3 bận"
-      ],
-      "responses": [
-        "đang đi làmbận lắm em",
-        "mình đang bận chút khi khác nha",
-        "mình đang đi trên đường",
-        "bận rồi",
-        "mình rất bận lúc khác nha bạn",
-        "anh đang bận họp rồi",
-        "đang bận rồi nhá",
-        "đang có việc",
-        "lúc khác rồi nói"
       ]
     },
     {

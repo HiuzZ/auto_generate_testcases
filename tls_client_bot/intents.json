@@ -979,7 +979,7 @@
       ]
     },
     {
-      "tag": "KH trả hơn số tiền tối thiểu cần thanh toán",
+      "tag": "KH trả ít hơn số tiền tối thiểu cần thanh toán",
       "patterns": [
         "KH trả ít hơn số tiền tối thiểu cần thanh toán",
         "EC trả ít hơn số tiền tối thiểu cần thanh toán",
@@ -1309,17 +1309,23 @@
     {
       "tag": "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước",
       "patterns": [
-        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
-        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2",
-        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 3",
-        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 1",
-        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 2",
-        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước  lần 3"
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 1",
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 2",
+        "KH hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 3",
+        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 1",
+        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 2",
+        "EC hỏi Tại sao số tiền kỳ này khác số tiền kỳ trước lần 3",
+        "Tại sao số tiền kỳ này khác số tiền kỳ trước",
+        "FAQ_whyamountdifferent"
       ],
       "responses": [
         "sao tiền kỳ này lại khác kỳ trước hả em",
         "số tiền kỳ này lại khác đợt trước à em",
-        "tiền đợt trước khác đợt này lại khác hả em"
+        "tiền đợt trước khác đợt này lại khác hả em",
+        "tiền kì này tăng so với kì trước em giải thích với",
+        "kì trước khác kì này khác là sao em",
+        "kì trước với kì này chênh nhau em giải thích",
+        "lí do tiền kì này khác kì trước là gì em"
       ]
     },
     {
@@ -1538,13 +1544,14 @@
         "FAQ_last_transaction"
       ],
       "responses": [
-        "mua cái gì em",
+        "mua cái gì hả em",
         "quẹt cái gì hả em",
         "giao dịch cái gì vậy em",
-        "tiền gì hả"
+        "tiền gì hả em",
+        "em ơi giao dịch gì"
       ]
     },
-    {
+    { 
       "tag": "Hỏi Số ngày miễn lãi",
       "patterns": [
         "Hỏi Số ngày miễn lãi lần 1",
@@ -1810,7 +1817,7 @@
         "EC muốn miễn giảm nợ lần 2",
         "EC muốn miễn giảm nợ lần 3",
         "KH muốn miễn giảm nợ",
-        "FAQ_howmuch"
+        "FAQ_exemption"
       ],
       "responses": [
         "giảm nợ cho anh được không",
@@ -1825,6 +1832,27 @@
         "em xét miễn giảm nợ cho anh được không",
         "có cách nào bớt nợ cho anh không em",
         "anh xin được hỗ trợ giảm nợ em ạ"
+      ]
+    },
+    {
+      "tag": "Bao nhiêu tiền/ Tổng số tiền cần thanh toán",
+      "patterns": [
+        "Bao nhiêu tiền/ Tổng số tiền cần thanh toán lần 1",
+        "Bao nhiêu tiền/ Tổng số tiền cần thanh toán lần 2",
+        "Bao nhiêu tiền/ Tổng số tiền cần thanh toán lần 3",
+        "FAQ_howmuch"
+      ],
+      "responses": [
+        "tổng số tiền anh cần thanh toán là bao nhiêu em",
+        "tổng số tiền anh cần thanh toán là bao nhiêu em",
+        "anh phải đóng tổng bao nhiêu tiền vậy em",
+        "em báo anh tổng số tiền cần trả với",
+        "anh trả tổng cộng bao nhiêu vậy em",
+        "em cho anh biết tổng tiền cần thanh toán",
+        "anh hỏi số tiền phải đóng là nhiêu",
+        "tổng phải thanh toán là bao nhiêu em",
+        "em check giúp anh tổng tiền cần trả",
+        "anh muốn biết tổng số tiền phải nộp"
       ]
     },
     {
@@ -2283,19 +2311,6 @@
         "rồi trả một phần nhá",
         "một phần anh trả trước em nhé",
         "ừ trả trước một phần ít thôi có được không"
-      ]
-    },
-    {
-      "tag": "Hỏi Tổng số tiền cần thanh toán",
-      "patterns": [
-        "Hỏi Tổng số tiền cần thanh toán"
-      ],
-      "responses": [
-        "tổng là bao nhiêu em",
-        "nợ bao tiền em",
-        "cần thanh toán bao tiền",
-        "tổng số tiền cần thanh toán là bao nhiêu",
-        "thánh toán hết chỗ nợ là tổng bao tiền"
       ]
     },
     {

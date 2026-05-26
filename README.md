@@ -63,19 +63,23 @@ python3 excel_to_strings.py --file "input/(FEC_VoiceFlow) KịchBản_XS_2026.xl
 Run the full flow in one command:
 
 - `pipeline_e2e.py`: `excel_to_json.py` -> `tcgen_e2e_human.py` -> `tc_to_excel.py`
+- `pipeline_e2e_max.py`: `excel_to_json.py` -> `tcgen_e2e_max.py` -> `tc_to_excel.py` (same as E2E human, but treats `lần N` repeat intents as normal transitions)
 - `pipeline_e2e_short.py`: `excel_to_json.py` -> `tcgen_e2e_short.py` -> `tc_to_excel.py`
 - `pipeline_output_short.py`: `excel_to_json.py` -> `tcgen_output_short.py` -> `tc_to_excel.py`
 - `pipeline_output.py`: `excel_to_json.py` -> `tcgen_output_human.py` -> `tc_to_excel.py`
 - `pipeline_multi_responses.py`: `excel_to_json.py` -> `tcgen_multi_responses.py` -> `tc_to_excel.py`
+- `pipeline_all.py`: runs `e2e_short`, `output_short`, and `multi_responses`, then exports all sheets into one Excel workbook.
 
 Examples:
 
 ```bash
 python3 pipeline_e2e.py --file "input/FEC_VoiceAgent_BRD.xlsx"
+python3 pipeline_e2e_max.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_e2e_short.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_output_short.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_output.py --file "input/FEC_VoiceAgent_BRD.xlsx"
 python3 pipeline_multi_responses.py --file "input/VB_M1_Revamp_Credit_card.xlsx"
+python3 pipeline_all.py --file "input/VB_M1_Revamp_Credit_card.xlsx" --no-gen-data
 ```
 
 If `--file` is omitted, the pipeline auto-picks the first non-temporary Excel file in `./input/`.
@@ -104,6 +108,10 @@ python3 pipeline_e2e_short.py \
   - `output/rows_e2e.json`
   - `output/testcases_e2e.json`
   - `output/testcases_e2e.xlsx`
+- `pipeline_e2e_max.py`
+  - `output/rows_e2e_max.json`
+  - `output/testcases_e2e_max.json`
+  - `output/testcases_e2e_max.xlsx`
 - `pipeline_e2e_short.py`
   - `output/rows_e2e_short.json`
   - `output/testcases_e2e_short.json`
@@ -120,6 +128,32 @@ python3 pipeline_e2e_short.py \
   - `output/rows_multi_responses.json`
   - `output/testcases_multi_responses.json`
   - `output/testcases_multi_responses.xlsx`
+- `pipeline_all.py`
+  - `output/rows_e2e_short.json`
+  - `output/testcases_e2e_short.json`
+  - `output/rows_output_short.json`
+  - `output/testcases_output_short.json`
+  - `output/rows_multi_responses.json`
+  - `output/testcases_multi_responses.json`
+  - `output/testcases_all.xlsx`
+
+Run all pipelines into one workbook:
+
+```bash
+python3 pipeline_all.py \
+  --file "input/VB_M1_Revamp_Credit_card.xlsx" \
+  --suffix vb \
+  --no-gen-data
+```
+
+Useful options:
+
+- `--file`: input Excel file. If omitted, auto-picks the first non-temporary Excel file in `./input/`.
+- `--sheet`: sheet name or index. If omitted, auto-detects the template sheet/header row.
+- `--root`: root step. If omitted, auto-detects from the sheet.
+- `--max-depth`: traversal limit, default `200`.
+- `--suffix`: suffix for output filenames, e.g. `--suffix vb` writes `output/testcases_all_vb.xlsx`.
+- `--no-gen-data`: skip hybrid test-data generation. This is faster and recommended for dry runs.
 
 You can override any output path:
 

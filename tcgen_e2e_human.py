@@ -243,6 +243,7 @@ def generate_test_cases(
     *,
     root: str = "A1",
     max_depth: int = 200,
+    emit_at_every_step: bool = False,
 ) -> list[dict[str, Any]]:
     cases: List[Dict[str, Any]] = []
 
@@ -335,6 +336,15 @@ def generate_test_cases(
                     "source_rows": new_source_rows,
                 })
             elif dst in graph:
+                if emit_at_every_step:
+                    cases.append({
+                        "conditions": _render_conditions(new_conditions),
+                        "steps": new_steps,
+                        "bot_responses": new_bot,
+                        "expected_action_code": action_code,
+                        "path": " -> ".join(new_path),
+                        "source_rows": new_source_rows,
+                    })
                 dfs(dst, new_steps, new_bot, new_conditions, new_path, new_source_rows, new_visited, consumed_chains)
 
         # ── Process ordered repeat chains per base ────────────────────────
@@ -428,8 +438,26 @@ def generate_test_cases(
                         "source_rows": new_source_rows,
                     })
                 elif dst in graph:
+                    if emit_at_every_step:
+                        cases.append({
+                            "conditions": _render_conditions(new_conditions),
+                            "steps": new_steps,
+                            "bot_responses": new_bot,
+                            "expected_action_code": action_code,
+                            "path": " -> ".join(new_path),
+                            "source_rows": new_source_rows,
+                        })
                     dfs(dst, new_steps, new_bot, new_conditions, new_path, new_source_rows, new_visited, new_consumed)
             else:
+                if emit_at_every_step:
+                    cases.append({
+                        "conditions": _render_conditions(new_conditions),
+                        "steps": new_steps,
+                        "bot_responses": new_bot,
+                        "expected_action_code": action_code,
+                        "path": " -> ".join(new_path),
+                        "source_rows": new_source_rows,
+                    })
                 _dfs_repeat_chain(
                     origin_node=origin_node,
                     chain_ids=chain_ids,

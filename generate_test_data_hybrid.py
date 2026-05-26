@@ -54,7 +54,7 @@ LLAMA_MODEL = "llama3.1"
 # Excel formatting helpers (shared with tc_to_excel.py)
 # ---------------------------------------------------------------------------
 
-_STEP_NO_RE = re.compile(r"\bA(\d+)\b", re.IGNORECASE)
+_STEP_NO_RE = re.compile(r"A(\d+)(?:\.(\d+))?", re.IGNORECASE)
 
 _SECTION_FONT = Font(bold=True, color="001F4E78")
 _SECTION_FILL = PatternFill(fill_type="solid", fgColor="00EEF3FB")
@@ -89,9 +89,13 @@ def _extract_group_step(path_text: str) -> str | None:
         return last if _STEP_NO_RE.fullmatch(last) else None
 
 
-def _step_sort_key(step_no: str) -> tuple[int, str]:
+def _step_sort_key(step_no: str) -> tuple[int, int, str]:
     m = _STEP_NO_RE.fullmatch(step_no.strip())
-    return (int(m.group(1)), step_no) if m else (10**9, step_no)
+    if m:
+        major = int(m.group(1))
+        minor = int(m.group(2)) if m.group(2) is not None else 0
+        return (major, minor, step_no)
+    return (10**9, 10**9, step_no)
 
 
 def _auto_fit_column(ws: Worksheet, col_idx: int, extra: int = 2) -> None:

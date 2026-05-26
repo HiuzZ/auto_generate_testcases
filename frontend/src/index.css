@@ -1,0 +1,274 @@
+/* Apple Liquid Glass design system */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #F2F2F7;
+  --bg-secondary: #E5E5EA;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-hover: rgba(255, 255, 255, 0.88);
+  --border: rgba(255, 255, 255, 0.9);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --blue: #007AFF;
+  --blue-light: #1E90FF;
+  --blue-dark: #0062CC;
+  --green: #34C759;
+  --red: #FF3B30;
+  --orange: #FF9500;
+  --text-primary: #000000;
+  --text-secondary: #3C3C43;
+  --text-tertiary: #8E8E93;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 0.5px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0,0,0,0.04);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --blur: saturate(180%) blur(20px);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--font);
+  background: linear-gradient(160deg, #F2F2F7 0%, #E8E8ED 60%, #DDDDE3 100%);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass card */
+.glass {
+  background: var(--surface);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Primary button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  text-decoration: none;
+}
+
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.35);
+}
+.btn-primary:hover:not(:disabled) { opacity: 0.9; }
+
+.btn-secondary {
+  background: rgba(0, 122, 255, 0.1);
+  color: var(--blue);
+}
+.btn-secondary:hover:not(:disabled) { background: rgba(0, 122, 255, 0.15); }
+
+.btn-ghost {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-secondary);
+}
+.btn-ghost:hover:not(:disabled) { background: rgba(0, 0, 0, 0.08); }
+
+.btn-sm {
+  padding: 9px 16px;
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+}
+
+/* Form controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-input {
+  padding: 12px 14px;
+  border: 1.5px solid var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.6);
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, background 0.2s;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--blue);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Toggle switch */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.toggle-row:last-child { border-bottom: none; }
+
+.toggle-info { display: flex; flex-direction: column; gap: 2px; }
+.toggle-info strong { font-size: 16px; font-weight: 500; }
+.toggle-info span { font-size: 13px; color: var(--text-tertiary); }
+
+.toggle {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  flex-shrink: 0;
+}
+.toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-secondary);
+  border-radius: 31px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.toggle input:checked + .toggle-track { background: var(--green); }
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  pointer-events: none;
+}
+.toggle input:checked ~ .toggle-thumb { transform: translateX(20px); }
+
+/* Status badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.badge-pending { background: rgba(142,142,147,0.15); color: var(--text-tertiary); }
+.badge-running { background: rgba(255,149,0,0.15); color: var(--orange); }
+.badge-completed { background: rgba(52,199,89,0.15); color: var(--green); }
+.badge-failed { background: rgba(255,59,48,0.15); color: var(--red); }
+
+/* Dot pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(0,122,255,0.25);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 20px 0;
+}
+
+/* Mode selector chips */
+.mode-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mode-chip {
+  padding: 10px 16px;
+  border-radius: 100px;
+  border: 1.5px solid var(--bg-secondary);
+  background: rgba(255,255,255,0.5);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--text-secondary);
+}
+.mode-chip:hover { border-color: var(--blue); color: var(--blue); background: rgba(0,122,255,0.05); }
+.mode-chip.active {
+  border-color: var(--blue);
+  background: rgba(0,122,255,0.12);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Result stat cards */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+.stat-card {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+.stat-card .stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+}
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

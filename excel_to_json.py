@@ -13,13 +13,12 @@ CANONICAL_COLUMNS = [
     "Step name",
     "Conditions",
     "Customer intent",
+    "Next Step",
     "Bot response",
     "Bot response 2",
     "Bot response 3",
     "Bot response 4",
     "Bot response 5",
-    "Next Step",
-    "Action code",
 ]
 
 REQUIRED_CANONICAL_COLUMNS = [
@@ -28,12 +27,10 @@ REQUIRED_CANONICAL_COLUMNS = [
     "Customer intent",
     "Bot response",
     "Next Step",
-    "Action code",
 ]
 
 # Normalized (lowercased, collapsed whitespace) aliases for each canonical field.
-# This covers common variants found in the workbook (e.g. "Nest Step", "Next action",
-# and "Action code (mặc định: N/A)").
+# This covers common variants found in the workbook (e.g. "Nest Step" and "Next action").
 COLUMN_ALIASES: dict[str, list[str]] = {
     "Step no": ["step no", "step number", "no", "step"],
     "Step name": ["step name", "name", "topic"],
@@ -45,7 +42,6 @@ COLUMN_ALIASES: dict[str, list[str]] = {
     "Bot response 4": ["bot response 4", "response 4", "bot_response_4"],
     "Bot response 5": ["bot response 5", "response 5", "bot_response_5"],
     "Next Step": ["next step", "nest step", "next action"],
-    "Action code": ["action code", "action_code"],
 }
 
 JSON_KEYS: dict[str, str] = {
@@ -59,10 +55,9 @@ JSON_KEYS: dict[str, str] = {
     "Bot response 4": "bot_response_4",
     "Bot response 5": "bot_response_5",
     "Next Step": "next_step",
-    "Action code": "action_code",
 }
 
-FIXED_POSITIONAL_COLUMNS = list(JSON_KEYS.keys())
+FIXED_POSITIONAL_COLUMNS = list(CANONICAL_COLUMNS)
 
 _DYNAMIC_KEY_RE = re.compile(r"\W+")
 
@@ -75,11 +70,20 @@ def _normalize_col_key(col: str) -> str:
     return _normalize_col(col).lower()
 
 
+def _is_action_code_header(header: str) -> bool:
+    key = _normalize_col_key(header)
+    return key.startswith("action code") or key == "action_code"
+
+
 def _json_key_from_header(header: str, existing: set[str]) -> str:
-    base = _DYNAMIC_KEY_RE.sub("_", _normalize_col(header).lower()).strip("_")
+    is_action_code_column = _is_action_code_header(header)
+    if is_action_code_column:
+        base = "0"
+    else:
+        base = _DYNAMIC_KEY_RE.sub("_", _normalize_col(header).lower()).strip("_")
     if not base:
         base = "column"
-    if base[0].isdigit():
+    if base[0].isdigit() and not is_action_code_column:
         base = f"col_{base}"
 
     key = base
@@ -94,8 +98,7 @@ def _json_key_from_header(header: str, existing: set[str]) -> str:
 def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
     """
     Return a mapping {canonical: actual_column_name} based on COLUMN_ALIASES.
-    Matching is done on normalized, lowercased column names; for 'Action code' we also
-    accept columns that start with 'action code' (because some headers include notes).
+    Matching is done on normalized, lowercased column names.
     """
     norm_to_actual: dict[str, str] = {}
     for c in actual_columns:
@@ -110,12 +113,6 @@ def _resolve_column_mapping(actual_columns: list[str]) -> dict[str, str]:
             if a in norm_to_actual:
                 found_actual = norm_to_actual[a]
                 break
-
-        if found_actual is None and canonical == "Action code":
-            for norm, actual in norm_to_actual.items():
-                if norm.startswith("action code"):
-                    found_actual = actual
-                    break
 
         if found_actual is None:
             raise ValueError(
@@ -149,21 +146,18 @@ def _is_fixed_positional_header(values: list[object]) -> bool:
     for value, canonical in zip(values[: len(FIXED_POSITIONAL_COLUMNS)], FIXED_POSITIONAL_COLUMNS):
         value_key = _normalize_col_key(value)
         aliases = COLUMN_ALIASES.get(canonical, [canonical.lower()])
-        if canonical == "Action code":
-            if not (value_key in aliases or value_key.startswith("action code")):
-                return False
-        elif canonical == "Next Step":
+        if canonical == "Next Step":
             if value_key not in aliases:
                 return False
-        elif value_key != _normalize_col_key(canonical):
+        elif value_key not in aliases:
             return False
 
     return True
 
 
-def _detect_dynamic_columns(df: pd.DataFrame, start_idx: int = 11) -> dict[str, str]:
+def _detect_dynamic_columns(df: pd.DataFrame, start_idx: int = 10) -> dict[str, str]:
     dynamic_columns: dict[str, str] = {}
-    existing = set(JSON_KEYS.values())
+    existing = {*JSON_KEYS.values(), "action_code"}
 
     for col in list(df.columns)[start_idx:]:
         header = _normalize_col(col)
@@ -183,17 +177,7 @@ def _detect_dynamic_columns(df: pd.DataFrame, start_idx: int = 11) -> dict[str, 
 def _clean_rows_dataframe(df: pd.DataFrame, dynamic_columns: dict[str, str] | None = None) -> tuple[pd.DataFrame, dict[str, str]]:
     dynamic_columns = dynamic_columns or {}
 
-    # Default for Action code is N/A.
-    if "Action code" in df.columns:
-        df["Action code"] = df["Action code"].where(df["Action code"].notna(), "N/A")
-        df["Action code"] = df["Action code"].astype(str).str.strip()
-        df.loc[df["Action code"].eq("") | df["Action code"].eq("nan"), "Action code"] = "N/A"
-
-    # Convert all other fields to clean strings (empty if NaN).
-    for col in [
-        "Step no", "Step name", "Conditions", "Customer intent", "Bot response",
-        "Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5", "Next Step",
-    ]:
+    for col in CANONICAL_COLUMNS:
         df[col] = df[col].where(df[col].notna(), "")
         df[col] = df[col].astype(str).str.strip()
         df.loc[df[col].eq("nan"), col] = ""
@@ -238,7 +222,7 @@ def _read_template_dataframe(
     selected_columns = [mapping[c] for c in REQUIRED_CANONICAL_COLUMNS]
     if "Conditions" in mapping:
         selected_columns.insert(2, mapping["Conditions"])
-    insert_idx = 5
+    insert_idx = selected_columns.index(mapping["Bot response"]) + 1
     for optional_response_col in ["Bot response 2", "Bot response 3", "Bot response 4", "Bot response 5"]:
         if optional_response_col in mapping:
             selected_columns.insert(insert_idx, mapping[optional_response_col])
@@ -297,13 +281,10 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
                 return sheet_name, row_idx
 
     # We detect the header row by looking for the presence of at least one alias
-    # for every canonical field.
+    # for every required canonical field.
     required_alias_sets = []
     for canonical in REQUIRED_CANONICAL_COLUMNS:
         aliases = set(COLUMN_ALIASES[canonical])
-        if canonical == "Action code":
-            # special-case: allow "action code ..." headers
-            aliases.add("action code")
         required_alias_sets.append((canonical, aliases))
 
     for sheet_name in _sheet_names:
@@ -320,14 +301,9 @@ def _detect_sheet_and_header_row(excel_path: Path) -> tuple[str | int, int]:
 
             ok = True
             for canonical, aliases in required_alias_sets:
-                if canonical == "Action code":
-                    if not any(v.startswith("action code") or v in aliases for v in row_set):
-                        ok = False
-                        break
-                else:
-                    if row_set.isdisjoint(aliases):
-                        ok = False
-                        break
+                if row_set.isdisjoint(aliases):
+                    ok = False
+                    break
 
             if ok:
                 return sheet_name, row_idx
@@ -409,6 +385,11 @@ def convert_excel_rows_to_strings(
 
     output: list[str] = []
     for _, row in df.iterrows():
+        action_code = " \\ ".join(
+            str(row[col]).strip()
+            for col in _dynamic_columns
+            if str(row[col]).strip()
+        ) or "N/A"
         formatted = (
             f"Step no: {row['Step no']}; "
             f"Step name: {row['Step name']}; "
@@ -420,7 +401,7 @@ def convert_excel_rows_to_strings(
             f"Bot response 4: {row['Bot response 4']}; "
             f"Bot response 5: {row['Bot response 5']}; "
             f"Next Step: {row['Next Step']}; "
-            f"Action code: {row['Action code']}"
+            f"Action code: {action_code}"
         )
         output.append(formatted)
 
@@ -438,13 +419,19 @@ def convert_excel_rows_to_json(
       "customer_intent": "...",
       "bot_response": "...",
       "next_step": "...",
-      "action_code": "..."
+      "action_code": "...",
+      "...dynamic columns after J...": "..."
     }
     """
     df, dynamic_columns = _read_template_dataframe(excel_path, sheet=sheet)
 
     rows: list[dict[str, str]] = []
     for _, r in df.iterrows():
+        action_values = [
+            str(r[col]).strip()
+            for col in dynamic_columns
+            if str(r[col]).strip()
+        ]
         obj = {
             JSON_KEYS["Step no"]: r["Step no"],
             JSON_KEYS["Step name"]: r["Step name"],
@@ -456,7 +443,7 @@ def convert_excel_rows_to_json(
             JSON_KEYS["Bot response 4"]: r["Bot response 4"],
             JSON_KEYS["Bot response 5"]: r["Bot response 5"],
             JSON_KEYS["Next Step"]: r["Next Step"],
-            JSON_KEYS["Action code"]: r["Action code"],
+            "action_code": " \\ ".join(action_values) if action_values else "N/A",
         }
         for col, key in dynamic_columns.items():
             obj[key] = r[col]

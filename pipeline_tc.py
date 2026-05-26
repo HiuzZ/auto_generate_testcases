@@ -13,6 +13,7 @@ from tc_to_excel import export_to_excel
 
 # Import test case generators
 import tcgen_e2e_human
+import tcgen_e2e_max
 import tcgen_e2e_short
 import tcgen_multi_responses
 import tcgen_output_human
@@ -40,6 +41,11 @@ paraphrase_test_data = None   # no paraphrasing
 GeneratorModule = Any
 
 _COND_SPLIT_RE = re.compile(r"\s*\\\s*|\n+")
+
+INHERIT_PREVIOUS_VALUE_MARKERS = {
+    "<theo intent trước đó>",
+    "<giữ nguyên action code trước đó>",
+}
 
 PERMANENT_ROW_KEYS = [
     "step_no",
@@ -105,6 +111,7 @@ def _serialize_cases(
     row_index: dict[str, list[dict[str, str]]] = {}
     for row in source_rows or []:
         row_index.setdefault(str(row.get("step_no", "")).strip(), []).append(row)
+    a0_rows = row_index.get("A0", [])
 
     def _match_source_rows(
         path_nodes: list[str],
@@ -156,6 +163,10 @@ def _serialize_cases(
 
         summary: dict[str, str] = {}
         for key in keys:
+            if key == "action_code" or key not in PERMANENT_ROW_KEYS:
+                summary[key] = _last_non_empty_value(matched_rows, key, fallback_rows=a0_rows)
+                continue
+
             values: list[str] = []
             seen_values: set[str] = set()
             for row in matched_rows:
@@ -166,6 +177,39 @@ def _serialize_cases(
                 seen_values.add(value)
             summary[key] = "\n".join(values)
         return summary
+
+    def _last_non_empty_value(
+        rows: list[dict[str, str]],
+        key: str,
+        *,
+        fallback_rows: list[dict[str, str]] | None = None,
+    ) -> str:
+        saw_inherit_marker = False
+        for row in reversed(rows):
+            value = str(row.get(key, "")).strip()
+            if _is_inherit_previous_value_marker(value):
+                saw_inherit_marker = True
+                continue
+            if value and not _is_inherit_previous_value_marker(value):
+                return value
+        if saw_inherit_marker and fallback_rows:
+            return _last_non_empty_value(fallback_rows, key)
+        return ""
+
+    def _is_inherit_previous_value_marker(value: str) -> bool:
+        normalized = " ".join(str(value).strip().lower().split())
+        return normalized in INHERIT_PREVIOUS_VALUE_MARKERS
+
+    def _expected_action_code(tc: dict[str, Any], matched_rows: list[dict[str, str]]) -> str:
+        action_from_last_dynamic = _last_non_empty_value(matched_rows, "0", fallback_rows=a0_rows)
+        if action_from_last_dynamic:
+            return action_from_last_dynamic
+
+        action_from_last_row = _last_non_empty_value(matched_rows, "action_code", fallback_rows=a0_rows)
+        if action_from_last_row:
+            return action_from_last_row
+
+        return str(tc.get("expected_action_code", "N/A"))
 
     for i, tc in enumerate(cases):
         path_nodes = [part.strip() for part in str(tc.get("path", "")).split("->") if part.strip()]
@@ -235,12 +279,13 @@ def _serialize_cases(
         if not matched_source_rows:
             matched_source_rows = _match_source_rows(path_nodes, steps, normalized_conditions)
         source_columns = _summarize_source_columns(matched_source_rows)
+        expected_action_code = _expected_action_code(tc, matched_source_rows)
         payload.append({
             "tc_id": f"TC{len(payload)+1:03d}",
             "conditions": normalized_conditions,
             "steps": tc["steps"],
             "bot_responses": bot_responses_str,
-            "expected_action_code": tc.get("expected_action_code", "N/A"),
+            "expected_action_code": expected_action_code,
             "path": tc.get("path", ""),
             "highlight_last_step": bool(tc.get("highlight_last_step", False)),
             "test_data": "",             # Round 1 test data
@@ -329,6 +374,8 @@ def run_pipeline(
     generator: GeneratorModule
     if mode == "e2e":
         generator = tcgen_e2e_human
+    elif mode == "e2e_max":
+        generator = tcgen_e2e_max
     elif mode == "e2e_short":
         generator = tcgen_e2e_short
     elif mode == "e2e_short_v2":
@@ -356,7 +403,7 @@ def run_pipeline(
 
     graph = generator.build_graph(rows)
     cases = generator.generate_test_cases(graph, root=effective_root, max_depth=max_depth)
-    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_short", "e2e_short_v2", "output", "output_short"} else None
+    response_count_map = _build_response_count_map(rows) if mode in {"e2e", "e2e_max", "e2e_short", "e2e_short_v2", "output", "output_short"} else None
     serialized_cases = _serialize_cases(cases, response_count_map=response_count_map, source_rows=rows)
 
     if gen_data:
@@ -397,7 +444,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Run Excel -> JSON -> testcase generation -> Excel export in one command."
     )
-    parser.add_argument("mode", choices=["e2e", "e2e_short", "e2e_short_v2", "output", "output_short", "multi_responses"])
+    parser.add_argument("mode", choices=["e2e", "e2e_max", "e2e_short", "e2e_short_v2", "output", "output_short", "multi_responses"])
     parser.add_argument(
         "--file",
         type=Path,

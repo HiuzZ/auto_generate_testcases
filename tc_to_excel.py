@@ -88,7 +88,6 @@ BASE_COL_WIDTHS = {
     5: 40,   # Test Scenario
     6: 90,   # Expected Bot Responses
 }
-# Column G (Expected Action Code) gets default width 25 (same as before)
 # Default width for dynamic columns
 DYN_COL_WIDTH = 20
 # Round sub-column widths (same for both rounds)
@@ -200,7 +199,7 @@ def _auto_fit_row_heights(ws: Worksheet, min_height: float = 15.0, line_height: 
         ws.row_dimensions[cell.row].height = max(lines * line_height, min_height)
 
 
-_STEP_NO_RE = re.compile(r"\bA(\d+)\b", re.IGNORECASE)
+_STEP_NO_RE = re.compile(r"A(\d+)(?:\.(\d+))?", re.IGNORECASE)
 
 
 def _extract_group_step(path_text: str) -> str | None:
@@ -224,9 +223,13 @@ def _extract_group_step(path_text: str) -> str | None:
         return last if _STEP_NO_RE.fullmatch(last) else None
 
 
-def _step_sort_key(step_no: str) -> tuple[int, str]:
+def _step_sort_key(step_no: str) -> tuple[int, int, str]:
     m = _STEP_NO_RE.fullmatch(step_no.strip())
-    return (int(m.group(1)), step_no) if m else (10**9, step_no)
+    if m:
+        major = int(m.group(1))
+        minor = int(m.group(2)) if m.group(2) is not None else 0
+        return (major, minor, step_no)
+    return (10**9, 10**9, step_no)
 
 
 def _load_step_name_map(testcases_path: Path, rows_path: Path | None = None) -> dict[str, str]:
@@ -295,13 +298,11 @@ def _set_column_widths(ws: Worksheet, dynamic_keys: List[str], is_multi_response
         for i, width in enumerate(ROUND_COL_WIDTHS_MULTI):
             ws.column_dimensions[get_column_letter(7 + i)].width = width
     else:
-        # Column G (Expected Action Code) width
-        ws.column_dimensions[get_column_letter(7)].width = 25
-        # Dynamic columns (starting at column 8)
-        for i, key in enumerate(dynamic_keys, start=8):
+        # Dynamic columns start immediately after fixed columns A-F.
+        for i, key in enumerate(dynamic_keys, start=7):
             ws.column_dimensions[get_column_letter(i)].width = DYN_COL_WIDTH
         # Round 1 columns
-        round1_start = 8 + len(dynamic_keys)
+        round1_start = 7 + len(dynamic_keys)
         for i, width in enumerate(ROUND_COL_WIDTHS):
             ws.column_dimensions[get_column_letter(round1_start + i)].width = width
 
@@ -313,7 +314,7 @@ def _apply_alignments(ws: Worksheet, dynamic_keys: List[str], section_header_row
         # round starts at column 7, Test Results at +3, Error Type at +4
         center_cols = {7 + 3, 7 + 4}  # Test Results, Error Type
     else:
-        round1_start = 8 + len(dynamic_keys)
+        round1_start = 7 + len(dynamic_keys)
         center_cols = {round1_start + 3, round1_start + 4, round1_start + 5}  # Results (Bot), Results (data), Error Type
 
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row, max_col=ws.max_column):
@@ -337,7 +338,7 @@ def _add_data_validations(ws: Worksheet, dynamic_keys: List[str], max_row: int, 
         result_cols = [7 + 3]        # single Test Results column
         error_col = 7 + 4            # Error Type
     else:
-        round1_start = 8 + len(dynamic_keys)
+        round1_start = 7 + len(dynamic_keys)
         result_cols = [round1_start + 3, round1_start + 4]  # Bot responses + data collection
         error_col = round1_start + 5
 
@@ -373,7 +374,7 @@ def _add_conditional_formatting(ws: Worksheet, dynamic_keys: List[str], max_row:
         result_cols = [7 + 3]   # single Test Results column
         error_col = 7 + 4       # Error Type
     else:
-        round1_start = 8 + len(dynamic_keys)
+        round1_start = 7 + len(dynamic_keys)
         result_cols = [round1_start + 3, round1_start + 4]  # Bot responses + data collection
         error_col = round1_start + 5
 
@@ -650,7 +651,7 @@ def _add_data_input_sheet(
     """Create a 'Data input' sheet with columns ID, Conditions, Data plus schema key columns."""
     ws = wb.create_sheet("Data input")
     extra_keys = schema_keys or []
-    headers = ["ID", "Conditions", "Data"] + extra_keys
+    headers = ["Data ID", "Conditions", "Data"] + extra_keys
     for col_idx, header in enumerate(headers, start=1):
         cell = ws.cell(row=1, column=col_idx, value=header)
         cell.fill = HEADER_FILL
@@ -748,7 +749,7 @@ def export_to_excel(
         active_sub_headers = ROUND_SUB_HEADERS_MULTI
         active_round_widths = ROUND_COL_WIDTHS_MULTI
     else:
-        round1_start = 8 + num_dynamic      # column after G + dynamic columns
+        round1_start = 7 + num_dynamic      # column after dynamic data-collection columns
         active_sub_headers = ROUND_SUB_HEADERS
         active_round_widths = ROUND_COL_WIDTHS
     total_columns = round1_start + len(active_round_widths) - 1
@@ -766,13 +767,9 @@ def export_to_excel(
         cell.alignment = Alignment(wrap_text=True, vertical="center")
 
     # 2. "Expected Data Collection" group — skipped for multi_responses
-    if not is_multi_responses:
-        if num_dynamic > 0:
-            data_collection_start = 7
-            data_collection_end = 7 + num_dynamic
-        else:
-            data_collection_start = 7
-            data_collection_end = 7
+    if not is_multi_responses and num_dynamic > 0:
+        data_collection_start = 7
+        data_collection_end = 6 + num_dynamic
         ws.merge_cells(start_row=2, start_column=data_collection_start, end_row=2, end_column=data_collection_end)
         cell_data = ws.cell(row=2, column=data_collection_start, value="Expected Data Collection")
         cell_data.fill = HEADER_FILL
@@ -788,13 +785,8 @@ def export_to_excel(
 
     # ---------- Write row 3 (sub-header row) ----------
     if not is_multi_responses:
-        # Column G: Expected Action Code
-        ws.cell(row=3, column=7, value="action_code").fill = HEADER_FILL
-        ws.cell(row=3, column=7).font = HEADER_FONT
-        ws.cell(row=3, column=7).alignment = Alignment(wrap_text=True, vertical="center", horizontal="center")
-
-        # Dynamic columns (starting at column 8) – each key as header
-        for i, key in enumerate(dynamic_keys, start=8):
+        # Dynamic columns start at column G. The internal action_code field is not displayed.
+        for i, key in enumerate(dynamic_keys, start=7):
             cell = ws.cell(row=3, column=i, value=key)
             cell.fill = HEADER_FILL
             cell.font = HEADER_FONT
@@ -812,7 +804,7 @@ def export_to_excel(
     for col_idx in range(1, 7):
         ws.merge_cells(start_row=2, start_column=col_idx, end_row=3, end_column=col_idx)
 
-    # No vertical merge for column G or dynamic columns – they stay as individual cells.
+    # Dynamic columns stay as individual cells under the data-collection group.
 
     # ---------- Common helper for writing a data row ----------
     def _write_data_row(
@@ -823,7 +815,6 @@ def export_to_excel(
         conditions = str(case.get("conditions", ""))
         steps: list[str] = case.get("steps", [])
         bot_responses: list[str] = case.get("bot_responses", [])
-        expected_action = str(case.get("expected_action_code", "N/A"))
         tc_path = str(case.get("path", ""))
         highlight_last = bool(case.get("highlight_last_step", False))
         test_data = str(case.get("test_data", ""))
@@ -871,11 +862,8 @@ def export_to_excel(
             cell_bot.value = bot_responses_text
 
         if not is_multi_responses:
-            # Column G – Expected Action Code
-            ws.cell(row=row, column=7, value=expected_action)
-            # Dynamic columns (after G)
             for i, key in enumerate(dynamic_keys):
-                col_idx = 8 + i
+                col_idx = 7 + i
                 value = str(source_columns.get(key, ""))
                 ws.cell(row=row, column=col_idx, value=value)
 
@@ -889,12 +877,12 @@ def export_to_excel(
             ws.cell(row=row, column=round1_start + 3, value="Todo")      # Test Results (Bot responses)
             ws.cell(row=row, column=round1_start + 4, value="Todo")      # Test Results (data collection)
 
-        # Apply group fill: column F (Expected Bot Responses) only for multi_responses; columns A-G for others
+        # Apply group fill: column F (Expected Bot Responses) only for multi_responses; columns A-F for others
         if fill is not None:
             if is_multi_responses:
                 ws.cell(row=row, column=6).fill = fill
             else:
-                for c in range(1, 8):
+                for c in range(1, 7):
                     ws.cell(row=row, column=c).fill = fill
 
         return row + 1

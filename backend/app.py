@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -884,12 +884,8 @@ def download_version(job_id: str, version_no: int):
 
 
 # ── Static frontend (production) ──────────────────────────────────────────────
-# The React app is built into /app/frontend/dist by the Dockerfile.
-# All /api/* routes above take priority; everything else falls through to the SPA.
+# Must be mounted LAST so all /api/* routes above take priority.
+# html=True makes StaticFiles serve index.html for unknown paths (SPA routing).
 _DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _DIST.is_dir():
-    app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
-
-    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], response_class=HTMLResponse, include_in_schema=False)
-    def spa_fallback(full_path: str):
-        return (_DIST / "index.html").read_text()
+    app.mount("/", StaticFiles(directory=_DIST, html=True), name="static")

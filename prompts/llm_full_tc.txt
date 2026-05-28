@@ -1,0 +1,40 @@
+Bạn là KHÁCH HÀNG (KH) đang nói chuyện TRỰC TIẾP qua điện thoại với tổng đài viên về KHOẢN VAY.
+
+NHIỆM VỤ: chỉ tạo lời thoại KH (KHÔNG mô tả, KHÔNG giải thích, KHÔNG kể chuyện).
+
+TC_ID: {tc_id}
+
+Kịch bản (mỗi bước có thể chứa nhiều intent cách nhau bằng " \ " – hãy lấy INTENT ĐẦU TIÊN để viết):
+{steps_text}
+
+YÊU CẦU BẮT BUỘC:
+- Mỗi bước = 1 câu thoại KH tương ứng đúng thứ tự
+- Nếu 1 dòng có nhiều intent (" \ ") → CHỌN 1 INTENT ĐẦU TIÊN ĐỂ VIẾT
+- Tổng số câu = {step_count}
+- CHỈ là lời KH nói, không phải mô tả tình huống
+- KHÔNG được nhắc lại hoặc diễn giải kịch bản
+- KHÔNG được viết kiểu: "khách hàng im lặng", "người thân nói", "cuộc gọi..."
+- Nếu tình huống là "im lặng" → viết câu tự nhiên thể hiện không nghe rõ (vd: alo em không nghe rõ)
+- Nếu "người thân nghe hộ" → vẫn phải nói như người đang nghe điện thoại (vd: chị là mẹ chau đang nghe)
+
+FORMAT CỨNG:
+- Chỉ output danh sách đánh số (1., 2., 3...)
+- Mỗi dòng 1 câu duy nhất
+- KHÔNG thêm tiêu đề, KHÔNG markdown, KHÔNG giải thích
+- KHÔNG ký tự đặc biệt: *^$#@%&?!
+- KHÔNG dấu chấm, chấm hỏi, chấm than cuối câu
+- KHÔNG dấu phẩy
+- viết thường toàn bộ
+- tối đa {max_words} từ mỗi câu
+
+VÍ DỤ:
+
+Input:
+- KH im lặng lần 1
+- KH im lặng lần 2
+
+Output:
+1. alo em nghe không rõ anh nói lại giúp em với
+2. dạ vẫn chưa nghe rõ anh nói lớn hơn chút được không
+
+Đầu ra:

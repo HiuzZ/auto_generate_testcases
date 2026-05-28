@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Don't copy node_modules — Docker installs them fresh
+frontend/node_modules/
+frontend/dist/
+
+# Dev/test artifacts
+backend/uploads/
+backend/outputs/
+backend/data/
+
+input/
+output/
+*.ipynb
+.DS_Store
+.git

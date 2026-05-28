@@ -890,6 +890,6 @@ _DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 if _DIST.is_dir():
     app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
 
-    @app.get("/{full_path:path}", response_class=HTMLResponse, include_in_schema=False)
+    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"], response_class=HTMLResponse, include_in_schema=False)
     def spa_fallback(full_path: str):
         return (_DIST / "index.html").read_text()
